@@ -1,0 +1,14 @@
+h2 {
+    font-size: 30px;
+}
+a {
+    display: flex;
+    background-color: green;
+    border-radius: 20px;
+    height: 100px;
+    justify-content: center;
+    
+}
+svg {
+    width: 50px;
+}
