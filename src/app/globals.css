@@ -33,19 +33,10 @@
 * {
     /* box-shadow: red 0px 0px 0px 1px; */
 }
-.intern {
-    
-    margin-left: 9%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 100%;
-    width: 250px;
-}
+
 body {
     background-color: var(--bgColor);
-    font-family: "Poppins", sans-serif;
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-poppins), sans-serif;
     color: var(--textColor);
 }
 #header {
@@ -66,7 +57,7 @@ a {
     color: var(--textColor);
     text-align: center;
     text-decoration: none !important;
-    font-family: Poppins;
+    font-family: var(--font-poppins), sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
