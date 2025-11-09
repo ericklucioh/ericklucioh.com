@@ -1,4 +1,4 @@
-name: Build and Publish build Branch
+name: Build and Publish Dist Branch
 
 on:
   push:
@@ -24,46 +24,33 @@ jobs:
           npm install
           npm run build
 
-      - name: Debug - List files after build
+      - name: Verify build output
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Files in current directory:"
+          echo "Checking if out directory exists:"
           ls -la
-          echo "If out exists, its contents:"
           if [ -d "out" ]; then
+            echo "✅ out directory found!"
             ls -la out/
           else
-            echo "out directory does not exist!"
-          fi
-
-      - name: Publish to branch "build"
-        run: |
-          # Verificar se a pasta out existe
-          if [ ! -d "out" ]; then
-            echo "❌ Error: out directory not found after build!"
-            echo "The build process might have failed or output to a different directory"
+            echo "❌ out directory not found!"
+            echo "Available files:"
+            find . -name "*.html" -o -name "*.js" | head -10
             exit 1
           fi
 
+      - name: Deploy to dist branch
+        run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           
-          # Criar ou mudar para branch build
-          git checkout --orphan build
+          # Criar branch dist COM os arquivos do out
+          git checkout --orphan dist
           
-          # Limpar tudo exceto .git
+          # Manter APENAS os arquivos da pasta out
           git rm -rf . 2>/dev/null || true
-          
-          # Copiar conteúdo do out (AGORA CORRETO!)
-          cp -r out/* . 2>/dev/null || echo "No files to copy from out"
-          
-          # Verificar se há arquivos para commitar
-          if [ -z "$(ls -A .)" ]; then
-            echo "❌ No files to commit - out directory is empty"
-            exit 1
-          fi
+          cp -r out/* .
+          rm -rf out .next node_modules  # Remove pastas desnecessárias
           
           git add .
           git commit -m "Deploy $(date +'%Y-%m-%d %H:%M:%S')"
-          git push -f origin build
+          git push -f origin dist
