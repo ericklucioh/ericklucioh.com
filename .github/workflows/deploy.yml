@@ -3,6 +3,7 @@ name: Build and Publish Dist Branch
 on:
   push:
     branches: ["main"]
+
 permissions:
   contents: write
 
@@ -23,20 +24,13 @@ jobs:
           npm install
           npm run build
 
-            - name: Publish dist to branch "build"
+      - name: Publish dist to branch "build"
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-
           git switch --orphan build
-
-          # remove todos os arquivos da workspace (não mexe no .git)
           rm -rf ./*
-
-          # copia o dist para a raiz
           cp -r dist/* .
-
           git add .
           git commit -m "Build $(date)"
-
           git push -f origin build
