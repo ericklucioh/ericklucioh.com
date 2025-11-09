@@ -1,4 +1,4 @@
-name: Build and Publish Dist Branch
+name: Build and Publish build Branch
 
 on:
   push:
@@ -30,18 +30,18 @@ jobs:
           pwd
           echo "Files in current directory:"
           ls -la
-          echo "If dist exists, its contents:"
-          if [ -d "dist" ]; then
-            ls -la dist/
+          echo "If out exists, its contents:"
+          if [ -d "out" ]; then
+            ls -la out/
           else
-            echo "dist directory does not exist!"
+            echo "out directory does not exist!"
           fi
 
-      - name: Publish to branch "dist"
+      - name: Publish to branch "build"
         run: |
-          # Verificar se a pasta dist existe
-          if [ ! -d "dist" ]; then
-            echo "❌ Error: dist directory not found after build!"
+          # Verificar se a pasta out existe
+          if [ ! -d "out" ]; then
+            echo "❌ Error: out directory not found after build!"
             echo "The build process might have failed or output to a different directory"
             exit 1
           fi
@@ -49,21 +49,21 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           
-          # Criar ou mudar para branch dist
-          git checkout --orphan dist
+          # Criar ou mudar para branch build
+          git checkout --orphan build
           
           # Limpar tudo exceto .git
           git rm -rf . 2>/dev/null || true
           
-          # Copiar conteúdo do dist
-          cp -r dist/* . 2>/dev/null || echo "No files to copy from dist"
+          # Copiar conteúdo do out (AGORA CORRETO!)
+          cp -r out/* . 2>/dev/null || echo "No files to copy from out"
           
           # Verificar se há arquivos para commitar
           if [ -z "$(ls -A .)" ]; then
-            echo "❌ No files to commit - dist directory is empty"
+            echo "❌ No files to commit - out directory is empty"
             exit 1
           fi
           
           git add .
-          git commit -m "Build $(date +'%Y-%m-%d %H:%M:%S')"
-          git push -f origin dist
+          git commit -m "Deploy $(date +'%Y-%m-%d %H:%M:%S')"
+          git push -f origin build
