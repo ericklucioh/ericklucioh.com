@@ -2,30 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  
-}
-:root {
-    --textColor: #fff;
-    --iconColor: #fff;
-    --bgColor: var(--color-dark-3);
-    --buttonColor: #404040;
-}
-
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: var(--color-dark-3);
-    --background-end-rgb: var(--color-dark-3);
+    --background-start-rgb: var(--bg-page);
+    --background-end-rgb: var(--bg-page);
   }
 }
-
-
-
 
 @layer utilities {
   .text-balance {
@@ -39,7 +21,11 @@
 }
 
 body {
-    background-color: var(--bgColor);
+    background-color: var(--bg-page);
     font-family: var(--font-fira-code), monospace;
-    color: var(--textColor);
+    color: var(--text-primary);
+}
+/* Overlay para animação da esquerda pra direita */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

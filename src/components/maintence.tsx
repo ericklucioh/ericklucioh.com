@@ -11,8 +11,16 @@ export default function Page() {
   return (
     <main className="relative flex flex-col justify-center items-center h-screen w-full overflow-hidden text-white">
                 <header style={{ marginTop: "-100px" }} className="mb-8    text-center">
-          <h2 className="text-2xl font-bold mb-1">Oops!</h2>
-          <h3 className="text-[#38bdf8] font-mono tracking-widest uppercase">
+          <h2
+                    style={{
+            color: "var(--text-primary)"
+          }}
+          className="text-2xl font-bold mb-1">Oops!</h2>
+          <h3
+          style={{
+            color: "var(--text-secondary)"
+          }}
+          className=" font-mono tracking-widest uppercase">
             #Under Construction
           </h3>
         </header>
@@ -41,7 +49,7 @@ export default function Page() {
         <article className="flex flex-col items-center">
           <h1 
             className="font-bold mb-8 leading-tight"
-            style={{ fontSize: "clamp(22px, 6vw, 54px)", fontFamily: "monospace" }}
+            style={{ fontSize: "clamp(22px, 6vw, 54px)", color: "var(--text-primary)" }}
           >
             Website undergoing <br /> scheduled maintenance.
           </h1>
@@ -52,7 +60,11 @@ export default function Page() {
           </div>
 
           <div className="space-y-2 mb-12">
-            <p className="text-gray-400 text-xl">We'll be back online shortly!</p>
+            <p 
+            style={{
+              color: "var(--text-muted)"
+            }}
+            className="text-xl">We'll be back online shortly!</p>
             <p className="text-[#38bdf8] text-lg font-medium">Thank you for your patience.</p>
           </div>
         </article>

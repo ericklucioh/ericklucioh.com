@@ -1,8 +1,40 @@
+/* ============================= */
+/* LIGHT MODE (NORMAL)           */
+/* ============================= */
 :root {
   /* TEXT */
-  --text-primary: var(--color-white);
-  --text-secondary: var(--color-gray-1);
+  --text-primary: var(--color-primary-3);
+  --text-secondary: var(--color-aux-blue);
   --text-muted: var(--color-gray-2);
+  --text-accent: var(--color-aux-blue);
+
+  /* BACKGROUND */
+  --bg-page: var(--color-light-2);
+  --bg-surface: var(--color-light-1);
+  --bg-card: var(--color-light-3);
+
+  /* BORDER */
+  --border-default: var(--color-gray-2);
+  --border-soft: var(--color-gray-1);
+  --decor: var(--color-primary-2);
+  /* ACTION */
+  --action-primary: var(--color-primary-1);
+  --action-hover: var(--color-primary-2);
+  --action-pressed: var(--color-primary-3);
+
+  /* HIGHLIGHT */
+  --highlight-soft: var(--color-soft-2);
+  --highlight-strong: var(--color-soft-3);
+}
+
+/* ============================= */
+/* DARK MODE                     */
+/* ============================= */
+:root.dark {
+  /* TEXT */
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-aux-blue);
+  --text-muted: var(--color-gray-1);
   --text-accent: var(--color-aux-blue);
 
   /* BACKGROUND */
@@ -13,7 +45,7 @@
   /* BORDER */
   --border-default: var(--color-gray-2);
   --border-soft: var(--color-gray-1);
-
+  --decor: var(--color-white);
   /* ACTION */
   --action-primary: var(--color-primary-1);
   --action-hover: var(--color-primary-2);

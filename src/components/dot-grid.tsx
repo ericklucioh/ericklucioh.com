@@ -48,7 +48,7 @@ export default function DotGrid({
           style={{
             width: `${finalSize}px`,
             height: `${finalSize}px`,
-            background: "white",
+            background: "var(--decor)",
             borderRadius: "50%",
           }}
         />

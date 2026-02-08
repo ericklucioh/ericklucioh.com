@@ -30,9 +30,10 @@ export default function Square({
     <div
       className="square"
       style={{
+        
         width: `${finalSizeX}px`,
         height: `${finalSizeY}px`,
-        border: `${finalBorder}px solid white`,
+        border: `${finalBorder}px solid var(--decor)`,
       }}
     />
   );

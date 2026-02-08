@@ -3,6 +3,7 @@ import { Poppins, Roboto, Fira_Code } from "next/font/google";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
+import DarkModeToggle from "@/components/darkModeToggle";
 
 export const metadata: Metadata = {
   title: "Érick Lúcio | Developer",
@@ -40,11 +41,13 @@ export default function RootLayout({
   children: React.ReactNode 
 }) {
   return (
-    <html lang="pt-br" className={`${firaCode.variable}`}>
+    <html  lang="pt-br" className={`dark ${firaCode.variable}`}>
       <head>
         <link rel="icon" type="image/svg+xml" sizes="32x32" href="" />
       </head>
-      <body className={firaCode.className}>{children}</body>
+      <body className={firaCode.className}>
+                <DarkModeToggle />
+        {children}</body>
     </html>
   );
 }
