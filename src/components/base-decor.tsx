@@ -1,3 +1,5 @@
+import * as style from "@/app/styles/base-decor.module.css";
+
 export default function BaseDecor({
   top,
   bottom,
@@ -6,6 +8,7 @@ export default function BaseDecor({
   x = 40,
   y = 40,
   children,
+  enableRide = false,
 }:
 {
     top?: boolean;
@@ -15,6 +18,7 @@ export default function BaseDecor({
     x?: number;
     y?: number;
     children: React.ReactNode;
+    enableRide?: boolean;
 }
 
 ) {
@@ -24,12 +28,13 @@ export default function BaseDecor({
             style={{
                 position: "absolute",
                 pointerEvents: "none",
-                top: top ? `${y}px` : "auto",
-                bottom: bottom ? `${y}px` : "auto",
-                left: left ? `${x}px` : "auto",
-                right: right ? `${x}px` : "auto",
+                top: top ? `${y}%` : "auto",
+                bottom: bottom ? `${y}%` : "auto",
+                left: left ? `${x}%` : "auto",
+                right: right ? `${x}%` : "auto",
                 // inset: 0,
             }}
+                  className={`${style["base-decor"]} ${enableRide ? style["ride-enabled"] : ""}`}
             >
             {children}
         </div>

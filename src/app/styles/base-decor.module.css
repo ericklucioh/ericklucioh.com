@@ -1,0 +1,11 @@
+.base-decor {
+  transition: all 0.5s ease-in-out;
+}
+
+/* só aplica o "ride" quando a classe é ativada */
+.base-decor.ride-enabled {
+  /* quando a tela for menor que 600px, some */
+  @media (max-width: 600px) {
+    display: none;
+  }
+}

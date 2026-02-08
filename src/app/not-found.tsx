@@ -5,20 +5,32 @@ import Square from "@/components/square";
 import { Button } from "@mui/material";
 import { redirect } from "next/navigation";
 import { use } from "react";
-
+import * as style from "@/app/styles/not-found.module.css";
 export default function NotFound() {
   return (
     <>
-        <BaseDecor bottom left x={0} y={0}>
-            <DotGrid/>
+        <BaseDecor bottom left x={6} y={9}>
+            <Square sizeX={150} sizeY={110}/>
         </BaseDecor>
-        <BaseDecor top right x={10} y={10}>
-            <Square/> 
+        <BaseDecor top right x={10} y={-1}>
+            <Square sizeX={200} sizeY={25}/> 
         </BaseDecor>
-        <BaseDecor bottom right x={0} y={0}>
-            <DotGrid/>
+        <BaseDecor bottom right x={20} y={2}>
+            <DotGrid
+                rows={6}
+                cols={8}
+                gap={15}
+            />
         </BaseDecor>
-                <BaseDecor top left x={0} y={0}>
+        <BaseDecor bottom right x={0} y={35} enableRide={true}>
+            <DotGrid
+                rows={6}
+                cols={4}
+                gap={15}
+                size={3}
+            />
+        </BaseDecor>
+                <BaseDecor top left x={7} y={2}>
             <DotGrid/>
         </BaseDecor>
         
@@ -35,7 +47,7 @@ export default function NotFound() {
 
             <section
                 style={{
-                    padding:"20px",
+                    padding:"25px",
                     fontFamily:"var(--font-fira-code)",
                     fontSize:"20px",
                     fontWeight:"500",
@@ -50,74 +62,23 @@ export default function NotFound() {
                 </p>
             </section>
         
-            <section
-                style={{
-                    display:"flex",
-                    flexDirection:"column",
-                    alignItems:"center",
-                    justifyContent:"center",
-                    height:"100%",
-                    marginTop:"-7%",
-                }}
-            >
-                <article
-                    style={{
-                        display:"flex",
-                        alignItems:"start",
-                        justifyContent:"center",
-                        flexDirection:"column",
-                        margin:"0",
-                    }}
-                >
-                    <p
-                        style={{
-                            fontSize: "200px",
-                            margin:"0",
-                            fontWeight: "600"
-                        }}
-                    >
-                        <span 
-                            style={{
-                                color: "var(--text-accent)"
-                            }}
-                        >
-                            /</span>
-                        404
-                    </p>
-                    <p
-                    style={{
-                        marginTop: "-50px",
-                        fontSize: "15px",
-                    }}
-                    >Page not Found</p>
-                </article>
-                <article
-                style={{
-                    display:"flex",
-                    alignContent:"end",
-                    justifyContent:"right",
-                    width:"100%",
-                    marginTop:"10px",
-                    marginRight:"-50px",
-                }}
-                >
-                    <Button
-                    onClick={() => 
-                        redirect("/")
-                    }
-                    style={{
-                        margin:"20px",
-                        border: "1px solid var(--text-primary)",
-                        padding:"3px 30px",
-                        fontFamily:"var(--font-fira-code)",
-                        fontSize:"26px",
-                        borderRadius:"0px",
-                        color:"var(--text-primary)",
-                    }}
-                    sx={{ textTransform: "none" }}
-                    >Go home</Button>
-                </article>
-            </section>
+            <section className={style["section-404"]}>
+    <article className={style.main}>
+        <p className={style["big-number"]}>
+            <span>/</span>404
+        </p>
+        <p className={style["small-text"]}>Page not Found</p>
+    </article>
+    <article className={style["button-container"]}>
+        <Button
+            onClick={() => redirect("/")}
+            className={style["go-home-button"]}
+        >
+            Go home
+        </Button>
+    </article>
+</section>
+
         </main>
     
     </>

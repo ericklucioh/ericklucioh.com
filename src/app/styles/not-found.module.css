@@ -1,0 +1,71 @@
+.section-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: -7%;
+}
+
+.section-404 article.main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.section-404 .main p.big-number {
+    font-size: 200px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.section-404 .main p.big-number span {
+    color: var(--text-accent);
+}
+
+.section-404 .main p.small-text {
+    margin-top: -50px;
+    font-size: 15px;
+}
+
+.section-404 article.button-container {
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+    margin-right: -50px;
+}
+
+.section-404 article.button-container .go-home-button {
+    margin: 20px;
+    border: 1px solid var(--text-primary);
+    padding: 3px 30px;
+    font-family: var(--font-fira-code);
+    font-size: 26px;
+    border-radius: 0px;
+    color: var(--text-primary);
+    text-transform: none; /* equivalente ao sx={{ textTransform: "none" }} do MUI */
+}
+
+
+
+/* ===== Media Query para telas menores que 400px ===== */
+@media (max-width: 600px) {
+    .section-404 .main p.big-number {
+        font-size: 100px; /* reduzindo pela metade */
+    }
+
+    .section-404 .main p.small-text {
+        font-size: 12px;
+        margin-top: -30px;
+    }
+
+    .section-404 article.button-container .go-home-button {
+        font-size: 18px;
+        padding: 3px 20px;
+        margin: 10px;
+    }   
+}
