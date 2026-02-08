@@ -1,0 +1,4 @@
+[data-theme="dark"] {
+  --text-primary: var(--color-white);
+  --bg-page: var(--color-dark-2);
+}

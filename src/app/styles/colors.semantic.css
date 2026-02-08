@@ -1,0 +1,25 @@
+:root {
+  /* TEXT */
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-1);
+  --text-muted: var(--color-gray-2);
+  --text-accent: var(--color-aux-blue);
+
+  /* BACKGROUND */
+  --bg-page: var(--color-dark-2);
+  --bg-surface: var(--color-dark-1);
+  --bg-card: var(--color-dark-3);
+
+  /* BORDER */
+  --border-default: var(--color-gray-2);
+  --border-soft: var(--color-gray-1);
+
+  /* ACTION */
+  --action-primary: var(--color-primary-1);
+  --action-hover: var(--color-primary-2);
+  --action-pressed: var(--color-primary-3);
+
+  /* HIGHLIGHT */
+  --highlight-soft: var(--color-soft-200);
+  --highlight-strong: var(--color-soft-300);
+}

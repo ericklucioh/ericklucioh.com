@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { Poppins, Roboto } from "next/font/google";
-import "./globals.css";
+import { Poppins, Roboto, Fira_Code } from "next/font/google";
+import "./styles/globals.css";
+import "./styles/colors.tokens.css";
+import "./styles/colors.semantic.css";
 
 export const metadata: Metadata = {
   title: "Érick Lúcio | Developer",
   description: "Personal website of Érick Lúcio, a software developer.",
 };
 
-const poppins = Poppins({
+const firaCode = Fira_Code({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-poppins", // opcional: para usar como variável CSS
-});
-
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["500"],
-  display: "swap",
-  variable: "--font-roboto",
+  variable: "--font-fira-code",
 });
 
 export default function RootLayout({ 
@@ -28,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode 
 }) {
   return (
-    <html lang="pt-br" className={`${poppins.variable} ${roboto.variable}`}>
-      <body className={poppins.className}>{children}</body>
+    <html lang="pt-br" className={`${firaCode.variable}`}>
+      <body className={firaCode.className}>{children}</body>
     </html>
   );
 }

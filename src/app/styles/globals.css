@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+}
+:root {
+    --textColor: #fff;
+    --iconColor: #fff;
+    --bgColor: var(--color-dark-3);
+    --buttonColor: #404040;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: var(--color-dark-3);
+    --background-end-rgb: var(--color-dark-3);
+  }
+}
+
+
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+* {
+    /* box-shadow: red 0px 0px 0px 1px; */
+}
+
+body {
+    background-color: var(--bgColor);
+    font-family: var(--font-fira-code), monospace;
+    color: var(--textColor);
+}
