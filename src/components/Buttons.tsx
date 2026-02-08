@@ -1,3 +1,4 @@
+import * as style from "@/components/buttons.module.css";
 export interface ButtonProps {
   id: string;
   name: string;
@@ -11,7 +12,9 @@ interface ButtonsProps {
 
 export default function Buttons({ items }: ButtonsProps) {
   return (
-    <div id="buttons">
+    <div
+    className={style["buttonLink"]}
+    >
       {items.map((item: ButtonProps) => (
         <a
           key={item.id}
@@ -19,18 +22,11 @@ export default function Buttons({ items }: ButtonsProps) {
           href={item.link}
           target="_blank"
         >
-          <div style={{
-            border: "solid var(--color-aux-blue) 2px",
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "column",
-            margin: "10px",
-            width: "100%",
-            padding: "0px",
-          }}>
+          <div className={style["button"]}>
             {/* <div dangerouslySetInnerHTML={{ __html: item.svg }} /> */}
-            <h2 style={{fontSize: "30px"}}>{item.name}</h2>
+            <h2
+            className={style["buttonText"]}
+            >{item.name}</h2>
           </div>
         </a>
       ))}

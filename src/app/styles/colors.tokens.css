@@ -21,8 +21,8 @@
 
   /* BASE */
   --color-black: #000000;
-  --color-white: #FFFFFF;
+    --color-white: #FFFFFF;
 
-  /* AUX */
-  --color-aux-blue: #0091C3;
+    /* AUX */
+    --color-aux-blue: #0091C3;
 }

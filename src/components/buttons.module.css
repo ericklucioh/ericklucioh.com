@@ -1,0 +1,29 @@
+.button {
+    border: solid var(--color-aux-blue) 2px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    width: 100%;
+    padding: 0px;
+        transition: 0.3s; /* suaviza o hover */
+
+}
+.button:hover {
+    background-color: var(--action-pressed);
+    box-shadow: 0 4px 8px var(--action-primary);
+}
+.buttonLink:hover * {
+    cursor: pointer;
+
+}
+.buttonText {
+    font-size: 30px;
+    transition: 0.3s; /* suaviza o hover */
+}
+@media screen and (max-width: 600px) {
+    .buttonText {
+        font-size: 20px;
+    }
+}
