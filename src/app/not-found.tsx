@@ -1,5 +1,5 @@
 "use client";
-import BaseDecor from "@/components/base-decor";
+import BaseDecor from "@/components/baseDecor";
 import DotGrid from "@/components/dot-grid";
 import Square from "@/components/square";
 import { Button } from "@mui/material";

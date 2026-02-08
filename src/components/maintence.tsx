@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Buttons from "@/components/Buttons";
 import style from "./page.module.css";
-import BaseDecor from "@/components/base-decor";
+import BaseDecor from "@/components/baseDecor";
 import Square from "@/components/square";
 import DotGrid from "@/components/dot-grid";
 import { Settings } from "@mui/icons-material";

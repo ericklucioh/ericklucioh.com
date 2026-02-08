@@ -4,7 +4,7 @@ import Buttons from "@/components/Buttons";
 import style from "./page.module.css";
 import * as db from "./db";
 import "@/../public/logo white.svg";
-import BaseDecor from "@/components/base-decor";
+import BaseDecor from "@/components/baseDecor";
 import Square from "@/components/square";
 import DotGrid from "@/components/dot-grid";
 // app/page.tsx
@@ -45,7 +45,7 @@ export default function Page() {
             style={{
               fontSize:" clamp(26px, 5vw, 60px)"
             }}
-            className="flex justify-center text-[60px]">Érick Lúcio</h1>
+            >Érick Lúcio</h1>
           </div>
           <p
           

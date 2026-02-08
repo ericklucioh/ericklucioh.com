@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import * as style from "@/app/styles/base-decor.module.css";
-
+import * as stylesImport from "@/app/styles/baseDecor.module.css";
+const style = stylesImport as any;
 export default function BaseDecor({
   top,
   bottom,
@@ -40,7 +40,7 @@ export default function BaseDecor({
         left: left ? `${x * scale}%` : "auto",
         right: right ? `${x * scale}%` : "auto",
       }}
-      className={`${style["base-decor"]} ${enableRide ? style["ride-enabled"] : ""}`}
+      className={`${style["baseDecor"]} ${enableRide ? style["rideEnabled"] : ""}`}
     >
       {children}
     </div>
