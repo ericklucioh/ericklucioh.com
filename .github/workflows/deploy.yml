@@ -1,56 +1,38 @@
-name: Build and Publish Dist Branch
+name: Build and Deploy to Hostinger
 
 on:
   push:
-    branches: ["main"]
-
-permissions:
-  contents: write
+    branches:
+      - main # ou a sua branch principal
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Verify build output
-        run: |
-          echo "Checking if out directory exists:"
-          ls -la
-          if [ -d "out" ]; then
-            echo "✅ out directory found!"
-            ls -la out/
-          else
-            echo "❌ out directory not found!"
-            echo "Available files:"
-            find . -name "*.html" -o -name "*.js" | head -10
-            exit 1
-          fi
+      - name: Build Project
+        run: npm run build
+        # Nota: Se for SSG (Static), o output vai para a pasta /out ou /dist
 
-      - name: Deploy to dist branch
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          
-          # Criar branch dist COM os arquivos do out
-          git checkout --orphan dist
-          
-          # Manter APENAS os arquivos da pasta out
-          git rm -rf . 2>/dev/null || true
-          cp -r out/* .
-          rm -rf out .next node_modules  # Remove pastas desnecessárias
-          
-          git add .
-          git commit -m "Deploy $(date +'%Y-%m-%d %H:%M:%S')"
-          git push -f origin dist
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Ajuste 'local-dir' para './out' se usar output: export no Next.js
+          # Ou './' se for um projeto Node simples
+          local-dir: ./out/ 
+          server-dir: /public_html/
