@@ -1,10 +1,7 @@
 @media screen and (max-width: 600px) {
-    .logo {
-        width: 30px;
-    }
     .role {
         font-size: 8px;
-    }
+    }   
     .name {
         font-size: 18px;
         font-weight: 700;

@@ -18,9 +18,9 @@
   --border-soft: var(--color-gray-1);
   --decor: var(--color-primary-2);
   /* ACTION */
-  --action-primary: var(--color-primary-1);
+  --action-primary: var(--color-primary-2);
   --action-hover: var(--color-primary-2);
-  --action-pressed: var(--color-primary-3);
+  --action-pressed: var(--color-soft-1);
 
   /* HIGHLIGHT */
   --highlight-soft: var(--color-soft-2);

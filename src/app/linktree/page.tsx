@@ -3,10 +3,10 @@ import Image from "next/image";
 import Buttons from "@/components/Buttons";
 import style from "./page.module.css";
 import * as db from "./db";
-import "@/../public/logo white.svg";
 import BaseDecor from "@/components/baseDecor";
 import Square from "@/components/square";
 import DotGrid from "@/components/dot-grid";
+import Logo from "@/components/logo";
 // app/page.tsx
 export default function Page() {
   return (
@@ -39,7 +39,7 @@ export default function Page() {
       <section style={{ width: "100%", maxWidth: "600px", margin: "10%" }} className="flex flex-col items-center">
         <article className="flex flex-col justify-center items-center">
           <div className="flex direct-row">
-            <img className={style.logo} width={70} src="/logo white.svg" alt="Logo White" />
+            <Logo/>
             <h1
             className={style.name}
             style={{

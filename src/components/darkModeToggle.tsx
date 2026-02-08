@@ -1,29 +1,47 @@
-"use client"; // necessário para usar useState/useEffect no App Router
+"use client";
 import { useEffect, useState } from "react";
+import styleModel from "./logo.module.css";
+const style = styleModel as any;
 
 export default function DarkModeToggle() {
   const [isDark, setIsDark] = useState(false);
 
-  // Inicializa o estado baseado na classe do html
+  // Inicializa o estado baseado no localStorage ou na classe do html
   useEffect(() => {
     const html = document.documentElement;
-    setIsDark(html.classList.contains("dark"));
+
+    // Lê preferência salva no localStorage
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      html.classList.add("dark");
+      setIsDark(true);
+    } else if (savedTheme === "light") {
+      html.classList.remove("dark");
+      setIsDark(false);
+    } else {
+      // Caso não tenha nada salvo, usa a classe do html (ex: do sistema ou server)
+      const currentDark = html.classList.contains("dark");
+      setIsDark(currentDark);
+    }
   }, []);
 
   const toggleDark = () => {
     const html = document.documentElement;
     html.classList.toggle("dark");
-    setIsDark(html.classList.contains("dark"));
-    // opcional: salvar preferência no localStorage
-    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+    const dark = html.classList.contains("dark");
+    setIsDark(dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
   };
 
   return (
-    <button
-      onClick={toggleDark}
-      className="fixed top-4 right-4 z-50 p-2 rounded bg-gray-800 text-white dark:bg-gray-200 dark:text-black shadow-lg"
-    >
-      {isDark ? "☀️ Light" : "🌙 Dark"}
-    </button>
+    <label className={style.container}>
+      <input type="checkbox" checked={isDark} onChange={toggleDark} id="toggle"/>
+      <span className={style.slider + " " + style.round}>
+        <div className={style.background}></div>
+        <div className={style.star}></div>
+        <div className={style.star}></div>
+      </span>
+    </label>
   );
 }

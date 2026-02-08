@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Érick Lúcio | Developer",
   description: "Personal website of Érick Lúcio, a software developer.",
   icons: {
-    icon: "/logo white.svg",
+    icon: "/logoWhite.svg",
   },
   openGraph: {
     title: "Érick Lúcio | Developer",

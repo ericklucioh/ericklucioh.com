@@ -7,12 +7,14 @@
     margin: 10px 0;
     width: 100%;
     padding: 0px;
+
         transition: 0.3s; /* suaviza o hover */
 
 }
 .button:hover {
     background-color: var(--action-pressed);
     box-shadow: 0 4px 8px var(--action-primary);
+
 }
 .buttonLink:hover * {
     cursor: pointer;
