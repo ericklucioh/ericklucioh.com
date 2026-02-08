@@ -34,5 +34,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # Ajuste 'local-dir' para './out' se usar output: export no Next.js
           # Ou './' se for um projeto Node simples
-          local-dir: ./out/ 
+          local-dir: ./out/
           server-dir: /public_html/
