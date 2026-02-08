@@ -22,7 +22,7 @@ export default function BaseDecor({
 
         <div
             style={{
-                position: "fixed",
+                position: "absolute",
                 pointerEvents: "none",
                 top: top ? `${y}px` : "auto",
                 bottom: bottom ? `${y}px` : "auto",
