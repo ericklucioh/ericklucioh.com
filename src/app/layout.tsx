@@ -10,6 +10,21 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo white.svg",
   },
+  openGraph: {
+    title: "Érick Lúcio | Developer",
+    description: "Personal website of Érick Lúcio, a software developer.",
+    url: "https://ericklucioh.com",
+    siteName: "Érick Lúcio",
+    images: [
+      {
+        url: "https://ericklucioh.com/foto.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "pt-BR",
+    type: "website",
+  },
 };
 
 const firaCode = Fira_Code({
