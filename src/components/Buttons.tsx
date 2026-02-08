@@ -1,4 +1,5 @@
-import * as style from "@/components/buttons.module.css";
+import * as styleImport from "@/components/buttons.module.css";
+const style = styleImport as any;
 export interface ButtonProps {
   id: string;
   name: string;

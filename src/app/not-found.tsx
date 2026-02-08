@@ -5,7 +5,9 @@ import Square from "@/components/square";
 import { Button } from "@mui/material";
 import { redirect } from "next/navigation";
 import { use } from "react";
-import * as style from "@/app/styles/not-found.module.css";
+import * as styleImport from "@/app/styles/not-found.module.css";
+const style = styleImport as any;
+
 export default function NotFound() {
   return (
     <>
