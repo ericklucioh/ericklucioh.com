@@ -1,4 +1,3 @@
-// app/components/Buttons.tsx
 export interface ButtonProps {
   id: string;
   name: string;
@@ -20,9 +19,18 @@ export default function Buttons({ items }: ButtonsProps) {
           href={item.link}
           target="_blank"
         >
-          <div className="ml-[9%] flex justify-start items-center h-full w-[250px]">
-            <div dangerouslySetInnerHTML={{ __html: item.svg }} />
-            <h2>{item.name}</h2>
+          <div style={{
+            border: "solid var(--color-aux-blue) 2px",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            margin: "10px",
+            width: "100%",
+            padding: "0px",
+          }}>
+            {/* <div dangerouslySetInnerHTML={{ __html: item.svg }} /> */}
+            <h2 style={{fontSize: "30px"}}>{item.name}</h2>
           </div>
         </a>
       ))}

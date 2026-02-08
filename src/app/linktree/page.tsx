@@ -3,27 +3,39 @@ import Image from "next/image";
 import Buttons from "@/components/Buttons";
 import style from "./page.module.css";
 import * as db from "./db";
-
+import  "@/../public/logo white.svg";
 // app/page.tsx
 export default function Page() {
 return (
-  <main className="flex justify-center items-center h-screen">
-    <section>
-      <article className="flex flex-col items-center">
-        <Image
-          src="/foto.png"
-          alt="myPicture"
-          width={200}
-          height={200}
-          className="mt-[50px] rounded-full border-2 border-[#1FCEF9]"
-        />
+  <main  
+  style={{
 
-        <h1 className="flex justify-center text-[30px] w-[170px] [text-shadow:1px_1px_3px_#1FCEF9]">
+    width: "100%"
+  }}
+  className="flex justify-center items-center h-screen ">
+    
+    <section style={{width: "600px"}}>
+      <article 
+      className="flex flex-col items-center">
+        <div className="flex direct-row">
+          <img width={70} height={20} src="/logo white.svg" alt="Logo White" />
+        <h1 
+        className="flex justify-center text-[60px]">
           Érick Lúcio
         </h1>
+        </div>
+        <h2 
+        className="flex justify-center text-[35px]"
+        style={{color: "var(--color-aux-blue)"}}>
+          Software Developer
+        </h2>
       </article>
 
-      <article className={style.buttons}>
+      <article 
+      style={{
+        width: "100%",
+
+      }}>
         <Buttons items={db.contents} />
       </article>
     </section>

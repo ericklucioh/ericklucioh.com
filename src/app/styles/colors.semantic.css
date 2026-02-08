@@ -20,6 +20,6 @@
   --action-pressed: var(--color-primary-3);
 
   /* HIGHLIGHT */
-  --highlight-soft: var(--color-soft-200);
-  --highlight-strong: var(--color-soft-300);
+  --highlight-soft: var(--color-soft-2);
+  --highlight-strong: var(--color-soft-3);
 }
