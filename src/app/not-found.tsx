@@ -3,12 +3,12 @@ import BaseDecor from "@/components/baseDecor";
 import DotGrid from "@/components/dot-grid";
 import Square from "@/components/square";
 import { Button } from "@mui/material";
-import { redirect } from "next/navigation";
-import { use } from "react";
 import * as styleImport from "@/app/styles/not-found.module.css";
+import { useRouter } from "next/navigation"; // Alterado aquiconst style = styleImport as any;
 const style = styleImport as any;
 
 export default function NotFound() {
+    const router = useRouter(); // Inicialize o hook
   return (
     <>
         <BaseDecor bottom left x={6} y={9}>
@@ -73,7 +73,7 @@ export default function NotFound() {
     </article>
     <article className={style["button-container"]}>
         <Button
-            onClick={() => redirect("/")}
+            onClick={() => router.push("/")}
             className={style["go-home-button"]}
         >
             Go home
