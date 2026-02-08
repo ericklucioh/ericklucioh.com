@@ -7,6 +7,9 @@ import "./styles/colors.semantic.css";
 export const metadata: Metadata = {
   title: "Érick Lúcio | Developer",
   description: "Personal website of Érick Lúcio, a software developer.",
+  icons: {
+    icon: "/logo white.svg",
+  },
 };
 
 const firaCode = Fira_Code({
@@ -23,6 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br" className={`${firaCode.variable}`}>
+      <head>
+        <link rel="icon" type="image/svg+xml" sizes="32x32" href="" />
+      </head>
       <body className={firaCode.className}>{children}</body>
     </html>
   );
