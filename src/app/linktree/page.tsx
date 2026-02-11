@@ -13,6 +13,7 @@ export default function Page() {
     <main
       style={{
         width: "100%",
+        height: "100dvh",
       }}
       className="flex justify-center items-center h-screen "
     >
