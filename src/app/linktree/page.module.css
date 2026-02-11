@@ -1,9 +1,14 @@
-@media screen and (max-width: 600px) {
+.name{
+    font-size: 65px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 650px) {
     .role {
-        font-size: 8px;
+        font-size:  8px;
     }   
     .name {
-        font-size: 18px;
+        font-size: clamp(26px, 6vw, 160px);
         font-weight: 700;
     }
 }

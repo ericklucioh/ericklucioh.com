@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 interface LogoProps {
   size?: number;
+  smallSize?: number;
 }
 
-export default function Logo({ size = 70 }: LogoProps) {
+export default function Logo({ size = 70, smallSize = 0.45 }: LogoProps) {
   const [darkMode, setDarkMode] = useState(false);
   const [finalSize, setFinalSize] = useState(size);
 
@@ -28,7 +29,7 @@ export default function Logo({ size = 70 }: LogoProps) {
   useEffect(() => {
     function updateSize() {
       if (window.innerWidth < 650) {
-        setFinalSize(size * 0.6);
+        setFinalSize(size * smallSize);
       } else {
         setFinalSize(size);
       }

@@ -21,20 +21,31 @@ export default function Square({
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  // Valores pequenos predefinidos
   const finalSizeX = isSmall ? sizeX * 0.8 : sizeX;
   const finalSizeY = isSmall ? sizeY * 0.8 : sizeY;
   const finalBorder = isSmall ? 0.5 : borderWidth;
 
   return (
-    <div
-      className="square"
-      style={{
-        
-        width: `${finalSizeX}px`,
-        height: `${finalSizeY}px`,
-        border: `${finalBorder}px solid var(--decor)`,
-      }}
-    />
+    <>
+      <style>{`
+        @keyframes sambaSquare {
+          0%   { transform: rotate(0deg) translate(0px,0px); }
+          25%  { transform: rotate(0.8deg) translate(1px,-1px); }
+          50%  { transform: rotate(0deg) translate(0px,1px); }
+          75%  { transform: rotate(-0.8deg) translate(-1px,-1px); }
+          100% { transform: rotate(0deg) translate(0px,0px); }
+        }
+      `}</style>
+
+      <div
+        className="square"
+        style={{
+          width: `${finalSizeX}px`,
+          height: `${finalSizeY}px`,
+          border: `${finalBorder}px solid var(--decor)`,
+          animation: "sambaSquare 4s ease-in-out infinite",
+        }}
+      />
+    </>
   );
 }

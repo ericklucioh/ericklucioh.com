@@ -40,12 +40,9 @@ export default function Page() {
       <section style={{ width: "100%", maxWidth: "600px", margin: "10%" }} className="flex flex-col items-center">
         <article className="flex flex-col justify-center items-center">
           <div className="flex direct-row">
-            <Logo/>
+            <Logo size={62}/>
             <h1
             className={style.name}
-            style={{
-              fontSize:" clamp(26px, 5vw, 60px)"
-            }}
             >Érick Lúcio</h1>
           </div>
           <p
