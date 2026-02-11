@@ -43,7 +43,7 @@ export default function NotFound() {
                 display:"flex",
                 alignItems:"center",
                 flexDirection:"column",
-                height:"100vh",
+                height:"100dvh",
             }}
         >
 
