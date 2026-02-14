@@ -1,4 +1,4 @@
-import { ButtonProps } from "@/components/Buttons";
+import { ButtonProps } from "@/components/linktree/Buttons";
 
 export const contents:  ButtonProps[] = [
     {    

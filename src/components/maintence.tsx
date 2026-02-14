@@ -1,10 +1,10 @@
 // app/page.tsx
 import Image from "next/image";
-import Buttons from "@/components/Buttons";
+import Buttons from "@/components/linktree/Buttons";
 import style from "./page.module.css";
-import BaseDecor from "@/components/baseDecor";
-import Square from "@/components/square";
-import DotGrid from "@/components/dot-grid";
+import BaseDecor from "@/components/decorations/baseDecor";
+import Square from "@/components/decorations/square";
+import DotGrid from "@/components/decorations/dot-grid";
 import { Settings } from "@mui/icons-material";
 
 export default function Page() {
