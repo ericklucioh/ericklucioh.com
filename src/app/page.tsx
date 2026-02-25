@@ -10,6 +10,7 @@ export default function Page() {
           height: "100dvh"
         }}
       >
+          
         <Maintence />
       </main>
     );

@@ -4,6 +4,7 @@ import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
 import DarkModeToggle from "@/components/darkModeToggle";
+import Menu from "@/components/header/menu";
 
 export const metadata: Metadata = {
   title: "Érick Lúcio | Developer",
@@ -43,10 +44,10 @@ export default function RootLayout({
   return (
     <html  lang="pt-br" className={`dark ${firaCode.variable}`}>
       <head>
-        <link rel="icon" type="image/svg+xml" sizes="32x32" href="" />
+        {/* <link rel="icon" type="image/svg+xml" sizes="32x32" href="" /> */}
       </head>
       <body className={firaCode.className}>
-                <DarkModeToggle />
+        {/* <Menu isOpen somethingDarkModeToggle /> */}
         {children}</body>
     </html>
   );

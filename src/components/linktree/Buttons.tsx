@@ -1,4 +1,4 @@
-import * as styleImport from "@/components/buttons.module.css";
+import * as styleImport from "@/components/linktree/buttons.module.css";
 const style = styleImport as any;
 export interface ButtonProps {
   id: string;
