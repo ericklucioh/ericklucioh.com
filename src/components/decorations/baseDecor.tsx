@@ -11,6 +11,10 @@ export default function BaseDecor({
   y = 40,
   children,
   enableRide = false,
+  lockToInitialPx = false,
+  desktopScale = 1,
+  mobileScale = 1,
+  mobileBreakpoint = 600,
 }: {
   top?: boolean;
   bottom?: boolean;
@@ -20,15 +24,35 @@ export default function BaseDecor({
   y?: number;
   children: React.ReactNode;
   enableRide?: boolean;
+  lockToInitialPx?: boolean;
+  desktopScale?: number;
+  mobileScale?: number;
+  mobileBreakpoint?: number;
 }) {
   const [decorScale, setDecorScale] = useState(1);
+  const [lockedOffsets, setLockedOffsets] = useState<{ xPx: number; yPx: number } | null>(
+    null,
+  );
 
   useEffect(() => {
-    const updateScale = () => setDecorScale(window.innerWidth <= 600 ? 0.1 : 1);
+    const updateScale = () =>
+      setDecorScale(window.innerWidth <= mobileBreakpoint ? mobileScale : desktopScale);
     updateScale();
     window.addEventListener("resize", updateScale);
     return () => window.removeEventListener("resize", updateScale);
-  }, []);
+  }, [desktopScale, mobileBreakpoint, mobileScale]);
+
+  useEffect(() => {
+    if (!lockToInitialPx) {
+      setLockedOffsets(null);
+      return;
+    }
+
+    setLockedOffsets({
+      xPx: (x / 100) * window.innerWidth,
+      yPx: (y / 100) * window.innerHeight,
+    });
+  }, [lockToInitialPx, x, y]);
 
   const transformOrigin = (() => {
     const vertical = top ? "top" : bottom ? "bottom" : "center";
@@ -36,15 +60,27 @@ export default function BaseDecor({
     return `${horizontal} ${vertical}`;
   })();
 
+  const xValue = lockToInitialPx
+    ? lockedOffsets
+      ? `${lockedOffsets.xPx}px`
+      : "0px"
+    : `${x}%`;
+  const yValue = lockToInitialPx
+    ? lockedOffsets
+      ? `${lockedOffsets.yPx}px`
+      : "0px"
+    : `${y}%`;
+
   return (
     <div
       style={{
         position: "fixed",
         pointerEvents: "none",
-        top: top ? `${y}%` : "auto",
-        bottom: bottom ? `${y}%` : "auto",
-        left: left ? `${x}%` : "auto",
-        right: right ? `${x}%` : "auto",
+        visibility: lockToInitialPx && !lockedOffsets ? "hidden" : "visible",
+        top: top ? yValue : "auto",
+        bottom: bottom ? yValue : "auto",
+        left: left ? xValue : "auto",
+        right: right ? xValue : "auto",
         transform: `scale(${decorScale})`,
         transformOrigin,
       }}
