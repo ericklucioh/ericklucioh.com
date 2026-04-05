@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import styleModel from "./logo.module.css";
+import styleModel from "./DarkModeToggle.module.css";
 const style = styleModel as any;
 
 export default function DarkModeToggle() {
@@ -36,7 +36,7 @@ export default function DarkModeToggle() {
 
   return (
     <label className={style.container}>
-      <input type="checkbox" checked={isDark} onChange={toggleDark} id="toggle"/>
+      <input type="checkbox" checked={isDark} onChange={toggleDark} id="toggle" />
       <span className={style.slider + " " + style.round}>
         <div className={style.background}></div>
         <div className={style.star}></div>

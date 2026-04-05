@@ -1,7 +1,7 @@
 "use client";
-import BaseDecor from "@/components/decorations/baseDecor";
-import DotGrid from "@/components/decorations/dot-grid";
-import Square from "@/components/decorations/square";
+import BaseDecor from "@/components/decorations/BaseDecor";
+import DotGrid from "@/components/decorations/DotGrid";
+import Square from "@/components/decorations/Square";
 import { Button } from "@mui/material";
 import * as styleImport from "@/app/styles/not-found.module.css";
 import { useRouter } from "next/navigation"; // Alterado aquiconst style = styleImport as any;

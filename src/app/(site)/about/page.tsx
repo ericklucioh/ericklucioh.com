@@ -1,4 +1,4 @@
-import Menu from "@/components/header/menu";
+import Menu from "@/components/layout/Menu";
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-import * as styleImport from "@/components/linktree/buttons.module.css";
+import * as styleImport from "./Buttons.module.css";
 const style = styleImport as any;
 export interface ButtonProps {
   id: string;
@@ -13,9 +13,7 @@ interface ButtonsProps {
 
 export default function Buttons({ items }: ButtonsProps) {
   return (
-    <div
-    className={style["buttonLink"]}
-    >
+    <div className={style["buttonLink"]}>
       {items.map((item: ButtonProps) => (
         <a
           key={item.id}
@@ -25,9 +23,7 @@ export default function Buttons({ items }: ButtonsProps) {
         >
           <div className={style["button"]}>
             {/* <div dangerouslySetInnerHTML={{ __html: item.svg }} /> */}
-            <h2
-            className={style["buttonText"]}
-            >{item.name}</h2>
+            <h2 className={style["buttonText"]}>{item.name}</h2>
           </div>
         </a>
       ))}

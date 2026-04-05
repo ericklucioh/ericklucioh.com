@@ -1,12 +1,11 @@
 // app/page.tsx
-import Image from "next/image";
 import Buttons from "@/components/linktree/Buttons";
 import style from "./page.module.css";
 import * as db from "./db";
-import BaseDecor from "@/components/decorations/baseDecor";
-import Square from "@/components/decorations/square";
-import DotGrid from "@/components/decorations/dot-grid";
-import Logo from "@/components/logo";
+import BaseDecor from "@/components/decorations/BaseDecor";
+import DotGrid from "@/components/decorations/DotGrid";
+import Square from "@/components/decorations/Square";
+import Logo from "@/components/ui/Logo";
 // app/page.tsx
 export default function Page() {
   return (

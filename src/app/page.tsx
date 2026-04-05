@@ -1,4 +1,4 @@
-import Maintence from "@/components/maintence";
+import Maintenance from "@/components/pages/Maintenance";
 import { redirect } from "next/navigation";
 
 export default function Page() {
@@ -11,7 +11,7 @@ export default function Page() {
         }}
       >
           
-        <Maintence />
+        <Maintenance />
       </main>
     );
 }

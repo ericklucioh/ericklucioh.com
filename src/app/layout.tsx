@@ -3,8 +3,6 @@ import { Poppins, Roboto, Fira_Code } from "next/font/google";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
-import DarkModeToggle from "@/components/darkModeToggle";
-import Menu from "@/components/header/menu";
 
 export const metadata: Metadata = {
   title: "Érick Lúcio | Developer",
