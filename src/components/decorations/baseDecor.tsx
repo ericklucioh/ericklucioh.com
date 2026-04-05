@@ -21,24 +21,32 @@ export default function BaseDecor({
   children: React.ReactNode;
   enableRide?: boolean;
 }) {
-  const [scale, setScale] = useState(1);
+  const [decorScale, setDecorScale] = useState(1);
 
   useEffect(() => {
-    const updateScale = () => setScale(window.innerWidth <= 600 ? 0.1 : 1);
+    const updateScale = () => setDecorScale(window.innerWidth <= 600 ? 0.1 : 1);
     updateScale();
     window.addEventListener("resize", updateScale);
     return () => window.removeEventListener("resize", updateScale);
   }, []);
+
+  const transformOrigin = (() => {
+    const vertical = top ? "top" : bottom ? "bottom" : "center";
+    const horizontal = left ? "left" : right ? "right" : "center";
+    return `${horizontal} ${vertical}`;
+  })();
 
   return (
     <div
       style={{
         position: "fixed",
         pointerEvents: "none",
-        top: top ? `${y * scale}%` : "auto",
-        bottom: bottom ? `${y * scale}%` : "auto",
-        left: left ? `${x * scale}%` : "auto",
-        right: right ? `${x * scale}%` : "auto",
+        top: top ? `${y}%` : "auto",
+        bottom: bottom ? `${y}%` : "auto",
+        left: left ? `${x}%` : "auto",
+        right: right ? `${x}%` : "auto",
+        transform: `scale(${decorScale})`,
+        transformOrigin,
       }}
       className={`${style["baseDecor"]} ${enableRide ? style["rideEnabled"] : ""}`}
     >

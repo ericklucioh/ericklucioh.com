@@ -26,7 +26,7 @@ export default function Page() {
       <BaseDecor bottom left x={-1} y={5}>
         <Square sizeX={90} sizeY={150} />
       </BaseDecor>
-      <BaseDecor bottom right x={-5} y={15}>
+      <BaseDecor bottom right x={-4} y={10}>
         <Square sizeX={90} sizeY={210} />
       </BaseDecor>
 
