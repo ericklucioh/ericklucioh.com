@@ -1,8 +1,8 @@
 import Maintence from "@/components/maintence";
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  // redirect("/linktree");
+  redirect("/linktree");
   return (
       <main
         style={{
