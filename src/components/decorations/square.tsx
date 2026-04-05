@@ -29,11 +29,11 @@ export default function Square({
     <>
       <style>{`
         @keyframes sambaSquare {
-          0%   { transform: rotate(0deg) translate(0px,0px); }
-          25%  { transform: rotate(0.8deg) translate(1px,-1px); }
-          50%  { transform: rotate(0deg) translate(0px,1px); }
-          75%  { transform: rotate(-0.8deg) translate(-1px,-1px); }
-          100% { transform: rotate(0deg) translate(0px,0px); }
+          0%   { transform: translate(0px,0px) scale(1); }
+          20%  { transform: translate(1px,-1px) scale(1.02); }
+          50%  { transform: translate(0px,1px) scale(1); }
+          80%  { transform: translate(-1px,-1px) scale(1.02); }
+          100% { transform: translate(0px,0px) scale(1); }
         }
       `}</style>
 
