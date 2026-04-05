@@ -28,7 +28,7 @@ export default function Logo({ size = 70, smallSize = 0.45 }: LogoProps) {
   // Detecta largura da tela
   useEffect(() => {
     function updateSize() {
-      if (window.innerWidth < 650) {
+      if (window.innerWidth < 600) {
         setFinalSize(size * smallSize);
       } else {
         setFinalSize(size);

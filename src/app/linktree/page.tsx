@@ -46,12 +46,9 @@ export default function Page() {
             >Érick Lúcio</h1>
           </div>
           <p
-          
-          className="role flex justify-center text-[35px]" style={{ color: "var(--color-aux-blue)",
-
-                          fontSize:" clamp(20px, 5vw, 40px)"
-
-           }}>
+            className={`${style.role} flex justify-center`}
+            style={{ color: "var(--color-aux-blue)" }}
+          >
             Software Developer
           </p>
         </article>
