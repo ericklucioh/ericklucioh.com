@@ -1,16 +1,18 @@
 import Link from "next/link";
-import type { BlogPost } from "@/lib/content";
+import type { PostSummary } from "@/lib/posts";
 import type { Lang } from "@/lib/i18n";
 
 type BlogIndexProps = {
 	lang: Lang;
-	posts: BlogPost[];
+	posts: PostSummary[];
 	tags: string[];
 	activeTag?: string;
 };
 
 export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexProps) {
-	const visiblePosts = activeTag ? posts.filter((post) => post.tags.includes(activeTag)) : posts;
+	const visiblePosts = activeTag
+		? posts.filter((post) => (post.tags ?? []).includes(activeTag))
+		: posts;
 
 	return (
 		<>
@@ -43,14 +45,16 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 						className="ui-card transition hover:border-[var(--color-aux-blue)]"
 					>
 						<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-							{new Date(post.publishedAt).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
+							{new Date(post.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 						</p>
-						<h2 className="mb-2 text-xl font-semibold">{post.title[lang]}</h2>
-						<p className="ui-subtitle" style={{ marginTop: 0 }}>
-							{post.excerpt[lang]}
-						</p>
+						<h2 className="mb-2 text-xl font-semibold">{post.title}</h2>
+						{post.excerpt ? (
+							<p className="ui-subtitle" style={{ marginTop: 0 }}>
+								{post.excerpt}
+							</p>
+						) : null}
 						<div className="mb-3 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
-							{post.tags.map((item) => (
+							{(post.tags ?? []).map((item) => (
 								<span key={item}>#{item}</span>
 							))}
 						</div>

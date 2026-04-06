@@ -146,6 +146,14 @@ body {
 	padding-left: 18px;
 }
 
+.markdown ul {
+	list-style: square;
+}
+
+.markdown ol {
+	list-style: decimal;
+}
+
 .markdown li {
 	margin: 6px 0;
 }
@@ -232,6 +240,30 @@ body {
 
 .markdown .hljs {
 	background: transparent;
+}
+
+.markdown table {
+	width: 100%;
+	margin-top: 16px;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.markdown th,
+.markdown td {
+	border: 1px solid color-mix(in srgb, var(--text-secondary) 35%, transparent);
+	padding: 10px 12px;
+	vertical-align: top;
+}
+
+.markdown th {
+	text-align: left;
+	font-weight: 700;
+	background: color-mix(in srgb, var(--bg-page) 82%, transparent);
+}
+
+.markdown tbody tr:nth-child(even) td {
+	background: color-mix(in srgb, var(--bg-page) 90%, transparent);
 }
 
 /* Conteúdo com decor por trás: escurece/suaviza só na área do <main class="site-main"> */

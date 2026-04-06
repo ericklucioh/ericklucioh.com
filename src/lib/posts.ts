@@ -2,10 +2,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { unified } from "unified";
-import { remark } from "remark";
-import remarkHtml from "remark-html";
 import remarkGfm from "remark-gfm";
-import rehypeParse from "rehype-parse";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeHighlight from "rehype-highlight";
 
@@ -56,21 +55,15 @@ function assertFrontmatter(data: unknown, slug: string): PostFrontmatter {
 }
 
 async function markdownToHtml(markdown: string) {
-	const remarkResult = await remark()
+	const result = await unified()
+		.use(remarkParse)
 		.use(remarkGfm)
-		.use(remarkHtml, { sanitize: false })
+		.use(remarkRehype)
+		.use(rehypeHighlight, { detect: true, ignoreMissing: true })
+		.use(rehypeStringify)
 		.process(markdown);
 
-	const html = String(remarkResult);
-
-	// Optional: highlight code blocks (server/build-time only).
-	const rehypeResult = await unified()
-		.use(rehypeParse, { fragment: true })
-		.use(rehypeHighlight)
-		.use(rehypeStringify)
-		.process(html);
-
-	return String(rehypeResult);
+	return String(result);
 }
 
 export async function getPostBySlug(slug: string): Promise<Post> {

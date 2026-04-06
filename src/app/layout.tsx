@@ -4,6 +4,7 @@ import Providers from "./providers";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
+import "highlight.js/styles/github-dark.css";
 
 export const metadata: Metadata = {
 	title: "Érick Lúcio | Developer",

@@ -4,7 +4,7 @@ import SiteFrame from "@/components/layout/SiteFrame";
 import BlogIndex from "@/components/blog/BlogIndex";
 import BlogIndexClient from "@/components/blog/BlogIndexClient";
 import { isLang, type Lang } from "@/lib/i18n";
-import { getAllTags, getBlogPosts } from "@/lib/content";
+import { getAllPosts } from "@/lib/posts";
 
 export default async function BlogPage({
 	params,
@@ -14,8 +14,8 @@ export default async function BlogPage({
 	const { lang } = await params;
 	if (!isLang(lang)) notFound();
 
-	const posts = getBlogPosts();
-	const tags = getAllTags();
+	const posts = await getAllPosts();
+	const tags = Array.from(new Set(posts.flatMap((post) => post.tags ?? []))).sort();
 
 	return (
 		<SiteFrame>
