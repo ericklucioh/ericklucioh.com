@@ -71,6 +71,17 @@
 	font-size: 16px;
 }
 
+.action {
+	text-decoration: none;
+	font-size: 14px;
+	padding: 6px 10px;
+	border: 1px solid
+		color-mix(in srgb, var(--text-secondary) 40%, transparent);
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--bg-page) 80%, transparent);
+	color: var(--text-primary);
+}
+
 .hash {
 	color: var(--text-secondary);
 	margin-right: 4px;
