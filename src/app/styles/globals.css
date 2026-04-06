@@ -3,120 +3,123 @@
 @tailwind utilities;
 
 :root {
-  --page-gutter: 120px;
-  --header-h: 78px;
+	--page-gutter: 120px;
+	--header-h: 78px;
 }
 
 @media (max-width: 600px) {
-  :root {
-    --page-gutter: 20px;
-    --header-h: 70px;
-  }
+	:root {
+		--page-gutter: 20px;
+		--header-h: 70px;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background-start-rgb: var(--bg-page);
-    --background-end-rgb: var(--bg-page);
-  }
+	:root {
+		--background-start-rgb: var(--bg-page);
+		--background-end-rgb: var(--bg-page);
+	}
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }
 
 * {
-  cursor: default;
-    /* box-shadow: red 0px 0px 0px 1px; */
+	cursor: default;
+	/* box-shadow: red 0px 0px 0px 1px; */
 }
 
 body {
-    background-color: var(--bg-page);
-    font-family: var(--font-fira-code), monospace;
-    color: var(--text-primary);
+	background-color: var(--bg-page);
+	font-family: var(--font-fira-code), monospace;
+	color: var(--text-primary);
 }
 
 /* Conteúdo com decor por trás: escurece/suaviza só na área do <main> */
 main {
-  position: relative;
-  isolation: isolate;
+	position: relative;
+	isolation: isolate;
 }
 
 main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: color-mix(in srgb, var(--bg-page) 72%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+	background: color-mix(in srgb, var(--bg-page) 72%, transparent);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
 }
 
 main > :not([data-decor]) {
-  position: relative;
-  z-index: 2;
+	position: relative;
+	z-index: 2;
 }
 
 /* Transição de tema: só quando o toggle pedir (sem "delay" no load) */
 :root.theme-transition,
 :root.theme-transition * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		border-color 0.3s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root.theme-transition,
-  :root.theme-transition * {
-    transition: none !important;
-  }
+	:root.theme-transition,
+	:root.theme-transition * {
+		transition: none !important;
+	}
 }
 
 /* Logo sizing (avoid client-side resize flicker on mobile) */
 .ui-logo {
-  width: var(--ui-logo-size);
-  height: auto;
+	width: var(--ui-logo-size);
+	height: auto;
 }
 
 @media (max-width: 600px) {
-  .ui-logo {
-    width: calc(var(--ui-logo-size) * var(--ui-logo-small-scale));
-  }
+	.ui-logo {
+		width: calc(var(--ui-logo-size) * var(--ui-logo-small-scale));
+	}
 }
 
 /* Decorations: size via CSS (avoid resize flicker on mobile) */
 .ui-dotgrid {
-  --ui-dot-size: var(--ui-dot-size-base);
-  --ui-dot-gap: var(--ui-dot-gap-base);
-  display: grid;
+	--ui-dot-size: var(--ui-dot-size-base);
+	--ui-dot-gap: var(--ui-dot-gap-base);
+	display: grid;
 }
 
 .ui-dotgrid__dot {
-  width: var(--ui-dot-size);
-  height: var(--ui-dot-size);
-  background: var(--decor);
-  border-radius: 50%;
+	width: var(--ui-dot-size);
+	height: var(--ui-dot-size);
+	background: var(--decor);
+	border-radius: 50%;
 }
 
 .ui-square {
-  --ui-square-x: var(--ui-square-x-base);
-  --ui-square-y: var(--ui-square-y-base);
-  --ui-square-border: var(--ui-square-border-base);
-  width: var(--ui-square-x);
-  height: var(--ui-square-y);
-  border: var(--ui-square-border) solid var(--decor);
+	--ui-square-x: var(--ui-square-x-base);
+	--ui-square-y: var(--ui-square-y-base);
+	--ui-square-border: var(--ui-square-border-base);
+	width: var(--ui-square-x);
+	height: var(--ui-square-y);
+	border: var(--ui-square-border) solid var(--decor);
 }
 
 @media (max-width: 600px) {
-  .ui-dotgrid {
-    --ui-dot-size: max(1px, calc(var(--ui-dot-size-base) - 1px));
-    --ui-dot-gap: max(2px, calc(var(--ui-dot-gap-base) - 1px));
-  }
+	.ui-dotgrid {
+		--ui-dot-size: max(1px, calc(var(--ui-dot-size-base) - 1px));
+		--ui-dot-gap: max(2px, calc(var(--ui-dot-gap-base) - 1px));
+	}
 
-  .ui-square {
-    --ui-square-x: calc(var(--ui-square-x-base) * 0.8);
-    --ui-square-y: calc(var(--ui-square-y-base) * 0.8);
-    --ui-square-border: 0.5px;
-  }
+	.ui-square {
+		--ui-square-x: calc(var(--ui-square-x-base) * 0.8);
+		--ui-square-y: calc(var(--ui-square-y-base) * 0.8);
+		--ui-square-border: 0.5px;
+	}
 }

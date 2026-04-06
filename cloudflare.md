@@ -1,12 +1,15 @@
 # Next.js no Cloudflare Workers (SSR) — Resumo prático
 
 ## 🧠 O que é
+
 Rodar um app Next.js **sem `output: 'export'`** usando SSR dentro do Cloudflare Workers.
 
 👉 Em vez de:
+
 - gerar HTML estático (SSG)
 
 👉 Você passa a:
+
 - gerar HTML por request (SSR)
 - rodar lógica no edge (Workers)
 
@@ -26,6 +29,7 @@ Next build
 ## 🔧 Como migrar (passo a passo)
 
 ### 1. Remover static export
+
 ```js
 // next.config.js
 // ❌ remover isso
@@ -96,3 +100,4 @@ quer reduzir latência global
 app pesado (CPU)
 depende muito de Node
 quer simplicidade
+```

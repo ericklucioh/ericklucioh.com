@@ -2,25 +2,25 @@
 import type { CSSProperties } from "react";
 
 type SquareProps = {
-  sizeX?: number;
-  sizeY?: number;
-  borderWidth?: number;
+	sizeX?: number;
+	sizeY?: number;
+	borderWidth?: number;
 };
 
 export default function Square({
-  sizeX = 100,
-  sizeY = 100,
-  borderWidth = 1,
+	sizeX = 100,
+	sizeY = 100,
+	borderWidth = 1,
 }: SquareProps) {
-  const cssVars = {
-    ["--ui-square-x-base" as any]: `${sizeX}px`,
-    ["--ui-square-y-base" as any]: `${sizeY}px`,
-    ["--ui-square-border-base" as any]: `${borderWidth}px`,
-  } as CSSProperties;
+	const cssVars = {
+		["--ui-square-x-base" as any]: `${sizeX}px`,
+		["--ui-square-y-base" as any]: `${sizeY}px`,
+		["--ui-square-border-base" as any]: `${borderWidth}px`,
+	} as CSSProperties;
 
-  return (
-    <>
-      <style>{`
+	return (
+		<>
+			<style>{`
         @keyframes sambaSquare {
           0%   { transform: translate(0px,0px) scale(1); }
           20%  { transform: translate(1px,-1px) scale(1.02); }
@@ -30,13 +30,13 @@ export default function Square({
         }
       `}</style>
 
-      <div
-        className="ui-square"
-        style={{
-          ...cssVars,
-          animation: "sambaSquare 4s ease-in-out infinite",
-        }}
-      />
-    </>
-  );
+			<div
+				className="ui-square"
+				style={{
+					...cssVars,
+					animation: "sambaSquare 4s ease-in-out infinite",
+				}}
+			/>
+		</>
+	);
 }

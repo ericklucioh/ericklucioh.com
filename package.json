@@ -1,33 +1,37 @@
 {
-  "name": "ericklucioh",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "preview": "node scripts/preview-static.mjs --dir out --port 4173",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.7",
-    "@mui/material": "^7.3.8",
-    "next": "^16.1.6",
-    "next-themes": "^0.4.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-router-dom": "^6.26.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^10.0.0",
-    "eslint-config-next": "^16.1.6",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+	"name": "ericklucioh",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"preview": "node scripts/preview-static.mjs --dir out --port 4173",
+		"start": "next start",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"dependencies": {
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.1",
+		"@mui/icons-material": "^7.3.7",
+		"@mui/material": "^7.3.8",
+		"next": "^16.1.6",
+		"next-themes": "^0.4.6",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-router-dom": "^6.26.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^9.0.0",
+		"eslint-config-next": "^16.1.6",
+		"postcss": "^8",
+		"prettier": "^3.6.2",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
 }

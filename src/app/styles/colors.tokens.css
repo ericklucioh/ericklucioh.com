@@ -1,33 +1,33 @@
 :root {
-  /* PRIMARY */
-  --color-primary-1: #004F78;
-  --color-primary-2: #0E4461;
-  --color-primary-3: #08293C;
+	/* PRIMARY */
+	--color-primary-1: #004f78;
+	--color-primary-2: #0e4461;
+	--color-primary-3: #08293c;
 
-  /* LIGHT */
-  --color-light-1: #FFFFFF;
-  --color-light-2: #F5FBFF;
-  --color-light-3: #E9F4FF;
+	/* LIGHT */
+	--color-light-1: #ffffff;
+	--color-light-2: #f5fbff;
+	--color-light-3: #e9f4ff;
 
-  /* SOFT */
-  --color-soft-1: #B7E6FF;
-  --color-soft-2: #8CC1DE;
-  --color-soft-3: #4FC3FF;
+	/* SOFT */
+	--color-soft-1: #b7e6ff;
+	--color-soft-2: #8cc1de;
+	--color-soft-3: #4fc3ff;
 
-  /* GRAY */
-  --color-gray-1: #667288;
-  --color-gray-2: #282C33;
-  --color-gray-3: #191B1E;
+	/* GRAY */
+	--color-gray-1: #667288;
+	--color-gray-2: #282c33;
+	--color-gray-3: #191b1e;
 
-  /* DARK */
-  --color-dark-1: #000D21;
-  --color-dark-2: #020A16;
-  --color-dark-3: #090D14;
+	/* DARK */
+	--color-dark-1: #000d21;
+	--color-dark-2: #020a16;
+	--color-dark-3: #090d14;
 
-  /* BASE */
-  --color-black: #000000;
-    --color-white: #FFFFFF;
+	/* BASE */
+	--color-black: #000000;
+	--color-white: #ffffff;
 
-    /* AUX */
-    --color-aux-blue: #0091C3;
+	/* AUX */
+	--color-aux-blue: #0091c3;
 }

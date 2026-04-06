@@ -1,19 +1,19 @@
 .name {
-  font-size: 60px;
-  font-weight: 500;
+	font-size: 60px;
+	font-weight: 500;
 }
 
 .role {
-  font-size: 35px;
+	font-size: 35px;
 }
 
 @media screen and (max-width: 600px) {
-  .name {
-    font-size: clamp(26px, 6vw, 65px);
-    font-weight: 700;
-  }
+	.name {
+		font-size: clamp(26px, 6vw, 65px);
+		font-weight: 700;
+	}
 
-  .role {
-    font-size: clamp(20px, 5vw, 35px);
-  }
+	.role {
+		font-size: clamp(20px, 5vw, 35px);
+	}
 }
