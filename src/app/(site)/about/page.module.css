@@ -1,0 +1,135 @@
+.page {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0  var(--page-gutter);
+  padding: 28px 0 60px;
+  isolation: isolate;
+  position: relative;
+  z-index: 2;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--bg-page) 72%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid color-mix(in srgb, var(--text-primary) 10%, transparent);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.pill {
+  border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
+  background: color-mix(in srgb, var(--bg-page) 70%, transparent);
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.section {
+  margin-top: 46px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  grid-column: span 12;
+  border: 1px solid color-mix(in srgb, var(--text-primary) 18%, transparent);
+  background: color-mix(in srgb, var(--bg-page) 86%, transparent);
+  padding: 16px;
+}
+
+.span6 {
+  grid-column: span 12;
+}
+
+.cardTitle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+  font-weight: 700;
+}
+
+.cardMeta {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.cardBody {
+  margin-top: 10px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.list {
+  margin-top: 10px;
+  padding-left: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.list li {
+  list-style: square;
+  margin: 6px 0;
+}
+
+@media (min-width: 860px) {
+  .span6 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-top: 24px;
+  }
+}
