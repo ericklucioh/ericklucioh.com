@@ -14,16 +14,23 @@ export default function DarkModeToggle() {
     const html = document.documentElement;
     html.classList.add("theme-transition");
     void html.offsetHeight;
-    const next = resolvedTheme === "dark" ? "light" : "dark";
+    const currentDark = html.classList.contains("dark");
+    const next = currentDark ? "light" : "dark";
     setTheme(next);
     window.setTimeout(() => html.classList.remove("theme-transition"), 320);
   };
 
-  const isDark = resolvedTheme === "dark";
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   return (
-    <label className={style.container} style={{ visibility: mounted ? "visible" : "hidden" }}>
-      <input type="checkbox" checked={isDark} onChange={toggleDark} id="toggle" />
+    <label className={style.container}>
+      <input
+        type="checkbox"
+        checked={isDark}
+        onChange={toggleDark}
+        id="toggle"
+        suppressHydrationWarning
+      />
       <span className={style.slider + " " + style.round}>
         <div className={style.background}></div>
         <div className={style.star}></div>

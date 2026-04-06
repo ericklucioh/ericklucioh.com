@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 
 export default function Page() {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       <BaseDecor top left x={2} y={10}>
         <DotGrid rows={4} cols={6} gap={18} />
       </BaseDecor>
@@ -16,11 +16,11 @@ export default function Page() {
       <BaseDecor bottom left x={2} y={8}>
         <Square sizeX={120} sizeY={120} />
       </BaseDecor>
-      <BaseDecor bottom right x={2} y={16} lockToInitialPx>
+      <BaseDecor bottom right x={2} y={16} >
         <DotGrid rows={4} cols={4} gap={16} />
       </BaseDecor>
 
-      <div className={styles.container}>
+      <main className={styles.container}>
         <header className={styles.hero}>
           <div>
             <div className="flex items-center gap-3">
@@ -224,7 +224,7 @@ export default function Page() {
             </div>
           </div>
         </footer>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }

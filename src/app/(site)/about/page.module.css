@@ -10,21 +10,6 @@
   max-width: 980px;
   margin: 0  var(--page-gutter);
   padding: 28px 0 60px;
-  isolation: isolate;
-  position: relative;
-  z-index: 2;
-}
-
-.container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: color-mix(in srgb, var(--bg-page) 72%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid color-mix(in srgb, var(--text-primary) 10%, transparent);
 }
 
 .hero {

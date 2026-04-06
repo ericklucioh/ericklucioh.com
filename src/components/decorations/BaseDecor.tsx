@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import * as stylesImport from "@/app/styles/baseDecor.module.css";
 const style = stylesImport as any;
 export default function BaseDecor({
@@ -36,7 +36,7 @@ export default function BaseDecor({
     null,
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const updateScale = () =>
       setDecorScale(window.innerWidth <= mobileBreakpoint ? mobileScale : desktopScale);
     updateScale();
@@ -44,7 +44,7 @@ export default function BaseDecor({
     return () => window.removeEventListener("resize", updateScale);
   }, [desktopScale, mobileBreakpoint, mobileScale]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!lockToInitialPx) {
       setLockedOffsets(null);
       return;
@@ -75,6 +75,7 @@ export default function BaseDecor({
 
   return (
     <div
+      data-decor
       style={{
         position: "fixed",
         pointerEvents: "none",

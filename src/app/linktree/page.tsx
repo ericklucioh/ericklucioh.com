@@ -9,7 +9,7 @@ import Logo from "@/components/ui/Logo";
 // app/page.tsx
 export default function Page() {
   return (
-    <main
+    <div
       style={{
         width: "100%",
         height: "100dvh",
@@ -25,7 +25,7 @@ export default function Page() {
       <BaseDecor bottom left x={-1} y={5}>
         <Square sizeX={90} sizeY={150} />
       </BaseDecor>
-      <BaseDecor bottom right x={-2} y={10} lockToInitialPx>
+      <BaseDecor bottom right x={-2} y={10}>
         <Square sizeX={90} sizeY={210} />
       </BaseDecor>
 
@@ -36,7 +36,7 @@ export default function Page() {
       <BaseDecor top right x={5} y={-1}>
        <Square sizeX={160} sizeY={60} />
       </BaseDecor>
-      <section style={{ width: "100%", maxWidth: "600px", margin: "10%" }} className="flex flex-col items-center">
+      <main style={{ width: "100%", maxWidth: "600px", margin: "10%" }} className="flex flex-col items-center">
         <article className="flex flex-col justify-center items-center">
           <div className="flex direct-row">
             <Logo size={62} smallSize={0.6}/>
@@ -60,7 +60,7 @@ export default function Page() {
         >
           <Buttons items={db.contents} />
         </article>
-      </section>
-    </main>
+      </main>
+    </div>
   );
 }

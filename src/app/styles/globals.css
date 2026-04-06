@@ -38,6 +38,28 @@ body {
     color: var(--text-primary);
 }
 
+/* Conteúdo com decor por trás: escurece/suaviza só na área do <main> */
+main {
+  position: relative;
+  isolation: isolate;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--bg-page) 72%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+main > :not([data-decor]) {
+  position: relative;
+  z-index: 2;
+}
+
 /* Transição de tema: só quando o toggle pedir (sem "delay" no load) */
 :root.theme-transition,
 :root.theme-transition * {
