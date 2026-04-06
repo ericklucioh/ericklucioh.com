@@ -9,10 +9,11 @@ export default function SiteLayout({
 		<>
 			<Menu
 				buttons={[
-					{ label: "home", href: "/linktree" },
-					{ label: "sobre", href: "/about" },
-					{ label: "blog", href: "/blog" },
-					{ label: "contato", href: "/contato" },
+					{ label: "home", href: "/pt" },
+					{ label: "sobre", href: "/pt/about" },
+					{ label: "projetos", href: "/pt/projects" },
+					{ label: "blog", href: "/pt/blog" },
+					{ label: "links", href: "/pt/links" },
 				]}
 			/>
 			<div style={{ paddingTop: "var(--header-h)" }}>{children}</div>

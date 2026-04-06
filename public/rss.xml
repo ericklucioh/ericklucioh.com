@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Érick Lúcio Blog</title>
+    <link>https://ericklucioh.com/en/blog</link>
+    <description>Backend, AI, and software engineering notes.</description>
+    <item>
+      <title>Backend MVP checklist without headaches</title>
+      <link>https://ericklucioh.com/en/blog/backend-checklist-mvp</link>
+      <pubDate>Thu, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://ericklucioh.com/en/blog/backend-checklist-mvp</guid>
+    </item>
+    <item>
+      <title>RAG in practice: minimum evaluation that helps</title>
+      <link>https://ericklucioh.com/en/blog/rag-evaluation-basics</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://ericklucioh.com/en/blog/rag-evaluation-basics</guid>
+    </item>
+    <item>
+      <title>Observability for small teams</title>
+      <link>https://ericklucioh.com/en/blog/observability-for-small-teams</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://ericklucioh.com/en/blog/observability-for-small-teams</guid>
+    </item>
+  </channel>
+</rss>
