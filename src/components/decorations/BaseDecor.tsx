@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import * as stylesImport from "@/app/styles/baseDecor.module.css";
 const style = stylesImport as any;
 export default function BaseDecor({
@@ -9,13 +9,14 @@ export default function BaseDecor({
   right,
   x = 40,
   y = 40,
+  xMobile,
+  yMobile,
   children,
   enableRide = false,
   lockToInitialPx = false,
   zIndex = 0,
   desktopScale = 1,
   mobileScale = 1,
-  mobileBreakpoint = 600,
 }: {
   top?: boolean;
   bottom?: boolean;
@@ -23,26 +24,18 @@ export default function BaseDecor({
   right?: boolean;
   x?: number;
   y?: number;
+  xMobile?: number;
+  yMobile?: number;
   children: React.ReactNode;
   enableRide?: boolean;
   lockToInitialPx?: boolean;
   zIndex?: number;
   desktopScale?: number;
   mobileScale?: number;
-  mobileBreakpoint?: number;
 }) {
-  const [decorScale, setDecorScale] = useState(1);
   const [lockedOffsets, setLockedOffsets] = useState<{ xPx: number; yPx: number } | null>(
     null,
   );
-
-  useLayoutEffect(() => {
-    const updateScale = () =>
-      setDecorScale(window.innerWidth <= mobileBreakpoint ? mobileScale : desktopScale);
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, [desktopScale, mobileBreakpoint, mobileScale]);
 
   useLayoutEffect(() => {
     if (!lockToInitialPx) {
@@ -66,12 +59,21 @@ export default function BaseDecor({
     ? lockedOffsets
       ? `${lockedOffsets.xPx}px`
       : "0px"
-    : `${x}%`;
+    : "var(--decor-x-current)";
   const yValue = lockToInitialPx
     ? lockedOffsets
       ? `${lockedOffsets.yPx}px`
       : "0px"
-    : `${y}%`;
+    : "var(--decor-y-current)";
+
+  const cssVars = {
+    "--decor-scale": `${desktopScale}`,
+    "--decor-scale-mobile": `${mobileScale}`,
+    "--decor-x": `${x}%`,
+    ...(typeof xMobile === "number" ? { "--decor-x-mobile": `${xMobile}%` } : null),
+    "--decor-y": `${y}%`,
+    ...(typeof yMobile === "number" ? { "--decor-y-mobile": `${yMobile}%` } : null),
+  } as any;
 
   return (
     <div
@@ -85,8 +87,9 @@ export default function BaseDecor({
         bottom: bottom ? yValue : "auto",
         left: left ? xValue : "auto",
         right: right ? xValue : "auto",
-        transform: `scale(${decorScale})`,
+        transform: "scale(var(--decor-scale-current))",
         transformOrigin,
+        ...cssVars,
       }}
       className={`${style["baseDecor"]} ${enableRide ? style["rideEnabled"] : ""}`}
     >

@@ -20,6 +20,19 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Static build (export)
+
+This project is configured with `output: "export"` in `next.config.mjs`, so `npm run build` generates a static site in `out/`.
+
+Preview the static output with a server rooted at `out/` (opening `out/index.html` via `file://` will load a blank page because `/_next/*` assets won't resolve):
+
+```bash
+npm run build
+npm run preview
+```
+
+`npm run preview` also sets proper cache headers locally: HTML uses revalidation (`ETag`/`304`) while `/_next/static/*` is cached as immutable, so refreshes won't keep re-downloading fonts/chunks.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
