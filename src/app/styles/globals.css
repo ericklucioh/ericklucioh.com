@@ -31,13 +31,13 @@ body {
 	color: var(--text-primary);
 }
 
-/* Conteúdo com decor por trás: escurece/suaviza só na área do <main> */
-main {
+/* Conteúdo com decor por trás: escurece/suaviza só na área do <main class="site-main"> */
+.site-main {
 	position: relative;
 	isolation: isolate;
 }
 
-main::before {
+.site-main::before {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -48,7 +48,7 @@ main::before {
 	-webkit-backdrop-filter: blur(6px);
 }
 
-main > :not([data-decor]) {
+.site-main > :not([data-decor]) {
 	position: relative;
 	z-index: 2;
 }

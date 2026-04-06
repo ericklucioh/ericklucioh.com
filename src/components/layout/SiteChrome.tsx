@@ -17,7 +17,7 @@ type SiteChromeProps = {
 
 function isLinksRoute(pathname: string) {
 	const normalized = pathname.replace(/\/$/, "");
-	return normalized === "/pt/links" || normalized === "/en/links";
+	return normalized === "/links" || normalized === "/pt/links" || normalized === "/en/links";
 }
 
 export default function SiteChrome({ buttons, actions, children }: SiteChromeProps) {
@@ -34,4 +34,3 @@ export default function SiteChrome({ buttons, actions, children }: SiteChromePro
 		</>
 	);
 }
-

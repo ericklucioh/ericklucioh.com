@@ -51,7 +51,7 @@ export default async function HomePage({
 					>
 						LinkedIn
 					</a>
-					<Link className="rounded-none border border-white px-4 py-2" href={`/${lang}/links`}>
+					<Link className="rounded-none border border-white px-4 py-2" href="/links">
 						GitHub
 					</Link>
 				</div>

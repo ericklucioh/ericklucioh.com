@@ -14,8 +14,9 @@ export default function SiteFrame({
 	return (
 		<div className="min-h-screen w-full">
 			{withDecor ? <SiteDecor /> : null}
-			<main className={mainClassName}>{children}</main>
+			<div className={mainClassName}>
+				<main className="site-main">{children}</main>
+			</div>
 		</div>
 	);
 }
-
