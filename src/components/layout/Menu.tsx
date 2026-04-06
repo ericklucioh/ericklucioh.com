@@ -48,7 +48,7 @@ export default function Menu(props: MenuProps) {
 		const current = segments[0] === "en" ? "en" : "pt";
 		const other = current === "pt" ? "en" : "pt";
 		return {
-			label: `${current.toUpperCase()} → ${other.toUpperCase()}`,
+			label: `${current.toUpperCase()}`,
 			href: languageLinks[other],
 		};
 	}, [languageLinks, pathname]);
