@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --page-gutter: 120px;
+  --header-h: 78px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-gutter: 20px;
+    --header-h: 70px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-start-rgb: var(--bg-page);
@@ -28,8 +40,4 @@ body {
 /* Overlay para animação da esquerda pra direita */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-#logo {
-  color: aqua;
 }

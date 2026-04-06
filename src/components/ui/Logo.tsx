@@ -6,7 +6,7 @@ interface LogoProps {
   smallSize?: number;
 }
 
-export default function Logo({ size = 70, smallSize = 0.45 }: LogoProps) {
+export default function Logo({ size = 70, smallSize = 1 }: LogoProps) {
   const [finalSize, setFinalSize] = useState(size);
 
   // Detecta largura da tela

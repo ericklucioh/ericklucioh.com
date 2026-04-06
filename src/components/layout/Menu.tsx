@@ -1,64 +1,71 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import DarkModeToggle from "@/components/ui/DarkModeToggle";
+import styles from "./Menu.module.css";
 
 type MenuProps =
+  | { variant: "toggle" }
   | {
-      isOpen: boolean;
-      somethingDarkModeToggle: true;
-      buttons?: never; // NÃO pode passar buttons
-    }
-  | {
-      isOpen: boolean;
-      somethingDarkModeToggle?: false;
-      buttons: { label: string; href: string }[]; // É obrigatório
+      buttons: { label: string; href: string }[];
     };
 
-export default function Menu({
-  isOpen,
-  somethingDarkModeToggle,
-  buttons,
-}: MenuProps) {
+export default function Menu(props: MenuProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  if (!("buttons" in props)) return <DarkModeToggle />;
+
+  const { buttons } = props;
+
   return (
     <>
-      {somethingDarkModeToggle ? (
-        <DarkModeToggle />
-      ) : (
-        <div
-          className={`menu ${isOpen ? "open" : ""}`}
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "24px",
-          }}
-        >
-          {/* Esquerda */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <Logo size={30} />
-            <span style={{ fontWeight: 600, fontSize: "18px" }}>Érick Lúcio</span>
-          </div>
+      <header className={styles.header}>
+        <div className={styles.left}>
+          <Logo size={30} />
+          <span className={styles.brand}>Érick Lúcio</span>
+        </div>
 
-          {/* Direita */}
-          <div style={{ display: "flex", gap: "20px", marginRight: "42px" }}>
-            {buttons?.map((btn, index) => (
+        <nav className={styles.navDesktop} aria-label="Primary">
+          {buttons.map((btn, index) => (
+            <Link key={index} href={btn.href} className={styles.link}>
+              <span className={styles.hash}>#</span>
+              {btn.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className={styles.right}>
+          <button
+            type="button"
+            className={styles.navMobileButton}
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            {mobileOpen ? "×" : "≡"}
+          </button>
+          <DarkModeToggle />
+        </div>
+      </header>
+
+      {mobileOpen ? (
+        <div className={styles.panel} aria-label="Mobile menu">
+          <nav className={styles.panelList}>
+            {buttons.map((btn, index) => (
               <Link
                 key={index}
                 href={btn.href}
-                style={{ textDecoration: "none", fontSize: "16px" }}
+                className={styles.link}
+                onClick={() => setMobileOpen(false)}
               >
-                <span style={{ color: "var(--text-secondary)", marginRight: "4px" }}>
-                  #
-                </span>
+                <span className={styles.hash}>#</span>
                 {btn.label}
               </Link>
             ))}
-          </div>
-
-          <DarkModeToggle />
+          </nav>
         </div>
-      )}
+      ) : null}
     </>
   );
 }

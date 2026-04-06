@@ -12,6 +12,7 @@ export default function BaseDecor({
   children,
   enableRide = false,
   lockToInitialPx = false,
+  zIndex = 0,
   desktopScale = 1,
   mobileScale = 1,
   mobileBreakpoint = 600,
@@ -25,6 +26,7 @@ export default function BaseDecor({
   children: React.ReactNode;
   enableRide?: boolean;
   lockToInitialPx?: boolean;
+  zIndex?: number;
   desktopScale?: number;
   mobileScale?: number;
   mobileBreakpoint?: number;
@@ -76,6 +78,7 @@ export default function BaseDecor({
       style={{
         position: "fixed",
         pointerEvents: "none",
+        zIndex,
         visibility: lockToInitialPx && !lockedOffsets ? "hidden" : "visible",
         top: top ? yValue : "auto",
         bottom: bottom ? yValue : "auto",
