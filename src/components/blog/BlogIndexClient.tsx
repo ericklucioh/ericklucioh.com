@@ -1,13 +1,13 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import type { BlogPost } from "@/lib/content";
+import type { PostSummary } from "@/lib/posts";
 import type { Lang } from "@/lib/i18n";
 import BlogIndex from "@/components/blog/BlogIndex";
 
 type BlogIndexClientProps = {
 	lang: Lang;
-	posts: BlogPost[];
+	posts: PostSummary[];
 	tags: string[];
 };
 
@@ -17,4 +17,3 @@ export default function BlogIndexClient({ lang, posts, tags }: BlogIndexClientPr
 
 	return <BlogIndex lang={lang} posts={posts} tags={tags} activeTag={activeTag} />;
 }
-
