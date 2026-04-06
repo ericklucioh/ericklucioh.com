@@ -1,47 +1,77 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/ui/Logo";
 import DarkModeToggle from "@/components/ui/DarkModeToggle";
 import styles from "./Menu.module.css";
 
-type MenuProps = {
-	lang?: "pt" | "en";
-	labels?: {
-		home: string;
-		about: string;
-		projects: string;
-		links: string;
-	};
-	buttons: { label: string; href: string }[];
-	cvHref?: string;
+type MenuItem = {
+	label: string;
+	href: string;
+	external?: boolean;
 };
+
+type MenuProps = {
+	buttons: MenuItem[];
+	actions?: MenuItem[];
+};
+
+function swapLang(pathname: string, target: "pt" | "en") {
+	const segments = pathname.split("/").filter(Boolean);
+	if (segments[0] === "pt" || segments[0] === "en") {
+		segments[0] = target;
+		return `/${segments.join("/")}`;
+	}
+	return `/${target}`;
+}
+
+function isExternalLink(item: MenuItem) {
+	return item.external ?? (item.href.startsWith("http") || item.href.endsWith(".pdf"));
+}
 
 export default function Menu(props: MenuProps) {
 	const [mobileOpen, setMobileOpen] = useState(false);
+	const { buttons, actions } = props;
 	const pathname = usePathname();
 
-	const { buttons, lang, cvHref } = props;
-	const showLangToggle = lang === "pt" || lang === "en";
+	const languageLinks = useMemo(
+		() => ({
+			pt: swapLang(pathname, "pt"),
+			en: swapLang(pathname, "en"),
+		}),
+		[pathname],
+	);
 
-	const otherLang = lang === "pt" ? "en" : "pt";
-	const otherLangLabel = otherLang.toUpperCase();
-	const currentLangLabel = lang?.toUpperCase();
-
-	const langSwitchHref = (() => {
-		if (!showLangToggle) return "/";
-		const prefix = `/${lang}`;
-		if (pathname && pathname.startsWith(prefix)) {
-			const rest = pathname.slice(prefix.length) || "";
-			return `/${otherLang}${rest}`;
+	function renderItem(item: MenuItem, className: string) {
+		if (isExternalLink(item)) {
+			return (
+				<a
+					key={`${item.label}-${item.href}`}
+					className={className}
+					href={item.href}
+					target="_blank"
+					rel="noreferrer"
+				>
+					{item.label}
+				</a>
+			);
 		}
-		return `/${otherLang}`;
-	})();
 
-	return (
-		<>
-			<header className={styles.header}>
+		return (
+			<Link
+				key={`${item.label}-${item.href}`}
+				href={item.href}
+				className={className}
+			>
+				{item.label}
+			</Link>
+		);
+	}
+
+			return (
+				<>
+					<header className={styles.header}>
 				<div className={styles.left}>
 					<Logo size={30} />
 					<span className={styles.brand}>Érick Lúcio</span>
@@ -49,11 +79,7 @@ export default function Menu(props: MenuProps) {
 
 				<nav className={styles.navDesktop} aria-label="Primary">
 					{buttons.map((btn, index) => (
-						<Link
-							key={index}
-							href={btn.href}
-							className={styles.link}
-						>
+						<Link key={index} href={btn.href} className={styles.link}>
 							<span className={styles.hash}>#</span>
 							{btn.label}
 						</Link>
@@ -61,23 +87,14 @@ export default function Menu(props: MenuProps) {
 				</nav>
 
 				<div className={styles.right}>
-					{cvHref ? (
-						<a
-							className={styles.action}
-							href={cvHref}
-							target="_blank"
-							rel="noreferrer"
-						>
-							CV
-						</a>
-					) : null}
+					{actions?.map((item) => renderItem(item, styles.action))}
 
-					{showLangToggle ? (
-						<Link className={styles.action} href={langSwitchHref}>
-							{currentLangLabel} → {otherLangLabel}
-						</Link>
-					) : null}
-
+					<Link href={languageLinks.pt} className={styles.action}>
+						PT
+					</Link>
+					<Link href={languageLinks.en} className={styles.action}>
+						EN
+					</Link>
 					<button
 						type="button"
 						className={styles.navMobileButton}
@@ -94,27 +111,29 @@ export default function Menu(props: MenuProps) {
 			{mobileOpen ? (
 				<div className={styles.panel} aria-label="Mobile menu">
 					<nav className={styles.panelList}>
-						{cvHref ? (
-							<a
-								className={styles.action}
-								href={cvHref}
-								target="_blank"
-								rel="noreferrer"
-								onClick={() => setMobileOpen(false)}
-							>
-								CV
-							</a>
-						) : null}
-
-						{showLangToggle ? (
-							<Link
-								className={styles.action}
-								href={langSwitchHref}
-								onClick={() => setMobileOpen(false)}
-							>
-								{currentLangLabel} → {otherLangLabel}
-							</Link>
-						) : null}
+						{actions?.map((item) =>
+							isExternalLink(item) ? (
+								<a
+									key={`${item.label}-${item.href}`}
+									className={styles.action}
+									href={item.href}
+									target="_blank"
+									rel="noreferrer"
+									onClick={() => setMobileOpen(false)}
+								>
+									{item.label}
+								</a>
+							) : (
+								<Link
+									key={`${item.label}-${item.href}`}
+									className={styles.action}
+									href={item.href}
+									onClick={() => setMobileOpen(false)}
+								>
+									{item.label}
+								</Link>
+							),
+						)}
 
 						{buttons.map((btn, index) => (
 							<Link
@@ -127,6 +146,15 @@ export default function Menu(props: MenuProps) {
 								{btn.label}
 							</Link>
 						))}
+						<div className={styles.link}>
+							<Link href={languageLinks.pt} onClick={() => setMobileOpen(false)}>
+								PT
+							</Link>{" "}
+							/{" "}
+							<Link href={languageLinks.en} onClick={() => setMobileOpen(false)}>
+								EN
+							</Link>
+						</div>
 					</nav>
 				</div>
 			) : null}
