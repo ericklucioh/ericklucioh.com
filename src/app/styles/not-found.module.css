@@ -3,8 +3,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100%;
-	margin-top: -7%;
 }
 
 .section-404 article.main {
@@ -13,6 +11,27 @@
 	justify-content: center;
 	flex-direction: column;
 	margin: 0;
+}
+
+.shell {
+	padding: 24px 28px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.kicker {
+	padding: 0 0 14px;
+	font-family: var(--font-fira-code);
+	font-size: 20px;
+	font-weight: 500;
+	width: 100%;
+	max-width: 520px;
+}
+
+.hash {
+	color: var(--text-accent);
+	margin-right: 4px;
 }
 
 .section-404 .main p.big-number {
@@ -36,7 +55,6 @@
 	justify-content: flex-end;
 	width: 100%;
 	margin-top: 10px;
-	margin-right: -50px;
 }
 
 .section-404 article.button-container .go-home-button {

@@ -3,12 +3,11 @@ import BaseDecor from "@/components/decorations/BaseDecor";
 import DotGrid from "@/components/decorations/DotGrid";
 import Square from "@/components/decorations/Square";
 import { Button } from "@mui/material";
-import * as styleImport from "@/app/styles/not-found.module.css";
-import { useRouter } from "next/navigation"; // Alterado aquiconst style = styleImport as any;
-const style = styleImport as any;
+import styles from "@/app/styles/not-found.module.css";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
-	const router = useRouter(); // Inicialize o hook
+	const router = useRouter();
 	return (
 		<>
 			<BaseDecor bottom left x={6} y={9}>
@@ -27,53 +26,35 @@ export default function NotFound() {
 				<DotGrid />
 			</BaseDecor>
 
-			{/* */}
-			<main
-				style={{
-					width: "100%",
-					display: "flex",
-					alignItems: "center",
-					flexDirection: "column",
-					height: "100dvh",
-				}}
-			>
-				<section
-					style={{
-						padding: "25px",
-						fontFamily: "var(--font-fira-code)",
-						fontSize: "20px",
-						fontWeight: "500",
-					}}
-				>
-					<p>
-						<span
-							style={{
-								color: "var(--text-accent)",
-							}}
-						>
-							#
-						</span>
-						Sorry!
-					</p>
-				</section>
+			<div className="flex min-h-screen w-full items-center justify-center p-6">
+				<main className="site-main">
+					<div className={styles.shell}>
+						<section className={styles.kicker}>
+							<p>
+								<span className={styles.hash}>#</span>
+								Sorry!
+							</p>
+						</section>
 
-				<section className={style["section-404"]}>
-					<article className={style.main}>
-						<p className={style["big-number"]}>
-							<span>/</span>404
-						</p>
-						<p className={style["small-text"]}>Page not Found</p>
-					</article>
-					<article className={style["button-container"]}>
-						<Button
-							onClick={() => router.push("/")}
-							className={style["go-home-button"]}
-						>
-							Go home
-						</Button>
-					</article>
-				</section>
-			</main>
+						<section className={styles["section-404"]}>
+							<article className={styles.main}>
+								<p className={styles["big-number"]}>
+									<span>/</span>404
+								</p>
+								<p className={styles["small-text"]}>Page not Found</p>
+							</article>
+							<article className={styles["button-container"]}>
+								<Button
+									onClick={() => router.push("/")}
+									className={styles["go-home-button"]}
+								>
+									Go home
+								</Button>
+							</article>
+						</section>
+					</div>
+				</main>
+			</div>
 		</>
 	);
 }

@@ -5,7 +5,7 @@ import { Settings } from "@mui/icons-material";
 
 export default function Maintenance() {
 	return (
-		<main className="relative flex flex-col justify-center items-center h-screen w-full overflow-hidden text-white">
+		<main className="site-main relative flex flex-col justify-center items-center h-screen w-full overflow-hidden text-white">
 			<header
 				style={{ marginTop: "-100px" }}
 				className="mb-8 text-center"

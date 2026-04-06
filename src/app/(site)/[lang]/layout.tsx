@@ -1,35 +1,29 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Menu from "@/components/layout/Menu";
-
-const SUPPORTED_LANGS = ["pt", "en"] as const;
-type SupportedLang = (typeof SUPPORTED_LANGS)[number];
+import SiteChrome from "@/components/layout/SiteChrome";
+import { copy, isLang, LANGS } from "@/lib/i18n";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-	return SUPPORTED_LANGS.map((lang) => ({ lang }));
-}
-
-function isSupportedLang(lang: string): lang is SupportedLang {
-	return (SUPPORTED_LANGS as readonly string[]).includes(lang);
+	return LANGS.map((lang) => ({ lang }));
 }
 
 export async function generateMetadata({
 	params,
 }: {
-	params: { lang: string };
+	params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
-	const lang = params.lang;
-	if (!isSupportedLang(lang)) notFound();
+	const { lang } = await params;
+	if (!isLang(lang)) notFound();
 
-	const isPt = lang === "pt";
-	const title = isPt
-		? "Érick Lúcio | Desenvolvedor Backend"
-		: "Érick Lúcio | Backend Developer";
-	const description = isPt
-		? "Portfólio de Érick Lúcio — backend, APIs, dados e IA aplicada (RAG)."
-		: "Érick Lúcio portfolio — backend, APIs, data, and applied AI (RAG).";
+	const isEnglish = lang === "en";
+	const title = isEnglish
+		? "Érick Lúcio | Backend + AI Developer"
+		: "Érick Lúcio | Desenvolvedor Backend + IA";
+	const description = isEnglish
+		? "Backend and applied AI engineer building reliable APIs and production-ready solutions."
+		: "Engenheiro de backend e IA aplicada, construindo APIs confiáveis e soluções prontas para produção.";
 
 	return {
 		title,
@@ -37,7 +31,16 @@ export async function generateMetadata({
 		openGraph: {
 			title,
 			description,
-			locale: isPt ? "pt_BR" : "en_US",
+			url: `https://ericklucioh.com/${lang}`,
+			siteName: "Érick Lúcio",
+			images: [
+				{
+					url: "https://ericklucioh.com/foto.png",
+					width: 1200,
+					height: 630,
+				},
+			],
+			locale: isEnglish ? "en_US" : "pt_BR",
 			type: "website",
 		},
 		alternates: {
@@ -49,36 +52,28 @@ export async function generateMetadata({
 	};
 }
 
-export default function LangLayout({
+export default async function LangLayout({
 	children,
 	params,
 }: {
 	children: React.ReactNode;
-	params: { lang: string };
+	params: Promise<{ lang: string }>;
 }) {
-	const lang = params.lang;
-	if (!isSupportedLang(lang)) notFound();
+	const { lang } = await params;
+	if (!isLang(lang)) notFound();
 
-	const labels =
-		lang === "pt"
-			? { home: "home", about: "sobre", projects: "projetos", links: "links" }
-			: { home: "home", about: "about", projects: "projects", links: "links" };
+	const nav = copy[lang].nav;
 
 	return (
-		<>
-			<Menu
-				lang={lang}
-				labels={labels}
-				buttons={[
-					{ label: labels.home, href: `/${lang}` },
-					{ label: labels.about, href: `/${lang}/about` },
-					{ label: labels.projects, href: `/${lang}/projects` },
-					{ label: labels.links, href: `/${lang}/links` },
-				]}
-				cvHref={lang === "pt" ? "/cv/Erick-Lucio-CV-PT.pdf" : "/cv/Erick-Lucio-CV-EN.pdf"}
-			/>
-			<div style={{ paddingTop: "var(--header-h)" }}>{children}</div>
-		</>
+		<SiteChrome
+			buttons={[
+				{ label: nav.home, href: `/${lang}` },
+				{ label: nav.about, href: `/${lang}/about` },
+				{ label: nav.projects, href: `/${lang}/projects` },
+				{ label: nav.blog, href: `/${lang}/blog` },
+			]}
+		>
+			{children}
+		</SiteChrome>
 	);
 }
-
