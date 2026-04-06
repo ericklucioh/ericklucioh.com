@@ -120,6 +120,120 @@ body {
 	color: var(--text-secondary);
 }
 
+/* Markdown typography */
+.markdown {
+	color: var(--text-primary);
+	line-height: 1.75;
+}
+
+.markdown p {
+	margin-top: 12px;
+}
+
+.markdown p:first-child {
+	margin-top: 0;
+}
+
+.markdown a {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+}
+
+.markdown ul,
+.markdown ol {
+	margin-top: 12px;
+	padding-left: 18px;
+}
+
+.markdown li {
+	margin: 6px 0;
+}
+
+.markdown li::marker {
+	color: var(--text-secondary);
+}
+
+.markdown :is(h1, h2, h3, h4) {
+	margin-top: 28px;
+	margin-bottom: 10px;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.markdown h1 {
+	font-size: 44px;
+}
+
+.markdown h2 {
+	font-size: 28px;
+}
+
+.markdown h3 {
+	font-size: 20px;
+}
+
+.markdown h4 {
+	font-size: 16px;
+}
+
+/* Visual hashes for headings (no SEO/semantic impact) */
+.markdown h1::before {
+	content: "# ";
+	color: var(--text-secondary);
+}
+
+.markdown h2::before {
+	content: "## ";
+	color: var(--text-secondary);
+}
+
+.markdown h3::before {
+	content: "### ";
+	color: var(--text-secondary);
+}
+
+.markdown h4::before {
+	content: "#### ";
+	color: var(--text-secondary);
+}
+
+.markdown pre {
+	margin-top: 16px;
+	padding: 14px 16px;
+	overflow: auto;
+	border: 1px solid color-mix(in srgb, var(--text-secondary) 35%, transparent);
+	background: color-mix(in srgb, var(--bg-page) 90%, transparent);
+}
+
+.markdown code {
+	font-family: var(--font-fira-code), monospace;
+	font-size: 0.95em;
+}
+
+.markdown :not(pre) > code {
+	padding: 2px 6px;
+	border: 1px solid color-mix(in srgb, var(--text-secondary) 35%, transparent);
+	background: color-mix(in srgb, var(--bg-page) 86%, transparent);
+}
+
+.markdown hr {
+	border: none;
+	border-top: 1px solid color-mix(in srgb, var(--text-secondary) 35%, transparent);
+	margin: 22px 0;
+}
+
+.markdown blockquote {
+	margin-top: 16px;
+	padding-left: 14px;
+	border-left: 2px solid color-mix(in srgb, var(--text-secondary) 60%, transparent);
+	color: color-mix(in srgb, var(--text-secondary) 75%, var(--text-primary));
+}
+
+.markdown .hljs {
+	background: transparent;
+}
+
 /* Conteúdo com decor por trás: escurece/suaviza só na área do <main class="site-main"> */
 .site-main {
 	position: relative;
