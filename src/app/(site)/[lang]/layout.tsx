@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Menu from "@/components/layout/Menu";
+import SiteChrome from "@/components/layout/SiteChrome";
 import { copy, isLang, LANGS } from "@/lib/i18n";
 
 export const dynamicParams = false;
@@ -63,21 +63,17 @@ export default async function LangLayout({
 	if (!isLang(lang)) notFound();
 
 	const nav = copy[lang].nav;
-	const cvHref = lang === "en" ? "/cv/Erick-Lucio-CV-EN.pdf" : "/cv/Erick-Lucio-CV-PT.pdf";
 
 	return (
-		<>
-			<Menu
-				buttons={[
-					{ label: nav.home, href: `/${lang}` },
-					{ label: nav.about, href: `/${lang}/about` },
-					{ label: nav.projects, href: `/${lang}/projects` },
-					{ label: nav.blog, href: `/${lang}/blog` },
-					{ label: nav.links, href: `/${lang}/links` },
-				]}
-				actions={[{ label: nav.cv, href: cvHref, external: true }]}
-			/>
-			<div style={{ paddingTop: "var(--header-h)" }}>{children}</div>
-		</>
+		<SiteChrome
+			buttons={[
+				{ label: nav.home, href: `/${lang}` },
+				{ label: nav.about, href: `/${lang}/about` },
+				{ label: nav.projects, href: `/${lang}/projects` },
+				{ label: nav.blog, href: `/${lang}/blog` },
+			]}
+		>
+			{children}
+		</SiteChrome>
 	);
 }

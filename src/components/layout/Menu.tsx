@@ -43,6 +43,16 @@ export default function Menu(props: MenuProps) {
 		[pathname],
 	);
 
+	const langToggle = useMemo(() => {
+		const segments = pathname.split("/").filter(Boolean);
+		const current = segments[0] === "en" ? "en" : "pt";
+		const other = current === "pt" ? "en" : "pt";
+		return {
+			label: `${current.toUpperCase()} → ${other.toUpperCase()}`,
+			href: languageLinks[other],
+		};
+	}, [languageLinks, pathname]);
+
 	function renderItem(item: MenuItem, className: string) {
 		if (isExternalLink(item)) {
 			return (
@@ -89,11 +99,8 @@ export default function Menu(props: MenuProps) {
 				<div className={styles.right}>
 					{actions?.map((item) => renderItem(item, styles.action))}
 
-					<Link href={languageLinks.pt} className={styles.action}>
-						PT
-					</Link>
-					<Link href={languageLinks.en} className={styles.action}>
-						EN
+					<Link href={langToggle.href} className={styles.action}>
+						{langToggle.label}
 					</Link>
 					<button
 						type="button"
@@ -147,12 +154,8 @@ export default function Menu(props: MenuProps) {
 							</Link>
 						))}
 						<div className={styles.link}>
-							<Link href={languageLinks.pt} onClick={() => setMobileOpen(false)}>
-								PT
-							</Link>{" "}
-							/{" "}
-							<Link href={languageLinks.en} onClick={() => setMobileOpen(false)}>
-								EN
+							<Link href={langToggle.href} onClick={() => setMobileOpen(false)}>
+								{langToggle.label}
 							</Link>
 						</div>
 					</nav>

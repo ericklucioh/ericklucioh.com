@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import Buttons from "@/components/linktree/Buttons";
 import * as db from "@/app/linktree/db";
 import BaseDecor from "@/components/decorations/BaseDecor";
@@ -30,6 +31,10 @@ export async function generateMetadata({
 }
 
 export default function Page({ params }: { params: { lang: "pt" | "en" } }) {
+	if (params.lang === "en") {
+		redirect("/pt/links");
+	}
+
 	const isPt = params.lang === "pt";
 
 	return (
@@ -85,4 +90,3 @@ export default function Page({ params }: { params: { lang: "pt" | "en" } }) {
 		</div>
 	);
 }
-
