@@ -13,7 +13,7 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 	const visiblePosts = activeTag ? posts.filter((post) => post.tags.includes(activeTag)) : posts;
 
 	return (
-		<main className="mx-auto max-w-5xl p-6 md:p-10">
+		<>
 			<h1 className="mb-3 text-3xl font-semibold">Blog</h1>
 			<p className="mb-6 text-[var(--text-secondary)]">
 				{lang === "en"
@@ -22,14 +22,14 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 			</p>
 
 			<div className="mb-8 flex flex-wrap gap-2">
-				<Link href={`/${lang}/blog`} className="rounded-full border border-[var(--text-third)] px-3 py-1 text-sm">
+				<Link href={`/${lang}/blog`} className="border border-[var(--text-third)] px-3 py-1 text-sm">
 					{lang === "en" ? "All" : "Todos"}
 				</Link>
 				{tags.map((tag) => (
 					<Link
 						key={tag}
 						href={`/${lang}/blog?tag=${tag}`}
-						className="rounded-full border border-[var(--text-third)] px-3 py-1 text-sm"
+						className="border border-[var(--text-third)] px-3 py-1 text-sm"
 					>
 						#{tag}
 					</Link>
@@ -40,7 +40,7 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 				{visiblePosts.map((post) => (
 					<article
 						key={post.slug}
-						className="rounded-2xl border border-[var(--text-third)] p-5 transition hover:border-[var(--color-aux-blue)]"
+						className="border border-[var(--text-third)] p-5 transition hover:border-[var(--color-aux-blue)]"
 					>
 						<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 							{new Date(post.publishedAt).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
@@ -64,6 +64,6 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 					</p>
 				) : null}
 			</section>
-		</main>
+		</>
 	);
 }

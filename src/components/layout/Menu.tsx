@@ -104,7 +104,7 @@ export default function Menu(props: MenuProps) {
 					>
 						{mobileOpen ? "×" : "≡"}
 					</button>
-					<DarkModeToggle />
+					{/* <DarkModeToggle /> */}
 				</div>
 			</header>
 

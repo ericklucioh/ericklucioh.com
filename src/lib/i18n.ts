@@ -12,7 +12,6 @@ export const copy = {
 			home: "home",
 			about: "sobre",
 			projects: "projetos",
-			links: "links",
 			cv: "Baixar CV",
 			blog: "blog",
 		},

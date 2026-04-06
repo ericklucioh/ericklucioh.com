@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import SiteFrame from "@/components/layout/SiteFrame";
 import { isLang, LANGS, type Lang } from "@/lib/i18n";
 import { getBlogPostBySlug, getBlogPosts } from "@/lib/content";
 
@@ -18,20 +19,20 @@ export default async function BlogPostPage({
 	if (!post) notFound();
 
 	return (
-		<main className="mx-auto max-w-3xl p-6 md:p-10">
+		<SiteFrame mainClassName="mx-auto max-w-3xl p-6 md:p-10">
 			<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 				{new Date(post.publishedAt).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 			</p>
 			<h1 className="mb-4 text-3xl font-semibold">{post.title[lang as Lang]}</h1>
 			<p className="mb-8 text-[var(--text-secondary)]">{post.excerpt[lang as Lang]}</p>
 
-			<article className="space-y-4 rounded-2xl border border-[var(--text-third)] p-6">
+			<article className="space-y-4 border border-[var(--text-third)] p-6">
 				{post.content[lang as Lang].map((paragraph) => (
 					<p key={paragraph} className="leading-7 text-[var(--text-secondary)]">
 						{paragraph}
 					</p>
 				))}
 			</article>
-		</main>
+		</SiteFrame>
 	);
 }
