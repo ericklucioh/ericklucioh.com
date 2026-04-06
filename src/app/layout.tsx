@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto, Fira_Code } from "next/font/google";
+import Providers from "./providers";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
@@ -40,13 +41,15 @@ export default function RootLayout({
   children: React.ReactNode 
 }) {
   return (
-    <html  lang="pt-br" className={`dark ${firaCode.variable}`}>
+    <html lang="pt-br" className={firaCode.variable} suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="dark light" />
         {/* <link rel="icon" type="image/svg+xml" sizes="32x32" href="" /> */}
       </head>
       <body className={firaCode.className}>
         {/* <Menu isOpen somethingDarkModeToggle /> */}
-        {children}</body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

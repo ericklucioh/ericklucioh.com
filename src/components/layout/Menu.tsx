@@ -5,16 +5,12 @@ import Logo from "@/components/ui/Logo";
 import DarkModeToggle from "@/components/ui/DarkModeToggle";
 import styles from "./Menu.module.css";
 
-type MenuProps =
-  | { variant: "toggle" }
-  | {
-      buttons: { label: string; href: string }[];
-    };
+type MenuProps = {
+  buttons: { label: string; href: string }[];
+};
 
 export default function Menu(props: MenuProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  if (!("buttons" in props)) return <DarkModeToggle />;
 
   const { buttons } = props;
 

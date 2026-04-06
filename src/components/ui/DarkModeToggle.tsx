@@ -1,41 +1,28 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import styleModel from "./DarkModeToggle.module.css";
 const style = styleModel as any;
 
 export default function DarkModeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Inicializa o estado baseado no localStorage ou na classe do html
-  useEffect(() => {
-    const html = document.documentElement;
-
-    // Lê preferência salva no localStorage
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-      html.classList.add("dark");
-      setIsDark(true);
-    } else if (savedTheme === "light") {
-      html.classList.remove("dark");
-      setIsDark(false);
-    } else {
-      // Caso não tenha nada salvo, usa a classe do html (ex: do sistema ou server)
-      const currentDark = html.classList.contains("dark");
-      setIsDark(currentDark);
-    }
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   const toggleDark = () => {
     const html = document.documentElement;
-    html.classList.toggle("dark");
-    const dark = html.classList.contains("dark");
-    setIsDark(dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
+    html.classList.add("theme-transition");
+    void html.offsetHeight;
+    const next = resolvedTheme === "dark" ? "light" : "dark";
+    setTheme(next);
+    window.setTimeout(() => html.classList.remove("theme-transition"), 320);
   };
 
+  const isDark = resolvedTheme === "dark";
+
   return (
-    <label className={style.container}>
+    <label className={style.container} style={{ visibility: mounted ? "visible" : "hidden" }}>
       <input type="checkbox" checked={isDark} onChange={toggleDark} id="toggle" />
       <span className={style.slider + " " + style.round}>
         <div className={style.background}></div>

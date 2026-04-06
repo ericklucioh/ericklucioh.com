@@ -37,7 +37,16 @@ body {
     font-family: var(--font-fira-code), monospace;
     color: var(--text-primary);
 }
-/* Overlay para animação da esquerda pra direita */
-* {
+
+/* Transição de tema: só quando o toggle pedir (sem "delay" no load) */
+:root.theme-transition,
+:root.theme-transition * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root.theme-transition,
+  :root.theme-transition * {
+    transition: none !important;
+  }
 }
