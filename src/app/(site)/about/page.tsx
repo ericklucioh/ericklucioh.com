@@ -44,7 +44,7 @@ export default function Page() {
 							<span className={styles.pill}>RAG</span>
 							<span className={styles.pill}>Azure</span>
 							<span className={styles.pill}>
-								PostgreSQL • MongoDB • Redis
+								PostgreSQL • MongoDB
 							</span>
 						</div>
 					</div>
@@ -206,7 +206,7 @@ export default function Page() {
 							</div>
 							<p className={styles.cardBody}>
 								APIs REST, Node.js, modelagem, PostgreSQL,
-								MongoDB, Redis.
+								MongoDB.
 							</p>
 						</div>
 						<div className={`${styles.card} ${styles.span6}`}>

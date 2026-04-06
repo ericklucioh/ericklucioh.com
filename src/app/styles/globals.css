@@ -14,13 +14,6 @@
 	}
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background-start-rgb: var(--bg-page);
-		--background-end-rgb: var(--bg-page);
-	}
-}
-
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
