@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 
 type SquareProps = {
   sizeX?: number;
@@ -12,18 +12,11 @@ export default function Square({
   sizeY = 100,
   borderWidth = 1,
 }: SquareProps) {
-  const [isSmall, setIsSmall] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => setIsSmall(window.innerWidth <= 600);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, []);
-
-  const finalSizeX = isSmall ? sizeX * 0.8 : sizeX;
-  const finalSizeY = isSmall ? sizeY * 0.8 : sizeY;
-  const finalBorder = isSmall ? 0.5 : borderWidth;
+  const cssVars = {
+    ["--ui-square-x-base" as any]: `${sizeX}px`,
+    ["--ui-square-y-base" as any]: `${sizeY}px`,
+    ["--ui-square-border-base" as any]: `${borderWidth}px`,
+  } as CSSProperties;
 
   return (
     <>
@@ -38,11 +31,9 @@ export default function Square({
       `}</style>
 
       <div
-        className="square"
+        className="ui-square"
         style={{
-          width: `${finalSizeX}px`,
-          height: `${finalSizeY}px`,
-          border: `${finalBorder}px solid var(--decor)`,
+          ...cssVars,
           animation: "sambaSquare 4s ease-in-out infinite",
         }}
       />

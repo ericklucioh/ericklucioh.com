@@ -72,3 +72,51 @@ main > :not([data-decor]) {
     transition: none !important;
   }
 }
+
+/* Logo sizing (avoid client-side resize flicker on mobile) */
+.ui-logo {
+  width: var(--ui-logo-size);
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .ui-logo {
+    width: calc(var(--ui-logo-size) * var(--ui-logo-small-scale));
+  }
+}
+
+/* Decorations: size via CSS (avoid resize flicker on mobile) */
+.ui-dotgrid {
+  --ui-dot-size: var(--ui-dot-size-base);
+  --ui-dot-gap: var(--ui-dot-gap-base);
+  display: grid;
+}
+
+.ui-dotgrid__dot {
+  width: var(--ui-dot-size);
+  height: var(--ui-dot-size);
+  background: var(--decor);
+  border-radius: 50%;
+}
+
+.ui-square {
+  --ui-square-x: var(--ui-square-x-base);
+  --ui-square-y: var(--ui-square-y-base);
+  --ui-square-border: var(--ui-square-border-base);
+  width: var(--ui-square-x);
+  height: var(--ui-square-y);
+  border: var(--ui-square-border) solid var(--decor);
+}
+
+@media (max-width: 600px) {
+  .ui-dotgrid {
+    --ui-dot-size: max(1px, calc(var(--ui-dot-size-base) - 1px));
+    --ui-dot-gap: max(2px, calc(var(--ui-dot-gap-base) - 1px));
+  }
+
+  .ui-square {
+    --ui-square-x: calc(var(--ui-square-x-base) * 0.8);
+    --ui-square-y: calc(var(--ui-square-y-base) * 0.8);
+    --ui-square-border: 0.5px;
+  }
+}

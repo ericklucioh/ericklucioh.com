@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import type { CSSProperties } from "react";
 
 export default function DotGrid({
   rows = 5,
@@ -16,29 +16,20 @@ export default function DotGrid({
   style?: React.CSSProperties;
   className?: string;
 }) {
-  const [isSmall, setIsSmall] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => setIsSmall(window.innerWidth <= 600);
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, []);
-
-  const finalRows = isSmall ? Math.max(1, rows) : rows;
-  const finalCols = isSmall ? Math.max(1, cols) : cols;
-  const finalSize = isSmall ? Math.max(1, size - 1) : size;
-  const finalGap = isSmall ? Math.max(2, gap - 1) : gap;
+  const cssVars = {
+    ["--ui-dot-size-base" as any]: `${size}px`,
+    ["--ui-dot-gap-base" as any]: `${gap}px`,
+  } as CSSProperties;
 
   return (
     <div
-      className={className}
+      className={`ui-dotgrid ${className}`}
       style={{
-        display: "grid",
-        gridTemplateColumns: `repeat(${finalCols}, ${finalSize}px)`,
-        gridTemplateRows: `repeat(${finalRows}, ${finalSize}px)`,
-        gap: `${finalGap}px`,
+        ...cssVars,
         ...style,
+        gridTemplateColumns: `repeat(${cols}, var(--ui-dot-size))`,
+        gridTemplateRows: `repeat(${rows}, var(--ui-dot-size))`,
+        gap: "var(--ui-dot-gap)",
       }}
     >
       <style>{`
@@ -49,14 +40,11 @@ export default function DotGrid({
         }
       `}</style>
 
-      {Array.from({ length: finalRows * finalCols }).map((_, i) => (
+      {Array.from({ length: rows * cols }).map((_, i) => (
         <span
           key={i}
+          className="ui-dotgrid__dot"
           style={{
-            width: `${finalSize}px`,
-            height: `${finalSize}px`,
-            background: "var(--decor)",
-            borderRadius: "50%",
             animation: `floatDot ${2 + (i % 5)}s ease-in-out infinite`,
             animationDelay: `${i * 0.15}s`,
           }}

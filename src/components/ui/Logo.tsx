@@ -1,5 +1,4 @@
-"use client";
-import { useEffect, useState } from "react";
+import type { CSSProperties } from "react";
 
 interface LogoProps {
   size?: number;
@@ -7,39 +6,24 @@ interface LogoProps {
 }
 
 export default function Logo({ size = 70, smallSize = 1 }: LogoProps) {
-  const [finalSize, setFinalSize] = useState(size);
-
-  // Detecta largura da tela
-  useEffect(() => {
-    function updateSize() {
-      if (window.innerWidth < 600) {
-        setFinalSize(size * smallSize);
-      } else {
-        setFinalSize(size);
-      }
-    }
-
-    updateSize(); // roda ao montar
-    window.addEventListener("resize", updateSize);
-
-    return () => window.removeEventListener("resize", updateSize);
-  }, [size, smallSize]);
+  const style = {
+    ["--ui-logo-size" as any]: `${size}px`,
+    ["--ui-logo-small-scale" as any]: String(smallSize),
+  } as CSSProperties;
 
   return (
     <>
       <img
-        id="logo"
-        width={finalSize}
         src="/logoDark.svg"
         alt="Logo"
-        className="dark:hidden"
+        className="ui-logo dark:hidden"
+        style={style}
       />
       <img
-        id="logo"
-        width={finalSize}
         src="/logoWhite.svg"
         alt="Logo"
-        className="hidden dark:block"
+        className="ui-logo hidden dark:block"
+        style={style}
       />
     </>
   );
