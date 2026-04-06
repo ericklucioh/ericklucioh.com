@@ -22,17 +22,17 @@ export default async function ProjectCasePage({
 	const localizedSections = item.sections[lang as Lang];
 
 	return (
-		<SiteFrame mainClassName="mx-auto max-w-4xl p-6 md:p-10">
+		<SiteFrame mainClassName="w-full max-w-[860px] mx-auto px-[var(--page-gutter)] py-7 pb-[60px]">
 			<p className="mb-2 text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">
 				{lang === "en" ? "Case study" : "Estudo de caso"}
 			</p>
-			<h1 className="mb-3 text-3xl font-semibold">{item.title[lang as Lang]}</h1>
-			<p className="mb-6 text-[var(--text-secondary)]">{item.summary[lang as Lang]}</p>
+			<h1 className="ui-title">{item.title[lang as Lang]}</h1>
+			<p className="ui-subtitle">{item.summary[lang as Lang]}</p>
 
 			<div className="mb-8 grid gap-3 sm:grid-cols-3">
 				{item.impact.length ? (
 					item.impact.map((metric) => (
-						<div key={metric.label} className="border border-[var(--text-third)] p-4">
+						<div key={metric.label} className="ui-card">
 							<p className="text-xs uppercase text-[var(--text-secondary)]">{metric.label}</p>
 							<p className="text-lg font-semibold">{metric.value}</p>
 						</div>
@@ -44,7 +44,7 @@ export default async function ProjectCasePage({
 				)}
 			</div>
 
-			<figure className="mb-8 border border-[var(--text-third)] p-3">
+			<figure className="ui-card mb-8 p-3">
 				<Image
 					src={item.image}
 					alt={item.title[lang as Lang]}
@@ -57,14 +57,16 @@ export default async function ProjectCasePage({
 			<section className="space-y-4">
 				{localizedSections.length ? (
 					localizedSections.map((section) => (
-						<article key={section.title} className="border border-[var(--text-third)] p-5">
+						<article key={section.title} className="ui-card">
 							<h2 className="mb-2 text-xl font-semibold">{section.title}</h2>
-							<p className="text-[var(--text-secondary)]">{section.body}</p>
+							<p className="ui-subtitle" style={{ marginTop: 10 }}>
+								{section.body}
+							</p>
 						</article>
 					))
 				) : (
-					<article className="border border-dashed border-[var(--text-third)] p-5">
-						<p className="text-[var(--text-secondary)]">
+					<article className="ui-card" style={{ borderStyle: "dashed" }}>
+						<p className="ui-subtitle" style={{ marginTop: 0 }}>
 							{lang === "en"
 								? "Detailed sections are being prepared for this case."
 								: "As seções detalhadas deste case estão sendo preparadas."}

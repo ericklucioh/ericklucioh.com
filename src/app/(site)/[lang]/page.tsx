@@ -15,22 +15,22 @@ export default async function HomePage({
 
 	return (
 		<SiteFrame>
-			<section className="mb-10 border border-[var(--text-third)] p-6 md:p-8">
+			<section className="ui-card ui-cardLg mb-10">
 				<p className="mb-3 text-sm uppercase tracking-widest text-[var(--text-secondary)]">
 					{t.targetRole}
 				</p>
-				<h1 className="mb-4 text-3xl font-semibold md:text-5xl">{t.headline}</h1>
-				<p className="max-w-3xl text-lg text-[var(--text-secondary)]">{t.subheadline}</p>
+				<h1 className="ui-title">{t.headline}</h1>
+				<p className="ui-subtitle">{t.subheadline}</p>
 			</section>
 
 			<section className="grid gap-4 md:grid-cols-3">
 				{t.highlights.map((item) => (
 					<article
 						key={item.title}
-						className="border border-[var(--text-third)] p-5"
+						className="ui-card"
 					>
 						<h2 className="mb-3 text-xl font-semibold">{item.title}</h2>
-						<ul className="list-disc space-y-2 pl-5 text-sm text-[var(--text-secondary)]">
+						<ul className="ui-list text-sm">
 							{item.bullets.map((bullet) => (
 								<li key={bullet}>{bullet}</li>
 							))}

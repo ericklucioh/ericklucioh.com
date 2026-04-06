@@ -19,16 +19,16 @@ export default async function BlogPostPage({
 	if (!post) notFound();
 
 	return (
-		<SiteFrame mainClassName="mx-auto max-w-3xl p-6 md:p-10">
+		<SiteFrame mainClassName="w-full max-w-[780px] mx-auto px-[var(--page-gutter)] py-7 pb-[60px]">
 			<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 				{new Date(post.publishedAt).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 			</p>
-			<h1 className="mb-4 text-3xl font-semibold">{post.title[lang as Lang]}</h1>
-			<p className="mb-8 text-[var(--text-secondary)]">{post.excerpt[lang as Lang]}</p>
+			<h1 className="ui-title">{post.title[lang as Lang]}</h1>
+			<p className="ui-subtitle">{post.excerpt[lang as Lang]}</p>
 
-			<article className="space-y-4 border border-[var(--text-third)] p-6">
+			<article className="ui-card ui-cardLg space-y-4">
 				{post.content[lang as Lang].map((paragraph) => (
-					<p key={paragraph} className="leading-7 text-[var(--text-secondary)]">
+					<p key={paragraph} className="leading-7 text-[var(--text-primary)]">
 						{paragraph}
 					</p>
 				))}

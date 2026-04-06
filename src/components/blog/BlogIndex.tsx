@@ -14,22 +14,22 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 
 	return (
 		<>
-			<h1 className="mb-3 text-3xl font-semibold">Blog</h1>
-			<p className="mb-6 text-[var(--text-secondary)]">
+			<h1 className="ui-title">Blog</h1>
+			<p className="ui-subtitle">
 				{lang === "en"
 					? "Notes about backend, AI, and software delivery."
 					: "Notas sobre backend, IA e entrega de software."}
 			</p>
 
-			<div className="mb-8 flex flex-wrap gap-2">
-				<Link href={`/${lang}/blog`} className="border border-[var(--text-third)] px-3 py-1 text-sm">
+			<div className="ui-pillRow">
+				<Link href={`/${lang}/blog`} className="ui-pill">
 					{lang === "en" ? "All" : "Todos"}
 				</Link>
 				{tags.map((tag) => (
 					<Link
 						key={tag}
 						href={`/${lang}/blog?tag=${tag}`}
-						className="border border-[var(--text-third)] px-3 py-1 text-sm"
+						className="ui-pill"
 					>
 						#{tag}
 					</Link>
@@ -40,13 +40,15 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 				{visiblePosts.map((post) => (
 					<article
 						key={post.slug}
-						className="border border-[var(--text-third)] p-5 transition hover:border-[var(--color-aux-blue)]"
+						className="ui-card transition hover:border-[var(--color-aux-blue)]"
 					>
 						<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 							{new Date(post.publishedAt).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 						</p>
 						<h2 className="mb-2 text-xl font-semibold">{post.title[lang]}</h2>
-						<p className="mb-4 text-[var(--text-secondary)]">{post.excerpt[lang]}</p>
+						<p className="ui-subtitle" style={{ marginTop: 0 }}>
+							{post.excerpt[lang]}
+						</p>
 						<div className="mb-3 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
 							{post.tags.map((item) => (
 								<span key={item}>#{item}</span>

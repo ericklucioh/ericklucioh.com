@@ -8,7 +8,7 @@ type SiteFrameProps = {
 
 export default function SiteFrame({
 	children,
-	mainClassName = "mx-auto max-w-5xl p-6 md:p-10",
+	mainClassName = "w-full max-w-[980px] mx-auto px-[var(--page-gutter)] py-7 pb-[60px]",
 	withDecor = true,
 }: SiteFrameProps) {
 	return (

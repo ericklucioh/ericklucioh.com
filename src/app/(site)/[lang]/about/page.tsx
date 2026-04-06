@@ -38,62 +38,74 @@ export default async function AboutPage({
 
 	return (
 		<SiteFrame>
-			<section className="mb-8 border border-[var(--text-third)] p-6">
-				<h1 className="mb-4 text-3xl font-semibold">{t.title}</h1>
-				<p className="text-[var(--text-secondary)]">{t.description}</p>
+			<section className="ui-card ui-cardLg">
+				<h1 className="ui-title">{t.title}</h1>
+				<p className="ui-subtitle">{t.description}</p>
 			</section>
 
-			<section className="mb-8">
-				<h2 className="mb-4 text-2xl font-semibold">{t.skillsTitle}</h2>
+			<section className="mt-12">
+				<h2 className="ui-sectionTitle">{t.skillsTitle}</h2>
 				<div className="grid gap-4 md:grid-cols-2">
-					<article className="border border-[var(--text-third)] p-4">
-						<h3 className="mb-2 font-semibold">Backend</h3>
-						<p className="text-sm text-[var(--text-secondary)]">{t.skills.backend}</p>
+					<article className="ui-card">
+						<h3 className="font-semibold">Backend</h3>
+						<p className="ui-subtitle" style={{ marginTop: 10 }}>
+							{t.skills.backend}
+						</p>
 					</article>
-					<article className="border border-[var(--text-third)] p-4">
-						<h3 className="mb-2 font-semibold">Dados</h3>
-						<p className="text-sm text-[var(--text-secondary)]">{t.skills.data}</p>
+					<article className="ui-card">
+						<h3 className="font-semibold">Dados</h3>
+						<p className="ui-subtitle" style={{ marginTop: 10 }}>
+							{t.skills.data}
+						</p>
 					</article>
-					<article className="border border-[var(--text-third)] p-4">
-						<h3 className="mb-2 font-semibold">Cloud</h3>
-						<p className="text-sm text-[var(--text-secondary)]">{t.skills.cloud}</p>
+					<article className="ui-card">
+						<h3 className="font-semibold">Cloud</h3>
+						<p className="ui-subtitle" style={{ marginTop: 10 }}>
+							{t.skills.cloud}
+						</p>
 					</article>
-					<article className="border border-[var(--text-third)] p-4">
-						<h3 className="mb-2 font-semibold">Observabilidade / DevOps</h3>
-						<p className="text-sm text-[var(--text-secondary)]">{t.skills.devops}</p>
+					<article className="ui-card">
+						<h3 className="font-semibold">Observabilidade / DevOps</h3>
+						<p className="ui-subtitle" style={{ marginTop: 10 }}>
+							{t.skills.devops}
+						</p>
 					</article>
 				</div>
 			</section>
 
-			<section className="mb-8 border border-[var(--text-third)] p-6">
-				<h2 className="mb-4 text-2xl font-semibold">{lang === "en" ? "Experience" : "Experiência"}</h2>
-				<div className="space-y-3">
+			<section className="mt-12">
+				<h2 className="ui-sectionTitle">{lang === "en" ? "Experience" : "Experiência"}</h2>
+				<div className="mt-4 grid gap-4 md:grid-cols-2">
 					{experience[lang as Lang].map((item) => (
-						<div key={`${item.period}-${item.role}`} className="border border-[var(--text-third)] p-4">
+						<article key={`${item.period}-${item.role}`} className="ui-card">
 							<p className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 								{item.period}
 							</p>
-							<p className="font-semibold">{item.role}</p>
-							<p className="text-sm text-[var(--text-secondary)]">{item.company}</p>
-						</div>
+							<p style={{ marginTop: 10 }} className="font-semibold">
+								{item.role}
+							</p>
+							<p style={{ marginTop: 10 }} className="text-sm text-[var(--text-secondary)]">
+								{item.company}
+							</p>
+						</article>
 					))}
 				</div>
 			</section>
 
-			<section className="mb-8 border border-[var(--text-third)] p-6">
-				<h2 className="mb-4 text-2xl font-semibold">Stack (real use)</h2>
-				<ul className="grid gap-2 text-sm text-[var(--text-secondary)] md:grid-cols-2">
+			<section className="mt-12">
+				<h2 className="ui-sectionTitle">Stack</h2>
+				<ul className="mt-4 grid gap-4 md:grid-cols-2">
 					{stackLevel.map((item) => (
-						<li key={item} className="border border-[var(--text-third)] p-3">
+						<li key={item} className="ui-card">
 							{item}
 						</li>
 					))}
 				</ul>
 			</section>
 
-			<section className="border border-[var(--text-third)] p-6">
-				<h2 className="mb-3 text-2xl font-semibold">{t.availableTitle}</h2>
-				<ul className="list-disc space-y-2 pl-5 text-[var(--text-secondary)]">
+			<section className="mt-12">
+				<h2 className="ui-sectionTitle">{t.availableTitle}</h2>
+				<ul className="ui-list">
 					{t.available.map((item) => (
 						<li key={item}>{item}</li>
 					))}
