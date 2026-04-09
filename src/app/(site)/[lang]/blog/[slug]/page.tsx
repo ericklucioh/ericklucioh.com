@@ -24,7 +24,7 @@ export default async function BlogPostPage({
 	}
 
 	return (
-		<SiteFrame mainClassName="w-full max-w-[960px] mx-auto px-6 md:px-10 py-7 pb-[60px]">
+		<SiteFrame mainClassName="w-full max-w-[960px] mx-auto px-6 md:px-10 py-7 pb-16">
 			<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 				{new Date(post.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 			</p>

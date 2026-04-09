@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Menu from "@/components/layout/Menu";
+import Footer from "@/components/layout/Footer";
 
 type MenuItem = {
 	label: string;
@@ -28,9 +29,10 @@ export default function SiteChrome({ buttons, actions, children }: SiteChromePro
 	}
 
 	return (
-		<>
+		<div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
 			<Menu buttons={buttons} actions={actions} />
-			<div style={{ paddingTop: "var(--header-h)" }}>{children}</div>
-		</>
+			<div style={{ paddingTop: "var(--header-h)", flex: "1 0 auto" }}>{children}</div>
+			<Footer />
+		</div>
 	);
 }

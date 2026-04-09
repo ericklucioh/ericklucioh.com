@@ -8,71 +8,69 @@ export function isLang(value: string): value is Lang {
 
 export const copy = {
 	pt: {
-		nav: {
-			home: "home",
-			about: "sobre",
-			projects: "projetos",
-			blog: "blog",
-		},
-		home: {
-			targetRole: "Backend + IA",
-			headline: "Desenvolvedor de Software",
-			subheadline:
-				"API sólida, dados organizados e IA aplicada com foco em produção, custo e resultado.",
-			highlights: [
-				{
-					title: "Backend / APIs",
-					bullets: [
-						"Node.js + TypeScript para APIs REST",
-						"Modelagem de domínio e integrações",
-						"Observabilidade e manutenção",
-					],
-				},
-				{
-					title: "Dados",
-					bullets: [
-						"PostgreSQL e MongoDB em cenários reais",
-						"Pipelines simples com foco em valor",
-						"Consultas e estrutura para escala",
-					],
-				},
-				{
-					title: "IA / RAG",
-					bullets: [
-						"Ingestão, chunking e indexação",
-						"Assistentes orientados a contexto",
-						"Fluxos com Azure AI Foundry",
-					],
-				},
-			],
-			cta: "Vamos conversar sobre seu projeto",
-		},
-		about: {
-			title: "Sobre",
-			description:
-				"Atuo na construção de soluções backend e IA aplicada para gerar resultado mensurável: menos retrabalho, mais previsibilidade e melhor tomada de decisão.",
-			skillsTitle: "Skills",
-			skills: {
-				backend: "Node.js, TypeScript, APIs REST, arquitetura",
-				data: "PostgreSQL, MongoDB, SQL, pipelines",
-				cloud: "Azure, deploy, custos e segurança básica",
-				devops: "Docker, CI/CD, monitoramento e logs",
-			},
-			availableTitle: "Disponível para",
-			available: ["Remoto ou híbrido", "Brasil (SC) e fuso UTC-3", "Vagas Backend ou Backend + IA"],
-		},
-		projects: {
-			title: "Projetos",
-			subtitle: "Página preparada para receber os cases reais.",
-			soon: "em breve",
-			cards: [
-				"Plataforma de análise de custos com IA",
-				"RAG para documentos técnicos",
-				"API de integração ERP + BI",
-				"Dashboard operacional com alertas",
-			],
-		},
-	},
+  nav: {
+    home: "home",
+    about: "sobre",
+    projects: "projetos",
+    blog: "blog",
+  },
+  home: {
+    targetRole: "Backend",
+    headline: "Desenvoldedor de Software",
+    subheadline:
+      "Transformação de texto em dados estruturados com pré-processamento, regras e LLM quando necessário.",
+    highlights: [
+      {
+        title: "Interpretação",
+        bullets: [
+          "Regex e heurística antes da LLM",
+          "Normalização de termos e aliases",
+          "Redução de ambiguidade na entrada",
+        ],
+      },
+      {
+        title: "Estruturação",
+        bullets: [
+          "Geração de JSON intermediário",
+          "Validação e correção fora da LLM",
+          "Regras de negócio aplicadas por código",
+        ],
+      },
+      {
+        title: "Execução",
+        bullets: [
+          "APIs em Node.js + TypeScript",
+          "Integração com banco e pipelines",
+          "Controle de fluxo e observabilidade",
+        ],
+      },
+    ]
+  },
+  about: {
+    title: "Sobre",
+    description:
+      "Construção de backend e IA aplicada com foco em controle de execução, previsibilidade e redução de custo de inferência.",
+    skillsTitle: "Skills",
+    skills: {
+      backend: "Node.js, TypeScript, APIs REST, arquitetura",
+      data: "PostgreSQL, MongoDB, SQL, pipelines",
+      cloud: "Azure, deploy e custos",
+      devops: "Docker, CI/CD, monitoramento",
+    },
+    availableTitle: "Disponível para",
+    available: ["Remoto ou híbrido", "Brasil (SC) UTC-3", "Backend ou Backend + IA"],
+  },
+  projects: {
+    title: "Projetos",
+    subtitle: "Casos reais e experimentos.",
+    soon: "em breve",
+    cards: [
+      "NL2SQL com validação por regras",
+      "RAG com pré-processamento determinístico",
+      "Integração ERP com camada semântica",
+      "Pipeline de análise de custos",
+    ],
+  }},
 	en: {
 		nav: {
 			home: "home",

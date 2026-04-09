@@ -8,11 +8,11 @@ type SiteFrameProps = {
 
 export default function SiteFrame({
 	children,
-	mainClassName = "w-full max-w-[980px] mx-auto px-[var(--page-gutter)] py-7 pb-[60px]",
+	mainClassName = "w-full max-w-[980px] mx-auto px-[var(--page-gutter)] py-7 pb-16",
 	withDecor = true,
-}: SiteFrameProps) {
+	}: SiteFrameProps) {
 	return (
-		<div className="min-h-screen w-full">
+		<div className="min-h-full w-full">
 			{withDecor ? <SiteDecor /> : null}
 			<div className={mainClassName}>
 				<main className="site-main">{children}</main>

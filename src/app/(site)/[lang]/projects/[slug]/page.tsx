@@ -22,7 +22,7 @@ export default async function ProjectCasePage({
 	const localizedSections = item.sections[lang as Lang];
 
 	return (
-		<SiteFrame mainClassName="w-full max-w-[860px] mx-auto px-[var(--page-gutter)] py-7 pb-[60px]">
+		<SiteFrame mainClassName="w-full max-w-[860px] mx-auto px-[var(--page-gutter)] py-7 pb-16">
 			<p className="mb-2 text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">
 				{lang === "en" ? "Case study" : "Estudo de caso"}
 			</p>

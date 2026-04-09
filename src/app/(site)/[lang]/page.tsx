@@ -38,24 +38,6 @@ export default async function HomePage({
 					</article>
 				))}
 			</section>
-
-			<footer className="mt-10 bg-[var(--color-aux-blue)] p-6 text-white">
-				<p className="mb-4 text-xl font-semibold">{t.cta}</p>
-				<div className="flex flex-wrap gap-3">
-					<a className="rounded-none bg-white px-4 py-2 text-black" href="mailto:contato@ericklucioh.com">
-						Email
-					</a>
-					<a
-						className="rounded-none border border-white px-4 py-2"
-						href="https://www.linkedin.com/in/ericklucioh/"
-					>
-						LinkedIn
-					</a>
-					<Link className="rounded-none border border-white px-4 py-2" href="/links">
-						GitHub
-					</Link>
-				</div>
-			</footer>
 		</SiteFrame>
 	);
 }
