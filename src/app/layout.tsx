@@ -1,10 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins, Roboto, Fira_Code } from "next/font/google";
 import Providers from "./providers";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
 import "highlight.js/styles/github-dark.css";
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
+	viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
 	title: "Érick Lúcio | Developer",
