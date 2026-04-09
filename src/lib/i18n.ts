@@ -16,7 +16,7 @@ export const copy = {
 		},
 		home: {
 			targetRole: "Backend + IA",
-			headline: "Eu construo backends e produtos com IA que viram entrega real.",
+			headline: "Desenvolvedor de Software",
 			subheadline:
 				"API sólida, dados organizados e IA aplicada com foco em produção, custo e resultado.",
 			highlights: [
@@ -83,7 +83,7 @@ export const copy = {
 		},
 		home: {
 			targetRole: "Backend + AI",
-			headline: "I build backend and AI products that ship real outcomes.",
+			headline: "Sofware developer",
 			subheadline:
 				"Reliable APIs, clean data foundations, and practical AI focused on production value.",
 			highlights: [
