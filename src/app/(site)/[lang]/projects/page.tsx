@@ -44,14 +44,6 @@ export default async function ProjectsPage({
 					</article>
 				))}
 			</section>
-
-			<div className="ui-card mt-8" style={{ borderStyle: "dashed" }}>
-				<p className="ui-subtitle" style={{ marginTop: 0 }}>
-					{lang === "en"
-						? "Route reserved and active for detailed pages at /projects/[slug]."
-						: "Rota reservada e ativa para páginas detalhadas em /projects/[slug]."}
-				</p>
-			</div>
 		</SiteFrame>
 	);
 }

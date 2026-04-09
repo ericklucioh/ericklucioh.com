@@ -1,5 +1,6 @@
 "use client";
 
+import Logo from "../ui/Logo";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
 
 	return (
 		<footer className={styles.footer}>
-			<div className={styles.left}>© {year} Érick Lúcio</div>
+			<div className={styles.center}>© {year} Érick Lúcio</div>
 			<nav className={styles.right} aria-label="Footer">
 				<a className={styles.link} href="mailto:contato@ericklucioh.com">
 					Email
