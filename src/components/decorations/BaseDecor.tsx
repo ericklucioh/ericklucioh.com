@@ -13,6 +13,8 @@ export default function BaseDecor({
 	yMobile,
 	children,
 	position = "fixed",
+	xUnit = "percent",
+	yUnit = "vh",
 	enableRide = false,
 	lockToInitialPx = false,
 	zIndex = 0,
@@ -29,6 +31,8 @@ export default function BaseDecor({
 	yMobile?: number;
 	children: React.ReactNode;
 	position?: "fixed" | "absolute";
+	xUnit?: "percent" | "vh" | "px";
+	yUnit?: "percent" | "vh" | "px";
 	enableRide?: boolean;
 	lockToInitialPx?: boolean;
 	zIndex?: number;
@@ -65,23 +69,23 @@ export default function BaseDecor({
 		? lockedOffsets
 			? `${lockedOffsets.xPx}px`
 			: "0px"
-		: "var(--decor-x-current)";
+		: `calc(var(--decor-x-current) * ${getCssUnitScale(xUnit)})`;
 	const yValue = lockToInitialPx
 		? lockedOffsets
 			? `${lockedOffsets.yPx}px`
 			: "0px"
-		: "var(--decor-y-current)";
+		: `calc(var(--decor-y-current) * ${getCssUnitScale(yUnit)})`;
 
 	const cssVars = {
 		"--decor-scale": `${desktopScale}`,
 		"--decor-scale-mobile": `${mobileScale}`,
-		"--decor-x": `${x}%`,
+		"--decor-x": `${x}`,
 		...(typeof xMobile === "number"
-			? { "--decor-x-mobile": `${xMobile}%` }
+			? { "--decor-x-mobile": `${xMobile}` }
 			: null),
-		"--decor-y": `${y}%`,
+		"--decor-y": `${y}`,
 		...(typeof yMobile === "number"
-			? { "--decor-y-mobile": `${yMobile}%` }
+			? { "--decor-y-mobile": `${yMobile}` }
 			: null),
 	} as any;
 
@@ -107,4 +111,16 @@ export default function BaseDecor({
 			{children}
 		</div>
 	);
+}
+
+function getCssUnitScale(unit: "percent" | "vh" | "px") {
+	if (unit === "px") {
+		return "1px";
+	}
+
+	if (unit === "vh") {
+		return "1vh";
+	}
+
+	return "1%";
 }

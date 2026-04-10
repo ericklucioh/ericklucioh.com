@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Menu from "@/components/layout/Menu";
 import Footer from "@/components/layout/Footer";
+import DecorLayer from "@/components/decorations/DecorLayer";
 import SiteDecor from "@/components/layout/SiteDecor";
 
 type MenuItem = {
@@ -29,7 +30,7 @@ export default function SiteChrome({ buttons, actions, children }: SiteChromePro
 		return <>{children}</>;
 	}
 
-	return (
+		return (
 		<div
 			style={{
 				minHeight: "100dvh",
@@ -38,18 +39,9 @@ export default function SiteChrome({ buttons, actions, children }: SiteChromePro
 				position: "relative",
 			}}
 		>
-			<div
-				aria-hidden="true"
-				style={{
-					position: "absolute",
-					inset: "var(--header-h) 0 0 0",
-					overflow: "clip",
-					pointerEvents: "none",
-					zIndex: 0,
-				}}
-			>
+			<DecorLayer inset="var(--header-h) 0 0 0">
 				<SiteDecor />
-			</div>
+			</DecorLayer>
 			<Menu buttons={buttons} actions={actions} />
 			<div
 				style={{

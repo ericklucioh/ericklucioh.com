@@ -1,3 +1,4 @@
+import DecorLayer from "@/components/decorations/DecorLayer";
 import SiteDecor from "@/components/layout/SiteDecor";
 
 type SiteFrameProps = {
@@ -14,18 +15,9 @@ export default function SiteFrame({
 	return (
 		<div className="min-h-full w-full relative">
 			{withDecor ? (
-				<div
-					aria-hidden="true"
-					style={{
-						position: "absolute",
-						inset: 0,
-						overflow: "clip",
-						pointerEvents: "none",
-						zIndex: 0,
-					}}
-				>
+				<DecorLayer>
 					<SiteDecor />
-				</div>
+				</DecorLayer>
 			) : null}
 			<div className={`${mainClassName} relative z-10`}>
 				<main className="site-main">{children}</main>
