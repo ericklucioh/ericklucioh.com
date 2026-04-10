@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
-import { copy, isLang, type Lang } from "@/lib/i18n";
+import { copy, getLocalizedPath, isLang, type Lang } from "@/lib/i18n";
 import { getCaseStudies } from "@/lib/content";
 
 export default async function ProjectsPage({
@@ -16,7 +16,7 @@ export default async function ProjectsPage({
 	const cases = getCaseStudies();
 
 	return (
-		<SiteFrame>
+		<SiteFrame withDecor={false}>
 			<h1 className="ui-title">{t.title}</h1>
 			<p className="ui-subtitle">{t.subtitle}</p>
 
@@ -37,7 +37,10 @@ export default async function ProjectsPage({
 							<span className="ui-pill">
 								{item.status === "active" ? (lang === "en" ? "active" : "ativo") : t.soon}
 							</span>
-							<Link href={`/${lang}/projects/${item.slug}`} className="text-sm underline">
+							<Link
+								href={getLocalizedPath(lang, "projects", item.slug)}
+								className="text-sm underline"
+							>
 								{lang === "en" ? "Open case study" : "Abrir case study"}
 							</Link>
 						</div>

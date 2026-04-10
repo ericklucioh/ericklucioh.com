@@ -1,5 +1,6 @@
 "use client";
 import type { CSSProperties } from "react";
+import usePersistentAnimationElapsed from "@/components/decorations/usePersistentAnimationElapsed";
 
 export default function DotGrid({
 	rows = 5,
@@ -16,6 +17,7 @@ export default function DotGrid({
 	style?: React.CSSProperties;
 	className?: string;
 }) {
+	const elapsedSeconds = usePersistentAnimationElapsed();
 	const cssVars = {
 		["--ui-dot-size-base" as any]: `${size}px`,
 		["--ui-dot-gap-base" as any]: `${gap}px`,
@@ -46,7 +48,7 @@ export default function DotGrid({
 					className="ui-dotgrid__dot"
 					style={{
 						animation: `floatDot ${2 + (i % 5)}s ease-in-out infinite`,
-						animationDelay: `${i * 0.15}s`,
+						animationDelay: `${-((elapsedSeconds + i * 0.15) % (2 + (i % 5)))}s`,
 					}}
 				/>
 			))}

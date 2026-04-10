@@ -1,5 +1,6 @@
 "use client";
 import type { CSSProperties } from "react";
+import usePersistentAnimationElapsed from "@/components/decorations/usePersistentAnimationElapsed";
 
 type SquareProps = {
 	sizeX?: number;
@@ -12,6 +13,7 @@ export default function Square({
 	sizeY = 100,
 	borderWidth = 1,
 }: SquareProps) {
+	const elapsedSeconds = usePersistentAnimationElapsed();
 	const cssVars = {
 		["--ui-square-x-base" as any]: `${sizeX}px`,
 		["--ui-square-y-base" as any]: `${sizeY}px`,
@@ -35,6 +37,7 @@ export default function Square({
 				style={{
 					...cssVars,
 					animation: "sambaSquare 4s ease-in-out infinite",
+					animationDelay: `${-((elapsedSeconds + (sizeX + sizeY) / 240) % 4)}s`,
 				}}
 			/>
 		</>

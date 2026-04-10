@@ -2,8 +2,8 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { swapLangPath } from "@/lib/i18n";
 import Logo from "@/components/ui/Logo";
-import DarkModeToggle from "@/components/ui/DarkModeToggle";
 import styles from "./Menu.module.css";
 
 type MenuItem = {
@@ -17,15 +17,6 @@ type MenuProps = {
 	actions?: MenuItem[];
 };
 
-function swapLang(pathname: string, target: "pt" | "en") {
-	const segments = pathname.split("/").filter(Boolean);
-	if (segments[0] === "pt" || segments[0] === "en") {
-		segments[0] = target;
-		return `/${segments.join("/")}`;
-	}
-	return `/${target}`;
-}
-
 function isExternalLink(item: MenuItem) {
 	return item.external ?? (item.href.startsWith("http") || item.href.endsWith(".pdf"));
 }
@@ -37,8 +28,8 @@ export default function Menu(props: MenuProps) {
 
 	const languageLinks = useMemo(
 		() => ({
-			pt: swapLang(pathname, "pt"),
-			en: swapLang(pathname, "en"),
+			pt: swapLangPath(pathname, "pt"),
+			en: swapLangPath(pathname, "en"),
 		}),
 		[pathname],
 	);

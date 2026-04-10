@@ -20,6 +20,7 @@ export default function Buttons({ items }: ButtonsProps) {
 					id={item.id.toString()}
 					href={item.link}
 					target="_blank"
+					rel="noreferrer"
 				>
 					<div className={style["button"]}>
 						{/* <div dangerouslySetInnerHTML={{ __html: item.svg }} /> */}

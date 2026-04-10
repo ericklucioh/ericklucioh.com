@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteChrome from "@/components/layout/SiteChrome";
-import { copy, isLang, LANGS } from "@/lib/i18n";
+import { copy, getLocalizedPath, isLang, LANGS } from "@/lib/i18n";
 
 export const dynamicParams = false;
 
@@ -67,10 +67,10 @@ export default async function LangLayout({
 	return (
 		<SiteChrome
 			buttons={[
-				{ label: nav.home, href: `/${lang}` },
-				{ label: nav.about, href: `/${lang}/about` },
-				{ label: nav.projects, href: `/${lang}/projects` },
-				{ label: nav.blog, href: `/${lang}/blog` },
+				{ label: nav.home, href: getLocalizedPath(lang, "home") },
+				{ label: nav.about, href: getLocalizedPath(lang, "about") },
+				{ label: nav.projects, href: getLocalizedPath(lang, "projects") },
+				{ label: nav.blog, href: getLocalizedPath(lang, "blog") },
 			]}
 		>
 			{children}

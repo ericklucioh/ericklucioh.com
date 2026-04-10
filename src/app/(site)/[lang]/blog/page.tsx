@@ -18,7 +18,7 @@ export default async function BlogPage({
 	const tags = Array.from(new Set(posts.flatMap((post) => post.tags ?? []))).sort();
 
 	return (
-		<SiteFrame>
+		<SiteFrame withDecor={false}>
 			<Suspense fallback={<BlogIndex lang={lang as Lang} posts={posts} tags={tags} />}>
 				<BlogIndexClient lang={lang as Lang} posts={posts} tags={tags} />
 			</Suspense>

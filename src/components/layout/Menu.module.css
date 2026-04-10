@@ -79,11 +79,18 @@
 		color-mix(in srgb, var(--text-secondary) 40%, transparent);
 	background: color-mix(in srgb, var(--bg-page) 80%, transparent);
 	color: var(--text-primary);
+	white-space: nowrap;
 }
 
 .hash {
 	color: var(--text-secondary);
 	margin-right: 0.25rem;
+}
+
+.action:focus-visible,
+.link:focus-visible {
+	outline: 2px solid color-mix(in srgb, var(--text-secondary) 55%, transparent);
+	outline-offset: 2px;
 }
 
 @media (max-width: 600px) {

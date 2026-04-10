@@ -12,6 +12,7 @@ export default function BaseDecor({
 	xMobile,
 	yMobile,
 	children,
+	position = "fixed",
 	enableRide = false,
 	lockToInitialPx = false,
 	zIndex = 0,
@@ -27,6 +28,7 @@ export default function BaseDecor({
 	xMobile?: number;
 	yMobile?: number;
 	children: React.ReactNode;
+	position?: "fixed" | "absolute";
 	enableRide?: boolean;
 	lockToInitialPx?: boolean;
 	zIndex?: number;
@@ -87,7 +89,7 @@ export default function BaseDecor({
 		<div
 			data-decor
 			style={{
-				position: "fixed",
+				position,
 				pointerEvents: "none",
 				zIndex,
 				visibility:

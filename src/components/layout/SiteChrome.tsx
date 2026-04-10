@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Menu from "@/components/layout/Menu";
 import Footer from "@/components/layout/Footer";
+import SiteDecor from "@/components/layout/SiteDecor";
 
 type MenuItem = {
 	label: string;
@@ -29,9 +30,37 @@ export default function SiteChrome({ buttons, actions, children }: SiteChromePro
 	}
 
 	return (
-		<div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
+		<div
+			style={{
+				minHeight: "100dvh",
+				display: "flex",
+				flexDirection: "column",
+				position: "relative",
+			}}
+		>
+			<div
+				aria-hidden="true"
+				style={{
+					position: "absolute",
+					inset: "var(--header-h) 0 0 0",
+					overflow: "clip",
+					pointerEvents: "none",
+					zIndex: 0,
+				}}
+			>
+				<SiteDecor />
+			</div>
 			<Menu buttons={buttons} actions={actions} />
-			<div style={{ paddingTop: "var(--header-h)", flex: "1 0 auto" }}>{children}</div>
+			<div
+				style={{
+					paddingTop: "var(--header-h)",
+					flex: "1 0 auto",
+					position: "relative",
+					zIndex: 1,
+				}}
+			>
+				{children}
+			</div>
 			<Footer />
 		</div>
 	);

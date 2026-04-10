@@ -15,39 +15,44 @@ export const metadata: Metadata = {
 export default function LinksBio() {
 	return (
 		<div
-			style={{
-				width: "100%",
-				height: "100dvh",
-			}}
-			className="flex justify-center items-center h-screen"
+			className="relative flex min-h-[100dvh] w-full items-center justify-center px-[var(--page-gutter)]"
+			style={{ paddingBlock: "clamp(24px, 8vh, 72px)" }}
 		>
-			<BaseDecor top left x={1} y={10}>
-				<DotGrid rows={4} cols={6} gap={20} />
-			</BaseDecor>
-			<BaseDecor bottom left x={2} y={18}>
-				<DotGrid rows={4} cols={6} gap={23} />
-			</BaseDecor>
-			<BaseDecor bottom left x={-1} y={5}>
-				<Square sizeX={90} sizeY={150} />
-			</BaseDecor>
-			<BaseDecor bottom right x={-2} y={10}>
-				<Square sizeX={90} sizeY={210} />
-			</BaseDecor>
-
-			<BaseDecor top right x={0} y={2}>
-				<DotGrid rows={6} cols={4} gap={25} />
-			</BaseDecor>
-
-			<BaseDecor top right x={5} y={-1}>
-				<Square sizeX={160} sizeY={60} />
-			</BaseDecor>
+			<div
+				aria-hidden="true"
+				style={{
+					position: "absolute",
+					inset: 0,
+					overflow: "clip",
+					pointerEvents: "none",
+				}}
+			>
+				<BaseDecor position="absolute" top left x={1} y={9}>
+					<DotGrid rows={4} cols={6} gap={20} />
+				</BaseDecor>
+				<BaseDecor position="absolute" top left x={0} y={80}>
+					<Square sizeX={90} sizeY={150} />
+				</BaseDecor>
+				<BaseDecor position="absolute" top left x={2} y={90}>
+					<DotGrid rows={4} cols={6} gap={23} />
+				</BaseDecor>
+				<BaseDecor position="absolute" top right x={0} y={4}>
+					<DotGrid rows={6} cols={4} gap={25} />
+				</BaseDecor>
+				<BaseDecor position="absolute" top right x={10} y={-1}>
+					<Square sizeX={160} sizeY={60} />
+				</BaseDecor>
+				<BaseDecor position="absolute" top right x={-2} y={48}>
+					<Square sizeX={90} sizeY={210} />
+				</BaseDecor>
+			</div>
 
 			<main
-				style={{ width: "100%", maxWidth: "600px", margin: "10%" }}
-				className="site-main flex flex-col items-center"
+				style={{ width: "100%", maxWidth: "600px" }}
+				className="site-main relative z-10 flex flex-col items-center"
 			>
 				<article className="flex flex-col justify-center items-center">
-					<div className="flex direct-row">
+					<div className="flex flex-row items-center gap-3">
 						<Logo size={62} smallSize={0.6} />
 						<h1 className={style.name}>Érick Lúcio</h1>
 					</div>

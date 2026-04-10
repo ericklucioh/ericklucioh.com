@@ -14,7 +14,7 @@ export default async function HomePage({
 	const t = copy[lang as Lang].home;
 
 	return (
-		<SiteFrame>
+		<SiteFrame withDecor={false}>
 			<section className="ui-card ui-cardLg mb-10">
 				<p className="mb-3 text-sm uppercase tracking-widest text-[var(--text-secondary)]">
 					{t.targetRole}

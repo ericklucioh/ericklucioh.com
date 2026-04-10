@@ -20,9 +20,27 @@
 	}
 }
 
-* {
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 	cursor: default;
 	/* box-shadow: red 0px 0px 0px 1px; */
+}
+
+/* Override the global cursor for interactive elements */
+a,
+button,
+[role="button"],
+input:is([type="button"], [type="submit"], [type="reset"]),
+label[for],
+summary {
+	cursor: pointer;
+}
+
+:disabled,
+[aria-disabled="true"] {
+	cursor: not-allowed;
 }
 
 body {
@@ -120,6 +138,7 @@ body {
 	color: var(--text-secondary);
 }
 
+/* Shared button/link look */
 /* Markdown typography */
 .markdown {
 	color: var(--text-primary);

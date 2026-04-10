@@ -37,7 +37,7 @@ export default async function AboutPage({
 	const t = copy[lang as Lang].about;
 
 	return (
-		<SiteFrame>
+		<SiteFrame withDecor={false}>
 			<section className="ui-card ui-cardLg">
 				<h1 className="ui-title">{t.title}</h1>
 				<p className="ui-subtitle">{t.description}</p>

@@ -1,3 +1,14 @@
+.buttonLink {
+	width: 100%;
+}
+
+.buttonLink a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	outline: none;
+}
+
 .button {
 	border: solid var(--color-aux-blue) 2px;
 	justify-content: center;
@@ -7,20 +18,27 @@
 	margin: 10px 0;
 	width: 100%;
 	padding: 0px;
-
-	transition: 0.3s; /* suaviza o hover */
+	transition:
+		background-color 0.3s ease,
+		box-shadow 0.3s ease,
+		transform 0.12s ease;
 }
-.button:hover {
+
+.button:hover,
+.buttonLink a:focus-visible .button {
 	background-color: var(--action-pressed);
 	box-shadow: 0 4px 8px var(--action-primary);
 }
-.buttonLink:hover * {
-	cursor: pointer;
+
+.buttonLink a:active .button {
+	transform: translateY(1px);
 }
+
 .buttonText {
 	font-size: 30px;
 	transition: 0.3s; /* suaviza o hover */
 }
+
 @media screen and (max-width: 600px) {
 	.buttonText {
 		font-size: 20px;
