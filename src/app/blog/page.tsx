@@ -5,7 +5,7 @@ import { getAllPosts } from "@/lib/posts";
 export const dynamic = "error";
 
 export default async function BlogIndexPage() {
-	const posts = await getAllPosts();
+	const posts = await getAllPosts("pt");
 
 	return (
 		<SiteFrame>

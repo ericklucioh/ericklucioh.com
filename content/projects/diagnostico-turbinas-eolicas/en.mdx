@@ -1,0 +1,86 @@
+---
+title: "Expert System for Wind Turbine Diagnostics"
+date: "2026-04-21"
+excerpt: "A Python prototype that uses IF-THEN rules to support fast fault diagnosis in wind turbines."
+image: "/projects/placeholder.svg"
+tags:
+  - python
+  - symbolic-ai
+  - expert-system
+  - maintenance
+stack:
+  - Python
+  - IF-THEN rules
+  - JSON
+  - Mermaid
+---
+
+<SectionHeader
+  eyebrow="Academic project"
+  title="Expert System for Wind Turbine Diagnostics"
+  description="A simple but useful portfolio case: it turns turbine measurements into explainable diagnostics."
+/>
+
+<Callout title="Goal" tone="info">
+The system helps maintenance technicians interpret critical turbine variables and suggest the next step using rule-based reasoning.
+</Callout>
+
+## How it works
+
+1. An event contains a set of turbine measurements.
+2. The rules engine compares the values against the expected ranges.
+3. The system returns a diagnosis and a justification.
+
+<MetricGrid>
+  <MetricCard label="Variables" value="11" detail="wind, rpm, vibration, temperature, pressure, and consumption" />
+  <MetricCard label="Diagnoses" value="8+" detail="rules focused on common operational failures" />
+  <MetricCard label="Output" value="Explainable" detail="every result includes a reason and a suggested action" />
+  <MetricCard label="Format" value="Static" detail="content is versioned in Git and published without a backend" />
+</MetricGrid>
+
+## Main rules
+
+- **Very low RPM with abnormal wind**: possible sensor or actuator failure.
+- **Hydraulic blade pressure out of range**: possible leak or air in the oil.
+- **Torque out of pattern**: possible calibration error.
+- **High vibration with normal oil temperature**: check the yaw system.
+- **High oil temperature with normal vibration**: temperature adjustment.
+- **Lubricating oil pressure out of range**: possible leak or pump issue.
+- **High vibration, temperature, and noise**: possible bearing failure.
+- **Abnormal electrical consumption**: possible mechanical error.
+- **Power inconsistent with wind**: possible sensor error.
+
+<Callout title="Diagnosis example" tone="warning">
+
+```text
+Diagnosis: Sensor or actuator failure
+Reason: Very low RPM with abnormal wind.
+Suggested action: check the speed sensor and control system.
+```
+
+</Callout>
+
+## Flowchart
+
+<Mermaid
+  title="Rules flowchart"
+  chart={`
+flowchart TD
+  A[Input data] --> B{Wind and RPM aligned?}
+  B -- no --> C[Possible sensor failure]
+  B -- yes --> D{Vibration high?}
+  D -- yes --> E[Check yaw / bearing]
+  D -- no --> F{Temperature high?}
+  F -- yes --> G[Adjust temperature]
+  F -- no --> H[System OK]
+`}/>
+
+<Figure
+  src="/projects/cost-ai-agent-arch.svg"
+  alt="Example architecture visual"
+  caption="The case can use local assets from the site to make the project feel more visual."
+/>
+
+## Closing note
+
+This project works well in a portfolio because it shows rule-based reasoning, explainable diagnosis, and an industrial maintenance focus.

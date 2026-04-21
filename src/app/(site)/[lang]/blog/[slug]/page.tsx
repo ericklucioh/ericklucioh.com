@@ -1,12 +1,31 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
 import MdxContent from "@/components/mdx/MdxContent";
-import { isLang, LANGS } from "@/lib/i18n";
-import { getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { isLang, LANGS, type Lang } from "@/lib/i18n";
+import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/posts";
 
 export async function generateStaticParams() {
 	const slugs = await getPostSlugs();
 	return LANGS.flatMap((lang) => slugs.map((slug) => ({ lang, slug })));
+}
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+	const { lang, slug } = await params;
+	if (!isLang(lang)) notFound();
+
+	const posts = await getAllPosts(lang as Lang);
+	const post = posts.find((item) => item.slug === slug);
+	if (!post) notFound();
+
+	return {
+		title: `${post.title} | ${lang === "en" ? "Blog" : "Blog"}`,
+		description: post.excerpt,
+	};
 }
 
 export default async function BlogPostPage({
@@ -19,7 +38,7 @@ export default async function BlogPostPage({
 
 	let post;
 	try {
-		post = await getPostBySlug(slug);
+		post = await getPostBySlug(slug, lang as Lang);
 	} catch {
 		notFound();
 	}

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
 import MdxContent from "@/components/mdx/MdxContent";
-import { isLang, LANGS } from "@/lib/i18n";
+import { isLang, LANGS, type Lang } from "@/lib/i18n";
 import { getAllProjects, getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 
 export const dynamic = "error";
@@ -22,7 +22,7 @@ export async function generateMetadata({
 	const { lang, slug } = await params;
 	if (!isLang(lang)) notFound();
 
-	const projects = await getAllProjects();
+	const projects = await getAllProjects(lang as Lang);
 	const project = projects.find((item) => item.slug === slug);
 	if (!project) notFound();
 
@@ -40,7 +40,7 @@ export default async function ProjectCasePage({
 	const { lang, slug } = await params;
 	if (!isLang(lang)) notFound();
 
-	const item = await getProjectBySlug(slug).catch(() => null);
+	const item = await getProjectBySlug(slug, lang as Lang).catch(() => null);
 	if (!item) notFound();
 
 	return (

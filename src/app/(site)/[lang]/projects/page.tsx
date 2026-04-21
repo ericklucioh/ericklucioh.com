@@ -16,7 +16,7 @@ export default async function ProjectsPage({
 	if (!isLang(lang)) notFound();
 
 	const t = copy[lang as Lang].projects;
-	const projects = await getAllProjects();
+	const projects = await getAllProjects(lang as Lang);
 
 	return (
 		<SiteFrame

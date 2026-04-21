@@ -14,7 +14,7 @@ export default async function BlogPage({
 	const { lang } = await params;
 	if (!isLang(lang)) notFound();
 
-	const posts = await getAllPosts();
+	const posts = await getAllPosts(lang as Lang);
 	const tags = Array.from(new Set(posts.flatMap((post) => post.tags ?? []))).sort();
 
 	return (
