@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
-import MarkdownContent from "@/components/markdown/MarkdownContent";
+import ProjectMdxContent from "@/components/projects/ProjectMdxContent";
 import { isLang, LANGS } from "@/lib/i18n";
 import { getAllProjects, getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 
@@ -70,7 +70,10 @@ export default async function ProjectCasePage({
 				</div>
 			) : null}
 
-			<MarkdownContent html={item.contentHtml} className="markdown ui-card ui-cardLg mt-10" />
+			<ProjectMdxContent
+				Content={item.Content}
+				className="markdown ui-card ui-cardLg mt-10"
+			/>
 		</SiteFrame>
 	);
 }

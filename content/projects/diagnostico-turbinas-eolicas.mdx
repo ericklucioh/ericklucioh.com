@@ -14,19 +14,28 @@ stack:
   - Mermaid
 ---
 
-# Contexto
+<SectionHeader
+  eyebrow="Projeto academico"
+  title="Sistema Especialista para Diagnostico de Turbinas Eolicas"
+  description="Um protótipo estatisticamente simples, mas útil como portfólio: transforma medições da turbina em diagnóstico explicavel."
+/>
 
-Esse projeto foi pensado para apoiar tecnicos de manutencao em fazendas eolicas, ajudando a identificar
-condicoes anormais a partir de medições da turbina.
-
-O sistema avalia variaveis como vento, rpm, vibracao, temperatura, pressao e consumo para sugerir um diagnostico
-automatico com explicacao.
+<Callout title="Objetivo" tone="info">
+O sistema ajuda tecnicos de manutencao a interpretar variaveis criticas da turbina e sugerir o proximo passo com base em regras.
+</Callout>
 
 ## Como funciona
 
 1. Um evento contem o conjunto de medições da turbina.
 2. O motor de regras compara os valores com os limites esperados.
 3. O sistema retorna um diagnostico e uma justificativa.
+
+<MetricGrid>
+  <MetricCard label="Variaveis" value="11" detail="vento, rpm, vibracao, temperatura, pressao e consumo" />
+  <MetricCard label="Diagnosticos" value="8+" detail="regras focadas em falhas operacionais comuns" />
+  <MetricCard label="Saida" value="Explicavel" detail="cada resultado traz motivo e acao sugerida" />
+  <MetricCard label="Formato" value="Estático" detail="conteudo versionado no Git e publicado sem backend" />
+</MetricGrid>
 
 ## Principais regras
 
@@ -40,7 +49,7 @@ automatico com explicacao.
 - **Consumo eletrico anormal**: possivel erro mecanico.
 - **Potencia incoerente com o vento**: possivel erro de sensor.
 
-## Exemplo de saida
+<Callout title="Exemplo de diagnostico" tone="warning">
 
 ```text
 Diagnostico: Falha de sensor ou atuador
@@ -48,9 +57,13 @@ Motivo: RPM muito baixo com vento fora do normal.
 Acao sugerida: verificar sensor de velocidade e sistema de controle.
 ```
 
+</Callout>
+
 ## Fluxograma
 
-```mermaid
+<Mermaid
+  title="Fluxograma das regras"
+  chart={`
 flowchart TD
   A[Entrada de dados] --> B{Vento e RPM coerentes?}
   B -- nao --> C[Possivel falha de sensor]
@@ -59,9 +72,15 @@ flowchart TD
   D -- nao --> F{Temperatura alta?}
   F -- sim --> G[Ajuste de temperatura]
   F -- nao --> H[Sistema OK]
-```
+`}
+/>
+
+<Figure
+  src="/projects/cost-ai-agent-arch.svg"
+  alt="Exemplo de visual de arquitetura"
+  caption="O case pode usar figuras locais do próprio site para contextualizar o projeto."
+/>
 
 ## Observacao
 
-Esse projeto funciona muito bem como case no portfólio porque mostra raciocinio baseado em regras,
-diagnostico explicavel e foco em manutencao industrial.
+Esse projeto funciona bem no portfólio porque mostra raciocinio baseado em regras, diagnostico explicavel e foco em manutencao industrial.

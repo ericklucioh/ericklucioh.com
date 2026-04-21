@@ -1,12 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import { unified } from "unified";
+import { compile, run } from "@mdx-js/mdx";
+import { cache, type ComponentType } from "react";
 import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
 import rehypeHighlight from "rehype-highlight";
-import rehypeStringify from "rehype-stringify";
+import * as jsxRuntime from "react/jsx-runtime";
 
 export type ProjectFrontmatter = {
 	title: string;
@@ -21,16 +20,14 @@ export type ProjectSummary = ProjectFrontmatter & {
 };
 
 export type Project = ProjectSummary & {
-	contentHtml: string;
+	Content: ComponentType<any>;
 };
 
 const projectsDirectory = path.join(process.cwd(), "content", "projects");
 
-export async function getProjectSlugs() {
-	const entries = await fs.readdir(projectsDirectory, { withFileTypes: true });
-	return entries
-		.filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-		.map((entry) => entry.name.replace(/\.md$/, ""));
+async function readProjectFile(slug: string) {
+	const fullPath = path.join(projectsDirectory, `${slug}.mdx`);
+	return fs.readFile(fullPath, "utf8");
 }
 
 function assertFrontmatter(data: unknown, slug: string): ProjectFrontmatter {
@@ -60,49 +57,47 @@ function assertFrontmatter(data: unknown, slug: string): ProjectFrontmatter {
 	return { title, date, excerpt, tags, stack };
 }
 
-async function markdownToHtml(markdown: string) {
-	const result = await unified()
-		.use(remarkParse)
-		.use(remarkGfm)
-		.use(remarkRehype)
-		.use(rehypeHighlight, { detect: true, ignoreMissing: true })
-		.use(rehypeStringify)
-		.process(markdown);
+async function compileMdx(source: string) {
+	const compiled = await compile(source, {
+		outputFormat: "function-body",
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [[rehypeHighlight, { detect: true, ignoreMissing: true }]],
+	});
 
-	return String(result)
-		.replace(/<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g, (_match, code) => {
-			const decoded = code
-				.replace(/&amp;/g, "&")
-				.replace(/&lt;/g, "<")
-				.replace(/&gt;/g, ">")
-				.replace(/&quot;/g, '"')
-				.replace(/&#39;/g, "'");
+	const mdxModule = await run(String(compiled), {
+		...jsxRuntime,
+		baseUrl: import.meta.url,
+	});
 
-			return `<div class="mermaid">${decoded}</div>`;
-		});
+	return mdxModule.default as ComponentType<any>;
 }
 
-export async function getProjectBySlug(slug: string): Promise<Project> {
-	const fullPath = path.join(projectsDirectory, `${slug}.md`);
-	const file = await fs.readFile(fullPath, "utf8");
+export const getProjectSlugs = cache(async function getProjectSlugs() {
+	const entries = await fs.readdir(projectsDirectory, { withFileTypes: true });
+	return entries
+		.filter((entry) => entry.isFile() && entry.name.endsWith(".mdx"))
+		.map((entry) => entry.name.replace(/\.mdx$/, ""));
+});
+
+export const getProjectBySlug = cache(async function getProjectBySlug(slug: string): Promise<Project> {
+	const file = await readProjectFile(slug);
 	const { data, content } = matter(file);
 
 	const frontmatter = assertFrontmatter(data, slug);
-	const contentHtml = await markdownToHtml(content);
+	const Content = await compileMdx(content);
 
 	return {
 		slug,
 		...frontmatter,
-		contentHtml,
+		Content,
 	};
-}
+});
 
-export async function getAllProjects(): Promise<ProjectSummary[]> {
+export const getAllProjects = cache(async function getAllProjects(): Promise<ProjectSummary[]> {
 	const slugs = await getProjectSlugs();
 	const projects = await Promise.all(
 		slugs.map(async (slug) => {
-			const fullPath = path.join(projectsDirectory, `${slug}.md`);
-			const file = await fs.readFile(fullPath, "utf8");
+			const file = await readProjectFile(slug);
 			const { data } = matter(file);
 			const frontmatter = assertFrontmatter(data, slug);
 			return { slug, ...frontmatter };
@@ -110,4 +105,4 @@ export async function getAllProjects(): Promise<ProjectSummary[]> {
 	);
 
 	return projects.sort((a, b) => (a.date < b.date ? 1 : -1));
-}
+});
