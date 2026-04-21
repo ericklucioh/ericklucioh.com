@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { swapLangPath } from "@/lib/i18n";
 import Logo from "@/components/ui/Logo";
 import styles from "./Menu.module.css";
+import DarkModeToggle from "../ui/DarkModeToggle";
 
 type MenuItem = {
 	label: string;
@@ -102,7 +103,7 @@ export default function Menu(props: MenuProps) {
 					>
 						{mobileOpen ? "×" : "≡"}
 					</button>
-					{/* <DarkModeToggle /> */}
+					<DarkModeToggle />
 				</div>
 			</header>
 
