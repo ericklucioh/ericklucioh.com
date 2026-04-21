@@ -11,7 +11,7 @@ export default async function BlogIndexPage() {
 		<SiteFrame>
 			<header className="ui-card ui-cardLg">
 				<h1 className="ui-title">Blog</h1>
-				<p className="ui-subtitle">Posts em Markdown, exportados como HTML estático.</p>
+				<p className="ui-subtitle">Posts em MDX, exportados como conteúdo estático.</p>
 			</header>
 
 			<section className="mt-12 grid gap-4">
@@ -36,4 +36,3 @@ export default async function BlogIndexPage() {
 		</SiteFrame>
 	);
 }
-

@@ -1,11 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import { compile, run } from "@mdx-js/mdx";
 import { cache, type ComponentType } from "react";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import * as jsxRuntime from "react/jsx-runtime";
+import { compileMdxToComponent } from "@/lib/mdx";
 
 export type ProjectFrontmatter = {
 	title: string;
@@ -57,21 +54,6 @@ function assertFrontmatter(data: unknown, slug: string): ProjectFrontmatter {
 	return { title, date, excerpt, tags, stack };
 }
 
-async function compileMdx(source: string) {
-	const compiled = await compile(source, {
-		outputFormat: "function-body",
-		remarkPlugins: [remarkGfm],
-		rehypePlugins: [[rehypeHighlight, { detect: true, ignoreMissing: true }]],
-	});
-
-	const mdxModule = await run(String(compiled), {
-		...jsxRuntime,
-		baseUrl: import.meta.url,
-	});
-
-	return mdxModule.default as ComponentType<any>;
-}
-
 export const getProjectSlugs = cache(async function getProjectSlugs() {
 	const entries = await fs.readdir(projectsDirectory, { withFileTypes: true });
 	return entries
@@ -84,7 +66,7 @@ export const getProjectBySlug = cache(async function getProjectBySlug(slug: stri
 	const { data, content } = matter(file);
 
 	const frontmatter = assertFrontmatter(data, slug);
-	const Content = await compileMdx(content);
+	const Content = await compileMdxToComponent(content);
 
 	return {
 		slug,

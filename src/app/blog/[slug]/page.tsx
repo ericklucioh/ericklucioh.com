@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
+import MdxContent from "@/components/mdx/MdxContent";
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/posts";
 
 export const dynamicParams = false;
@@ -42,17 +43,14 @@ export default async function BlogPostPage({
 	}
 
 	return (
-		<SiteFrame mainClassName="w-full max-w-[860px] mx-auto px-6 md:px-10 py-7 pb-16">
+		<SiteFrame mainClassName="w-full max-w-[980px] mx-auto px-4 md:px-6 py-7 pb-16">
 			<p className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 				{new Date(post.date).toLocaleDateString("pt-BR")}
 			</p>
 			<h1 className="ui-title">{post.title}</h1>
 			{post.excerpt ? <p className="ui-subtitle">{post.excerpt}</p> : null}
 
-			<article
-				className="markdown ui-card ui-cardLg mt-12"
-				dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-			/>
+			<MdxContent Content={post.Content} className="markdown ui-card ui-cardLg mt-12" />
 		</SiteFrame>
 	);
 }

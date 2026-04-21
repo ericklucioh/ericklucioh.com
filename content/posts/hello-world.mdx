@@ -1,0 +1,60 @@
+---
+title: "Hello, MDX"
+date: "2026-04-06"
+excerpt: "Primeiro post em MDX, com componentes reutilizáveis e export estático."
+tags:
+  - nextjs
+  - mdx
+  - gfm
+---
+
+<SectionHeader
+  eyebrow="Blog técnico"
+  title="Hello, MDX"
+  description="Este post mostra a versão rica do blog: texto, componentes reutilizáveis, Mermaid e imagem local."
+/>
+
+## Introdução
+
+Esse post vive em `content/posts` e é convertido para um componente React durante o build, sem backend e sem CMS.
+
+<Callout title="Resumo" tone="info">
+MDX permite manter o blog estático e, ao mesmo tempo, abrir espaço para diagramas, blocos visuais e composição de conteúdo.
+</Callout>
+
+## Exemplo de código
+
+```ts
+export function greet(name: string) {
+  return `Hello, ${name}`;
+}
+```
+
+<MetricGrid>
+  <MetricCard label="Formato" value="MDX" detail="conteúdo rico com build estático" />
+  <MetricCard label="Uso" value="Blog" detail="texto editorial com componentes" />
+  <MetricCard label="Diagrama" value="Mermaid" detail="renderizado no cliente" />
+  <MetricCard label="Asset" value="Local" detail="imagens servidas do próprio site" />
+</MetricGrid>
+
+## Fluxo
+
+<Mermaid
+  title="Pipeline do post"
+  chart={`
+flowchart LR
+  A[Arquivo MDX] --> B[Compile no build]
+  B --> C[Componente React]
+  C --> D[Export estático]
+`}
+/>
+
+<Figure
+  src="/foto.png"
+  alt="Foto do autor"
+  caption="Figura local reaproveitada como exemplo visual no blog."
+/>
+
+## Fechamento
+
+MDX não obriga a estilizar demais o texto. O uso mais saudável é tratar componentes como ferramentas pontuais, não como substitutos do artigo.

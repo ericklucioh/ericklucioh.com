@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import Mermaid from "@/components/projects/Mermaid";
+import Mermaid from "@/components/mdx/Mermaid";
 
 type Tone = "info" | "success" | "warning";
 
@@ -116,7 +116,7 @@ export function SectionHeader({ eyebrow, title, description }: SectionHeaderProp
 	);
 }
 
-export const projectMdxComponents = {
+export const mdxComponents = {
 	Callout,
 	MetricGrid,
 	MetricCard,

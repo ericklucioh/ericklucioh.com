@@ -1,12 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import { unified } from "unified";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import rehypeHighlight from "rehype-highlight";
+import { cache, type ComponentType } from "react";
+import { compileMdxToComponent } from "@/lib/mdx";
 
 export type PostFrontmatter = {
 	title: string;
@@ -20,17 +16,17 @@ export type PostSummary = PostFrontmatter & {
 };
 
 export type Post = PostSummary & {
-	contentHtml: string;
+	Content: ComponentType<any>;
 };
 
 const postsDirectory = path.join(process.cwd(), "content", "posts");
 
-export async function getPostSlugs() {
+export const getPostSlugs = cache(async function getPostSlugs() {
 	const entries = await fs.readdir(postsDirectory, { withFileTypes: true });
 	return entries
-		.filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
-		.map((entry) => entry.name.replace(/\.md$/, ""));
-}
+		.filter((entry) => entry.isFile() && entry.name.endsWith(".mdx"))
+		.map((entry) => entry.name.replace(/\.mdx$/, ""));
+});
 
 function assertFrontmatter(data: unknown, slug: string): PostFrontmatter {
 	if (!data || typeof data !== "object") {
@@ -54,38 +50,26 @@ function assertFrontmatter(data: unknown, slug: string): PostFrontmatter {
 	return { title, date, excerpt, tags };
 }
 
-async function markdownToHtml(markdown: string) {
-	const result = await unified()
-		.use(remarkParse)
-		.use(remarkGfm)
-		.use(remarkRehype)
-		.use(rehypeHighlight, { detect: true, ignoreMissing: true })
-		.use(rehypeStringify)
-		.process(markdown);
-
-	return String(result);
-}
-
-export async function getPostBySlug(slug: string): Promise<Post> {
-	const fullPath = path.join(postsDirectory, `${slug}.md`);
+export const getPostBySlug = cache(async function getPostBySlug(slug: string): Promise<Post> {
+	const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 	const file = await fs.readFile(fullPath, "utf8");
 	const { data, content } = matter(file);
 
 	const frontmatter = assertFrontmatter(data, slug);
-	const contentHtml = await markdownToHtml(content);
+	const Content = await compileMdxToComponent(content);
 
 	return {
 		slug,
 		...frontmatter,
-		contentHtml,
+		Content,
 	};
-}
+});
 
-export async function getAllPosts(): Promise<PostSummary[]> {
+export const getAllPosts = cache(async function getAllPosts(): Promise<PostSummary[]> {
 	const slugs = await getPostSlugs();
 	const posts = await Promise.all(
 		slugs.map(async (slug) => {
-			const fullPath = path.join(postsDirectory, `${slug}.md`);
+			const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 			const file = await fs.readFile(fullPath, "utf8");
 			const { data } = matter(file);
 			const frontmatter = assertFrontmatter(data, slug);
@@ -94,4 +78,4 @@ export async function getAllPosts(): Promise<PostSummary[]> {
 	);
 
 	return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
-}
+});
