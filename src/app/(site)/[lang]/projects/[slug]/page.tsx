@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
@@ -52,6 +53,20 @@ export default async function ProjectCasePage({
 			</p>
 			<h1 className="ui-title">{item.title}</h1>
 			{item.excerpt ? <p className="ui-subtitle">{item.excerpt}</p> : null}
+
+			{item.image ? (
+				<figure className="ui-card mt-8 p-3">
+					<div className="relative aspect-[16/9] overflow-hidden">
+						<Image
+							src={item.image}
+							alt={item.title}
+							fill
+							sizes="(max-width: 980px) 100vw, 980px"
+							className="object-cover"
+						/>
+					</div>
+				</figure>
+			) : null}
 
 			<div className="mb-6 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
 				<span>{new Date(item.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}</span>

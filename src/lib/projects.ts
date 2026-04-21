@@ -10,6 +10,7 @@ export type ProjectFrontmatter = {
 	excerpt?: string;
 	tags?: string[];
 	stack?: string[];
+	image?: string;
 };
 
 export type ProjectSummary = ProjectFrontmatter & {
@@ -50,8 +51,9 @@ function assertFrontmatter(data: unknown, slug: string): ProjectFrontmatter {
 	const stack = Array.isArray(record.stack)
 		? record.stack.filter((item): item is string => typeof item === "string")
 		: undefined;
+	const image = typeof record.image === "string" ? record.image : undefined;
 
-	return { title, date, excerpt, tags, stack };
+	return { title, date, excerpt, tags, stack, image };
 }
 
 export const getProjectSlugs = cache(async function getProjectSlugs() {

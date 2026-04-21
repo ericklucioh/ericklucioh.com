@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
@@ -31,6 +32,26 @@ export default async function ProjectsPage({
 						key={item.slug}
 						className="ui-card transition hover:-translate-y-0.5 hover:border-[var(--color-aux-blue)]"
 					>
+						<div className="relative mb-4 aspect-[16/10] overflow-hidden border border-[color-mix(in_srgb,var(--text-secondary)_25%,transparent)] bg-[color-mix(in_srgb,var(--bg-page)_88%,transparent)]">
+							{item.image ? (
+								<Image
+									src={item.image}
+									alt={item.title}
+									fill
+									sizes="(max-width: 768px) 100vw, 50vw"
+									className="object-cover"
+								/>
+							) : (
+								<div
+									className="h-full w-full"
+									style={{
+										background:
+											"linear-gradient(135deg, color-mix(in srgb, var(--color-aux-blue) 18%, transparent), color-mix(in srgb, var(--bg-page) 88%, transparent))",
+									}}
+								/>
+							)}
+						</div>
+
 						<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 							{new Date(item.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 						</p>
