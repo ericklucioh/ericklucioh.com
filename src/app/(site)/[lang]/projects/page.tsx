@@ -26,19 +26,19 @@ export default async function ProjectsPage({
 			<h1 className="ui-title">{t.title}</h1>
 			<p className="ui-subtitle">{t.subtitle}</p>
 
-			<section className="grid gap-4 md:grid-cols-2">
+			<section className="space-y-4">
 				{projects.map((item) => (
 					<article
 						key={item.slug}
-						className="ui-card transition hover:-translate-y-0.5 hover:border-[var(--color-aux-blue)]"
+						className="ui-card transition hover:-translate-y-0.5 hover:border-[var(--color-aux-blue)] md:flex md:gap-5 md:p-4"
 					>
-						<div className="relative mb-4 aspect-[16/10] overflow-hidden border border-[color-mix(in_srgb,var(--text-secondary)_25%,transparent)] bg-[color-mix(in_srgb,var(--bg-page)_88%,transparent)]">
+						<div className="relative mb-4 aspect-[16/10] overflow-hidden border border-[color-mix(in_srgb,var(--text-secondary)_25%,transparent)] bg-[color-mix(in_srgb,var(--bg-page)_88%,transparent)] md:mb-0 md:aspect-[4/3] md:w-[220px] md:min-w-[220px] md:shrink-0">
 							{item.image ? (
 								<Image
 									src={item.image}
 									alt={item.title}
 									fill
-									sizes="(max-width: 768px) 100vw, 50vw"
+									sizes="(max-width: 768px) 100vw, 220px"
 									className="object-cover"
 								/>
 							) : (
@@ -52,30 +52,32 @@ export default async function ProjectsPage({
 							)}
 						</div>
 
-						<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-							{new Date(item.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
-						</p>
-						<h2 className="mb-2 text-xl font-semibold">{item.title}</h2>
-						{item.excerpt ? (
-							<p className="ui-subtitle" style={{ marginTop: 10 }}>
-								{item.excerpt}
+						<div className="flex min-w-0 flex-1 flex-col">
+							<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+								{new Date(item.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
 							</p>
-						) : null}
-						<p className="mb-3 text-xs uppercase tracking-wider text-[var(--text-secondary)]">
-							Stack: {(item.stack ?? []).join(", ")}
-						</p>
-						<div className="mb-3 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
-							{(item.tags ?? []).map((tag) => (
-								<span key={tag}>#{tag}</span>
-							))}
-						</div>
-						<div className="flex items-center justify-end gap-2">
-							<Link
-								href={getLocalizedPath(lang, "projects", item.slug)}
-								className="text-sm underline"
-							>
-								{lang === "en" ? "Open case study" : "Abrir case study"}
-							</Link>
+							<h2 className="mb-2 text-xl font-semibold">{item.title}</h2>
+							{item.excerpt ? (
+								<p className="ui-subtitle max-w-none" style={{ marginTop: 10 }}>
+									{item.excerpt}
+								</p>
+							) : null}
+							<p className="mb-3 text-xs uppercase tracking-wider text-[var(--text-secondary)]">
+								Stack: {(item.stack ?? []).join(", ")}
+							</p>
+							<div className="mb-3 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
+								{(item.tags ?? []).map((tag) => (
+									<span key={tag}>#{tag}</span>
+								))}
+							</div>
+							<div className="mt-auto flex items-center justify-end gap-2">
+								<Link
+									href={getLocalizedPath(lang, "projects", item.slug)}
+									className="text-sm underline"
+								>
+									{lang === "en" ? "Open case study" : "Abrir case study"}
+								</Link>
+							</div>
 						</div>
 					</article>
 				))}
