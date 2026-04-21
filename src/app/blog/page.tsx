@@ -1,8 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import SiteFrame from "@/components/layout/SiteFrame";
 import { getAllPosts } from "@/lib/posts";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export const dynamic = "error";
+
+export async function generateMetadata(): Promise<Metadata> {
+	return buildPageMetadata({
+		lang: "pt",
+		title: "Blog | Érick Lúcio",
+		description: "Posts em MDX, exportados como conteúdo estático.",
+		path: "/blog",
+		image: "/og/blog.svg",
+		type: "website",
+		alternates: {
+			pt: "/pt/blog",
+			en: "/en/blog",
+		},
+	});
+}
 
 export default async function BlogIndexPage() {
 	const posts = await getAllPosts("pt");

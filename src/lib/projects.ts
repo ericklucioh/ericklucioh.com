@@ -12,6 +12,7 @@ export type ProjectFrontmatter = {
 	tags?: string[];
 	stack?: string[];
 	image?: string;
+	ogImage?: string;
 };
 
 export type ProjectSummary = ProjectFrontmatter & {
@@ -54,8 +55,9 @@ function assertFrontmatter(data: unknown, slug: string, lang: Lang): ProjectFron
 		? record.stack.filter((item): item is string => typeof item === "string")
 		: undefined;
 	const image = typeof record.image === "string" ? record.image : undefined;
+	const ogImage = typeof record.ogImage === "string" ? record.ogImage : undefined;
 
-	return { title, date, excerpt, tags, stack, image };
+	return { title, date, excerpt, tags, stack, image, ogImage };
 }
 
 async function readProjectDirectoryNames() {

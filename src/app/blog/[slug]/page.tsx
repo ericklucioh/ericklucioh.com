@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
 import MdxContent from "@/components/mdx/MdxContent";
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { buildPageMetadata, resolveSocialImage } from "@/lib/metadata";
 
 export const dynamicParams = false;
 export const dynamic = "error";
@@ -22,10 +23,18 @@ export async function generateMetadata({
 	const post = posts.find((item) => item.slug === slug);
 	if (!post) notFound();
 
-	return {
+	return buildPageMetadata({
+		lang: "pt",
 		title: `${post.title} | Blog`,
 		description: post.excerpt,
-	};
+		path: `/blog/${slug}`,
+		image: resolveSocialImage(post.ogImage),
+		type: "article",
+		alternates: {
+			pt: `/pt/blog/${slug}`,
+			en: `/en/blog/${slug}`,
+		},
+	});
 }
 
 export default async function BlogPostPage({

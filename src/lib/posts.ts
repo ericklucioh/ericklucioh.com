@@ -10,6 +10,7 @@ export type PostFrontmatter = {
 	date: string; // YYYY-MM-DD (string to keep build deterministic)
 	excerpt?: string;
 	tags?: string[];
+	ogImage?: string;
 };
 
 export type PostSummary = PostFrontmatter & {
@@ -61,8 +62,9 @@ function assertFrontmatter(data: unknown, slug: string, lang?: Lang): PostFrontm
 
 	const excerpt = typeof record.excerpt === "string" ? record.excerpt : undefined;
 	const tags = Array.isArray(record.tags) ? record.tags.filter((t) => typeof t === "string") : undefined;
+	const ogImage = typeof record.ogImage === "string" ? record.ogImage : undefined;
 
-	return { title, date, excerpt, tags };
+	return { title, date, excerpt, tags, ogImage };
 }
 
 export const getPostSlugs = cache(async function getPostSlugs() {

@@ -4,6 +4,7 @@ import SiteFrame from "@/components/layout/SiteFrame";
 import MdxContent from "@/components/mdx/MdxContent";
 import { isLang, LANGS, type Lang } from "@/lib/i18n";
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { buildPageMetadata, resolveSocialImage } from "@/lib/metadata";
 
 export async function generateStaticParams() {
 	const slugs = await getPostSlugs();
@@ -22,10 +23,18 @@ export async function generateMetadata({
 	const post = posts.find((item) => item.slug === slug);
 	if (!post) notFound();
 
-	return {
-		title: `${post.title} | ${lang === "en" ? "Blog" : "Blog"}`,
+	return buildPageMetadata({
+		lang: lang as Lang,
+		title: `${post.title} | Blog`,
 		description: post.excerpt,
-	};
+		path: `/${lang}/blog/${slug}`,
+		image: resolveSocialImage(post.ogImage),
+		type: "article",
+		alternates: {
+			pt: `/pt/blog/${slug}`,
+			en: `/en/blog/${slug}`,
+		},
+	});
 }
 
 export default async function BlogPostPage({

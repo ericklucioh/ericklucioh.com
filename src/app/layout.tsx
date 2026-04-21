@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins, Roboto, Fira_Code } from "next/font/google";
 import Providers from "./providers";
+import { buildRootMetadata, SITE_URL } from "@/lib/metadata";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
@@ -12,26 +13,12 @@ export const viewport: Viewport = {
 	viewportFit: "cover",
 };
 
+export const metadataBase = new URL(SITE_URL);
+
 export const metadata: Metadata = {
-	title: "Érick Lúcio | Developer",
-	description: "Personal website of Érick Lúcio, a software developer.",
+	...buildRootMetadata(),
 	icons: {
 		icon: "/logoWhite.svg",
-	},
-	openGraph: {
-		title: "Érick Lúcio | Developer",
-		description: "Personal website of Érick Lúcio, a software developer.",
-		url: "https://ericklucioh.com",
-		siteName: "Érick Lúcio",
-		images: [
-			{
-				url: "https://ericklucioh.com/foto.png",
-				width: 1200,
-				height: 630,
-			},
-		],
-		locale: "pt-BR",
-		type: "website",
 	},
 };
 

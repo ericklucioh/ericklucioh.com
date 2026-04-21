@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SiteChrome from "@/components/layout/SiteChrome";
 import { copy, getLocalizedPath, isLang, LANGS } from "@/lib/i18n";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
 
@@ -25,31 +26,14 @@ export async function generateMetadata({
 		? "Backend and applied AI engineer building reliable APIs and production-ready solutions."
 		: "Engenheiro de backend e IA aplicada, construindo APIs confiáveis e soluções prontas para produção.";
 
-	return {
+	return buildPageMetadata({
+		lang: isEnglish ? "en" : "pt",
 		title,
 		description,
-		openGraph: {
-			title,
-			description,
-			url: `https://ericklucioh.com/${lang}`,
-			siteName: "Érick Lúcio",
-			images: [
-				{
-					url: "https://ericklucioh.com/foto.png",
-					width: 1200,
-					height: 630,
-				},
-			],
-			locale: isEnglish ? "en_US" : "pt_BR",
-			type: "website",
-		},
-		alternates: {
-			languages: {
-				"pt-BR": "/pt",
-				"en-US": "/en",
-			},
-		},
-	};
+		path: `/${lang}`,
+		image: "/og/default.svg",
+		type: "website",
+	});
 }
 
 export default async function LangLayout({

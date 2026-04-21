@@ -1,11 +1,36 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
 import { copy, getLocalizedPath, isLang, type Lang } from "@/lib/i18n";
 import { getAllProjects } from "@/lib/projects";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export const dynamic = "error";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+	const { lang } = await params;
+	if (!isLang(lang)) notFound();
+
+	const t = copy[lang as Lang].projects;
+	return buildPageMetadata({
+		lang: lang as Lang,
+		title: `${t.title} | Érick Lúcio`,
+		description: t.subtitle,
+		path: `/${lang}/${lang === "en" ? "projects" : "projetos"}`,
+		image: "/og/projects.svg",
+		type: "website",
+		alternates: {
+			pt: "/pt/projetos",
+			en: "/en/projects",
+		},
+	});
+}
 
 export default async function ProjectsPage({
 	params,

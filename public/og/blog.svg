@@ -1,0 +1,17 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#09111D"/>
+      <stop offset="1" stop-color="#152238"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="180" y1="120" x2="1020" y2="510" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="84" y="84" width="1032" height="462" rx="40" fill="#0F172A" fill-opacity="0.72" stroke="url(#accent)" stroke-opacity="0.32"/>
+  <text x="118" y="224" fill="#E5E7EB" font-size="64" font-family="Inter, Arial, sans-serif" font-weight="700">Blog</text>
+  <text x="118" y="298" fill="#C8D0E0" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="500">Notes, articles, and technical writing</text>
+  <text x="118" y="372" fill="#9CA3AF" font-size="22" font-family="Inter, Arial, sans-serif">Open Graph preview for the blog index</text>
+</svg>

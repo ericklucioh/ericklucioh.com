@@ -5,6 +5,7 @@ import SiteFrame from "@/components/layout/SiteFrame";
 import MdxContent from "@/components/mdx/MdxContent";
 import { isLang, LANGS, type Lang } from "@/lib/i18n";
 import { getAllProjects, getProjectBySlug, getProjectSlugs } from "@/lib/projects";
+import { buildPageMetadata, resolveSocialImage } from "@/lib/metadata";
 
 export const dynamic = "error";
 export const dynamicParams = false;
@@ -26,10 +27,18 @@ export async function generateMetadata({
 	const project = projects.find((item) => item.slug === slug);
 	if (!project) notFound();
 
-	return {
+	return buildPageMetadata({
+		lang: lang as Lang,
 		title: `${project.title} | ${lang === "en" ? "Projects" : "Projetos"}`,
 		description: project.excerpt,
-	};
+		path: `/${lang}/${lang === "en" ? "projects" : "projetos"}/${slug}`,
+		image: resolveSocialImage(project.ogImage, project.image),
+		type: "article",
+		alternates: {
+			pt: `/pt/projetos/${slug}`,
+			en: `/en/projects/${slug}`,
+		},
+	});
 }
 
 export default async function ProjectCasePage({
