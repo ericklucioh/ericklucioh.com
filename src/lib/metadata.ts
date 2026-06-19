@@ -49,6 +49,7 @@ export function buildPageMetadata({
 		: undefined;
 
 	return {
+		metadataBase: new URL(SITE_URL),
 		title,
 		description,
 		alternates: languages

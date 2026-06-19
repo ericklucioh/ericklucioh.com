@@ -74,15 +74,15 @@ export function swapLangPath(pathname: string, target: Lang) {
 
 export const copy = {
 	pt: {
-		nav: {
-			home: "home",
-			about: "sobre",
-			projects: "projetos",
-			blog: "blog",
-		},
-		home: {
-			targetRole: "Backend",
-			headline: "Desenvoldedor de Software",
+			nav: {
+				home: "home",
+				about: "sobre",
+				projects: "projetos",
+				blog: "blog",
+			},
+			home: {
+				targetRole: "Backend",
+				headline: "Desenvolvedor de Software",
 			subheadline:
 				"Transformação de texto em dados estruturados com pré-processamento, regras e LLM quando necessário.",
 			highlights: [
@@ -142,7 +142,7 @@ export const copy = {
 			],
 		},
 	},
-	en: {
+		en: {
 		nav: {
 			home: "home",
 			about: "about",
@@ -150,9 +150,9 @@ export const copy = {
 			links: "links",
 			blog: "blog",
 		},
-		home: {
-			targetRole: "Backend + AI",
-			headline: "Sofware developer",
+			home: {
+				targetRole: "Backend + AI",
+				headline: "Software developer",
 			subheadline:
 				"Reliable APIs, clean data foundations, and practical AI focused on production value.",
 			highlights: [

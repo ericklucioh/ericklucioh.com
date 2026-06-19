@@ -1,7 +1,7 @@
 ---
-title: "Sistema Especialista para Diagnostico de Turbinas Eolicas"
+title: "Sistema Especialista para Diagnóstico de Turbinas Eólicas"
 date: "2026-04-21"
-excerpt: "Prototipo em Python que aplica regras SE-ENTAO para apoiar o diagnostico rapido de falhas em turbinas eolicas."
+excerpt: "Protótipo em Python que aplica regras SE-ENTÃO para apoiar o diagnóstico rápido de falhas em turbinas eólicas."
 image: "/projects/placeholder.svg"
 ogImage: "/og/diagnostico-turbinas-eolicas.svg"
 tags:
@@ -18,62 +18,62 @@ stack:
 
 <SectionHeader
 	eyebrow="Projeto academico"
-	title="Sistema Especialista para Diagnostico de Turbinas Eolicas"
-	description="Um prototipo simples, mas util para portifolio: transforma medições da turbina em diagnostico explicavel."
+	title="Sistema Especialista para Diagnóstico de Turbinas Eólicas"
+	description="Um protótipo simples, mas útil para portfólio: transforma medições da turbina em diagnóstico explicável."
 />
 
 <Callout title="Objetivo" tone="info">
-	O sistema ajuda tecnicos de manutencao a interpretar variaveis criticas da
+	O sistema ajuda técnicos de manutenção a interpretar variáveis críticas da
 	turbina e sugerir o proximo passo com base em regras.
 </Callout>
 
 ## Como funciona
 
-1. Um evento contem o conjunto de medições da turbina.
+1. Um evento contém o conjunto de medições da turbina.
 2. O motor de regras compara os valores com os limites esperados.
-3. O sistema retorna um diagnostico e uma justificativa.
+3. O sistema retorna um diagnóstico e uma justificativa.
 
 <MetricGrid>
 	<MetricCard
-		label="Variaveis"
+		label="Variáveis"
 		value="11"
 		detail="vento, rpm, vibracao, temperatura, pressao e consumo"
 	/>
 	<MetricCard
-		label="Diagnosticos"
+		label="Diagnósticos"
 		value="8+"
 		detail="regras focadas em falhas operacionais comuns"
 	/>
 	<MetricCard
 		label="Saida"
-		value="Explicavel"
-		detail="cada resultado traz motivo e acao sugerida"
+		value="Explicável"
+		detail="cada resultado traz motivo e ação sugerida"
 	/>
 	<MetricCard
 		label="Formato"
-		value="Estatico"
+		value="Estático"
 		detail="conteudo versionado no Git e publicado sem backend"
 	/>
 </MetricGrid>
 
 ## Principais regras
 
-- **RPM muito baixo com vento fora do normal**: possivel falha de sensor ou atuador.
-- **Pressao hidraulica das pas fora do normal**: possivel vazamento ou ar no oleo.
-- **Torque fora do padrao**: possivel erro de calibracao.
-- **Vibracao alta com temperatura do oleo normal**: verificar sistema de yaw.
-- **Temperatura do oleo alta com vibracao normal**: ajuste de temperatura.
-- **Pressao do oleo lubrificante fora do normal**: possivel vazamento ou problema na bomba.
-- **Vibracao, temperatura e ruido elevados**: possivel falha em rolamento.
-- **Consumo eletrico anormal**: possivel erro mecanico.
-- **Potencia incoerente com o vento**: possivel erro de sensor.
+- **RPM muito baixo com vento fora do normal**: possível falha de sensor ou atuador.
+- **Pressão hidráulica das pás fora do normal**: possível vazamento ou ar no óleo.
+- **Torque fora do padrão**: possível erro de calibração.
+- **Vibração alta com temperatura do óleo normal**: verificar sistema de yaw.
+- **Temperatura do óleo alta com vibração normal**: ajuste de temperatura.
+- **Pressão do óleo lubrificante fora do normal**: possível vazamento ou problema na bomba.
+- **Vibração, temperatura e ruído elevados**: possível falha em rolamento.
+- **Consumo elétrico anormal**: possível erro mecânico.
+- **Potência incoerente com o vento**: possível erro de sensor.
 
-<Callout title="Exemplo de diagnostico" tone="warning">
+<Callout title="Exemplo de diagnóstico" tone="warning">
 
 ```text
-Diagnostico: Falha de sensor ou atuador
+Diagnóstico: Falha de sensor ou atuador
 Motivo: RPM muito baixo com vento fora do normal.
-Acao sugerida: verificar sensor de velocidade e sistema de controle.
+Ação sugerida: verificar sensor de velocidade e sistema de controle.
 ```
 
 </Callout>
@@ -102,4 +102,4 @@ flowchart TD
 
 ## Observacao
 
-Esse projeto funciona bem no portifolio porque mostra raciocinio baseado em regras, diagnostico explicavel e foco em manutencao industrial.
+Esse projeto funciona bem no portfólio porque mostra raciocínio baseado em regras, diagnóstico explicável e foco em manutenção industrial.

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins, Roboto, Fira_Code } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import Providers from "./providers";
-import { buildRootMetadata, SITE_URL } from "@/lib/metadata";
+import { buildRootMetadata } from "@/lib/metadata";
 import "./styles/globals.css";
 import "./styles/colors.tokens.css";
 import "./styles/colors.semantic.css";
@@ -12,8 +12,6 @@ export const viewport: Viewport = {
 	initialScale: 1,
 	viewportFit: "cover",
 };
-
-export const metadataBase = new URL(SITE_URL);
 
 export const metadata: Metadata = {
 	...buildRootMetadata(),

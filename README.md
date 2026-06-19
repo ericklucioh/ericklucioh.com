@@ -1,49 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ericklucioh.com
 
-## Getting Started
+Portfólio pessoal construído com Next.js e export estático. O site concentra
+apresentação profissional, projetos em MDX, blog técnico bilíngue e uma página
+de links para compartilhamento rápido.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React + TypeScript
+- Tailwind CSS
+- MDX com componentes customizados
+- Export estático (`output: "export"`)
+
+## Estrutura
+
+- `src/app`: rotas e layouts do site
+- `src/components`: interface, layout e componentes MDX
+- `src/lib`: i18n, metadata, leitura de conteúdo e compilação MDX
+- `content/posts`: posts do blog em PT/EN
+- `content/projects`: case studies de projetos em PT/EN
+- `public`: assets estáticos, PDFs e imagens OG
+
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Qualidade
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run lint
+npm run build
+```
 
-## Static build (export)
+## Build estático
 
-This project is configured with `output: "export"` in `next.config.mjs`, so `npm run build` generates a static site in `out/`.
-
-Preview the static output with a server rooted at `out/` (opening `out/index.html` via `file://` will load a blank page because `/_next/*` assets won't resolve):
+O projeto gera saída estática em `out/`.
 
 ```bash
 npm run build
 npm run preview
 ```
 
-`npm run preview` also sets proper cache headers locally: HTML uses revalidation (`ETag`/`304`) while `/_next/static/*` is cached as immutable, so refreshes won't keep re-downloading fonts/chunks.
+`npm run preview` sobe um servidor local apontando para `out/`, que é a forma
+certa de validar o build exportado.
 
-## Learn More
+## Conteúdo
 
-To learn more about Next.js, take a look at the following resources:
+Os posts e projetos ficam em MDX, separados por idioma:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `content/posts/<slug>/pt.mdx`
+- `content/posts/<slug>/en.mdx`
+- `content/projects/<slug>/pt.mdx`
+- `content/projects/<slug>/en.mdx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Cada arquivo define frontmatter com metadados e usa componentes reutilizáveis
+como `Callout`, `MetricGrid`, `Figure` e `Mermaid`.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+O site foi configurado para export estático, então pode ser publicado em
+ambientes simples de hosting estático, CDN ou edge storage sem runtime Node.
