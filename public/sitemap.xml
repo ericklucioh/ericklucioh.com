@@ -2,16 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ericklucioh.com/pt</loc></url>
   <url><loc>https://ericklucioh.com/en</loc></url>
-  <url><loc>https://ericklucioh.com/pt/about</loc></url>
+  <url><loc>https://ericklucioh.com/pt/sobre</loc></url>
   <url><loc>https://ericklucioh.com/en/about</loc></url>
-  <url><loc>https://ericklucioh.com/pt/projects</loc></url>
+  <url><loc>https://ericklucioh.com/pt/projetos</loc></url>
   <url><loc>https://ericklucioh.com/en/projects</loc></url>
   <url><loc>https://ericklucioh.com/pt/blog</loc></url>
   <url><loc>https://ericklucioh.com/en/blog</loc></url>
   <url><loc>https://ericklucioh.com/pt/links</loc></url>
   <url><loc>https://ericklucioh.com/en/links</loc></url>
-  <url><loc>https://ericklucioh.com/pt/projects/cost-ai-agent</loc></url>
-  <url><loc>https://ericklucioh.com/en/projects/cost-ai-agent</loc></url>
-  <url><loc>https://ericklucioh.com/pt/blog/backend-checklist-mvp</loc></url>
-  <url><loc>https://ericklucioh.com/en/blog/backend-checklist-mvp</loc></url>
+  <url><loc>https://ericklucioh.com/pt/projetos/diagnostico-turbinas-eolicas</loc></url>
+  <url><loc>https://ericklucioh.com/en/projects/diagnostico-turbinas-eolicas</loc></url>
+  <url><loc>https://ericklucioh.com/pt/projetos/painel-do-lojista</loc></url>
+  <url><loc>https://ericklucioh.com/en/projects/painel-do-lojista</loc></url>
+  <url><loc>https://ericklucioh.com/pt/blog/hello-world</loc></url>
+  <url><loc>https://ericklucioh.com/en/blog/hello-world</loc></url>
 </urlset>

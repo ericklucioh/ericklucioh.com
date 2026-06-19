@@ -1,22 +1,17 @@
-import Image from "next/image";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import SiteFrame from "@/components/layout/SiteFrame";
-import MdxContent from "@/components/mdx/MdxContent";
-import { isLang, LANGS, type Lang } from "@/lib/i18n";
+import { permanentRedirect } from "next/navigation";
 import {
-	getAllProjects,
-	getProjectBySlug,
-	getProjectSlugs,
-} from "@/lib/projects";
-import { buildPageMetadata, resolveSocialImage } from "@/lib/metadata";
+	buildProjectMetadata,
+	generateProjectStaticParams,
+	getCanonicalProjectPath,
+	renderProjectPage,
+} from "../projectRoutes";
 
 export const dynamic = "error";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-	const slugs = await getProjectSlugs();
-	return LANGS.flatMap((lang) => slugs.map((slug) => ({ lang, slug })));
+	return generateProjectStaticParams();
 }
 
 export async function generateMetadata({
@@ -25,24 +20,18 @@ export async function generateMetadata({
 	params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
 	const { lang, slug } = await params;
-	if (!isLang(lang)) notFound();
+	const metadata = await buildProjectMetadata(lang, slug);
+	if (lang !== "en") {
+		return {
+			...metadata,
+			robots: {
+				index: false,
+				follow: false,
+			},
+		};
+	}
 
-	const projects = await getAllProjects(lang as Lang);
-	const project = projects.find((item) => item.slug === slug);
-	if (!project) notFound();
-
-	return buildPageMetadata({
-		lang: lang as Lang,
-		title: `${project.title} | ${lang === "en" ? "Projects" : "Projetos"}`,
-		description: project.excerpt,
-		path: `/${lang}/${lang === "en" ? "projects" : "projetos"}/${slug}`,
-		image: resolveSocialImage(project.ogImage, project.image),
-		type: "article",
-		alternates: {
-			pt: `/pt/projetos/${slug}`,
-			en: `/en/projects/${slug}`,
-		},
-	});
+	return metadata;
 }
 
 export default async function ProjectCasePage({
@@ -51,65 +40,9 @@ export default async function ProjectCasePage({
 	params: Promise<{ lang: string; slug: string }>;
 }) {
 	const { lang, slug } = await params;
-	if (!isLang(lang)) notFound();
+	if (lang !== "en") {
+		permanentRedirect(getCanonicalProjectPath("pt", slug));
+	}
 
-	const item = await getProjectBySlug(slug, lang as Lang).catch(() => null);
-	if (!item) notFound();
-
-	return (
-		<SiteFrame
-			withDecor={false}
-			mainClassName="w-full max-w-[1180px] mx-auto px-4 md:px-6 py-7 pb-16"
-		>
-			<p className="mb-2 text-xs uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-				{lang === "en" ? "Project" : "Projeto"}
-			</p>
-			<h1 className="ui-title">{item.title}</h1>
-			{item.excerpt ? (
-				<p className="ui-subtitle">{item.excerpt}</p>
-			) : null}
-
-			{item.image ? (
-				<figure className="ui-card mt-8 p-3">
-					<div className="relative aspect-[16/9] overflow-hidden">
-						<Image
-							src={item.image}
-							alt={item.title}
-							fill
-							sizes="(max-width: 980px) 100vw, 980px"
-							className="object-cover"
-						/>
-					</div>
-				</figure>
-			) : null}
-
-			<div className="mb-6 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
-				<span>
-					{new Date(item.date).toLocaleDateString(
-						lang === "en" ? "en-US" : "pt-BR",
-					)}
-				</span>
-				{(item.tags ?? []).length ? <span>•</span> : null}
-				{(item.tags ?? []).map((tag) => (
-					<span key={tag}>#{tag}</span>
-				))}
-			</div>
-
-			{(item.stack ?? []).length ? (
-				<div className="ui-card mb-8">
-					<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-						Stack
-					</p>
-					<p className="text-sm leading-7 text-[var(--text-primary)]">
-						{item.stack?.join(" • ")}
-					</p>
-				</div>
-			) : null}
-
-			<MdxContent
-				Content={item.Content}
-				className="markdown ui-card ui-cardLg mt-10"
-			/>
-		</SiteFrame>
-	);
+	return renderProjectPage(lang, slug);
 }
