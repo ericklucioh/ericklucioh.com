@@ -1,22 +1,18 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "next-themes";
 import styleModel from "./DarkModeToggle.module.css";
 const style = styleModel as any;
 
 export default function DarkModeToggle() {
 	const { resolvedTheme, setTheme } = useTheme();
-	const [mounted, setMounted] = useState(false);
 	const [isSpinning, setIsSpinning] = useState(false);
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	const isDark = mounted && resolvedTheme === "dark";
+	const isDark = resolvedTheme === "dark";
 
 	const toggleTheme = () => {
-		const targetMode = isDark ? "light" : "dark";
+		const currentlyDark = document.documentElement.classList.contains("dark");
+		const targetMode = currentlyDark ? "light" : "dark";
 		const html = document.documentElement;
 		html.classList.add("theme-transition");
 		void html.offsetHeight;
@@ -33,7 +29,6 @@ export default function DarkModeToggle() {
 			type="button"
 			className={style.button}
 			onClick={toggleTheme}
-			data-mode={isDark ? "dark" : "light"}
 			aria-label="Alternar tema"
 			aria-pressed={isDark}
 			suppressHydrationWarning
