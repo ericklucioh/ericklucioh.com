@@ -74,9 +74,9 @@ export default function Menu(props: MenuProps) {
 		);
 	}
 
-		return (
-			<>
-				<header className={styles.header}>
+	return (
+		<>
+			<header className={styles.header}>
 					<Link href="/" className={styles.left}>
 						<Logo size={30} />
 						<span className={styles.brand}>Érick Lúcio</span>
@@ -98,7 +98,10 @@ export default function Menu(props: MenuProps) {
 				<div className={styles.right}>
 					{actions?.map((item) => renderItem(item, styles.action))}
 
-					<Link href={langToggle.href} className={styles.action}>
+					<Link
+						href={langToggle.href}
+						className={`${styles.action} ${styles.desktopOnly}`}
+					>
 						{langToggle.label}
 					</Link>
 					<button
@@ -110,7 +113,9 @@ export default function Menu(props: MenuProps) {
 					>
 						{mobileOpen ? "×" : "≡"}
 					</button>
-					<DarkModeToggle />
+					<div className={styles.desktopOnly}>
+						<DarkModeToggle />
+					</div>
 				</div>
 			</header>
 
@@ -152,13 +157,15 @@ export default function Menu(props: MenuProps) {
 								{btn.label}
 							</Link>
 						))}
-						<div className={styles.link}>
+						<div className={styles.mobileControls}>
 							<Link
 								href={langToggle.href}
+								className={styles.action}
 								onClick={() => setMobileOpen(false)}
 							>
 								{langToggle.label}
 							</Link>
+							<DarkModeToggle />
 						</div>
 					</nav>
 				</div>
