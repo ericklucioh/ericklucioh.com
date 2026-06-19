@@ -1,0 +1,122 @@
+---
+title: "Painel do Lojista"
+date: "2026-06-19"
+excerpt: "MVP full-stack para operacao de loja, com autenticacao, estoque, caixa e vendas, construido como desafio tecnico."
+image: "/projects/painel-do-lojista.png"
+tags:
+    - full-stack
+    - varejo
+    - painel-admin
+    - desafio-tecnico
+stack:
+    - Next.js
+    - React
+    - TypeScript
+    - Node.js
+    - Express
+    - Prisma
+    - MySQL
+    - Docker
+---
+
+<SectionHeader
+	eyebrow="Desafio tecnico"
+	title="Painel do Lojista"
+	description="Um MVP full-stack para gestao de loja, cobrindo autenticacao, operacao de caixa, controle de estoque e fluxo de vendas."
+/>
+
+<Callout title="O que e" tone="info">
+	Este projeto foi construido como resolucao de um desafio tecnico com foco em
+	um cenario realista de varejo. A proposta era entregar um painel funcional,
+	nao apenas telas isoladas.
+</Callout>
+
+## O problema que ele resolve
+
+O sistema centraliza operacoes comuns de uma loja em um unico painel:
+
+- login com controle de sessao;
+- gestao de usuarios por perfil;
+- cadastro e manutencao de produtos;
+- movimentacao de estoque;
+- abertura de caixa;
+- registro de vendas;
+- emissao de resumo/recibo da venda.
+
+Em vez de tratar cada tela como uma demo visual, a implementacao conecta
+frontend, backend e banco de dados em um fluxo unico de operacao.
+
+<MetricGrid>
+	<MetricCard
+		label="Arquitetura"
+		value="2 apps"
+		detail="frontend em Next.js e backend em Express separados"
+	/>
+	<MetricCard
+		label="Persistencia"
+		value="Prisma + MySQL"
+		detail="schema, migrations e seed para fluxo local reproduzivel"
+	/>
+	<MetricCard
+		label="Sessao"
+		value="JWT + refresh"
+		detail="cookies httpOnly e rotas protegidas por perfil"
+	/>
+	<MetricCard
+		label="Entrega"
+		value="Docker"
+		detail="setup local completo com compose, docs e scripts"
+	/>
+</MetricGrid>
+
+## Tecnologias usadas
+
+### Frontend
+
+- **Next.js + React + TypeScript** para a aplicacao web.
+- **App Router** para separar fluxo de autenticacao e dashboard.
+- **React Hook Form + Zod** para formularios com validacao previsivel.
+- **Tailwind CSS + shadcn/ui** para acelerar a construcao da interface.
+
+### Backend
+
+- **Node.js + Express + TypeScript** para a API.
+- **Prisma** para modelagem, migrations e acesso ao banco.
+- **MySQL** como base relacional para usuarios, produtos, estoque e vendas.
+- **JWT + refresh token** para autenticacao e renovacao de sessao.
+
+### Infra e qualidade
+
+- **Docker Compose** para subir frontend, backend, MySQL e Adminer.
+- **ESLint, Prettier e testes** para manter consistencia e validar o fluxo.
+- **GitHub Actions** para automacao de checks no repositorio.
+
+## O que eu aprendi
+
+Esse projeto foi importante porque me forcou a ir alem do CRUD basico.
+
+- **Separacao de responsabilidades**: frontend, backend e regras de negocio precisam de fronteiras claras para o projeto continuar escalavel.
+- **Autenticacao de verdade**: nao basta "fazer login"; e preciso pensar em cookies, refresh token, expiracao, middleware e autorizacao por papel.
+- **Modelagem de fluxo**: estoque, caixa e venda se conectam. Se a modelagem estiver errada, a aplicacao inteira fica inconsistente.
+- **Ambiente reproduzivel**: documentacao, `.env.example`, seed e Docker fazem muita diferenca para quem vai rodar o projeto pela primeira vez.
+- **Desafio tecnico bom se ganha na execucao**: nao so pela stack, mas pela capacidade de transformar requisitos espalhados em um sistema coerente.
+
+<Callout title="Principal aprendizado" tone="success">
+	O maior ganho aqui foi praticar integracao de ponta a ponta: interface,
+	validacao, autenticacao, persistencia e regras de negocio trabalhando juntas
+	em um cenario proximo de producao.
+</Callout>
+
+## O que eu destacaria no portfolio
+
+- projeto full-stack com escopo util e claro;
+- autenticacao e sessao bem definidas;
+- modelagem de dominio conectando usuarios, produtos, estoque, caixa e venda;
+- ambiente local reproduzivel para avaliacao tecnica;
+- documentacao suficiente para outra pessoa rodar e entender a entrega.
+
+## Fechamento
+
+O Painel do Lojista representa bem o tipo de projeto que eu gosto de construir:
+menos gimmick e mais sistema funcionando de ponta a ponta, com preocupacao real
+com fluxo, dados, operacao e experiencia de uso.

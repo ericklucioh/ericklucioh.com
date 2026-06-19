@@ -1,0 +1,122 @@
+---
+title: "Painel do Lojista"
+date: "2026-06-19"
+excerpt: "A full-stack MVP for store operations, covering authentication, inventory, cash register, and sales, built as a technical challenge."
+image: "/projects/painel-do-lojista.png"
+tags:
+    - full-stack
+    - retail
+    - admin-panel
+    - technical-challenge
+stack:
+    - Next.js
+    - React
+    - TypeScript
+    - Node.js
+    - Express
+    - Prisma
+    - MySQL
+    - Docker
+---
+
+<SectionHeader
+	eyebrow="Technical challenge"
+	title="Painel do Lojista"
+	description="A full-stack MVP for store management, covering authentication, cash register operations, inventory control, and the sales workflow."
+/>
+
+<Callout title="What it is" tone="info">
+	This project was built as the solution to a technical challenge focused on a
+	realistic retail scenario. The goal was to deliver a functional system, not
+	just isolated screens.
+</Callout>
+
+## The problem it solves
+
+The system centralizes common store operations in a single panel:
+
+- sign-in and session control;
+- role-based user management;
+- product creation and maintenance;
+- inventory movements;
+- cash register opening;
+- sales registration;
+- sale summary and receipt generation.
+
+Instead of treating each screen as a visual mock, the implementation connects
+frontend, backend, and database into one operational flow.
+
+<MetricGrid>
+	<MetricCard
+		label="Architecture"
+		value="2 apps"
+		detail="a Next.js frontend and an Express backend"
+	/>
+	<MetricCard
+		label="Persistence"
+		value="Prisma + MySQL"
+		detail="schema, migrations, and seed for reproducible local runs"
+	/>
+	<MetricCard
+		label="Session"
+		value="JWT + refresh"
+		detail="httpOnly cookies and role-protected routes"
+	/>
+	<MetricCard
+		label="Delivery"
+		value="Docker"
+		detail="complete local setup with compose, docs, and scripts"
+	/>
+</MetricGrid>
+
+## Technologies used
+
+### Frontend
+
+- **Next.js + React + TypeScript** for the web application.
+- **App Router** to separate authentication and dashboard flows.
+- **React Hook Form + Zod** for predictable form validation.
+- **Tailwind CSS + shadcn/ui** to speed up UI implementation.
+
+### Backend
+
+- **Node.js + Express + TypeScript** for the API.
+- **Prisma** for modeling, migrations, and database access.
+- **MySQL** as the relational database for users, products, inventory, and sales.
+- **JWT + refresh token** for authentication and session renewal.
+
+### Infra and quality
+
+- **Docker Compose** to run frontend, backend, MySQL, and Adminer.
+- **ESLint, Prettier, and tests** to keep the project consistent and validated.
+- **GitHub Actions** for automated repository checks.
+
+## What I learned
+
+This project mattered because it pushed me beyond basic CRUD work.
+
+- **Separation of concerns**: frontend, backend, and business rules need clear boundaries if the system is going to scale.
+- **Real authentication**: logging in is not enough; you have to think about cookies, refresh tokens, expiration, middleware, and role-based authorization.
+- **Flow modeling**: inventory, cash register, and sales are connected. If the model is wrong, the whole application becomes inconsistent.
+- **Reproducible environments**: documentation, `.env.example`, seed data, and Docker make a huge difference for first-time setup.
+- **Technical challenges are won in execution**: not just by the stack you choose, but by turning scattered requirements into a coherent system.
+
+<Callout title="Main takeaway" tone="success">
+	The biggest gain here was practicing end-to-end integration: interface,
+	validation, authentication, persistence, and business rules working together
+	in a production-like scenario.
+</Callout>
+
+## What I would highlight in a portfolio
+
+- a full-stack project with clear and useful scope;
+- solid authentication and session handling;
+- domain modeling that connects users, products, inventory, cash register, and sales;
+- reproducible local setup for technical evaluation;
+- enough documentation for someone else to run and understand the delivery.
+
+## Closing note
+
+Painel do Lojista is a good example of the kind of project I like to build:
+less gimmick, more end-to-end systems with real attention to workflow, data,
+operations, and user experience.
