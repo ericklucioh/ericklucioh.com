@@ -3,20 +3,22 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import styleModel from "./DarkModeToggle.module.css";
 const style = styleModel as any;
-const THEME_TRANSITION_MS = 220;
+const THEME_FADE_IN_MS = 120;
+const THEME_FADE_OUT_MS = 120;
+const THEME_TRANSITION_TOTAL_MS = THEME_FADE_IN_MS + THEME_FADE_OUT_MS;
 
 export default function DarkModeToggle() {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [isSpinning, setIsSpinning] = useState(false);
-	const resetTransitionRef = useRef<number | null>(null);
+	const transitionTimersRef = useRef<number[]>([]);
 
 	const isDark = resolvedTheme === "dark";
 
 	useEffect(() => {
 		return () => {
-			if (resetTransitionRef.current !== null) {
-				window.clearTimeout(resetTransitionRef.current);
-			}
+			transitionTimersRef.current.forEach((timerId) =>
+				window.clearTimeout(timerId),
+			);
 		};
 	}, []);
 
@@ -25,20 +27,41 @@ export default function DarkModeToggle() {
 			document.documentElement.classList.contains("dark");
 		const targetMode = currentlyDark ? "light" : "dark";
 		const html = document.documentElement;
+		const prefersReducedMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
 
-		if (resetTransitionRef.current !== null) {
-			window.clearTimeout(resetTransitionRef.current);
+		transitionTimersRef.current.forEach((timerId) =>
+			window.clearTimeout(timerId),
+		);
+		transitionTimersRef.current = [];
+
+		if (prefersReducedMotion) {
+			setTheme(targetMode);
+			return;
 		}
 
 		html.classList.add("theme-transition");
-		void html.offsetHeight;
 		setIsSpinning(false);
 		window.requestAnimationFrame(() => setIsSpinning(true));
-		setTheme(targetMode);
-		resetTransitionRef.current = window.setTimeout(() => {
-			html.classList.remove("theme-transition");
-			resetTransitionRef.current = null;
-		}, THEME_TRANSITION_MS);
+
+		window.requestAnimationFrame(() => {
+			html.classList.add("theme-transition-active");
+		});
+
+		transitionTimersRef.current.push(
+			window.setTimeout(() => {
+				setTheme(targetMode);
+				html.classList.remove("theme-transition-active");
+			}, THEME_FADE_IN_MS),
+		);
+
+		transitionTimersRef.current.push(
+			window.setTimeout(() => {
+				html.classList.remove("theme-transition");
+				transitionTimersRef.current = [];
+			}, THEME_TRANSITION_TOTAL_MS),
+		);
 	};
 
 	return (

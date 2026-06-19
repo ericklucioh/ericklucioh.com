@@ -47,16 +47,20 @@ body {
 	background-color: var(--bg-page);
 	font-family: var(--font-fira-code), monospace;
 	color: var(--text-primary);
+	position: relative;
 }
 
-@keyframes themeOpacityFade {
-	from {
-		opacity: var(--theme-fade-start-opacity);
-	}
-
-	to {
-		opacity: 1;
-	}
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 999;
+	pointer-events: none;
+	background: var(--bg-page);
+	opacity: 0;
+	transition: opacity var(--theme-transition-duration)
+		var(--theme-transition-ease);
+	will-change: opacity;
 }
 
 /* Site UI tokens (match legacy "(site)" look) */
@@ -325,14 +329,6 @@ body {
 	background: color-mix(in srgb, var(--bg-page) 72%, transparent);
 	backdrop-filter: blur(6px);
 	-webkit-backdrop-filter: blur(6px);
-	opacity: 1;
-	transition:
-		background var(--theme-transition-duration) var(--theme-transition-ease),
-		opacity var(--theme-transition-duration) var(--theme-transition-ease),
-		backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		-webkit-backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease);
 }
 
 .site-main > :not([data-decor]) {
@@ -341,37 +337,12 @@ body {
 }
 
 /* Transição de tema: só quando o toggle pedir (sem "delay" no load) */
-:root.theme-transition body {
-	animation: themeOpacityFade var(--theme-transition-duration)
-		var(--theme-transition-ease);
-}
-
-:root.theme-transition,
-:root.theme-transition *,
-:root.theme-transition *::before,
-:root.theme-transition *::after {
-	transition-duration: var(--theme-transition-duration) !important;
-	transition-timing-function: var(--theme-transition-ease) !important;
-	transition-property:
-		color, background-color, background, border-color, outline-color,
-		text-decoration-color, fill, stroke, box-shadow, opacity !important;
-}
-
-:root.theme-transition .site-main::before {
-	opacity: 0.88;
-	backdrop-filter: blur(2px);
-	-webkit-backdrop-filter: blur(2px);
+:root.theme-transition-active body::after {
+	opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	:root.theme-transition body {
-		animation: none !important;
-	}
-
-	:root.theme-transition,
-	:root.theme-transition *,
-	:root.theme-transition *::before,
-	:root.theme-transition *::after {
+	body::after {
 		transition: none !important;
 	}
 }

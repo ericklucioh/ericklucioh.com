@@ -10,16 +10,7 @@
 	cursor: pointer;
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
-	transition:
-		transform 0.18s ease,
-		background var(--theme-transition-duration) var(--theme-transition-ease),
-		border-color var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		color var(--theme-transition-duration) var(--theme-transition-ease),
-		backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		-webkit-backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease);
+	transition: transform 0.18s ease;
 }
 
 .button:hover {
@@ -79,11 +70,6 @@
 :global(html.dark) .button .moon {
 	opacity: 1;
 	transform: scale(1);
-}
-
-:global(html.theme-transition) .button {
-	backdrop-filter: blur(2px);
-	-webkit-backdrop-filter: blur(2px);
 }
 
 @keyframes toggleSpin {

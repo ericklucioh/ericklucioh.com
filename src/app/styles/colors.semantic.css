@@ -4,7 +4,6 @@
 :root {
 	--theme-transition-duration: 220ms;
 	--theme-transition-ease: cubic-bezier(0.22, 1, 0.36, 1);
-	--theme-fade-start-opacity: 0.82;
 
 	/* TEXT */
 	--text-primary: var(--color-primary-3);

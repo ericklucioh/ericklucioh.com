@@ -16,14 +16,6 @@
 	-webkit-backdrop-filter: blur(10px);
 	border-bottom: 1px solid
 		color-mix(in srgb, var(--text-primary) 12%, transparent);
-	transition:
-		background var(--theme-transition-duration) var(--theme-transition-ease),
-		border-color var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		-webkit-backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease);
 }
 
 .left {
@@ -66,11 +58,6 @@
 	background: color-mix(in srgb, var(--bg-page) 92%, transparent);
 	border-bottom: 1px solid
 		color-mix(in srgb, var(--text-primary) 12%, transparent);
-	transition:
-		background var(--theme-transition-duration) var(--theme-transition-ease),
-		border-color var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		opacity var(--theme-transition-duration) var(--theme-transition-ease);
 }
 
 .panelList {
@@ -104,15 +91,6 @@
 	outline: 2px solid
 		color-mix(in srgb, var(--text-secondary) 55%, transparent);
 	outline-offset: 2px;
-}
-
-:global(html.theme-transition) .header {
-	backdrop-filter: blur(3px);
-	-webkit-backdrop-filter: blur(3px);
-}
-
-:global(html.theme-transition) .panel {
-	opacity: 0.92;
 }
 
 @media (max-width: 600px) {

@@ -18,14 +18,6 @@
 	background: color-mix(in srgb, var(--bg-page) 72%, transparent);
 	backdrop-filter: blur(6px);
 	-webkit-backdrop-filter: blur(6px);
-	opacity: 1;
-	transition:
-		background var(--theme-transition-duration) var(--theme-transition-ease),
-		opacity var(--theme-transition-duration) var(--theme-transition-ease),
-		backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease),
-		-webkit-backdrop-filter var(--theme-transition-duration)
-			var(--theme-transition-ease);
 }
 
 .footer > * {
@@ -66,12 +58,6 @@
 
 .link:hover {
 	text-decoration: underline;
-}
-
-:global(html.theme-transition) .footer::before {
-	opacity: 0.88;
-	backdrop-filter: blur(2px);
-	-webkit-backdrop-filter: blur(2px);
 }
 
 @media (max-width: 600px) {
