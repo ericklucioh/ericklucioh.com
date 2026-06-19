@@ -57,9 +57,14 @@ export default async function BlogPostPage({
 				{new Date(post.date).toLocaleDateString("pt-BR")}
 			</p>
 			<h1 className="ui-title">{post.title}</h1>
-			{post.excerpt ? <p className="ui-subtitle">{post.excerpt}</p> : null}
+			{post.excerpt ? (
+				<p className="ui-subtitle">{post.excerpt}</p>
+			) : null}
 
-			<MdxContent Content={post.Content} className="markdown ui-card ui-cardLg mt-12" />
+			<MdxContent
+				Content={post.Content}
+				className="markdown ui-card ui-cardLg mt-12"
+			/>
 		</SiteFrame>
 	);
 }

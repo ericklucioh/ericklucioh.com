@@ -45,12 +45,22 @@ export default async function BlogPage({
 	if (!isLang(lang)) notFound();
 
 	const posts = await getAllPosts(lang as Lang);
-	const tags = Array.from(new Set(posts.flatMap((post) => post.tags ?? []))).sort();
+	const tags = Array.from(
+		new Set(posts.flatMap((post) => post.tags ?? [])),
+	).sort();
 
 	return (
 		<SiteFrame withDecor={false}>
-			<Suspense fallback={<BlogIndex lang={lang as Lang} posts={posts} tags={tags} />}>
-				<BlogIndexClient lang={lang as Lang} posts={posts} tags={tags} />
+			<Suspense
+				fallback={
+					<BlogIndex lang={lang as Lang} posts={posts} tags={tags} />
+				}
+			>
+				<BlogIndexClient
+					lang={lang as Lang}
+					posts={posts}
+					tags={tags}
+				/>
 			</Suspense>
 		</SiteFrame>
 	);

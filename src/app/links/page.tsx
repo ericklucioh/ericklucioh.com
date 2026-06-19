@@ -5,4 +5,3 @@ export { metadata };
 export default function LinksPage() {
 	return <LinksBio />;
 }
-

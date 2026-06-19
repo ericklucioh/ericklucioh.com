@@ -20,17 +20,25 @@ type SiteChromeProps = {
 
 function isLinksRoute(pathname: string) {
 	const normalized = pathname.replace(/\/$/, "");
-	return normalized === "/links" || normalized === "/pt/links" || normalized === "/en/links";
+	return (
+		normalized === "/links" ||
+		normalized === "/pt/links" ||
+		normalized === "/en/links"
+	);
 }
 
-export default function SiteChrome({ buttons, actions, children }: SiteChromeProps) {
+export default function SiteChrome({
+	buttons,
+	actions,
+	children,
+}: SiteChromeProps) {
 	const pathname = usePathname() ?? "";
 
 	if (isLinksRoute(pathname)) {
 		return <>{children}</>;
 	}
 
-		return (
+	return (
 		<div
 			style={{
 				minHeight: "100dvh",

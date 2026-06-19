@@ -5,25 +5,26 @@ excerpt: "Prototipo em Python que aplica regras SE-ENTAO para apoiar o diagnosti
 image: "/projects/placeholder.svg"
 ogImage: "/og/diagnostico-turbinas-eolicas.svg"
 tags:
-  - python
-  - ia-simbolica
-  - sistema-especialista
-  - manutencao
+    - python
+    - ia-simbolica
+    - sistema-especialista
+    - manutencao
 stack:
-  - Python
-  - Regras SE-ENTAO
-  - JSON
-  - Mermaid
+    - Python
+    - Regras SE-ENTAO
+    - JSON
+    - Mermaid
 ---
 
 <SectionHeader
-  eyebrow="Projeto academico"
-  title="Sistema Especialista para Diagnostico de Turbinas Eolicas"
-  description="Um prototipo simples, mas util para portifolio: transforma medições da turbina em diagnostico explicavel."
+	eyebrow="Projeto academico"
+	title="Sistema Especialista para Diagnostico de Turbinas Eolicas"
+	description="Um prototipo simples, mas util para portifolio: transforma medições da turbina em diagnostico explicavel."
 />
 
 <Callout title="Objetivo" tone="info">
-O sistema ajuda tecnicos de manutencao a interpretar variaveis criticas da turbina e sugerir o proximo passo com base em regras.
+	O sistema ajuda tecnicos de manutencao a interpretar variaveis criticas da
+	turbina e sugerir o proximo passo com base em regras.
 </Callout>
 
 ## Como funciona
@@ -33,10 +34,26 @@ O sistema ajuda tecnicos de manutencao a interpretar variaveis criticas da turbi
 3. O sistema retorna um diagnostico e uma justificativa.
 
 <MetricGrid>
-  <MetricCard label="Variaveis" value="11" detail="vento, rpm, vibracao, temperatura, pressao e consumo" />
-  <MetricCard label="Diagnosticos" value="8+" detail="regras focadas em falhas operacionais comuns" />
-  <MetricCard label="Saida" value="Explicavel" detail="cada resultado traz motivo e acao sugerida" />
-  <MetricCard label="Formato" value="Estatico" detail="conteudo versionado no Git e publicado sem backend" />
+	<MetricCard
+		label="Variaveis"
+		value="11"
+		detail="vento, rpm, vibracao, temperatura, pressao e consumo"
+	/>
+	<MetricCard
+		label="Diagnosticos"
+		value="8+"
+		detail="regras focadas em falhas operacionais comuns"
+	/>
+	<MetricCard
+		label="Saida"
+		value="Explicavel"
+		detail="cada resultado traz motivo e acao sugerida"
+	/>
+	<MetricCard
+		label="Formato"
+		value="Estatico"
+		detail="conteudo versionado no Git e publicado sem backend"
+	/>
 </MetricGrid>
 
 ## Principais regras
@@ -64,8 +81,8 @@ Acao sugerida: verificar sensor de velocidade e sistema de controle.
 ## Fluxograma
 
 <Mermaid
-  title="Fluxograma das regras"
-  chart={`
+	title="Fluxograma das regras"
+	chart={`
 flowchart TD
   A[Entrada de dados] --> B{Vento e RPM coerentes?}
   B -- nao --> C[Possivel falha de sensor]
@@ -74,12 +91,13 @@ flowchart TD
   D -- nao --> F{Temperatura alta?}
   F -- sim --> G[Ajuste de temperatura]
   F -- nao --> H[Sistema OK]
-`}/>
+`}
+/>
 
 <Figure
-  src="/projects/cost-ai-agent-arch.svg"
-  alt="Exemplo de visual de arquitetura"
-  caption="O case pode usar figuras locais do proprio site para contextualizar o projeto."
+	src="/projects/cost-ai-agent-arch.svg"
+	alt="Exemplo de visual de arquitetura"
+	caption="O case pode usar figuras locais do proprio site para contextualizar o projeto."
 />
 
 ## Observacao

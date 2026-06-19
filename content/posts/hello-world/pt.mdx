@@ -4,15 +4,15 @@ date: "2026-04-06"
 excerpt: "Primeiro post em MDX, com componentes reutilizaveis e export estatico."
 ogImage: "/og/hello-world.svg"
 tags:
-  - nextjs
-  - mdx
-  - gfm
+    - nextjs
+    - mdx
+    - gfm
 ---
 
 <SectionHeader
-  eyebrow="Blog tecnico"
-  title="Hello, MDX"
-  description="Este post mostra a versao rica do blog: texto, componentes reutilizaveis, Mermaid e imagem local."
+	eyebrow="Blog tecnico"
+	title="Hello, MDX"
+	description="Este post mostra a versao rica do blog: texto, componentes reutilizaveis, Mermaid e imagem local."
 />
 
 ## Introducao
@@ -20,39 +20,57 @@ tags:
 Esse post vive em `content/posts` e e convertido para um componente React durante o build, sem backend e sem CMS.
 
 <Callout title="Resumo" tone="info">
-MDX permite manter o blog estatico e, ao mesmo tempo, abrir espaco para diagramas, blocos visuais e composicao de conteudo.
+	MDX permite manter o blog estatico e, ao mesmo tempo, abrir espaco para
+	diagramas, blocos visuais e composicao de conteudo.
 </Callout>
 
 ## Exemplo de codigo
 
 ```ts
 export function greet(name: string) {
-  return `Hello, ${name}`;
+	return `Hello, ${name}`;
 }
 ```
 
 <MetricGrid>
-  <MetricCard label="Formato" value="MDX" detail="conteudo rico com build estatico" />
-  <MetricCard label="Uso" value="Blog" detail="texto editorial com componentes" />
-  <MetricCard label="Diagrama" value="Mermaid" detail="renderizado no cliente" />
-  <MetricCard label="Asset" value="Local" detail="imagens servidas do proprio site" />
+	<MetricCard
+		label="Formato"
+		value="MDX"
+		detail="conteudo rico com build estatico"
+	/>
+	<MetricCard
+		label="Uso"
+		value="Blog"
+		detail="texto editorial com componentes"
+	/>
+	<MetricCard
+		label="Diagrama"
+		value="Mermaid"
+		detail="renderizado no cliente"
+	/>
+	<MetricCard
+		label="Asset"
+		value="Local"
+		detail="imagens servidas do proprio site"
+	/>
 </MetricGrid>
 
 ## Fluxo
 
 <Mermaid
-  title="Pipeline do post"
-  chart={`
+	title="Pipeline do post"
+	chart={`
 flowchart LR
   A[Arquivo MDX] --> B[Compile no build]
   B --> C[Componente React]
   C --> D[Export estatico]
-`}/>
+`}
+/>
 
 <Figure
-  src="/foto.png"
-  alt="Foto do autor"
-  caption="Figura local reaproveitada como exemplo visual no blog."
+	src="/foto.png"
+	alt="Foto do autor"
+	caption="Figura local reaproveitada como exemplo visual no blog."
 />
 
 ## Fechamento

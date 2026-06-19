@@ -5,7 +5,8 @@
 	grid-template-columns: auto 1fr auto;
 	align-items: center;
 	padding: 1.25rem var(--page-gutter);
-	border-top: 1px solid color-mix(in srgb, var(--text-primary) 12%, transparent);
+	border-top: 1px solid
+		color-mix(in srgb, var(--text-primary) 12%, transparent);
 }
 
 .footer::before {

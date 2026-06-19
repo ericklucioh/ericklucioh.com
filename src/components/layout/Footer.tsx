@@ -10,7 +10,10 @@ export default function Footer() {
 		<footer className={styles.footer}>
 			<div className={styles.center}>© {year} Érick Lúcio</div>
 			<nav className={styles.right} aria-label="Footer">
-				<a className={styles.link} href="mailto:contato@ericklucioh.com">
+				<a
+					className={styles.link}
+					href="mailto:contato@ericklucioh.com"
+				>
 					Email
 				</a>
 				<a

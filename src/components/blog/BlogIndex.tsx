@@ -9,7 +9,12 @@ type BlogIndexProps = {
 	activeTag?: string;
 };
 
-export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexProps) {
+export default function BlogIndex({
+	lang,
+	posts,
+	tags,
+	activeTag,
+}: BlogIndexProps) {
 	const visiblePosts = activeTag
 		? posts.filter((post) => (post.tags ?? []).includes(activeTag))
 		: posts;
@@ -45,9 +50,13 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 						className="ui-card transition hover:border-[var(--color-aux-blue)]"
 					>
 						<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-							{new Date(post.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
+							{new Date(post.date).toLocaleDateString(
+								lang === "en" ? "en-US" : "pt-BR",
+							)}
 						</p>
-						<h2 className="mb-2 text-xl font-semibold">{post.title}</h2>
+						<h2 className="mb-2 text-xl font-semibold">
+							{post.title}
+						</h2>
 						{post.excerpt ? (
 							<p className="ui-subtitle" style={{ marginTop: 0 }}>
 								{post.excerpt}
@@ -58,7 +67,10 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 								<span key={item}>#{item}</span>
 							))}
 						</div>
-						<Link href={`/${lang}/blog/${post.slug}`} className="underline">
+						<Link
+							href={`/${lang}/blog/${post.slug}`}
+							className="underline"
+						>
 							{lang === "en" ? "Read post" : "Ler post"}
 						</Link>
 					</article>
@@ -66,7 +78,9 @@ export default function BlogIndex({ lang, posts, tags, activeTag }: BlogIndexPro
 
 				{visiblePosts.length === 0 ? (
 					<p className="text-sm text-[var(--text-secondary)]">
-						{lang === "en" ? "No posts for this tag yet." : "Ainda não há posts para essa tag."}
+						{lang === "en"
+							? "No posts for this tag yet."
+							: "Ainda não há posts para essa tag."}
 					</p>
 				) : null}
 			</section>

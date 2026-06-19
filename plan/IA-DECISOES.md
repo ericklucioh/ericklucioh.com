@@ -19,4 +19,3 @@
 - “Production-focused RAG: quality, cost, and traceability.”
 - “Ingestion and indexing pipelines with validation and monitoring.”
 - “From raw data to reliable answers: integrations, evaluation, and ops.”
-

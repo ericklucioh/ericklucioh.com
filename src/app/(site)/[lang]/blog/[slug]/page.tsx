@@ -58,12 +58,19 @@ export default async function BlogPostPage({
 			mainClassName="w-full max-w-[980px] mx-auto px-4 md:px-6 py-7 pb-16"
 		>
 			<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-				{new Date(post.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
+				{new Date(post.date).toLocaleDateString(
+					lang === "en" ? "en-US" : "pt-BR",
+				)}
 			</p>
 			<h1 className="ui-title">{post.title}</h1>
-			{post.excerpt ? <p className="ui-subtitle">{post.excerpt}</p> : null}
+			{post.excerpt ? (
+				<p className="ui-subtitle">{post.excerpt}</p>
+			) : null}
 
-			<MdxContent Content={post.Content} className="markdown ui-card ui-cardLg mt-12" />
+			<MdxContent
+				Content={post.Content}
+				className="markdown ui-card ui-cardLg mt-12"
+			/>
 		</SiteFrame>
 	);
 }

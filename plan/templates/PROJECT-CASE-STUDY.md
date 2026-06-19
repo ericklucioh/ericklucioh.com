@@ -34,4 +34,3 @@ Qual era o problema e por que importava.
 
 - Repo/demo (se tiver)
 - Prints (se tiver)
-

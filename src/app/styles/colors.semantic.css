@@ -36,7 +36,11 @@
 		var(--color-aux-blue) 55%,
 		transparent
 	);
-	--callout-info-bg: color-mix(in srgb, var(--bg-surface) 90%, var(--color-soft-1));
+	--callout-info-bg: color-mix(
+		in srgb,
+		var(--bg-surface) 90%,
+		var(--color-soft-1)
+	);
 	--callout-info-accent: var(--color-aux-blue);
 	--callout-success-border: color-mix(
 		in srgb,
@@ -96,7 +100,11 @@
 		var(--color-aux-blue) 55%,
 		transparent
 	);
-	--callout-info-bg: color-mix(in srgb, var(--bg-page) 88%, var(--color-aux-blue));
+	--callout-info-bg: color-mix(
+		in srgb,
+		var(--bg-page) 88%,
+		var(--color-aux-blue)
+	);
 	--callout-info-accent: var(--color-soft-3);
 	--callout-success-border: color-mix(
 		in srgb,

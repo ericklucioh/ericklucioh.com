@@ -6,11 +6,15 @@ import * as jsxRuntime from "react/jsx-runtime";
 
 export type MdxContentComponent = ComponentType<any>;
 
-export async function compileMdxToComponent(source: string): Promise<MdxContentComponent> {
+export async function compileMdxToComponent(
+	source: string,
+): Promise<MdxContentComponent> {
 	const compiled = await compile(source, {
 		outputFormat: "function-body",
 		remarkPlugins: [remarkGfm],
-		rehypePlugins: [[rehypeHighlight, { detect: true, ignoreMissing: true }]],
+		rehypePlugins: [
+			[rehypeHighlight, { detect: true, ignoreMissing: true }],
+		],
 	});
 
 	const mdxModule = await run(String(compiled), {

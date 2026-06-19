@@ -34,7 +34,10 @@ type SectionHeaderProps = {
 	description?: string;
 };
 
-const toneStyles: Record<Tone, { border: string; background: string; accent: string }> = {
+const toneStyles: Record<
+	Tone,
+	{ border: string; background: string; accent: string }
+> = {
 	info: {
 		border: "var(--callout-info-border)",
 		background: "var(--callout-info-bg)",
@@ -64,7 +67,10 @@ export function Callout({ title, tone = "info", children }: CalloutProps) {
 			}}
 		>
 			{title ? (
-				<p className="mb-2 text-xs uppercase tracking-[0.2em]" style={{ color: style.accent }}>
+				<p
+					className="mb-2 text-xs uppercase tracking-[0.2em]"
+					style={{ color: style.accent }}
+				>
 					{title}
 				</p>
 			) : null}
@@ -76,20 +82,36 @@ export function Callout({ title, tone = "info", children }: CalloutProps) {
 }
 
 export function MetricGrid({ children }: MetricGridProps) {
-	return <div className="my-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{children}</div>;
+	return (
+		<div className="my-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+			{children}
+		</div>
+	);
 }
 
 export function MetricCard({ label, value, detail }: MetricCardProps) {
 	return (
 		<div className="ui-card">
-			<p className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">{label}</p>
+			<p className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
+				{label}
+			</p>
 			<p className="mt-2 text-2xl font-semibold">{value}</p>
-			{detail ? <p className="mt-2 text-sm text-[var(--text-secondary)]">{detail}</p> : null}
+			{detail ? (
+				<p className="mt-2 text-sm text-[var(--text-secondary)]">
+					{detail}
+				</p>
+			) : null}
 		</div>
 	);
 }
 
-export function Figure({ src, alt, caption, width = 1200, height = 675 }: FigureProps) {
+export function Figure({
+	src,
+	alt,
+	caption,
+	width = 1200,
+	height = 675,
+}: FigureProps) {
 	return (
 		<figure className="ui-card my-6 p-3">
 			<Image
@@ -99,19 +121,33 @@ export function Figure({ src, alt, caption, width = 1200, height = 675 }: Figure
 				height={height}
 				className="h-auto w-full rounded-[0.35rem]"
 			/>
-			{caption ? <figcaption className="mt-3 text-sm text-[var(--text-secondary)]">{caption}</figcaption> : null}
+			{caption ? (
+				<figcaption className="mt-3 text-sm text-[var(--text-secondary)]">
+					{caption}
+				</figcaption>
+			) : null}
 		</figure>
 	);
 }
 
-export function SectionHeader({ eyebrow, title, description }: SectionHeaderProps) {
+export function SectionHeader({
+	eyebrow,
+	title,
+	description,
+}: SectionHeaderProps) {
 	return (
 		<header className="my-8">
 			{eyebrow ? (
-				<p className="text-xs uppercase tracking-[0.22em] text-[var(--text-secondary)]">{eyebrow}</p>
+				<p className="text-xs uppercase tracking-[0.22em] text-[var(--text-secondary)]">
+					{eyebrow}
+				</p>
 			) : null}
-			<h2 className="mt-2 text-3xl font-semibold tracking-tight">{title}</h2>
-			{description ? <p className="ui-subtitle mt-3">{description}</p> : null}
+			<h2 className="mt-2 text-3xl font-semibold tracking-tight">
+				{title}
+			</h2>
+			{description ? (
+				<p className="ui-subtitle mt-3">{description}</p>
+			) : null}
 		</header>
 	);
 }

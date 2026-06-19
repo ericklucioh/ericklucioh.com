@@ -19,7 +19,10 @@ type MenuProps = {
 };
 
 function isExternalLink(item: MenuItem) {
-	return item.external ?? (item.href.startsWith("http") || item.href.endsWith(".pdf"));
+	return (
+		item.external ??
+		(item.href.startsWith("http") || item.href.endsWith(".pdf"))
+	);
 }
 
 export default function Menu(props: MenuProps) {
@@ -71,19 +74,23 @@ export default function Menu(props: MenuProps) {
 		);
 	}
 
-			return (
-				<>
-					<header className={styles.header}>
-						<a href="/">
-				<div className={styles.left}>
-					<Logo size={30} />
-					<span className={styles.brand}>Érick Lúcio</span>
-				</div>
-						</a>
+	return (
+		<>
+			<header className={styles.header}>
+				<a href="/">
+					<div className={styles.left}>
+						<Logo size={30} />
+						<span className={styles.brand}>Érick Lúcio</span>
+					</div>
+				</a>
 
 				<nav className={styles.navDesktop} aria-label="Primary">
 					{buttons.map((btn, index) => (
-						<Link key={index} href={btn.href} className={styles.link}>
+						<Link
+							key={index}
+							href={btn.href}
+							className={styles.link}
+						>
 							<span className={styles.hash}>#</span>
 							{btn.label}
 						</Link>
@@ -148,7 +155,10 @@ export default function Menu(props: MenuProps) {
 							</Link>
 						))}
 						<div className={styles.link}>
-							<Link href={langToggle.href} onClick={() => setMobileOpen(false)}>
+							<Link
+								href={langToggle.href}
+								onClick={() => setMobileOpen(false)}
+							>
 								{langToggle.label}
 							</Link>
 						</div>

@@ -4,7 +4,11 @@ import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
 import MdxContent from "@/components/mdx/MdxContent";
 import { isLang, LANGS, type Lang } from "@/lib/i18n";
-import { getAllProjects, getProjectBySlug, getProjectSlugs } from "@/lib/projects";
+import {
+	getAllProjects,
+	getProjectBySlug,
+	getProjectSlugs,
+} from "@/lib/projects";
 import { buildPageMetadata, resolveSocialImage } from "@/lib/metadata";
 
 export const dynamic = "error";
@@ -61,7 +65,9 @@ export default async function ProjectCasePage({
 				{lang === "en" ? "Project" : "Projeto"}
 			</p>
 			<h1 className="ui-title">{item.title}</h1>
-			{item.excerpt ? <p className="ui-subtitle">{item.excerpt}</p> : null}
+			{item.excerpt ? (
+				<p className="ui-subtitle">{item.excerpt}</p>
+			) : null}
 
 			{item.image ? (
 				<figure className="ui-card mt-8 p-3">
@@ -78,7 +84,11 @@ export default async function ProjectCasePage({
 			) : null}
 
 			<div className="mb-6 flex flex-wrap gap-2 text-xs text-[var(--text-secondary)]">
-				<span>{new Date(item.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}</span>
+				<span>
+					{new Date(item.date).toLocaleDateString(
+						lang === "en" ? "en-US" : "pt-BR",
+					)}
+				</span>
 				{(item.tags ?? []).length ? <span>•</span> : null}
 				{(item.tags ?? []).map((tag) => (
 					<span key={tag}>#{tag}</span>
@@ -90,7 +100,9 @@ export default async function ProjectCasePage({
 					<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 						Stack
 					</p>
-					<p className="text-sm leading-7 text-[var(--text-primary)]">{item.stack?.join(" • ")}</p>
+					<p className="text-sm leading-7 text-[var(--text-primary)]">
+						{item.stack?.join(" • ")}
+					</p>
 				</div>
 			) : null}
 

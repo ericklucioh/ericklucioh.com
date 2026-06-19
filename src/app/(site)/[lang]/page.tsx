@@ -25,11 +25,10 @@ export default async function HomePage({
 
 			<section className="grid gap-4 md:grid-cols-3">
 				{t.highlights.map((item) => (
-					<article
-						key={item.title}
-						className="ui-card"
-					>
-						<h2 className="mb-3 text-xl font-semibold">{item.title}</h2>
+					<article key={item.title} className="ui-card">
+						<h2 className="mb-3 text-xl font-semibold">
+							{item.title}
+						</h2>
 						<ul className="ui-list text-sm">
 							{item.bullets.map((bullet) => (
 								<li key={bullet}>{bullet}</li>

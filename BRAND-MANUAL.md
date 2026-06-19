@@ -57,26 +57,26 @@ A paleta é construída em camadas:
 
 Fonte: [`src/app/styles/colors.tokens.css`](/home/erick/code/ericklucioh/ericklucioh.com/src/app/styles/colors.tokens.css)
 
-| Token | Valor | Uso |
-|---|---:|---|
-| `--color-primary-1` | `#004f78` | Azul principal forte, mais útil em ações e estados escuros |
-| `--color-primary-2` | `#0e4461` | Azul principal mais frequente no sistema claro |
+| Token               |        Valor | Uso                                                                  |
+| ------------------- | -----------: | -------------------------------------------------------------------- |
+| `--color-primary-1` |    `#004f78` | Azul principal forte, mais útil em ações e estados escuros           |
+| `--color-primary-2` |    `#0e4461` | Azul principal mais frequente no sistema claro                       |
 | `--color-primary-3` | `indefinido` | Token presente no arquivo, mas atualmente sem valor válido no código |
-| `--color-light-1` | `#ffffff` | Branco puro |
-| `--color-light-2` | `#f5fbff` | Fundo claro principal |
-| `--color-light-3` | `#e9f4ff` | Superfície clara levemente azulada |
-| `--color-soft-1` | `#b7e6ff` | Azul suave de pressão/realce |
-| `--color-soft-2` | `#8cc1de` | Azul suave intermediário |
-| `--color-soft-3` | `#4fc3ff` | Azul-ciano mais vibrante |
-| `--color-gray-1` | `#667288` | Cinza frio para texto e suporte |
-| `--color-gray-2` | `#282c33` | Cinza escuro de borda/texto secundário |
-| `--color-gray-3` | `#191b1e` | Cinza muito escuro para base escura |
-| `--color-dark-1` | `#000d21` | Fundo escuro mais "profundo" |
-| `--color-dark-2` | `#020a16` | Fundo escuro principal |
-| `--color-dark-3` | `#090d14` | Superfície escura de cartão |
-| `--color-black` | `#000000` | Preto absoluto |
-| `--color-white` | `#ffffff` | Branco absoluto |
-| `--color-aux-blue` | `#0091c3` | Azul auxiliar de destaque e links |
+| `--color-light-1`   |    `#ffffff` | Branco puro                                                          |
+| `--color-light-2`   |    `#f5fbff` | Fundo claro principal                                                |
+| `--color-light-3`   |    `#e9f4ff` | Superfície clara levemente azulada                                   |
+| `--color-soft-1`    |    `#b7e6ff` | Azul suave de pressão/realce                                         |
+| `--color-soft-2`    |    `#8cc1de` | Azul suave intermediário                                             |
+| `--color-soft-3`    |    `#4fc3ff` | Azul-ciano mais vibrante                                             |
+| `--color-gray-1`    |    `#667288` | Cinza frio para texto e suporte                                      |
+| `--color-gray-2`    |    `#282c33` | Cinza escuro de borda/texto secundário                               |
+| `--color-gray-3`    |    `#191b1e` | Cinza muito escuro para base escura                                  |
+| `--color-dark-1`    |    `#000d21` | Fundo escuro mais "profundo"                                         |
+| `--color-dark-2`    |    `#020a16` | Fundo escuro principal                                               |
+| `--color-dark-3`    |    `#090d14` | Superfície escura de cartão                                          |
+| `--color-black`     |    `#000000` | Preto absoluto                                                       |
+| `--color-white`     |    `#ffffff` | Branco absoluto                                                      |
+| `--color-aux-blue`  |    `#0091c3` | Azul auxiliar de destaque e links                                    |
 
 ### 3.2 Cores semânticas
 

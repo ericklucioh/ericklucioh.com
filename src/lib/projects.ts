@@ -31,7 +31,11 @@ async function readProjectLocaleFile(slug: string, lang: Lang) {
 	return fs.readFile(fullPath, "utf8");
 }
 
-function assertFrontmatter(data: unknown, slug: string, lang: Lang): ProjectFrontmatter {
+function assertFrontmatter(
+	data: unknown,
+	slug: string,
+	lang: Lang,
+): ProjectFrontmatter {
 	if (!data || typeof data !== "object") {
 		throw new Error(`Invalid frontmatter for "${slug}/${lang}"`);
 	}
@@ -47,22 +51,30 @@ function assertFrontmatter(data: unknown, slug: string, lang: Lang): ProjectFron
 		throw new Error(`Missing "date" in frontmatter for "${slug}/${lang}"`);
 	}
 
-	const excerpt = typeof record.excerpt === "string" ? record.excerpt : undefined;
+	const excerpt =
+		typeof record.excerpt === "string" ? record.excerpt : undefined;
 	const tags = Array.isArray(record.tags)
 		? record.tags.filter((tag): tag is string => typeof tag === "string")
 		: undefined;
 	const stack = Array.isArray(record.stack)
-		? record.stack.filter((item): item is string => typeof item === "string")
+		? record.stack.filter(
+				(item): item is string => typeof item === "string",
+			)
 		: undefined;
 	const image = typeof record.image === "string" ? record.image : undefined;
-	const ogImage = typeof record.ogImage === "string" ? record.ogImage : undefined;
+	const ogImage =
+		typeof record.ogImage === "string" ? record.ogImage : undefined;
 
 	return { title, date, excerpt, tags, stack, image, ogImage };
 }
 
 async function readProjectDirectoryNames() {
-	const entries = await fs.readdir(projectsDirectory, { withFileTypes: true });
-	return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+	const entries = await fs.readdir(projectsDirectory, {
+		withFileTypes: true,
+	});
+	return entries
+		.filter((entry) => entry.isDirectory())
+		.map((entry) => entry.name);
 }
 
 async function hasLocaleFile(slug: string, lang: Lang) {
@@ -78,20 +90,29 @@ export const getProjectSlugs = cache(async function getProjectSlugs() {
 	const slugs = await readProjectDirectoryNames();
 	const completeSlugs = await Promise.all(
 		slugs.map(async (slug) => {
-			const checks = await Promise.all(supportedLocales.map((lang) => hasLocaleFile(slug, lang)));
+			const checks = await Promise.all(
+				supportedLocales.map((lang) => hasLocaleFile(slug, lang)),
+			);
 			if (checks.every(Boolean)) {
 				return slug;
 			}
 
-			const missing = supportedLocales.filter((_, index) => !checks[index]).join(", ");
-			throw new Error(`Missing locale file(s) for project "${slug}": ${missing}`);
+			const missing = supportedLocales
+				.filter((_, index) => !checks[index])
+				.join(", ");
+			throw new Error(
+				`Missing locale file(s) for project "${slug}": ${missing}`,
+			);
 		}),
 	);
 
 	return completeSlugs.sort();
 });
 
-export const getProjectBySlug = cache(async function getProjectBySlug(slug: string, lang: Lang): Promise<Project> {
+export const getProjectBySlug = cache(async function getProjectBySlug(
+	slug: string,
+	lang: Lang,
+): Promise<Project> {
 	const file = await readProjectLocaleFile(slug, lang);
 	const { data, content } = matter(file);
 
@@ -105,7 +126,9 @@ export const getProjectBySlug = cache(async function getProjectBySlug(slug: stri
 	};
 });
 
-export const getAllProjects = cache(async function getAllProjects(lang: Lang): Promise<ProjectSummary[]> {
+export const getAllProjects = cache(async function getAllProjects(
+	lang: Lang,
+): Promise<ProjectSummary[]> {
 	const slugs = await getProjectSlugs();
 	const projects = await Promise.all(
 		slugs.map(async (slug) => {

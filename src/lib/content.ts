@@ -39,7 +39,9 @@ export function getCaseStudyBySlug(slug: string) {
 }
 
 export function getBlogPosts() {
-	return [...typedBlogPosts].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+	return [...typedBlogPosts].sort((a, b) =>
+		a.publishedAt < b.publishedAt ? 1 : -1,
+	);
 }
 
 export function getBlogPostBySlug(slug: string) {
@@ -47,5 +49,7 @@ export function getBlogPostBySlug(slug: string) {
 }
 
 export function getAllTags() {
-	return Array.from(new Set(typedBlogPosts.flatMap((post) => post.tags))).sort();
+	return Array.from(
+		new Set(typedBlogPosts.flatMap((post) => post.tags)),
+	).sort();
 }

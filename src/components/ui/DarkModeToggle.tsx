@@ -21,7 +21,8 @@ export default function DarkModeToggle() {
 	}, []);
 
 	const toggleTheme = () => {
-		const currentlyDark = document.documentElement.classList.contains("dark");
+		const currentlyDark =
+			document.documentElement.classList.contains("dark");
 		const targetMode = currentlyDark ? "light" : "dark";
 		const html = document.documentElement;
 

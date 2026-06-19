@@ -21,7 +21,15 @@ export const siteDecorItems: DecorItem[] = [
 
 	{ kind: "dotGrid", side: "left", x: 4, y: 428, rows: 4, cols: 4, gap: 22 },
 	{ kind: "square", side: "left", x: -3, y: 470, sizeX: 150, sizeY: 65 },
-	{ kind: "dotGrid", side: "right", x: 13, y: 512, rows: 6, cols: 5, gap: 16 },
+	{
+		kind: "dotGrid",
+		side: "right",
+		x: 13,
+		y: 512,
+		rows: 6,
+		cols: 5,
+		gap: 16,
+	},
 	{ kind: "square", side: "right", x: 7, y: 548, sizeX: 95, sizeY: 140 },
 	{ kind: "dotGrid", side: "left", x: 10, y: 590, rows: 7, cols: 6, gap: 13 },
 
@@ -35,7 +43,6 @@ export const siteDecorItems: DecorItem[] = [
 	{ kind: "square", side: "right", x: 0, y: 910, sizeX: 100, sizeY: 150 },
 	{ kind: "dotGrid", side: "left", x: 7, y: 950, rows: 5, cols: 4, gap: 20 },
 ];
-
 
 export const linksDecorItems: DecorItem[] = [
 	{ kind: "dotGrid", side: "left", x: 1, y: 9, rows: 4, cols: 6, gap: 20 },

@@ -269,14 +269,16 @@ body {
 
 .markdown hr {
 	border: none;
-	border-top: 1px solid color-mix(in srgb, var(--text-secondary) 35%, transparent);
+	border-top: 1px solid
+		color-mix(in srgb, var(--text-secondary) 35%, transparent);
 	margin: 22px 0;
 }
 
 .markdown blockquote {
 	margin-top: 16px;
 	padding-left: 14px;
-	border-left: 2px solid color-mix(in srgb, var(--text-secondary) 60%, transparent);
+	border-left: 2px solid
+		color-mix(in srgb, var(--text-secondary) 60%, transparent);
 	color: color-mix(in srgb, var(--text-secondary) 75%, var(--text-primary));
 }
 
@@ -351,16 +353,8 @@ body {
 	transition-duration: var(--theme-transition-duration) !important;
 	transition-timing-function: var(--theme-transition-ease) !important;
 	transition-property:
-		color,
-		background-color,
-		background,
-		border-color,
-		outline-color,
-		text-decoration-color,
-		fill,
-		stroke,
-		box-shadow,
-		opacity !important;
+		color, background-color, background, border-color, outline-color,
+		text-decoration-color, fill, stroke, box-shadow, opacity !important;
 }
 
 :root.theme-transition .site-main::before {

@@ -1,77 +1,77 @@
 [
-  {
-    "slug": "backend-checklist-mvp",
-    "title": {
-      "pt": "Checklist de backend para MVP sem dor de cabeça",
-      "en": "Backend MVP checklist without headaches"
-    },
-    "excerpt": {
-      "pt": "Como evitar retrabalho nos primeiros 60 dias de produto.",
-      "en": "How to avoid rework in your first 60 product days."
-    },
-    "content": {
-      "pt": [
-        "Defina contrato da API antes de codar tudo.",
-        "Monitore logs e erros desde o primeiro deploy.",
-        "Escolha métricas simples que guiem decisão." 
-      ],
-      "en": [
-        "Define API contracts before coding everything.",
-        "Instrument logs and errors from day one.",
-        "Pick simple metrics that drive decisions."
-      ]
-    },
-    "publishedAt": "2026-03-20",
-    "tags": ["backend", "mvp", "api"]
-  },
-  {
-    "slug": "rag-evaluation-basics",
-    "title": {
-      "pt": "RAG na prática: avaliação mínima que já ajuda",
-      "en": "RAG in practice: minimum evaluation that helps"
-    },
-    "excerpt": {
-      "pt": "Medições simples para melhorar qualidade antes de escalar.",
-      "en": "Simple measurements to improve quality before scaling."
-    },
-    "content": {
-      "pt": [
-        "Comece medindo cobertura de contexto recuperado.",
-        "Registre falhas por categoria e severidade.",
-        "Revise prompts com base em exemplos reais." 
-      ],
-      "en": [
-        "Start by measuring retrieved context coverage.",
-        "Track failures by category and severity.",
-        "Refine prompts with real examples."
-      ]
-    },
-    "publishedAt": "2026-03-28",
-    "tags": ["ai", "rag", "evaluation"]
-  },
-  {
-    "slug": "observability-for-small-teams",
-    "title": {
-      "pt": "Observabilidade para times pequenos",
-      "en": "Observability for small teams"
-    },
-    "excerpt": {
-      "pt": "Um stack leve para detectar incidentes cedo.",
-      "en": "A lightweight stack to catch incidents early."
-    },
-    "content": {
-      "pt": [
-        "Padronize logs com correlação de requisição.",
-        "Crie alertas orientados a impacto no usuário.",
-        "Tenha runbooks curtos para incidentes repetidos." 
-      ],
-      "en": [
-        "Standardize logs with request correlation.",
-        "Create alerts tied to user impact.",
-        "Keep short runbooks for recurring incidents."
-      ]
-    },
-    "publishedAt": "2026-04-01",
-    "tags": ["devops", "observability", "sre"]
-  }
+	{
+		"slug": "backend-checklist-mvp",
+		"title": {
+			"pt": "Checklist de backend para MVP sem dor de cabeça",
+			"en": "Backend MVP checklist without headaches"
+		},
+		"excerpt": {
+			"pt": "Como evitar retrabalho nos primeiros 60 dias de produto.",
+			"en": "How to avoid rework in your first 60 product days."
+		},
+		"content": {
+			"pt": [
+				"Defina contrato da API antes de codar tudo.",
+				"Monitore logs e erros desde o primeiro deploy.",
+				"Escolha métricas simples que guiem decisão."
+			],
+			"en": [
+				"Define API contracts before coding everything.",
+				"Instrument logs and errors from day one.",
+				"Pick simple metrics that drive decisions."
+			]
+		},
+		"publishedAt": "2026-03-20",
+		"tags": ["backend", "mvp", "api"]
+	},
+	{
+		"slug": "rag-evaluation-basics",
+		"title": {
+			"pt": "RAG na prática: avaliação mínima que já ajuda",
+			"en": "RAG in practice: minimum evaluation that helps"
+		},
+		"excerpt": {
+			"pt": "Medições simples para melhorar qualidade antes de escalar.",
+			"en": "Simple measurements to improve quality before scaling."
+		},
+		"content": {
+			"pt": [
+				"Comece medindo cobertura de contexto recuperado.",
+				"Registre falhas por categoria e severidade.",
+				"Revise prompts com base em exemplos reais."
+			],
+			"en": [
+				"Start by measuring retrieved context coverage.",
+				"Track failures by category and severity.",
+				"Refine prompts with real examples."
+			]
+		},
+		"publishedAt": "2026-03-28",
+		"tags": ["ai", "rag", "evaluation"]
+	},
+	{
+		"slug": "observability-for-small-teams",
+		"title": {
+			"pt": "Observabilidade para times pequenos",
+			"en": "Observability for small teams"
+		},
+		"excerpt": {
+			"pt": "Um stack leve para detectar incidentes cedo.",
+			"en": "A lightweight stack to catch incidents early."
+		},
+		"content": {
+			"pt": [
+				"Padronize logs com correlação de requisição.",
+				"Crie alertas orientados a impacto no usuário.",
+				"Tenha runbooks curtos para incidentes repetidos."
+			],
+			"en": [
+				"Standardize logs with request correlation.",
+				"Create alerts tied to user impact.",
+				"Keep short runbooks for recurring incidents."
+			]
+		},
+		"publishedAt": "2026-04-01",
+		"tags": ["devops", "observability", "sre"]
+	}
 ]

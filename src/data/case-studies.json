@@ -1,80 +1,104 @@
 [
-  {
-    "slug": "cost-ai-agent",
-    "title": {
-      "pt": "Agente IA para análise de custos de produção",
-      "en": "AI agent for production cost analysis"
-    },
-    "summary": {
-      "pt": "Automatização da leitura técnica de documentos para acelerar decisões de custo.",
-      "en": "Automated technical document analysis to speed up cost decisions."
-    },
-    "problem": {
-      "pt": "O time gastava horas consolidando documentos e planilhas antes de qualquer análise comparativa.",
-      "en": "The team spent hours consolidating documents and spreadsheets before any comparative analysis."
-    },
-    "stack": ["Python", "TypeScript", "PostgreSQL", "MongoDB", "Azure AI Foundry"],
-    "status": "active",
-    "tags": ["rag", "backend", "data"],
-    "impact": [
-      {"label": "Lead time", "value": "-38%"},
-      {"label": "Erro manual", "value": "-27%"},
-      {"label": "Tempo de resposta", "value": "2.1x mais rápido"}
-    ],
-    "sections": {
-      "pt": [
-        {"title": "Contexto", "body": "Projeto interno para padronizar análise técnica de custos entre áreas de engenharia e operação."},
-        {"title": "Solução", "body": "Pipeline RAG com ingestão de documentos, indexação semântica e respostas com rastreabilidade por fonte."},
-        {"title": "Resultado", "body": "A equipe passou a comparar cenários em minutos, com histórico auditável e menor retrabalho."}
-      ],
-      "en": [
-        {"title": "Context", "body": "Internal project to standardize technical cost analysis across engineering and operations."},
-        {"title": "Solution", "body": "RAG pipeline with document ingestion, semantic indexing, and source-grounded answers."},
-        {"title": "Outcome", "body": "The team now compares scenarios in minutes with auditable history and less rework."}
-      ]
-    },
-    "image": "/projects/cost-ai-agent-arch.svg"
-  },
-  {
-    "slug": "erp-bi-integration",
-    "title": {
-      "pt": "Integração ERP + BI para indicadores financeiros",
-      "en": "ERP + BI integration for financial indicators"
-    },
-    "summary": {
-      "pt": "Camada de API para sincronizar dados críticos e dashboards executivos.",
-      "en": "API layer to sync critical data and executive dashboards."
-    },
-    "problem": {
-      "pt": "Dados financeiros vinham de múltiplas fontes com divergências frequentes.",
-      "en": "Financial data came from multiple sources with frequent inconsistencies."
-    },
-    "stack": ["Node.js", "TypeScript", "PostgreSQL", "Docker"],
-    "status": "coming_soon",
-    "tags": ["backend", "api", "finance"],
-    "impact": [],
-    "sections": {"pt": [], "en": []},
-    "image": "/projects/placeholder.svg"
-  },
-  {
-    "slug": "ops-alert-dashboard",
-    "title": {
-      "pt": "Dashboard operacional com alertas inteligentes",
-      "en": "Operational dashboard with smart alerts"
-    },
-    "summary": {
-      "pt": "Monitoramento de operação com alertas acionáveis por prioridade.",
-      "en": "Operational monitoring with actionable priority alerts."
-    },
-    "problem": {
-      "pt": "Incidentes eram percebidos tarde e sem contexto consolidado.",
-      "en": "Incidents were detected late and without consolidated context."
-    },
-    "stack": ["TypeScript", "React", "Node.js", "PostgreSQL"],
-    "status": "coming_soon",
-    "tags": ["frontend", "backend", "observability"],
-    "impact": [],
-    "sections": {"pt": [], "en": []},
-    "image": "/projects/placeholder.svg"
-  }
+	{
+		"slug": "cost-ai-agent",
+		"title": {
+			"pt": "Agente IA para análise de custos de produção",
+			"en": "AI agent for production cost analysis"
+		},
+		"summary": {
+			"pt": "Automatização da leitura técnica de documentos para acelerar decisões de custo.",
+			"en": "Automated technical document analysis to speed up cost decisions."
+		},
+		"problem": {
+			"pt": "O time gastava horas consolidando documentos e planilhas antes de qualquer análise comparativa.",
+			"en": "The team spent hours consolidating documents and spreadsheets before any comparative analysis."
+		},
+		"stack": [
+			"Python",
+			"TypeScript",
+			"PostgreSQL",
+			"MongoDB",
+			"Azure AI Foundry"
+		],
+		"status": "active",
+		"tags": ["rag", "backend", "data"],
+		"impact": [
+			{ "label": "Lead time", "value": "-38%" },
+			{ "label": "Erro manual", "value": "-27%" },
+			{ "label": "Tempo de resposta", "value": "2.1x mais rápido" }
+		],
+		"sections": {
+			"pt": [
+				{
+					"title": "Contexto",
+					"body": "Projeto interno para padronizar análise técnica de custos entre áreas de engenharia e operação."
+				},
+				{
+					"title": "Solução",
+					"body": "Pipeline RAG com ingestão de documentos, indexação semântica e respostas com rastreabilidade por fonte."
+				},
+				{
+					"title": "Resultado",
+					"body": "A equipe passou a comparar cenários em minutos, com histórico auditável e menor retrabalho."
+				}
+			],
+			"en": [
+				{
+					"title": "Context",
+					"body": "Internal project to standardize technical cost analysis across engineering and operations."
+				},
+				{
+					"title": "Solution",
+					"body": "RAG pipeline with document ingestion, semantic indexing, and source-grounded answers."
+				},
+				{
+					"title": "Outcome",
+					"body": "The team now compares scenarios in minutes with auditable history and less rework."
+				}
+			]
+		},
+		"image": "/projects/cost-ai-agent-arch.svg"
+	},
+	{
+		"slug": "erp-bi-integration",
+		"title": {
+			"pt": "Integração ERP + BI para indicadores financeiros",
+			"en": "ERP + BI integration for financial indicators"
+		},
+		"summary": {
+			"pt": "Camada de API para sincronizar dados críticos e dashboards executivos.",
+			"en": "API layer to sync critical data and executive dashboards."
+		},
+		"problem": {
+			"pt": "Dados financeiros vinham de múltiplas fontes com divergências frequentes.",
+			"en": "Financial data came from multiple sources with frequent inconsistencies."
+		},
+		"stack": ["Node.js", "TypeScript", "PostgreSQL", "Docker"],
+		"status": "coming_soon",
+		"tags": ["backend", "api", "finance"],
+		"impact": [],
+		"sections": { "pt": [], "en": [] },
+		"image": "/projects/placeholder.svg"
+	},
+	{
+		"slug": "ops-alert-dashboard",
+		"title": {
+			"pt": "Dashboard operacional com alertas inteligentes",
+			"en": "Operational dashboard with smart alerts"
+		},
+		"summary": {
+			"pt": "Monitoramento de operação com alertas acionáveis por prioridade.",
+			"en": "Operational monitoring with actionable priority alerts."
+		},
+		"problem": {
+			"pt": "Incidentes eram percebidos tarde e sem contexto consolidado.",
+			"en": "Incidents were detected late and without consolidated context."
+		},
+		"stack": ["TypeScript", "React", "Node.js", "PostgreSQL"],
+		"status": "coming_soon",
+		"tags": ["frontend", "backend", "observability"],
+		"impact": [],
+		"sections": { "pt": [], "en": [] },
+		"image": "/projects/placeholder.svg"
+	}
 ]

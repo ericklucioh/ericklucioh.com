@@ -11,9 +11,20 @@ type BlogIndexClientProps = {
 	tags: string[];
 };
 
-export default function BlogIndexClient({ lang, posts, tags }: BlogIndexClientProps) {
+export default function BlogIndexClient({
+	lang,
+	posts,
+	tags,
+}: BlogIndexClientProps) {
 	const searchParams = useSearchParams();
 	const activeTag = searchParams.get("tag") ?? undefined;
 
-	return <BlogIndex lang={lang} posts={posts} tags={tags} activeTag={activeTag} />;
+	return (
+		<BlogIndex
+			lang={lang}
+			posts={posts}
+			tags={tags}
+			activeTag={activeTag}
+		/>
+	);
 }

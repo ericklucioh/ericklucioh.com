@@ -26,7 +26,9 @@ const supportedLocales: readonly Lang[] = ["pt", "en"];
 
 async function readPostDirectoryNames() {
 	const entries = await fs.readdir(postsDirectory, { withFileTypes: true });
-	return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+	return entries
+		.filter((entry) => entry.isDirectory())
+		.map((entry) => entry.name);
 }
 
 async function hasLocaleFile(slug: string, lang: Lang) {
@@ -43,7 +45,11 @@ async function readPostLocaleFile(slug: string, lang: Lang) {
 	return fs.readFile(fullPath, "utf8");
 }
 
-function assertFrontmatter(data: unknown, slug: string, lang?: Lang): PostFrontmatter {
+function assertFrontmatter(
+	data: unknown,
+	slug: string,
+	lang?: Lang,
+): PostFrontmatter {
 	const suffix = lang ? `/${lang}` : "";
 	if (!data || typeof data !== "object") {
 		throw new Error(`Invalid frontmatter for "${slug}${suffix}"`);
@@ -54,15 +60,21 @@ function assertFrontmatter(data: unknown, slug: string, lang?: Lang): PostFrontm
 	const date = record.date;
 
 	if (typeof title !== "string" || title.trim().length === 0) {
-		throw new Error(`Missing "title" in frontmatter for "${slug}${suffix}"`);
+		throw new Error(
+			`Missing "title" in frontmatter for "${slug}${suffix}"`,
+		);
 	}
 	if (typeof date !== "string" || date.trim().length === 0) {
 		throw new Error(`Missing "date" in frontmatter for "${slug}${suffix}"`);
 	}
 
-	const excerpt = typeof record.excerpt === "string" ? record.excerpt : undefined;
-	const tags = Array.isArray(record.tags) ? record.tags.filter((t) => typeof t === "string") : undefined;
-	const ogImage = typeof record.ogImage === "string" ? record.ogImage : undefined;
+	const excerpt =
+		typeof record.excerpt === "string" ? record.excerpt : undefined;
+	const tags = Array.isArray(record.tags)
+		? record.tags.filter((t) => typeof t === "string")
+		: undefined;
+	const ogImage =
+		typeof record.ogImage === "string" ? record.ogImage : undefined;
 
 	return { title, date, excerpt, tags, ogImage };
 }
@@ -71,7 +83,9 @@ export const getPostSlugs = cache(async function getPostSlugs() {
 	const slugs = await readPostDirectoryNames();
 	const completeSlugs = await Promise.all(
 		slugs.map(async (slug) => {
-			const checks = await Promise.all(supportedLocales.map((lang) => hasLocaleFile(slug, lang)));
+			const checks = await Promise.all(
+				supportedLocales.map((lang) => hasLocaleFile(slug, lang)),
+			);
 			return checks.every(Boolean) ? slug : null;
 		}),
 	);
@@ -79,7 +93,10 @@ export const getPostSlugs = cache(async function getPostSlugs() {
 	return completeSlugs.filter((slug): slug is string => Boolean(slug)).sort();
 });
 
-export const getPostBySlug = cache(async function getPostBySlug(slug: string, lang: Lang): Promise<Post> {
+export const getPostBySlug = cache(async function getPostBySlug(
+	slug: string,
+	lang: Lang,
+): Promise<Post> {
 	const file = await readPostLocaleFile(slug, lang);
 	const { data, content } = matter(file);
 
@@ -93,7 +110,9 @@ export const getPostBySlug = cache(async function getPostBySlug(slug: string, la
 	};
 });
 
-export const getAllPosts = cache(async function getAllPosts(lang: Lang): Promise<PostSummary[]> {
+export const getAllPosts = cache(async function getAllPosts(
+	lang: Lang,
+): Promise<PostSummary[]> {
 	const slugs = await getPostSlugs();
 	const posts = await Promise.all(
 		slugs.map(async (slug) => {

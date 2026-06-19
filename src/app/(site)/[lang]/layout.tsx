@@ -53,7 +53,10 @@ export default async function LangLayout({
 			buttons={[
 				{ label: nav.home, href: getLocalizedPath(lang, "home") },
 				{ label: nav.about, href: getLocalizedPath(lang, "about") },
-				{ label: nav.projects, href: getLocalizedPath(lang, "projects") },
+				{
+					label: nav.projects,
+					href: getLocalizedPath(lang, "projects"),
+				},
 			]}
 		>
 			{children}

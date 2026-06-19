@@ -79,11 +79,18 @@ export default async function ProjectsPage({
 
 						<div className="flex min-w-0 flex-1 flex-col">
 							<p className="mb-2 text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-								{new Date(item.date).toLocaleDateString(lang === "en" ? "en-US" : "pt-BR")}
+								{new Date(item.date).toLocaleDateString(
+									lang === "en" ? "en-US" : "pt-BR",
+								)}
 							</p>
-							<h2 className="mb-2 text-xl font-semibold">{item.title}</h2>
+							<h2 className="mb-2 text-xl font-semibold">
+								{item.title}
+							</h2>
 							{item.excerpt ? (
-								<p className="ui-subtitle max-w-none" style={{ marginTop: 10 }}>
+								<p
+									className="ui-subtitle max-w-none"
+									style={{ marginTop: 10 }}
+								>
 									{item.excerpt}
 								</p>
 							) : null}
@@ -97,10 +104,16 @@ export default async function ProjectsPage({
 							</div>
 							<div className="mt-auto flex items-center justify-end gap-2">
 								<Link
-									href={getLocalizedPath(lang, "projects", item.slug)}
+									href={getLocalizedPath(
+										lang,
+										"projects",
+										item.slug,
+									)}
 									className="text-sm underline"
 								>
-									{lang === "en" ? "Open case study" : "Abrir case study"}
+									{lang === "en"
+										? "Open case study"
+										: "Abrir case study"}
 								</Link>
 							</div>
 						</div>

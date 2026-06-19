@@ -4,15 +4,15 @@ date: "2026-04-06"
 excerpt: "First MDX post, with reusable components and static export."
 ogImage: "/og/hello-world.svg"
 tags:
-  - nextjs
-  - mdx
-  - gfm
+    - nextjs
+    - mdx
+    - gfm
 ---
 
 <SectionHeader
-  eyebrow="Technical blog"
-  title="Hello, MDX"
-  description="This post shows the richer version of the blog: text, reusable components, Mermaid, and a local image."
+	eyebrow="Technical blog"
+	title="Hello, MDX"
+	description="This post shows the richer version of the blog: text, reusable components, Mermaid, and a local image."
 />
 
 ## Introduction
@@ -20,39 +20,57 @@ tags:
 This post lives in `content/posts` and is converted into a React component during the build, without a backend or CMS.
 
 <Callout title="Summary" tone="info">
-MDX keeps the blog static while opening room for diagrams, visual blocks, and richer content composition.
+	MDX keeps the blog static while opening room for diagrams, visual blocks,
+	and richer content composition.
 </Callout>
 
 ## Code example
 
 ```ts
 export function greet(name: string) {
-  return `Hello, ${name}`;
+	return `Hello, ${name}`;
 }
 ```
 
 <MetricGrid>
-  <MetricCard label="Format" value="MDX" detail="rich content with a static build" />
-  <MetricCard label="Use" value="Blog" detail="editorial text with components" />
-  <MetricCard label="Diagram" value="Mermaid" detail="rendered on the client" />
-  <MetricCard label="Asset" value="Local" detail="images served from the same site" />
+	<MetricCard
+		label="Format"
+		value="MDX"
+		detail="rich content with a static build"
+	/>
+	<MetricCard
+		label="Use"
+		value="Blog"
+		detail="editorial text with components"
+	/>
+	<MetricCard
+		label="Diagram"
+		value="Mermaid"
+		detail="rendered on the client"
+	/>
+	<MetricCard
+		label="Asset"
+		value="Local"
+		detail="images served from the same site"
+	/>
 </MetricGrid>
 
 ## Flow
 
 <Mermaid
-  title="Post pipeline"
-  chart={`
+	title="Post pipeline"
+	chart={`
 flowchart LR
   A[MDX file] --> B[Compile at build time]
   B --> C[React component]
   C --> D[Static export]
-`}/>
+`}
+/>
 
 <Figure
-  src="/foto.png"
-  alt="Author photo"
-  caption="A local figure reused as a visual example in the blog."
+	src="/foto.png"
+	alt="Author photo"
+	caption="A local figure reused as a visual example in the blog."
 />
 
 ## Closing

@@ -88,8 +88,7 @@
 	text-decoration: none;
 	font-size: 0.875rem;
 	padding: 0.3125rem 0.3125rem;
-	border: 1px solid
-		color-mix(in srgb, var(--text-secondary) 40%, transparent);
+	border: 1px solid color-mix(in srgb, var(--text-secondary) 40%, transparent);
 	background: color-mix(in srgb, var(--bg-page) 80%, transparent);
 	color: var(--text-primary);
 	white-space: nowrap;
@@ -102,7 +101,8 @@
 
 .action:focus-visible,
 .link:focus-visible {
-	outline: 2px solid color-mix(in srgb, var(--text-secondary) 55%, transparent);
+	outline: 2px solid
+		color-mix(in srgb, var(--text-secondary) 55%, transparent);
 	outline-offset: 2px;
 }
 

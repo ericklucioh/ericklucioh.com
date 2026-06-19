@@ -195,7 +195,11 @@ export const copy = {
 				devops: "Docker, CI/CD, monitoring and logs",
 			},
 			availableTitle: "Available for",
-			available: ["Remote or hybrid", "Brazil (SC), UTC-3", "Backend or Backend + AI roles"],
+			available: [
+				"Remote or hybrid",
+				"Brazil (SC), UTC-3",
+				"Backend or Backend + AI roles",
+			],
 		},
 		projects: {
 			title: "Projects",

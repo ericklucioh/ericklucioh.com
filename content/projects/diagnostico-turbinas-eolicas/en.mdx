@@ -5,25 +5,26 @@ excerpt: "A Python prototype that uses IF-THEN rules to support fast fault diagn
 image: "/projects/placeholder.svg"
 ogImage: "/og/diagnostico-turbinas-eolicas.svg"
 tags:
-  - python
-  - symbolic-ai
-  - expert-system
-  - maintenance
+    - python
+    - symbolic-ai
+    - expert-system
+    - maintenance
 stack:
-  - Python
-  - IF-THEN rules
-  - JSON
-  - Mermaid
+    - Python
+    - IF-THEN rules
+    - JSON
+    - Mermaid
 ---
 
 <SectionHeader
-  eyebrow="Academic project"
-  title="Expert System for Wind Turbine Diagnostics"
-  description="A simple but useful portfolio case: it turns turbine measurements into explainable diagnostics."
+	eyebrow="Academic project"
+	title="Expert System for Wind Turbine Diagnostics"
+	description="A simple but useful portfolio case: it turns turbine measurements into explainable diagnostics."
 />
 
 <Callout title="Goal" tone="info">
-The system helps maintenance technicians interpret critical turbine variables and suggest the next step using rule-based reasoning.
+	The system helps maintenance technicians interpret critical turbine
+	variables and suggest the next step using rule-based reasoning.
 </Callout>
 
 ## How it works
@@ -33,10 +34,26 @@ The system helps maintenance technicians interpret critical turbine variables an
 3. The system returns a diagnosis and a justification.
 
 <MetricGrid>
-  <MetricCard label="Variables" value="11" detail="wind, rpm, vibration, temperature, pressure, and consumption" />
-  <MetricCard label="Diagnoses" value="8+" detail="rules focused on common operational failures" />
-  <MetricCard label="Output" value="Explainable" detail="every result includes a reason and a suggested action" />
-  <MetricCard label="Format" value="Static" detail="content is versioned in Git and published without a backend" />
+	<MetricCard
+		label="Variables"
+		value="11"
+		detail="wind, rpm, vibration, temperature, pressure, and consumption"
+	/>
+	<MetricCard
+		label="Diagnoses"
+		value="8+"
+		detail="rules focused on common operational failures"
+	/>
+	<MetricCard
+		label="Output"
+		value="Explainable"
+		detail="every result includes a reason and a suggested action"
+	/>
+	<MetricCard
+		label="Format"
+		value="Static"
+		detail="content is versioned in Git and published without a backend"
+	/>
 </MetricGrid>
 
 ## Main rules
@@ -64,8 +81,8 @@ Suggested action: check the speed sensor and control system.
 ## Flowchart
 
 <Mermaid
-  title="Rules flowchart"
-  chart={`
+	title="Rules flowchart"
+	chart={`
 flowchart TD
   A[Input data] --> B{Wind and RPM aligned?}
   B -- no --> C[Possible sensor failure]
@@ -74,12 +91,13 @@ flowchart TD
   D -- no --> F{Temperature high?}
   F -- yes --> G[Adjust temperature]
   F -- no --> H[System OK]
-`}/>
+`}
+/>
 
 <Figure
-  src="/projects/cost-ai-agent-arch.svg"
-  alt="Example architecture visual"
-  caption="The case can use local assets from the site to make the project feel more visual."
+	src="/projects/cost-ai-agent-arch.svg"
+	alt="Example architecture visual"
+	caption="The case can use local assets from the site to make the project feel more visual."
 />
 
 ## Closing note

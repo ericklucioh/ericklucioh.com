@@ -28,7 +28,9 @@ export default async function BlogIndexPage() {
 		<SiteFrame>
 			<header className="ui-card ui-cardLg">
 				<h1 className="ui-title">Blog</h1>
-				<p className="ui-subtitle">Posts em MDX, exportados como conteúdo estático.</p>
+				<p className="ui-subtitle">
+					Posts em MDX, exportados como conteúdo estático.
+				</p>
 			</header>
 
 			<section className="mt-12 grid gap-4">
@@ -37,13 +39,22 @@ export default async function BlogIndexPage() {
 						<p className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
 							{new Date(post.date).toLocaleDateString("pt-BR")}
 						</p>
-						<h2 style={{ marginTop: 10 }} className="text-xl font-semibold">
-							<Link href={`/blog/${post.slug}`} className="underline">
+						<h2
+							style={{ marginTop: 10 }}
+							className="text-xl font-semibold"
+						>
+							<Link
+								href={`/blog/${post.slug}`}
+								className="underline"
+							>
 								{post.title}
 							</Link>
 						</h2>
 						{post.excerpt ? (
-							<p className="ui-subtitle" style={{ marginTop: 10 }}>
+							<p
+								className="ui-subtitle"
+								style={{ marginTop: 10 }}
+							>
 								{post.excerpt}
 							</p>
 						) : null}

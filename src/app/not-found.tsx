@@ -41,7 +41,9 @@ export default function NotFound() {
 								<p className={styles["big-number"]}>
 									<span>/</span>404
 								</p>
-								<p className={styles["small-text"]}>Page not Found</p>
+								<p className={styles["small-text"]}>
+									Page not Found
+								</p>
 							</article>
 							<article className={styles["button-container"]}>
 								<Button
