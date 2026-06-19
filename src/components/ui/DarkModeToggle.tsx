@@ -7,38 +7,49 @@ const style = styleModel as any;
 export default function DarkModeToggle() {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
+	const [isSpinning, setIsSpinning] = useState(false);
 
 	useEffect(() => {
-		const rafId = window.requestAnimationFrame(() => setMounted(true));
-		return () => window.cancelAnimationFrame(rafId);
+		setMounted(true);
 	}, []);
 
-	const toggleDark = () => {
+	const isDark = mounted && resolvedTheme === "dark";
+
+	const toggleTheme = () => {
+		const targetMode = isDark ? "light" : "dark";
 		const html = document.documentElement;
 		html.classList.add("theme-transition");
 		void html.offsetHeight;
-		const currentDark = html.classList.contains("dark");
-		const next = currentDark ? "light" : "dark";
-		setTheme(next);
-		window.setTimeout(() => html.classList.remove("theme-transition"), 320);
+		setIsSpinning(false);
+		window.requestAnimationFrame(() => setIsSpinning(true));
+		setTheme(targetMode);
+		window.setTimeout(() => {
+			html.classList.remove("theme-transition");
+		}, 320);
 	};
 
-	const isDark = mounted ? resolvedTheme === "dark" : false;
-
 	return (
-		<label className={style.container}>
-			<input
-				type="checkbox"
-				checked={isDark}
-				onChange={toggleDark}
-				id="toggle"
-				suppressHydrationWarning
-			/>
-			<span className={style.slider + " " + style.round}>
-				<div className={style.background}></div>
-				<div className={style.star}></div>
-				<div className={style.star}></div>
+		<button
+			type="button"
+			className={style.button}
+			onClick={toggleTheme}
+			data-mode={isDark ? "dark" : "light"}
+			aria-label="Alternar tema"
+			aria-pressed={isDark}
+			suppressHydrationWarning
+		>
+			<span
+				className={`${style.iconWrap} ${isSpinning ? style.spinning : ""}`}
+				aria-hidden="true"
+				onAnimationEnd={() => setIsSpinning(false)}
+			>
+				<svg className={style.sun} viewBox="0 0 24 24">
+					<path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.95-6.95 1.41-1.41M3.64 20.36l1.41-1.41m0-13.9L3.64 3.64m16.72 16.72-1.41-1.41M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" />
+				</svg>
+				<svg className={style.moon} viewBox="0 0 24 24">
+					<path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z" />
+				</svg>
 			</span>
-		</label>
+		</button>
 	);
 }
