@@ -2,7 +2,7 @@
 	/* PRIMARY */
 	--color-primary-1: #004f78;
 	--color-primary-2: #0e4461;
-	--color-primary-3: #	;
+	--color-primary-3: #0a2b42;
 
 	/* LIGHT */
 	--color-light-1: #ffffff;
@@ -30,4 +30,8 @@
 
 	/* AUX */
 	--color-aux-blue: #0091c3;
+	--color-success-1: #2f8f57;
+	--color-success-2: #6bde92;
+	--color-warning-1: #b45f06;
+	--color-warning-2: #f6b26b;
 }

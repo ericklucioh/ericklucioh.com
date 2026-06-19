@@ -3,7 +3,6 @@
 	height: 44px;
 	padding: 0;
 	border-radius: 999px;
-	background: color-mix(in srgb, var(--bg-page) 88%, transparent);
 	color: var(--text-primary);
 	display: inline-flex;
 	align-items: center;
@@ -12,10 +11,15 @@
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
 	transition:
-		transform 0.2s ease,
-		background 0.2s ease,
-		border-color 0.2s ease,
-		color 0.2s ease;
+		transform 0.18s ease,
+		background var(--theme-transition-duration) var(--theme-transition-ease),
+		border-color var(--theme-transition-duration)
+			var(--theme-transition-ease),
+		color var(--theme-transition-duration) var(--theme-transition-ease),
+		backdrop-filter var(--theme-transition-duration)
+			var(--theme-transition-ease),
+		-webkit-backdrop-filter var(--theme-transition-duration)
+			var(--theme-transition-ease);
 }
 
 .button:hover {
@@ -35,7 +39,8 @@
 }
 
 .spinning {
-	animation: toggleSpin 0.65s ease;
+	animation: toggleSpin var(--theme-transition-duration)
+		var(--theme-transition-ease);
 }
 
 .sun,
@@ -50,8 +55,8 @@
 	stroke-linecap: round;
 	stroke-linejoin: round;
 	transition:
-		opacity 0.22s ease,
-		transform 0.22s ease;
+		opacity var(--theme-transition-duration) var(--theme-transition-ease),
+		transform var(--theme-transition-duration) var(--theme-transition-ease);
 	transform-origin: center;
 }
 
@@ -73,6 +78,11 @@
 :global(html.dark) .button .moon {
 	opacity: 1;
 	transform: scale(1);
+}
+
+:global(html.theme-transition) .button {
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
 }
 
 @keyframes toggleSpin {

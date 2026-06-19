@@ -1,27 +1,43 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import styleModel from "./DarkModeToggle.module.css";
 const style = styleModel as any;
+const THEME_TRANSITION_MS = 220;
 
 export default function DarkModeToggle() {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [isSpinning, setIsSpinning] = useState(false);
+	const resetTransitionRef = useRef<number | null>(null);
 
 	const isDark = resolvedTheme === "dark";
+
+	useEffect(() => {
+		return () => {
+			if (resetTransitionRef.current !== null) {
+				window.clearTimeout(resetTransitionRef.current);
+			}
+		};
+	}, []);
 
 	const toggleTheme = () => {
 		const currentlyDark = document.documentElement.classList.contains("dark");
 		const targetMode = currentlyDark ? "light" : "dark";
 		const html = document.documentElement;
+
+		if (resetTransitionRef.current !== null) {
+			window.clearTimeout(resetTransitionRef.current);
+		}
+
 		html.classList.add("theme-transition");
 		void html.offsetHeight;
 		setIsSpinning(false);
 		window.requestAnimationFrame(() => setIsSpinning(true));
 		setTheme(targetMode);
-		window.setTimeout(() => {
+		resetTransitionRef.current = window.setTimeout(() => {
 			html.classList.remove("theme-transition");
-		}, 320);
+			resetTransitionRef.current = null;
+		}, THEME_TRANSITION_MS);
 	};
 
 	return (

@@ -36,19 +36,19 @@ type SectionHeaderProps = {
 
 const toneStyles: Record<Tone, { border: string; background: string; accent: string }> = {
 	info: {
-		border: "color-mix(in srgb, var(--color-aux-blue) 55%, transparent)",
-		background: "color-mix(in srgb, var(--bg-page) 88%, transparent)",
-		accent: "var(--color-aux-blue)",
+		border: "var(--callout-info-border)",
+		background: "var(--callout-info-bg)",
+		accent: "var(--callout-info-accent)",
 	},
 	success: {
-		border: "color-mix(in srgb, #2f8f57 55%, transparent)",
-		background: "color-mix(in srgb, #173526 88%, transparent)",
-		accent: "#6bde92",
+		border: "var(--callout-success-border)",
+		background: "var(--callout-success-bg)",
+		accent: "var(--callout-success-accent)",
 	},
 	warning: {
-		border: "color-mix(in srgb, #b45f06 55%, transparent)",
-		background: "color-mix(in srgb, #2a1d10 88%, transparent)",
-		accent: "#f6b26b",
+		border: "var(--callout-warning-border)",
+		background: "var(--callout-warning-bg)",
+		accent: "var(--callout-warning-accent)",
 	},
 };
 

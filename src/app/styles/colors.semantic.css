@@ -2,6 +2,10 @@
 /* LIGHT MODE (NORMAL)           */
 /* ============================= */
 :root {
+	--theme-transition-duration: 220ms;
+	--theme-transition-ease: cubic-bezier(0.22, 1, 0.36, 1);
+	--theme-fade-start-opacity: 0.82;
+
 	/* TEXT */
 	--text-primary: var(--color-primary-3);
 	--text-secondary: var(--color-aux-blue);
@@ -25,6 +29,37 @@
 	/* HIGHLIGHT */
 	--highlight-soft: var(--color-soft-2);
 	--highlight-strong: var(--color-soft-3);
+
+	/* CALLOUT */
+	--callout-info-border: color-mix(
+		in srgb,
+		var(--color-aux-blue) 55%,
+		transparent
+	);
+	--callout-info-bg: color-mix(in srgb, var(--bg-surface) 90%, var(--color-soft-1));
+	--callout-info-accent: var(--color-aux-blue);
+	--callout-success-border: color-mix(
+		in srgb,
+		var(--color-success-1) 42%,
+		transparent
+	);
+	--callout-success-bg: color-mix(
+		in srgb,
+		var(--bg-surface) 84%,
+		var(--color-success-2)
+	);
+	--callout-success-accent: var(--color-success-1);
+	--callout-warning-border: color-mix(
+		in srgb,
+		var(--color-warning-1) 45%,
+		transparent
+	);
+	--callout-warning-bg: color-mix(
+		in srgb,
+		var(--bg-surface) 84%,
+		var(--color-warning-2)
+	);
+	--callout-warning-accent: var(--color-warning-1);
 }
 
 /* ============================= */
@@ -54,4 +89,35 @@
 	/* HIGHLIGHT */
 	--highlight-soft: var(--color-soft-2);
 	--highlight-strong: var(--color-soft-3);
+
+	/* CALLOUT */
+	--callout-info-border: color-mix(
+		in srgb,
+		var(--color-aux-blue) 55%,
+		transparent
+	);
+	--callout-info-bg: color-mix(in srgb, var(--bg-page) 88%, var(--color-aux-blue));
+	--callout-info-accent: var(--color-soft-3);
+	--callout-success-border: color-mix(
+		in srgb,
+		var(--color-success-2) 40%,
+		transparent
+	);
+	--callout-success-bg: color-mix(
+		in srgb,
+		var(--bg-page) 84%,
+		var(--color-success-1)
+	);
+	--callout-success-accent: var(--color-success-2);
+	--callout-warning-border: color-mix(
+		in srgb,
+		var(--color-warning-2) 42%,
+		transparent
+	);
+	--callout-warning-bg: color-mix(
+		in srgb,
+		var(--bg-page) 84%,
+		var(--color-warning-1)
+	);
+	--callout-warning-accent: var(--color-warning-2);
 }
