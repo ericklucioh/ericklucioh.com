@@ -1,7 +1,6 @@
-import LinksBio, { metadata } from "@/components/links/LinksBio";
-
-export { metadata };
+import { redirect } from "next/navigation";
+import { DEFAULT_LANG, swapLangPath } from "@/lib/i18n";
 
 export default function LinksPage() {
-	return <LinksBio />;
+	redirect(swapLangPath("/links", DEFAULT_LANG));
 }

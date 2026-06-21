@@ -13,12 +13,13 @@ export function generateStaticParams() {
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ lang: string }>;
+	params: Promise<{ lang: string  }>;
 }): Promise<Metadata> {
 	const { lang } = await params;
-	if (!isLang(lang)) notFound();
+	const safeLang = isLang(lang) ? lang : "pt";
 
-	const isEnglish = lang === "en";
+	const isEnglish = safeLang === "en";
+
 	const title = isEnglish
 		? "Érick Lúcio | Backend + AI Developer"
 		: "Érick Lúcio | Desenvolvedor Backend + IA";
@@ -30,7 +31,7 @@ export async function generateMetadata({
 		lang: isEnglish ? "en" : "pt",
 		title,
 		description,
-		path: `/${lang}`,
+		path: `/${safeLang}`,
 		image: "/og/default.svg",
 		type: "website",
 	});

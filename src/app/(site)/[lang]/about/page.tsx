@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
+import { LANGS } from "@/lib/i18n";
 import {
 	buildAboutMetadata,
 	getCanonicalAboutPath,
 	renderAboutPage,
 } from "./aboutRoutes";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+	return LANGS.map((lang) => ({ lang }));
+}
 
 export default async function AboutPage({
 	params,

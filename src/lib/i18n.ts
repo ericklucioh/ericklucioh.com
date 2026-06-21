@@ -1,9 +1,19 @@
 export const LANGS = ["pt", "en"] as const;
+export const DEFAULT_LANG = "pt" as const;
 
 export type Lang = (typeof LANGS)[number];
 
 export function isLang(value: string): value is Lang {
 	return LANGS.includes(value as Lang);
+}
+
+export function generateLangStaticParams() {
+	return LANGS.map((lang) => ({ lang }));
+}
+
+export function hasLangPrefix(pathname: string) {
+	const [firstSegment = ""] = pathname.split("/").filter(Boolean);
+	return isLang(firstSegment);
 }
 
 export const localizedRouteSegments = {

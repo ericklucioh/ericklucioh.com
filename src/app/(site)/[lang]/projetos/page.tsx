@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { permanentRedirect } from "next/navigation";
+import { LANGS } from "@/lib/i18n";
 import {
 	buildProjectsMetadata,
 	getCanonicalProjectsPath,
@@ -7,6 +8,11 @@ import {
 } from "../projects/projectRoutes";
 
 export const dynamic = "error";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+	return LANGS.map((lang) => ({ lang }));
+}
 
 export async function generateMetadata({
 	params,

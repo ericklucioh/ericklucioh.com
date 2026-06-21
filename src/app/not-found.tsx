@@ -2,12 +2,38 @@
 import BaseDecor from "@/components/decorations/BaseDecor";
 import DotGrid from "@/components/decorations/DotGrid";
 import Square from "@/components/decorations/Square";
+import { DEFAULT_LANG, hasLangPrefix, swapLangPath } from "@/lib/i18n";
 import { Button } from "@mui/material";
 import styles from "@/app/styles/not-found.module.css";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+function isPagePath(pathname: string) {
+	if (!pathname.startsWith("/")) {
+		return false;
+	}
+
+	const segments = pathname.split("/").filter(Boolean);
+	const firstSegment = segments[0] ?? "";
+	if (firstSegment === "_next" || firstSegment === "api") {
+		return false;
+	}
+
+	return !firstSegment.includes(".") && !pathname.endsWith(".txt");
+}
 
 export default function NotFound() {
 	const router = useRouter();
+	const pathname = usePathname();
+
+	useEffect(() => {
+		if (!pathname || hasLangPrefix(pathname) || !isPagePath(pathname)) {
+			return;
+		}
+
+		router.replace(swapLangPath(pathname, DEFAULT_LANG));
+	}, [pathname, router]);
+
 	return (
 		<>
 			<BaseDecor bottom left x={6} y={9}>
@@ -47,7 +73,7 @@ export default function NotFound() {
 							</article>
 							<article className={styles["button-container"]}>
 								<Button
-									onClick={() => router.push("/")}
+									onClick={() => router.push(`/${DEFAULT_LANG}`)}
 									className={styles["go-home-button"]}
 								>
 									Go home

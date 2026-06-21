@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import LinksBio from "@/components/links/LinksBio";
+import { LANGS } from "@/lib/i18n";
 
 export const dynamicParams = false;
+
+export function generateStaticParams() {
+	return LANGS.map((lang) => ({ lang }));
+}
 
 export async function generateMetadata({
 	params,

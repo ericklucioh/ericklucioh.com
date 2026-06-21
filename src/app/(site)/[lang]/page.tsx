@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
-import { getLocalizedPath, isLang, type Lang } from "@/lib/i18n";
+import {
+	getLocalizedPath,
+	isLang,
+	LANGS,
+	type Lang,
+} from "@/lib/i18n";
 
 const homeContent = {
 	pt: {
@@ -117,6 +122,12 @@ const homeContent = {
 		aboutCta: "Read about me",
 	},
 } as const;
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+	return LANGS.map((lang) => ({ lang }));
+}
 
 export default async function HomePage({
 	params,

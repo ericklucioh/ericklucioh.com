@@ -4,9 +4,15 @@ import { Suspense } from "react";
 import SiteFrame from "@/components/layout/SiteFrame";
 import BlogIndex from "@/components/blog/BlogIndex";
 import BlogIndexClient from "@/components/blog/BlogIndexClient";
-import { isLang, type Lang } from "@/lib/i18n";
+import { isLang, LANGS, type Lang } from "@/lib/i18n";
 import { getAllPosts } from "@/lib/posts";
 import { buildPageMetadata } from "@/lib/metadata";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+	return LANGS.map((lang) => ({ lang }));
+}
 
 export async function generateMetadata({
 	params,
