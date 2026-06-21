@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fira_Code } from "next/font/google";
-import Providers from "@/app/providers";
+import Providers from "./providers";
+import DocumentLangSync from "@/components/layout/DocumentLangSync";
 import {
 	buildRootMetadata,
 	SITE_EMAIL,
@@ -9,9 +10,9 @@ import {
 	SITE_NAME,
 	SITE_URL,
 } from "@/lib/metadata";
-import "../styles/globals.css";
-import "../styles/colors.tokens.css";
-import "../styles/colors.semantic.css";
+import "./styles/globals.css";
+import "./styles/colors.tokens.css";
+import "./styles/colors.semantic.css";
 import "highlight.js/styles/github-dark.css";
 
 export const viewport: Viewport = {
@@ -54,7 +55,14 @@ const structuredData = {
 	],
 };
 
-export default function GlobalLayout({
+const setInitialDocumentLang = `
+	(function () {
+		var lang = window.location.pathname.startsWith('/en') ? 'en-US' : 'pt-BR';
+		document.documentElement.lang = lang;
+	})();
+`;
+
+export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
@@ -68,6 +76,9 @@ export default function GlobalLayout({
 			<head>
 				<meta name="color-scheme" content="dark light" />
 				<script
+					dangerouslySetInnerHTML={{ __html: setInitialDocumentLang }}
+				/>
+				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify(structuredData),
@@ -75,7 +86,10 @@ export default function GlobalLayout({
 				/>
 			</head>
 			<body className={firaCode.className}>
-				<Providers>{children}</Providers>
+				<Providers>
+					<DocumentLangSync />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);

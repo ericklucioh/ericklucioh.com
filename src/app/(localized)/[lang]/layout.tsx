@@ -1,58 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Fira_Code } from "next/font/google";
 import { notFound } from "next/navigation";
-import Providers from "@/app/providers";
 import SiteChrome from "@/components/layout/SiteChrome";
 import { copy, getLocalizedPath, isLang, LANGS } from "@/lib/i18n";
-import {
-	buildPageMetadata,
-	SITE_EMAIL,
-	SITE_GITHUB,
-	SITE_LINKEDIN,
-	SITE_NAME,
-	SITE_URL,
-} from "@/lib/metadata";
-import "../../styles/globals.css";
-import "../../styles/colors.tokens.css";
-import "../../styles/colors.semantic.css";
-import "highlight.js/styles/github-dark.css";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export const viewport: Viewport = {
 	width: "device-width",
 	initialScale: 1,
 	viewportFit: "cover",
-};
-
-const firaCode = Fira_Code({
-	subsets: ["latin"],
-	weight: ["300", "400", "500", "600", "700"],
-	display: "swap",
-	variable: "--font-fira-code",
-});
-
-const structuredData = {
-	"@context": "https://schema.org",
-	"@graph": [
-		{
-			"@type": "Person",
-			"@id": `${SITE_URL}#person`,
-			name: SITE_NAME,
-			url: SITE_URL,
-			email: `mailto:${SITE_EMAIL}`,
-			jobTitle: "Software Developer",
-			sameAs: [SITE_LINKEDIN, SITE_GITHUB],
-		},
-		{
-			"@type": "WebSite",
-			"@id": `${SITE_URL}#website`,
-			url: SITE_URL,
-			name: SITE_NAME,
-			publisher: {
-				"@id": `${SITE_URL}#person`,
-			},
-			inLanguage: ["pt-BR", "en-US"],
-		},
-	],
 };
 
 export const dynamicParams = false;
@@ -101,42 +56,23 @@ export default async function LangLayout({
 	const nav = copy[lang].nav;
 
 	return (
-		<html
-			lang={lang === "en" ? "en-US" : "pt-BR"}
-			className={firaCode.variable}
-			suppressHydrationWarning
+		<SiteChrome
+			buttons={[
+				{
+					label: nav.home,
+					href: getLocalizedPath(lang, "home"),
+				},
+				{
+					label: nav.about,
+					href: getLocalizedPath(lang, "about"),
+				},
+				{
+					label: nav.projects,
+					href: getLocalizedPath(lang, "projects"),
+				},
+			]}
 		>
-			<head>
-				<meta name="color-scheme" content="dark light" />
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(structuredData),
-					}}
-				/>
-			</head>
-			<body className={firaCode.className}>
-				<Providers>
-					<SiteChrome
-						buttons={[
-							{
-								label: nav.home,
-								href: getLocalizedPath(lang, "home"),
-							},
-							{
-								label: nav.about,
-								href: getLocalizedPath(lang, "about"),
-							},
-							{
-								label: nav.projects,
-								href: getLocalizedPath(lang, "projects"),
-							},
-						]}
-					>
-						{children}
-					</SiteChrome>
-				</Providers>
-			</body>
-		</html>
+			{children}
+		</SiteChrome>
 	);
 }
