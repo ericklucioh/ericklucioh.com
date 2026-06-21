@@ -1,0 +1,142 @@
+---
+title: "YTB Superchat"
+date: "2026-06-20"
+excerpt: "Ferramenta para streamers que centraliza chats ao vivo em um dashboard web e publica mensagens destacadas em um overlay para OBS."
+image: "/projects/ytb-superchat.png"
+tags:
+    - realtime
+    - streaming
+    - chrome-extension
+    - golang
+    - websocket
+stack:
+    - JavaScript
+    - Chrome Extension
+    - Go
+    - WebSocket
+    - OBS Overlay
+    - Static Portal
+---
+
+<SectionHeader
+	eyebrow="Projeto de portfólio"
+	title="YTB Superchat"
+	description="Uma control room para streamers: captura mensagens de chat, organiza tudo em um dashboard web e envia destaques em tempo real para um overlay consumido pelo OBS."
+/>
+
+<Callout title="O que é" tone="info">
+	Este projeto foi publicado como case de produto + engenharia. Ele demonstra
+	integração ponta a ponta entre extensão de navegador, frontend estático e
+	backend Go com atualização em tempo real.
+</Callout>
+
+Repositório:
+[github.com/ericklucioh/ytb-superchat](https://github.com/ericklucioh/ytb-superchat)
+
+## O problema que ele resolve
+
+Quem faz live normalmente precisa alternar entre múltiplas janelas de chat,
+ferramentas de moderação e fontes do OBS. O YTB Superchat reduz esse atrito ao
+transformar captura, triagem e destaque de mensagens em um único fluxo.
+
+Hoje, o fluxo principal documentado é:
+
+- YouTube live chat;
+- Twitch pop-out chat;
+- overlay servido pelo backend para consumo no OBS.
+
+O suporte a Kick existe no código da extensão, mas o próprio repositório trata
+isso como secundário até validação no ambiente real.
+
+<MetricGrid>
+	<MetricCard
+		label="Arquitetura"
+		value="3 partes"
+		detail="extensão, portal estático e backend Go separados por responsabilidade"
+	/>
+	<MetricCard
+		label="Tempo real"
+		value="WebSocket"
+		detail="estado do overlay publicado por sessão e atualizado ao vivo"
+	/>
+	<MetricCard
+		label="Entrega"
+		value="OBS-ready"
+		detail="mensagens promovidas viram overlay em uma URL consumida no browser source"
+	/>
+	<MetricCard
+		label="Qualidade"
+		value="Build + testes"
+		detail="scripts de build, testes de frontend/extensão e go test no backend"
+	/>
+</MetricGrid>
+
+## Como a arquitetura funciona
+
+O sistema foi dividido de propósito em três camadas:
+
+### Extensão do navegador
+
+- lê o DOM das páginas de chat suportadas;
+- normaliza os eventos de mensagem;
+- encaminha os dados para a bridge local do dashboard.
+
+### Portal / dashboard
+
+- recebe e organiza os eventos capturados;
+- mantém filtros e estado de interface no navegador;
+- permite ao streamer selecionar qual mensagem vai para a tela.
+
+### Backend em Go
+
+- mantém o estado mais recente do overlay por sessão;
+- expõe endpoints HTTP para sessão e eventos;
+- transmite mudanças em tempo real via WebSocket;
+- serve a URL `/overlay?session=...` usada pelo OBS.
+
+<Callout title="Separação importante" tone="warning">
+	O repositório documenta dois conceitos de sessão: uma para ligar extensão e
+	dashboard, e outra para o overlay. Essa separação evita que captura local e
+	exibição no OBS se sobrescrevam acidentalmente.
+</Callout>
+
+## Fluxo principal
+
+1. A extensão observa uma página de chat suportada.
+2. As mensagens são extraídas e transformadas em um formato consistente.
+3. O dashboard recebe esses eventos e organiza a moderação local.
+4. O streamer escolhe uma mensagem para destacar.
+5. O portal envia esse payload para o backend.
+6. O backend atualiza o estado da sessão e notifica clientes conectados.
+7. O OBS consome o overlay e reflete a mudança em tempo real.
+
+## Stack e engenharia
+
+- **JavaScript + Chrome Extension** para captura e bridge local.
+- **Portal estático** para dashboard e fluxo de seleção.
+- **Go 1.22** para estado de sessão, API HTTP e fanout via WebSocket.
+- **Scripts de build e testes automatizados** para validar frontend, extensão e backend.
+- **Mock mode local** para iterar layout e UX sem depender do chat ao vivo o tempo todo.
+
+## Tradeoffs e limites assumidos
+
+O repositório é honesto sobre os limites da versão pública:
+
+- a captura depende da estrutura DOM das plataformas suportadas;
+- o estado de sessão do backend fica em memória;
+- o setup padrão é melhor para demo, desenvolvimento local e self-hosting;
+- endurecimento real de produção exigiria autenticação e borda confiável na frente do backend.
+
+<Callout title="Ponto forte como portfólio" tone="success">
+	O valor deste projeto não está em uma tela isolada, e sim em coordenar
+	extensão, UI, sessão compartilhada, tempo real e entrega final para OBS em um
+	fluxo coerente de produto.
+</Callout>
+
+## O que eu destacaria no portfólio
+
+- integração entre browser extension, frontend web e backend Go;
+- modelagem clara de responsabilidades e fronteiras de estado;
+- entrega de overlay em tempo real para um caso real de uso;
+- documentação pública explicando arquitetura, segurança e limitações;
+- projeto com foco prático, não apenas visual.
