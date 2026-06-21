@@ -3,6 +3,9 @@ import type { Lang } from "@/lib/i18n";
 
 export const SITE_URL = "https://ericklucioh.com";
 export const SITE_NAME = "Érick Lúcio";
+export const SITE_EMAIL = "contato@ericklucioh.com";
+export const SITE_LINKEDIN = "https://www.linkedin.com/in/ericklucioh/";
+export const SITE_GITHUB = "https://github.com/ericklucioh";
 export const DEFAULT_OG_IMAGE = "/og/default.svg";
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;
 export const DEFAULT_OG_IMAGE_HEIGHT = 630;

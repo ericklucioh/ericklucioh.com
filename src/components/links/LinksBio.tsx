@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Buttons from "@/components/linktree/Buttons";
-import * as db from "@/app/linktree/db";
 import DecorLayer from "@/components/decorations/DecorLayer";
 import DecorRenderer from "@/components/decorations/DecorRenderer";
 import { linksDecorItems } from "@/components/decorations/decorConfigs";
 import Logo from "@/components/ui/Logo";
-import style from "@/app/linktree/page.module.css";
+import style from "./LinksBio.module.css";
+import { contents } from "./linksData";
 
 export const metadata: Metadata = {
 	title: "Links | Érick Lúcio",
@@ -40,7 +40,7 @@ export default function LinksBio() {
 				</article>
 
 				<article style={{ marginTop: "50px", width: "100%" }}>
-					<Buttons items={db.contents} />
+					<Buttons items={contents} />
 				</article>
 			</main>
 		</div>
