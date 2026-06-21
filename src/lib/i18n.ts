@@ -19,8 +19,8 @@ export function hasLangPrefix(pathname: string) {
 export const localizedRouteSegments = {
 	pt: {
 		home: "",
-		about: "sobre",
-		projects: "projetos",
+		about: "about",
+		projects: "projects",
 		blog: "blog",
 		links: "links",
 	},
@@ -37,8 +37,8 @@ export type LocalizedRouteKey = keyof (typeof localizedRouteSegments)["en"];
 
 const routeAliases: Record<LocalizedRouteKey, readonly string[]> = {
 	home: [],
-	about: ["about", "sobre"],
-	projects: ["projects", "projetos"],
+	about: ["about"],
+	projects: ["projects"],
 	blog: ["blog"],
 	links: ["links"],
 };

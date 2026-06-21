@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { permanentRedirect } from "next/navigation";
 import {
 	buildProjectMetadata,
 	generateProjectStaticParams,
-	getCanonicalProjectPath,
 	renderProjectPage,
-} from "../../projects/projectRoutes";
+} from "../projectRoutes";
 
 export const dynamic = "error";
 export const dynamicParams = false;
@@ -20,29 +18,14 @@ export async function generateMetadata({
 	params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
 	const { lang, slug } = await params;
-	const metadata = await buildProjectMetadata(lang, slug);
-	if (lang !== "pt") {
-		return {
-			...metadata,
-			robots: {
-				index: false,
-				follow: false,
-			},
-		};
-	}
-
-	return metadata;
+	return buildProjectMetadata(lang, slug);
 }
 
-export default async function ProjetoPage({
+export default async function ProjectCasePage({
 	params,
 }: {
 	params: Promise<{ lang: string; slug: string }>;
 }) {
 	const { lang, slug } = await params;
-	if (lang !== "pt") {
-		permanentRedirect(getCanonicalProjectPath("en", slug));
-	}
-
 	return renderProjectPage(lang, slug);
 }

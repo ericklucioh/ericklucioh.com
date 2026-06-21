@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { LANGS } from "@/lib/i18n";
-import {
-	buildAboutMetadata,
-	getCanonicalAboutPath,
-	renderAboutPage,
-} from "./aboutRoutes";
+import { buildAboutMetadata, renderAboutPage } from "./aboutRoutes";
 
 export const dynamicParams = false;
 
@@ -19,8 +15,8 @@ export default async function AboutPage({
 	params: Promise<{ lang: string }>;
 }) {
 	const { lang } = await params;
-	if (lang !== "en") {
-		permanentRedirect(getCanonicalAboutPath("pt"));
+	if (!LANGS.includes(lang as (typeof LANGS)[number])) {
+		notFound();
 	}
 
 	return renderAboutPage(lang);
@@ -32,16 +28,5 @@ export async function generateMetadata({
 	params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
 	const { lang } = await params;
-	const metadata = await buildAboutMetadata(lang);
-	if (lang !== "en") {
-		return {
-			...metadata,
-			robots: {
-				index: false,
-				follow: false,
-			},
-		};
-	}
-
-	return metadata;
+	return buildAboutMetadata(lang);
 }

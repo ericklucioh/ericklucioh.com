@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fira_Code } from "next/font/google";
-import Providers from "./providers";
+import Providers from "@/app/providers";
 import {
 	buildRootMetadata,
 	SITE_EMAIL,
@@ -9,9 +9,9 @@ import {
 	SITE_NAME,
 	SITE_URL,
 } from "@/lib/metadata";
-import "./styles/globals.css";
-import "./styles/colors.tokens.css";
-import "./styles/colors.semantic.css";
+import "../styles/globals.css";
+import "../styles/colors.tokens.css";
+import "../styles/colors.semantic.css";
 import "highlight.js/styles/github-dark.css";
 
 export const viewport: Viewport = {
@@ -20,12 +20,7 @@ export const viewport: Viewport = {
 	viewportFit: "cover",
 };
 
-export const metadata: Metadata = {
-	...buildRootMetadata(),
-	icons: {
-		icon: "/logoWhite.svg",
-	},
-};
+export const metadata: Metadata = buildRootMetadata();
 
 const firaCode = Fira_Code({
 	subsets: ["latin"],
@@ -59,14 +54,14 @@ const structuredData = {
 	],
 };
 
-export default function RootLayout({
+export default function GlobalLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
 	return (
 		<html
-			lang="pt-br"
+			lang="pt-BR"
 			className={firaCode.variable}
 			suppressHydrationWarning
 		>
@@ -78,10 +73,8 @@ export default function RootLayout({
 						__html: JSON.stringify(structuredData),
 					}}
 				/>
-				{/* <link rel="icon" type="image/svg+xml" sizes="32x32" href="" /> */}
 			</head>
 			<body className={firaCode.className}>
-				{/* <Menu isOpen somethingDarkModeToggle /> */}
 				<Providers>{children}</Providers>
 			</body>
 		</html>

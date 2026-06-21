@@ -13,7 +13,7 @@ import {
 import { buildPageMetadata, resolveSocialImage } from "@/lib/metadata";
 
 export function getCanonicalProjectsPath(lang: Lang) {
-	return lang === "en" ? "/en/projects" : "/pt/projetos";
+	return `/${lang}/projects`;
 }
 
 export function getCanonicalProjectPath(lang: Lang, slug: string) {
@@ -32,7 +32,7 @@ export async function buildProjectsMetadata(lang: string): Promise<Metadata> {
 		image: "/og/projects.svg",
 		type: "website",
 		alternates: {
-			pt: "/pt/projetos",
+			pt: "/pt/projects",
 			en: "/en/projects",
 		},
 	});
@@ -142,7 +142,7 @@ export async function buildProjectMetadata(
 		image: resolveSocialImage(project.ogImage, project.image),
 		type: "article",
 		alternates: {
-			pt: `/pt/projetos/${slug}`,
+			pt: `/pt/projects/${slug}`,
 			en: `/en/projects/${slug}`,
 		},
 	});

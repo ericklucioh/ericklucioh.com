@@ -5,7 +5,7 @@ import Square from "@/components/decorations/Square";
 import { DEFAULT_LANG, hasLangPrefix, swapLangPath } from "@/lib/i18n";
 import { Button } from "@mui/material";
 import styles from "@/app/styles/not-found.module.css";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 function isPagePath(pathname: string) {
@@ -24,15 +24,16 @@ function isPagePath(pathname: string) {
 
 export default function NotFound() {
 	const router = useRouter();
-	const pathname = usePathname();
 
 	useEffect(() => {
+		const pathname = window.location.pathname;
+
 		if (!pathname || hasLangPrefix(pathname) || !isPagePath(pathname)) {
 			return;
 		}
 
 		router.replace(swapLangPath(pathname, DEFAULT_LANG));
-	}, [pathname, router]);
+	}, [router]);
 
 	return (
 		<>

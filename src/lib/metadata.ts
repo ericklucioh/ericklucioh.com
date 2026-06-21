@@ -15,7 +15,7 @@ const LOCALE_BY_LANG: Record<Lang, string> = {
 	en: "en_US",
 };
 
-const LANGUAGE_BY_LANG: Record<Lang, string> = {
+export const LANGUAGE_BY_LANG: Record<Lang, string> = {
 	pt: "pt-BR",
 	en: "en-US",
 };
@@ -55,10 +55,16 @@ export function buildPageMetadata({
 		metadataBase: new URL(SITE_URL),
 		title,
 		description,
+		icons: {
+			icon: "/logoWhite.svg",
+		},
 		alternates: languages
 			? {
 					canonical: path,
-					languages,
+					languages: {
+						...languages,
+						"x-default": alternates?.pt ?? path,
+					},
 				}
 			: undefined,
 		openGraph: {

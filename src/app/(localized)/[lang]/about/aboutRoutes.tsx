@@ -178,7 +178,7 @@ const aboutContent = {
 } as const;
 
 export function getCanonicalAboutPath(lang: Lang) {
-	return lang === "en" ? "/en/about" : "/pt/sobre";
+	return `/${lang}/about`;
 }
 
 export async function buildAboutMetadata(lang: string): Promise<Metadata> {
@@ -198,7 +198,7 @@ export async function buildAboutMetadata(lang: string): Promise<Metadata> {
 		image: "/og/default.svg",
 		type: "website",
 		alternates: {
-			pt: "/pt/sobre",
+			pt: "/pt/about",
 			en: "/en/about",
 		},
 	});
