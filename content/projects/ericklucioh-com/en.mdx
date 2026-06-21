@@ -1,0 +1,134 @@
+---
+title: "ericklucioh.com"
+date: "2026-06-21"
+excerpt: "My personal portfolio site built with Next.js: a bilingual static site designed to present projects, technical writing, and professional positioning with more clarity."
+tags:
+    - portfolio
+    - nextjs
+    - mdx
+    - static-site
+    - personal-brand
+stack:
+    - Next.js
+    - React
+    - TypeScript
+    - MDX
+    - Tailwind CSS
+    - Static Export
+---
+
+<SectionHeader
+	eyebrow="Personal product"
+	title="ericklucioh.com"
+	description="My personal site as a product-and-engineering project: a bilingual static portfolio built to present case studies, technical writing, and professional positioning in one coherent system."
+/>
+
+<Callout title="What it is" tone="info">
+	This project is my own website. The goal was not just to have a landing page,
+	but to build a public foundation that could organize professional narrative,
+	case studies, technical content, and shareable assets in one cohesive system.
+</Callout>
+
+Website:
+[ericklucioh.com](https://ericklucioh.com)
+
+## The problem it solves
+
+Professional presence is often scattered across GitHub, LinkedIn, a PDF resume,
+and isolated repositories. This site was built to solve three problems at once:
+
+- concentrate my professional presentation into one owned URL;
+- turn projects into readable case studies instead of raw repository links;
+- keep blog, resume, and institutional pages under the same visual system.
+
+More than online presence, the goal here was to create an evaluation surface:
+someone should be able to visit the site and quickly understand my technical
+focus, preferred project types, execution style, and engineering depth.
+
+<MetricGrid>
+	<MetricCard
+		label="Delivery"
+		value="100% static"
+		detail="the build is exported without depending on a production Node runtime"
+	/>
+	<MetricCard
+		label="Content"
+		value="Bilingual MDX"
+		detail="posts and projects are edited as code in Portuguese and English"
+	/>
+	<MetricCard
+		label="Positioning"
+		value="Portfolio + blog"
+		detail="the same system supports professional narrative and technical writing"
+	/>
+	<MetricCard
+		label="Distribution"
+		value="Baseline SEO"
+		detail="metadata, Open Graph, sitemap, robots, and structured data"
+	/>
+</MetricGrid>
+
+## How the project is structured
+
+The site was intentionally designed to avoid a CMS and keep content versioned
+next to the codebase.
+
+### App and navigation
+
+- **Next.js App Router** to organize public routes and layouts;
+- **route-based i18n** to separate Portuguese and English paths;
+- **static build output** for predictable deployment on simple hosting.
+
+### Content
+
+- **MDX** for projects and blog posts;
+- frontmatter for title, date, excerpt, tags, stack, and optional image;
+- reusable components for callouts, metrics, figures, and diagrams.
+
+### Visual identity
+
+- monospace typography as a technical signature;
+- custom color tokens with semantic light/dark layers;
+- restrained layout with cards, thin borders, and subtle geometric decoration.
+
+<Callout title="Core decision" tone="warning">
+	I chose to treat content as part of the product, not as a separate layer.
+	That makes maintenance more technical, but it also makes the portfolio more
+	versionable, auditable, and consistent with the rest of the engineering.
+</Callout>
+
+## What this project demonstrates
+
+Even though it is a personal site, it acts as evidence of several skills:
+
+- structured content modeling in code;
+- metadata, Open Graph, and canonical route design;
+- consistent UI across multiple pages and languages;
+- concern for public publishing, static export, and ongoing maintainability.
+
+It also demonstrates an important portfolio principle: clarity of communication
+is part of engineering. Strong systems lose value when they are presented
+poorly.
+
+## Assumed tradeoffs
+
+Some choices were deliberate:
+
+- content is manual and requires editorial discipline;
+- the sitemap is still manually maintained in this version;
+- the site prioritizes clarity and control over excessive motion or visual noise;
+- the architecture is optimized for static publishing, not non-technical editing.
+
+<Callout title="Why this is a strong case study" tone="success">
+	The value of this project is not a single feature. It is the combination of
+	product thinking, frontend execution, structured content, technical SEO, and
+	professional positioning in a simple sustainable base.
+</Callout>
+
+## What I would highlight in a portfolio
+
+- a personal site treated as a real product instead of a generic business card;
+- bilingual content oriented around case studies;
+- a simple static pipeline that is easy to publish and maintain;
+- a custom visual identity with editorial and technical intent;
+- a base prepared to grow with new projects, posts, and institutional pages.

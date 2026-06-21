@@ -1,0 +1,135 @@
+---
+title: "ericklucioh.com"
+date: "2026-06-21"
+excerpt: "Meu portfólio pessoal em Next.js: site bilíngue, estático e orientado a apresentar projetos, blog técnico e posicionamento profissional com mais clareza."
+tags:
+    - portfolio
+    - nextjs
+    - mdx
+    - static-site
+    - personal-brand
+stack:
+    - Next.js
+    - React
+    - TypeScript
+    - MDX
+    - Tailwind CSS
+    - Static Export
+---
+
+<SectionHeader
+	eyebrow="Produto pessoal"
+	title="ericklucioh.com"
+	description="Meu site pessoal como projeto de produto + engenharia: um portfólio bilíngue, estático e editável por código para apresentar projetos, blog técnico e posicionamento profissional."
+/>
+
+<Callout title="O que é" tone="info">
+	Este projeto é o meu próprio site. A ideia não era só “ter uma landing
+	page”, mas construir uma base pública que organizasse narrativa profissional,
+	case studies, conteúdo técnico e ativos de divulgação em um sistema coeso.
+</Callout>
+
+Site:
+[ericklucioh.com](https://ericklucioh.com)
+
+## O problema que ele resolve
+
+Perfis profissionais espalhados entre GitHub, LinkedIn, currículo PDF e
+projetos soltos normalmente dificultam a leitura do todo. Este site nasceu para
+resolver três problemas ao mesmo tempo:
+
+- concentrar minha apresentação profissional em uma URL própria;
+- transformar projetos em cases legíveis, e não apenas links de repositório;
+- manter blog, currículo e páginas institucionais sob o mesmo sistema visual.
+
+Mais do que presença online, a meta aqui foi criar uma superfície de avaliação:
+alguém entra no site e entende rapidamente foco técnico, tipo de projeto,
+linguagem de execução e profundidade de engenharia.
+
+<MetricGrid>
+	<MetricCard
+		label="Entrega"
+		value="100% estático"
+		detail="build exportado sem depender de runtime Node em produção"
+	/>
+	<MetricCard
+		label="Conteúdo"
+		value="MDX bilíngue"
+		detail="posts e projetos editados como código, em PT e EN"
+	/>
+	<MetricCard
+		label="Posicionamento"
+		value="Portfólio + blog"
+		detail="mesma base para narrativa profissional e conteúdo técnico"
+	/>
+	<MetricCard
+		label="Distribuição"
+		value="SEO básico"
+		detail="metadata, Open Graph, sitemap, robots e structured data"
+	/>
+</MetricGrid>
+
+## Como o projeto foi estruturado
+
+O site foi pensado para evitar um CMS e manter o conteúdo versionado junto com
+o código.
+
+### App e navegação
+
+- **Next.js App Router** para organizar rotas públicas e layouts;
+- **i18n por rota** para separar caminhos em português e inglês;
+- **build estático** para publicar em hosting simples e previsível.
+
+### Conteúdo
+
+- **MDX** para projetos e posts;
+- frontmatter com título, data, resumo, tags, stack e imagem opcional;
+- componentes reutilizáveis para callouts, métricas, figuras e diagramas.
+
+### Identidade visual
+
+- tipografia monoespaçada como assinatura técnica;
+- sistema de cores próprio com tokens e semântica light/dark;
+- layout contido, com cards, bordas finas e decoração geométrica discreta.
+
+<Callout title="Decisão central" tone="warning">
+	Eu preferi tratar conteúdo como parte do produto, não como camada separada.
+	Isso deixa a manutenção mais técnica, mas também torna o portfólio mais
+	versionável, auditável e coerente com o resto da engenharia.
+</Callout>
+
+## O que este projeto demonstra
+
+Mesmo sendo um site pessoal, ele funciona como prova de várias competências:
+
+- organização de conteúdo estruturado em código;
+- modelagem de metadata, Open Graph e rotas canônicas;
+- interface consistente em múltiplas páginas e idiomas;
+- preocupação com publicação pública, export estático e manutenção contínua.
+
+Também é um projeto útil para mostrar um ponto importante sobre portfólio:
+clareza de comunicação é parte da engenharia. Não adianta construir sistemas
+bons e apresentá-los mal.
+
+## Tradeoffs assumidos
+
+Algumas escolhas foram deliberadas:
+
+- o conteúdo é manual e exige disciplina editorial;
+- o sitemap ainda é mantido manualmente nesta versão;
+- o site prioriza clareza e controle sobre animação ou apelo visual excessivo;
+- a arquitetura foi otimizada para publicação estática, não para edição por não técnicos.
+
+<Callout title="Valor como case" tone="success">
+	O diferencial deste projeto não está em uma feature isolada, mas em reunir
+	produto, frontend, conteúdo estruturado, SEO técnico e posicionamento
+	profissional em uma base simples e sustentável.
+</Callout>
+
+## O que eu destacaria no portfólio
+
+- site pessoal tratado como produto real, não como cartão de visita genérico;
+- conteúdo bilíngue e orientado a case study;
+- pipeline simples, estático e fácil de publicar;
+- identidade visual própria com preocupação editorial e técnica;
+- base preparada para crescer com novos projetos, posts e páginas institucionais.
