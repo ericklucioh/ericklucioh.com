@@ -7,12 +7,23 @@ import Logo from "@/components/ui/Logo";
 import style from "./LinksBio.module.css";
 import { contents } from "./linksData";
 
+const linksCopy = {
+	pt: {
+		role: "Desenvolvedor de Software",
+	},
+	en: {
+		role: "Software Developer",
+	},
+} as const;
+
 export const metadata: Metadata = {
 	title: "Links | Érick Lúcio",
 	description: "Links rápidos: portfólio, LinkedIn, GitHub e mais.",
 };
 
-export default function LinksBio() {
+export default function LinksBio({ lang }: { lang: "pt" | "en" }) {
+	const t = linksCopy[lang];
+
 	return (
 		<div
 			className="relative flex min-h-[100dvh] w-full items-center justify-center px-[var(--page-gutter)]"
@@ -35,7 +46,7 @@ export default function LinksBio() {
 						className={`${style.role} flex justify-center`}
 						style={{ color: "var(--color-aux-blue)" }}
 					>
-						Desenvolvedor de Software
+						{t.role}
 					</p>
 				</article>
 

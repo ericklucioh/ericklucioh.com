@@ -11,9 +11,10 @@ export function generateStaticParams() {
 export async function generateMetadata({
 	params,
 }: {
-	params: { lang: "pt" | "en" };
+	params: Promise<{ lang: "pt" | "en" }>;
 }): Promise<Metadata> {
-	const isPt = params.lang === "pt";
+	const { lang } = await params;
+	const isPt = lang === "pt";
 	return {
 		title: isPt ? "Links | Érick Lúcio" : "Links | Érick Lúcio",
 		description: isPt
@@ -28,7 +29,11 @@ export async function generateMetadata({
 	};
 }
 
-export default function Page({ params }: { params: { lang: "pt" | "en" } }) {
-	void params;
-	return <LinksBio />;
+export default async function Page({
+	params,
+}: {
+	params: Promise<{ lang: "pt" | "en" }>;
+}) {
+	const { lang } = await params;
+	return <LinksBio lang={lang} />;
 }
