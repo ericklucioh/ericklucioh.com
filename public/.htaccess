@@ -1,9 +1,9 @@
 RewriteEngine On
-RewriteRule ^pt/about/?$ /pt/sobre/ [R=301,L]
-RewriteRule ^en/sobre/?$ /en/about/ [R=301,L]
-RewriteRule ^pt/projects/?$ /pt/projetos/ [R=301,L]
-RewriteRule ^pt/projects/(.+)$ /pt/projetos/$1 [R=301,L]
-RewriteRule ^en/projetos/?$ /en/projects/ [R=301,L]
-RewriteRule ^en/projetos/(.+)$ /en/projects/$1 [R=301,L]
+RewriteRule ^pt/about/?$ /pt/about/ [R=301,L]
+RewriteRule ^en/about/?$ /en/about/ [R=301,L]
+RewriteRule ^pt/projects/?$ /pt/projects/ [R=301,L]
+RewriteRule ^pt/projects/(.+)$ /pt/projects/$1 [R=301,L]
+RewriteRule ^en/projects/?$ /en/projects/ [R=301,L]
+RewriteRule ^en/projects/(.+)$ /en/projects/$1 [R=301,L]
 
 ErrorDocument 404 /404.html
