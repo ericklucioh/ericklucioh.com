@@ -58,42 +58,15 @@ export default async function Page({
 					<CurriculumToolbar lang={lang as Lang} />
 
 					<header className={styles.hero}>
-						<div>
-							<p className={styles.kicker}>{t.role}</p>
-							<h1 className={styles.title}>{t.name}</h1>
-							<p className={styles.subtitle}>{t.subtitle}</p>
-							<div className={styles.pillRow}>
-								{t.pills.map((pill) => (
-									<span key={pill} className={styles.pill}>
-										{pill}
-									</span>
-								))}
-							</div>
-						</div>
-
-						<div className={styles.contactBlock}>
-							<a className={styles.contactLink} href={`mailto:${t.contact.email}`}>
-								<span>E-mail</span>
-								<strong>{t.contact.email}</strong>
-							</a>
-							<a
-								className={styles.contactLink}
-								href={t.contact.linkedin}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<span>LinkedIn</span>
-								<strong>/in/ericklucioh</strong>
-							</a>
-							<a
-								className={styles.contactLink}
-								href={t.contact.github}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<span>GitHub</span>
-								<strong>@ericklucioh</strong>
-							</a>
+						<p className={styles.kicker}>{t.role}</p>
+						<h1 className={styles.title}>{t.name}</h1>
+						<p className={styles.subtitle}>{t.subtitle}</p>
+						<div className={styles.pillRow}>
+							{t.pills.map((pill) => (
+								<span key={pill} className={styles.pill}>
+									{pill}
+								</span>
+							))}
 						</div>
 					</header>
 
