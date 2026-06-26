@@ -19,7 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ lang: string  }>;
+	params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
 	const { lang } = await params;
 	const safeLang = isLang(lang) ? lang : "pt";

@@ -10,9 +10,7 @@ type CurriculumToolbarProps = {
 	lang: Lang;
 };
 
-export default function CurriculumToolbar({
-	lang,
-}: CurriculumToolbarProps) {
+export default function CurriculumToolbar({ lang }: CurriculumToolbarProps) {
 	const pathname = usePathname() ?? `/${lang}/curriculum`;
 	const otherLang = lang === "pt" ? "en" : "pt";
 	const otherHref = swapLangPath(pathname, otherLang);

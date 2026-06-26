@@ -1,4 +1,5 @@
 # ÉRICK LÚCIO DE OLIVEIRA
+
 **Desenvolvedor de Software | Python | TypeScript | IA Aplicada | Dados | Azure | Docker**
 
 Araranguá - SC, Brasil  
@@ -51,8 +52,8 @@ Audite Pro • Jul 2022 – Fev 2023
 **Experiência complementar**
 
 - **Sebrae • Startup SC** • Jul 2022 – Dez 2022
-  - Imersão em arquitetura de dados, cloud e produto.
-  - Vivência com AWS, escalabilidade, UX/UI e growth.
+    - Imersão em arquitetura de dados, cloud e produto.
+    - Vivência com AWS, escalabilidade, UX/UI e growth.
 
 ---
 

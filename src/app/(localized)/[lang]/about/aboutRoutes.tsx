@@ -7,10 +7,8 @@ import { isLang, type Lang } from "@/lib/i18n";
 const aboutContent = {
 	pt: {
 		title: "Sobre",
-		intro:
-			"Sou Érick Lúcio, Desenvolvedor de Software e estudante de Ciência da Computação na UNESC. Trabalho com APIs, dados e sistemas que precisam sair do texto e virar operação.",
-		intro2:
-			"Também trabalho com IA aplicada quando ela traz ganho claro. Prefiro combinar modelo, regra e validação do que depender só de prompt.",
+		intro: "Sou Érick Lúcio, Desenvolvedor de Software e estudante de Ciência da Computação na UNESC. Trabalho com APIs, dados e sistemas que precisam sair do texto e virar operação.",
+		intro2: "Também trabalho com IA aplicada quando ela traz ganho claro. Prefiro combinar modelo, regra e validação do que depender só de prompt.",
 		areasTitle: "Áreas de atuação",
 		areas: [
 			{
@@ -92,10 +90,8 @@ const aboutContent = {
 	},
 	en: {
 		title: "About",
-		intro:
-			"I am Érick Lúcio, a Software Developer and Computer Science student at UNESC. I work on APIs, data and systems that need to move from text to operation.",
-		intro2:
-			"I also work with applied AI when it brings clear value. I prefer combining model, rules and validation instead of relying on prompts alone.",
+		intro: "I am Érick Lúcio, a Software Developer and Computer Science student at UNESC. I work on APIs, data and systems that need to move from text to operation.",
+		intro2: "I also work with applied AI when it brings clear value. I prefer combining model, rules and validation instead of relying on prompts alone.",
 		areasTitle: "Areas of work",
 		areas: [
 			{

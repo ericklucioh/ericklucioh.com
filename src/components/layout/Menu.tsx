@@ -77,12 +77,12 @@ export default function Menu(props: MenuProps) {
 	return (
 		<>
 			<header className={styles.header}>
-					<Link href="/" className={styles.left}>
-						<Logo size={30} />
-						<span className={styles.brand}>Érick Lúcio</span>
-					</Link>
+				<Link href="/" className={styles.left}>
+					<Logo size={30} />
+					<span className={styles.brand}>Érick Lúcio</span>
+				</Link>
 
-					<nav className={styles.navDesktop} aria-label="Primary">
+				<nav className={styles.navDesktop} aria-label="Primary">
 					{buttons.map((btn, index) => (
 						<Link
 							key={index}

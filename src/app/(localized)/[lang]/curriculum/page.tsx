@@ -21,7 +21,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { lang } = await params;
 	const safeLang = isLang(lang) ? lang : "pt";
-	const title = safeLang === "en" ? "Resume | Érick Lúcio" : "Currículo | Érick Lúcio";
+	const title =
+		safeLang === "en" ? "Resume | Érick Lúcio" : "Currículo | Érick Lúcio";
 	const description =
 		safeLang === "en"
 			? "Resume for Érick Lúcio focused on backend, data and applied AI."

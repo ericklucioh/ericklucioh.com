@@ -1,19 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFrame from "@/components/layout/SiteFrame";
-import {
-	getLocalizedPath,
-	isLang,
-	LANGS,
-	type Lang,
-} from "@/lib/i18n";
+import { getLocalizedPath, isLang, LANGS, type Lang } from "@/lib/i18n";
 
 const homeContent = {
 	pt: {
 		eyebrow: "Backend, dados e IA aplicada",
 		title: "Desenvolvedor de Software",
-		intro:
-			"Construo APIs e sistemas que saem do rascunho e chegam em uso real.",
+		intro: "Construo APIs e sistemas que saem do rascunho e chegam em uso real.",
 		subtitle:
 			"Meu foco é backend: regra, integração e previsibilidade. IA entra quando reduz trabalho, melhora decisão ou organiza informação.",
 		pillars: [
@@ -65,8 +59,7 @@ const homeContent = {
 	en: {
 		eyebrow: "Backend, data and applied AI",
 		title: "Software Developer",
-		intro:
-			"I build APIs and systems that move from draft to real use.",
+		intro: "I build APIs and systems that move from draft to real use.",
 		subtitle:
 			"My focus is backend: rules, integrations and predictability. I use AI when it saves time, improves decisions, or helps organize information.",
 		pillars: [

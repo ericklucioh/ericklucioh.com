@@ -74,7 +74,9 @@ export default function NotFound() {
 							</article>
 							<article className={styles["button-container"]}>
 								<Button
-									onClick={() => router.push(`/${DEFAULT_LANG}`)}
+									onClick={() =>
+										router.push(`/${DEFAULT_LANG}`)
+									}
 									className={styles["go-home-button"]}
 								>
 									Go home

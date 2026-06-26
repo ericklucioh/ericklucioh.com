@@ -36,11 +36,15 @@ function assertFrontmatter(data: unknown, lang: Lang): CurriculumFrontmatter {
 	const contact = record.contact;
 
 	if (typeof name !== "string" || name.trim().length === 0) {
-		throw new Error(`Missing "name" in curriculum frontmatter for "${lang}"`);
+		throw new Error(
+			`Missing "name" in curriculum frontmatter for "${lang}"`,
+		);
 	}
 
 	if (typeof role !== "string" || role.trim().length === 0) {
-		throw new Error(`Missing "role" in curriculum frontmatter for "${lang}"`);
+		throw new Error(
+			`Missing "role" in curriculum frontmatter for "${lang}"`,
+		);
 	}
 
 	if (typeof subtitle !== "string" || subtitle.trim().length === 0) {
@@ -49,8 +53,13 @@ function assertFrontmatter(data: unknown, lang: Lang): CurriculumFrontmatter {
 		);
 	}
 
-	if (!Array.isArray(pills) || !pills.every((pill) => typeof pill === "string")) {
-		throw new Error(`Missing "pills" in curriculum frontmatter for "${lang}"`);
+	if (
+		!Array.isArray(pills) ||
+		!pills.every((pill) => typeof pill === "string")
+	) {
+		throw new Error(
+			`Missing "pills" in curriculum frontmatter for "${lang}"`,
+		);
 	}
 
 	if (!contact || typeof contact !== "object") {
