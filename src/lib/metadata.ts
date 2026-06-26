@@ -56,7 +56,8 @@ export function buildPageMetadata({
 		title,
 		description,
 		icons: {
-			icon: "/logoWhite.svg",
+			icon: "/favicon.svg",
+			shortcut: "/favicon.svg",
 		},
 		alternates: languages
 			? {
