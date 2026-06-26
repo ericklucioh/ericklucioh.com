@@ -67,6 +67,7 @@
 	letter-spacing: 0.22em;
 	font-size: 0.75rem;
 	color: var(--text-secondary);
+	font-weight: 600;
 }
 
 .title {
@@ -75,6 +76,7 @@
 	font-weight: 700;
 	letter-spacing: -0.03em;
 	line-height: 1;
+	color: var(--text-primary);
 }
 
 .subtitle {
@@ -82,7 +84,7 @@
 	max-width: 64ch;
 	font-size: 1rem;
 	line-height: 1.6;
-	color: var(--text-primary);
+	color: color-mix(in srgb, var(--text-primary) 92%, var(--text-secondary));
 }
 
 .pillRow {
@@ -93,11 +95,11 @@
 }
 
 .pill {
-	border: 1px solid color-mix(in srgb, var(--text-secondary) 45%, transparent);
-	background: color-mix(in srgb, var(--bg-page) 70%, transparent);
+	border: 1px solid color-mix(in srgb, var(--text-secondary) 38%, transparent);
+	background: color-mix(in srgb, var(--color-soft-1) 18%, var(--bg-page));
 	padding: 0.35rem 0.6rem;
 	font-size: 0.8125rem;
-	border-radius: 0.4rem;
+	border-radius: 0.0rem;
 }
 
 .contactBlock {
@@ -110,23 +112,25 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.15rem;
-	padding: 0.85rem 0.95rem;
+	padding: 0.45rem 0.95rem;
 	border: 1px solid color-mix(in srgb, var(--text-secondary) 35%, transparent);
-	background: color-mix(in srgb, var(--bg-page) 84%, transparent);
-	border-radius: 0.6rem;
+	border-radius: 0.0rem;
+	box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-aux-blue) 10%, transparent);
 }
 
 .contactLink span {
 	text-transform: uppercase;
 	letter-spacing: 0.16em;
 	font-size: 0.68rem;
-	color: var(--text-secondary);
+	color: var(--color-aux-blue);
+	font-weight: 600;
 }
 
 .contactLink strong {
 	font-size: 0.9rem;
 	font-weight: 600;
 	word-break: break-word;
+	color: var(--text-primary);
 }
 
 .content {
@@ -225,12 +229,13 @@
 
 	.kicker {
 		font-size: 0.68rem;
-		color: #333;
+		color: var(--color-aux-blue);
 	}
 
 	.title {
 		margin-top: 0.25rem;
 		font-size: 20pt;
+		color: var(--color-primary-3);
 	}
 
 	.subtitle {
@@ -238,7 +243,7 @@
 		font-size: 8.9pt;
 		line-height: 1.28;
 		max-width: none;
-		color: #111;
+		color: var(--color-primary-3);
 	}
 
 	.pillRow {
@@ -249,27 +254,25 @@
 	.pill {
 		padding: 0.16rem 0.38rem;
 		font-size: 7.9pt;
-		border-color: #bbb;
-		background: transparent;
-		color: #111;
+		border-color: color-mix(in srgb, var(--color-aux-blue) 28%, transparent);
+		color: var(--color-primary-3);
 	}
 
 	.contactBlock {
-		gap: 0.4rem;
+		gap: 0.4rem;	
 		grid-template-columns: 1fr;
 	}
 
 	.contactLink {
-		padding: 0.58rem 0.72rem;
-		border-color: #c7c7c7;
-		background: transparent;
+	padding: 0.45rem 0.95rem;
+		border-color: color-mix(in srgb, var(--color-aux-blue) 20%, transparent);
 		break-inside: avoid;
 		page-break-inside: avoid;
 	}
 
 	.contactLink span {
 		font-size: 0.6rem;
-		color: #444;
+		color: var(--color-aux-blue);
 	}
 
 	.contactLink strong {
@@ -277,6 +280,7 @@
 		word-break: break-word;
 		overflow-wrap: anywhere;
 		white-space: normal;
+		color: var(--color-primary-3);
 	}
 
 	.content {
