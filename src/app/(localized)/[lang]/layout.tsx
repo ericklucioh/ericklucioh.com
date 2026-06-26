@@ -30,8 +30,8 @@ export async function generateMetadata({
 		? "Érick Lúcio | Backend + AI Developer"
 		: "Érick Lúcio | Desenvolvedor Backend + IA";
 	const description = isEnglish
-		? "Backend and applied AI engineer building reliable APIs and production-ready solutions."
-		: "Engenheiro de backend e IA aplicada, construindo APIs confiáveis e soluções prontas para produção.";
+		? "Backend developer focused on APIs, data and practical delivery."
+		: "Desenvolvedor backend focado em APIs, dados e entrega prática.";
 
 	return buildPageMetadata({
 		lang: isEnglish ? "en" : "pt",

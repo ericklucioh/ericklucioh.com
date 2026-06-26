@@ -8,54 +8,54 @@ const aboutContent = {
 	pt: {
 		title: "Sobre",
 		intro:
-			"Sou Érick Lúcio, desenvolvedor de software e estudante de Ciência da Computação na UNESC. Meu foco principal é backend, com atuação em APIs, integrações, modelagem de dados, autenticação, regras de negócio e organização de sistemas.",
+			"Sou Érick Lúcio, desenvolvedor backend e estudante de Ciência da Computação na UNESC. Trabalho com APIs, dados e sistemas que precisam sair do texto e virar operação.",
 		intro2:
-			"Também trabalho com IA aplicada, especialmente em soluções que combinam LLMs, RAG, validação por regras, pré-processamento e integração com fontes estruturadas. Gosto de construir sistemas que não dependem apenas de chamar uma IA, mas que combinam dados bem organizados, código previsível e controle de execução.",
+			"Também trabalho com IA aplicada quando ela traz ganho claro. Prefiro combinar modelo, regra e validação do que depender só de prompt.",
 		areasTitle: "Áreas de atuação",
 		areas: [
 			{
 				title: "Backend",
 				description:
-					"Construção de APIs REST, autenticação, autorização, integrações, validação de entrada, persistência e regras de negócio.",
+					"APIs REST, autenticação, autorização, integrações e persistência com foco em manutenção.",
 			},
 			{
 				title: "IA aplicada",
 				description:
-					"LLMs conectadas a sistemas reais com RAG, normalização de entrada, validação por regras, dados estruturados e foco em utilidade prática.",
+					"LLMs conectadas a sistemas reais com RAG, normalização e validação por regras.",
 			},
 			{
 				title: "Dados",
 				description:
-					"Modelagem, SQL, PostgreSQL, MySQL, MongoDB e preparação de dados para análise, busca e automação.",
+					"Modelagem, SQL, PostgreSQL, MySQL, MongoDB e preparação de dados para análise e automação.",
 			},
 			{
-				title: "Arquitetura e entrega",
+				title: "Entrega",
 				description:
-					"Docker, CI/CD, observabilidade, deploy e experimentos com gRPC, microsserviços, monolito e k3s.",
+					"Docker, CI/CD, observabilidade, deploy e decisões de arquitetura com custo e operação em mente.",
 			},
 		],
-		experienceTitle: "Experiência e contexto",
+		experienceTitle: "Experiência",
 		experience: [
 			{
 				period: "2025 - atual",
 				role: "Desenvolvedor Backend + IA",
 				company: "UNESC",
 				description:
-					"Atuação em solução de IA aplicada para análise de custos industriais, envolvendo backend em Python, integração com dados, histórico de conversas, RAG e apoio na evolução técnica do produto.",
+					"Atuo em uma solução de IA para análise de custos industriais, conectando backend em Python, dados estruturados, histórico de conversas e RAG.",
 			},
 			{
 				period: "2024 - 2025",
 				role: "Desenvolvedor de Software (Realidade Mista)",
 				company: "UNESC",
 				description:
-					"Desenvolvimento de aplicação assistiva com HoloLens 2 para navegação indoor, unindo C#, Unity, interação espacial e recursos de acessibilidade.",
+					"Desenvolvi uma aplicação assistiva com HoloLens 2 para navegação indoor, unindo C#, Unity e interação espacial.",
 			},
 			{
 				period: "2022 - 2023",
 				role: "COO / Produto e Dados",
 				company: "Audite Pro",
 				description:
-					"Trabalho com estruturação de processos, dados e produto em contexto de negócio, apoiando análises e tomada de decisão.",
+					"Ajudei a estruturar processos, dados e produto em um contexto de operação e decisão de negócio.",
 			},
 		],
 		stackTitle: "Stack",
@@ -66,81 +66,81 @@ const aboutContent = {
 			},
 			{
 				title: "Dados",
-				items: "PostgreSQL, MySQL, MongoDB, SQL, modelagem e integração com fontes estruturadas",
+				items: "PostgreSQL, MySQL, MongoDB, SQL e modelagem",
 			},
 			{
 				title: "Frontend",
-				items: "Angular, Next.js, React, Tailwind CSS, shadcn/ui, Material UI",
+				items: "Angular, Next.js, React, Tailwind CSS, shadcn/ui e Material UI",
 			},
 			{
 				title: "Infra e arquitetura",
-				items: "Docker, Docker Compose, GitHub Actions, Azure, gRPC, microsserviços, monolito, k3s",
+				items: "Docker, Docker Compose, GitHub Actions, Azure, gRPC e k3s",
 			},
 		],
 		approachTitle: "Como eu trabalho",
 		approach: [
-			"Transformo problemas complexos em sistemas compreensíveis, testáveis e úteis.",
-			"Prefiro combinar IA com regras, validação e dados estruturados em vez de depender apenas de prompts.",
-			"Atuo como full-stack quando necessário, mas meu eixo principal é backend e integração.",
+			"Eu corto o que é bonito no texto e fraco na prática.",
+			"Se a IA entra, ela precisa de regra, validação e fonte.",
+			"Quando preciso, trabalho full-stack; meu eixo continua sendo backend.",
 		],
 		availabilityTitle: "Disponível para",
 		availability: [
 			"Trabalho remoto ou híbrido",
 			"Projetos de backend, dados e IA aplicada",
-			"Times que precisam transformar processos e informações em produto",
+			"Times que precisam transformar processo em produto",
 		],
 	},
 	en: {
 		title: "About",
 		intro:
-			"I am Érick Lúcio, a software developer and Computer Science student at UNESC. My main focus is backend, working on APIs, integrations, data modeling, authentication, business rules and system organization.",
+			"I am Érick Lúcio, a backend developer and Computer Science student at UNESC. I work on APIs, data and systems that need to move from text to operation.",
 		intro2:
-			"I also work with applied AI, especially solutions that combine LLMs, RAG, rule-based validation, preprocessing and integration with structured sources. I like building systems that do not rely only on calling an AI model, but combine well-organized data, predictable code and execution control.",
+			"I also work with applied AI when it brings clear value. I prefer combining model, rules and validation instead of relying on prompts alone.",
 		areasTitle: "Areas of work",
 		areas: [
 			{
 				title: "Backend",
 				description:
-					"REST APIs, authentication, authorization, integrations, input validation, persistence and business rules.",
+					"REST APIs, authentication, authorization, integrations and persistence with maintainability in mind.",
 			},
 			{
 				title: "Applied AI",
 				description:
-					"LLMs connected to real systems with RAG, input normalization, rule-based validation, structured data and practical outcomes.",
+					"LLMs connected to real systems with RAG, normalization and rule-based validation.",
 			},
 			{
 				title: "Data",
 				description:
-					"Modeling, SQL, PostgreSQL, MySQL, MongoDB and data preparation for analysis, retrieval and automation.",
+					"Modeling, SQL, PostgreSQL, MySQL, MongoDB and data preparation for analysis and automation.",
 			},
 			{
-				title: "Architecture and delivery",
+				title: "Delivery",
 				description:
-					"Docker, CI/CD, observability, deployment and experiments with gRPC, microservices, monoliths and k3s.",
+					"Docker, CI/CD, observability, deployment and architecture decisions with cost and operations in mind.",
 			},
 		],
-		experienceTitle: "Experience and context",
+		experienceTitle: "Experience",
 		experience: [
 			{
 				period: "2025 - current",
 				role: "Backend + AI Developer",
 				company: "UNESC",
 				description:
-					"Working on an applied AI solution for industrial cost analysis, involving Python backend, data integration, chat history, RAG and technical product evolution.",
+					"I work on an AI solution for industrial cost analysis, connecting a Python backend, structured data, chat history and RAG.",
 			},
 			{
 				period: "2024 - 2025",
 				role: "Software Developer (Mixed Reality)",
 				company: "UNESC",
 				description:
-					"Built an assistive HoloLens 2 application for indoor navigation, combining C#, Unity, spatial interaction and accessibility features.",
+					"I built an assistive HoloLens 2 application for indoor navigation, combining C#, Unity and spatial interaction.",
 			},
 			{
 				period: "2022 - 2023",
 				role: "COO / Product and Data",
 				company: "Audite Pro",
 				description:
-					"Worked on process, data and product structuring in a business context, supporting analysis and decision-making.",
+					"I helped structure processes, data and product in a business operation and decision-making context.",
 			},
 		],
 		stackTitle: "Stack",
@@ -151,28 +151,28 @@ const aboutContent = {
 			},
 			{
 				title: "Data",
-				items: "PostgreSQL, MySQL, MongoDB, SQL, modeling and integration with structured sources",
+				items: "PostgreSQL, MySQL, MongoDB, SQL and modeling",
 			},
 			{
 				title: "Frontend",
-				items: "Angular, Next.js, React, Tailwind CSS, shadcn/ui, Material UI",
+				items: "Angular, Next.js, React, Tailwind CSS, shadcn/ui and Material UI",
 			},
 			{
 				title: "Infrastructure and architecture",
-				items: "Docker, Docker Compose, GitHub Actions, Azure, gRPC, microservices, monoliths, k3s",
+				items: "Docker, Docker Compose, GitHub Actions, Azure, gRPC and k3s",
 			},
 		],
 		approachTitle: "How I work",
 		approach: [
-			"I turn complex problems into understandable, testable and useful systems.",
-			"I prefer combining AI with rules, validation and structured data instead of relying only on prompts.",
-			"I work full-stack when needed, but my main axis is backend and integration.",
+			"I cut what sounds good on paper but fails in practice.",
+			"When AI is involved, it needs rules, validation and a source.",
+			"I can work full-stack when needed, but backend stays my core.",
 		],
 		availabilityTitle: "Available for",
 		availability: [
 			"Remote or hybrid work",
 			"Backend, data and applied AI projects",
-			"Teams that need to turn processes and information into product",
+			"Teams that need to turn process into product",
 		],
 	},
 } as const;
@@ -187,8 +187,8 @@ export async function buildAboutMetadata(lang: string): Promise<Metadata> {
 	const isEnglish = lang === "en";
 	const title = isEnglish ? "About | Érick Lúcio" : "Sobre | Érick Lúcio";
 	const description = isEnglish
-		? "Backend and applied AI engineer focused on reliable systems, integrations, and execution control."
-		: "Engenheiro de backend e IA aplicada com foco em sistemas confiáveis, integrações e controle de execução.";
+		? "Backend developer focused on APIs, data and practical delivery."
+		: "Desenvolvedor backend focado em APIs, dados e entrega prática.";
 
 	return buildPageMetadata({
 		lang,

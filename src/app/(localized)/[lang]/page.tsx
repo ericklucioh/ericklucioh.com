@@ -10,116 +10,110 @@ import {
 
 const homeContent = {
 	pt: {
-		eyebrow: "Backend, IA aplicada e dados",
-		title: "Desenvolvedor de Software",
+		eyebrow: "Backend, dados e IA aplicada",
+		title: "Desenvolvedor Backend",
 		intro:
-			"Construo APIs, integrações e aplicações que conectam regras de negócio, bancos de dados, modelos de IA e interfaces web.",
+			"Construo APIs e sistemas que saem do rascunho e chegam em uso real.",
 		subtitle:
-			"Meu foco principal é backend, com experiência prática em Python, TypeScript, C#, Go, Docker, Azure, PostgreSQL, MongoDB e projetos envolvendo RAG, automação, análise de dados, realidade mista e sistemas distribuídos.",
+			"Meu foco é backend: regra, integração e previsibilidade. IA entra quando reduz trabalho, melhora decisão ou organiza informação.",
 		pillars: [
 			{
 				title: "Backend",
 				bullets: [
-					"APIs REST, autenticação, integrações e regras de negócio",
-					"FastAPI, Node.js, Express, Prisma e bancos relacionais",
-					"Fluxos pensados para manutenção, previsibilidade e execução",
+					"APIs REST, autenticação e integrações com domínio claro",
+					"Python, TypeScript, FastAPI, Node.js, Prisma e SQL",
 				],
 			},
 			{
 				title: "IA aplicada",
 				bullets: [
-					"LLMs integradas a sistemas reais, não só demos isoladas",
-					"RAG, pré-processamento, validação por regras e dados estruturados",
-					"Uso pragmático de IA com foco em utilidade e controle",
+					"RAG, validação e pré-processamento antes da LLM",
+					"IA para consulta, automação e apoio operacional",
 				],
 			},
 			{
-				title: "Dados e arquitetura",
+				title: "Dados e entrega",
 				bullets: [
-					"PostgreSQL, MySQL, MongoDB, SQL e organização de pipelines",
-					"gRPC, microsserviços, monolito, k3s e observabilidade",
-					"Aplicações que conectam backend, dados, frontend e cloud",
+					"PostgreSQL, MySQL, MongoDB e modelagem simples de manter",
+					"Docker, Azure, observabilidade e deploy sem ritual",
 				],
 			},
 		],
-		featuredTitle: "Projetos em destaque",
+		featuredTitle: "Projetos que mostram o que entrego",
 		featured: [
 			{
 				title: "Agente de IA para análise de custos industriais",
 				description:
-					"Solução com backend em Python, integração com dados, histórico de conversas, RAG, validação de respostas e uso de Azure AI Foundry.",
+					"Backend em Python com dados estruturados, histórico de conversas, RAG e validação para apoiar análise de custos.",
 			},
 			{
 				title: "Painel do Lojista",
 				description:
-					"MVP full-stack com autenticação, controle de acesso, CRUDs, estoque, caixa, vendas e recibo usando Node.js, TypeScript, Prisma, MySQL e Next.js.",
+					"MVP full-stack com autenticação, acesso por perfil, estoque, caixa, vendas e recibo usando Node.js, TypeScript, Prisma e MySQL.",
 			},
 			{
 				title: "TCC: Monolito vs Microsserviços",
 				description:
-					"Estudo comparando arquiteturas em servidor limitado com Go, Docker, k3s, PostgreSQL e gRPC, avaliando latência, erro e consumo de recursos.",
+					"Estudo comparando arquiteturas em servidor limitado com Go, Docker, k3s, PostgreSQL e gRPC, medindo latência e consumo.",
 			},
 		],
 		closing:
-			"Meu trabalho fica entre produto e engenharia: transformar problemas complexos em sistemas compreensíveis, testáveis e úteis.",
+			"Se o problema pede backend, dados e IA com controle, é nessa faixa que eu trabalho melhor.",
 		projectsCta: "Ver projetos",
-		aboutCta: "Ler sobre mim",
+		aboutCta: "Sobre mim",
 	},
 	en: {
-		eyebrow: "Backend, applied AI and data",
-		title: "Software Developer",
+		eyebrow: "Backend, data and applied AI",
+		title: "Backend Developer",
 		intro:
-			"I build APIs, integrations and applications that connect business rules, databases, AI models and web interfaces.",
+			"I build APIs and systems that move from draft to real use.",
 		subtitle:
-			"My main focus is backend, with hands-on experience in Python, TypeScript, C#, Go, Docker, Azure, PostgreSQL, MongoDB and projects involving RAG, automation, data analysis, mixed reality and distributed systems.",
+			"My focus is backend: rules, integrations and predictability. I use AI when it saves time, improves decisions, or helps organize information.",
 		pillars: [
 			{
 				title: "Backend",
 				bullets: [
-					"REST APIs, authentication, integrations and business rules",
-					"FastAPI, Node.js, Express, Prisma and relational databases",
-					"Systems built for maintainability, predictability and execution",
+					"REST APIs, authentication and domain-aware integrations",
+					"Python, TypeScript, FastAPI, Node.js, Prisma and SQL",
 				],
 			},
 			{
 				title: "Applied AI",
 				bullets: [
-					"LLMs integrated into real systems, not isolated demos",
-					"RAG, preprocessing, rule-based validation and structured data",
-					"Pragmatic AI focused on usefulness and operational control",
+					"RAG, validation and preprocessing before the LLM",
+					"AI for lookup, automation and operational support",
 				],
 			},
 			{
-				title: "Data and architecture",
+				title: "Data and delivery",
 				bullets: [
-					"PostgreSQL, MySQL, MongoDB, SQL and lean pipeline design",
-					"gRPC, microservices, monoliths, k3s and observability",
-					"Applications that connect backend, data, frontend and cloud",
+					"PostgreSQL, MySQL, MongoDB and maintainable data models",
+					"Docker, Azure, observability and deployment without ceremony",
 				],
 			},
 		],
-		featuredTitle: "Featured work",
+		featuredTitle: "Projects that show what I deliver",
 		featured: [
 			{
 				title: "AI agent for industrial cost analysis",
 				description:
-					"Solution built with Python backend, data integration, chat history, RAG, response validation and Azure AI Foundry.",
+					"Python backend with structured data, chat history, RAG and validation to support cost analysis.",
 			},
 			{
 				title: "Retailer Dashboard",
 				description:
-					"Full-stack MVP with authentication, role-based access, CRUD flows, stock, cash register, sales and receipts using Node.js, TypeScript, Prisma, MySQL and Next.js.",
+					"Full-stack MVP with authentication, role-based access, stock, cash register, sales and receipts using Node.js, TypeScript, Prisma and MySQL.",
 			},
 			{
 				title: "Thesis: Monolith vs Microservices",
 				description:
-					"Architecture comparison on a resource-constrained server using Go, Docker, k3s, PostgreSQL and gRPC, measuring latency, error rate and resource usage.",
+					"Architecture comparison on a resource-constrained server using Go, Docker, k3s, PostgreSQL and gRPC, measuring latency and usage.",
 			},
 		],
 		closing:
-			"My work sits between product and engineering: turning complex problems into understandable, testable and useful systems.",
+			"I do my best work on problems that need backend, data and AI with control.",
 		projectsCta: "View projects",
-		aboutCta: "Read about me",
+		aboutCta: "About me",
 	},
 } as const;
 

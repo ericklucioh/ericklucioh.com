@@ -23,6 +23,7 @@ export const localizedRouteSegments = {
 		projects: "projects",
 		blog: "blog",
 		links: "links",
+		curriculum: "curriculum",
 	},
 	en: {
 		home: "",
@@ -30,6 +31,7 @@ export const localizedRouteSegments = {
 		projects: "projects",
 		blog: "blog",
 		links: "links",
+		curriculum: "curriculum",
 	},
 } as const;
 
@@ -41,6 +43,7 @@ const routeAliases: Record<LocalizedRouteKey, readonly string[]> = {
 	projects: ["projects"],
 	blog: ["blog"],
 	links: ["links"],
+	curriculum: ["curriculum"],
 };
 
 export function getLocalizedPath(
