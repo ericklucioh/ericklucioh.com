@@ -8,7 +8,7 @@ const aboutContent = {
 	pt: {
 		title: "Sobre",
 		intro:
-			"Sou Érick Lúcio, desenvolvedor backend e estudante de Ciência da Computação na UNESC. Trabalho com APIs, dados e sistemas que precisam sair do texto e virar operação.",
+			"Sou Érick Lúcio, Desenvolvedor de Software e estudante de Ciência da Computação na UNESC. Trabalho com APIs, dados e sistemas que precisam sair do texto e virar operação.",
 		intro2:
 			"Também trabalho com IA aplicada quando ela traz ganho claro. Prefiro combinar modelo, regra e validação do que depender só de prompt.",
 		areasTitle: "Áreas de atuação",
@@ -38,7 +38,7 @@ const aboutContent = {
 		experience: [
 			{
 				period: "2025 - atual",
-				role: "Desenvolvedor Backend + IA",
+				role: "Desenvolvedor de Software + IA",
 				company: "UNESC",
 				description:
 					"Atuo em uma solução de IA para análise de custos industriais, conectando backend em Python, dados estruturados, histórico de conversas e RAG.",
@@ -188,7 +188,7 @@ export async function buildAboutMetadata(lang: string): Promise<Metadata> {
 	const title = isEnglish ? "About | Érick Lúcio" : "Sobre | Érick Lúcio";
 	const description = isEnglish
 		? "Backend developer focused on APIs, data and practical delivery."
-		: "Desenvolvedor backend focado em APIs, dados e entrega prática.";
+		: "Desenvolvedor de Software focado em APIs, dados e entrega prática.";
 
 	return buildPageMetadata({
 		lang,

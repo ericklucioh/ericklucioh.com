@@ -11,7 +11,7 @@ import {
 const homeContent = {
 	pt: {
 		eyebrow: "Backend, dados e IA aplicada",
-		title: "Desenvolvedor Backend",
+		title: "Desenvolvedor de Software",
 		intro:
 			"Construo APIs e sistemas que saem do rascunho e chegam em uso real.",
 		subtitle:

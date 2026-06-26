@@ -2,7 +2,7 @@
 
 ## PT (rascunho)
 
-**Headline:** Desenvolvedor Backend focado em APIs, dados e IA aplicada (RAG).
+**Headline:** Desenvolvedor de Software focado em APIs, dados e IA aplicada (RAG).
 
 **Sub:** Construo sistemas escaláveis com observabilidade, qualidade e pragmatismo.
 

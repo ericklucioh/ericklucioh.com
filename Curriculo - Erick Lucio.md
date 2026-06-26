@@ -1,5 +1,5 @@
 # ÉRICK LÚCIO DE OLIVEIRA
-**Desenvolvedor Backend | Python | TypeScript | IA Aplicada | Dados | Azure | Docker**
+**Desenvolvedor de Software | Python | TypeScript | IA Aplicada | Dados | Azure | Docker**
 
 Araranguá - SC, Brasil  
 contato@ericklucioh.com  
@@ -11,7 +11,7 @@ https://ericklucioh.com
 
 ## Resumo
 
-Desenvolvedor backend focado em APIs, dados e IA aplicada quando existe ganho claro. Trabalho com Python, TypeScript, Node.js, SQL, Docker e Azure. Prefiro problemas que pedem clareza de domínio, integração confiável e entrega prática.
+Desenvolvedor de Software focado em APIs, dados e IA aplicada quando existe ganho claro. Trabalho com Python, TypeScript, Node.js, SQL, Docker e Azure. Prefiro problemas que pedem clareza de domínio, integração confiável e entrega prática.
 
 ---
 
