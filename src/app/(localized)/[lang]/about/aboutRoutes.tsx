@@ -210,7 +210,10 @@ export async function renderAboutPage(lang: string) {
 	const t = aboutContent[lang];
 
 	return (
-		<SiteFrame withDecor={false}>
+		<SiteFrame
+			withDecor={false}
+			mainClassName="w-full max-w-[1180px] mx-auto px-4 md:px-6 py-7 pb-16"
+		>
 			<section className="ui-card ui-cardLg">
 				<h1 className="ui-title">{t.title}</h1>
 				<p className="ui-subtitle">{t.intro}</p>

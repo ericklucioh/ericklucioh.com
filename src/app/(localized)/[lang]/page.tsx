@@ -140,7 +140,10 @@ export default async function HomePage({
 	const t = homeContent[lang as Lang];
 
 	return (
-		<SiteFrame withDecor={false}>
+		<SiteFrame
+			withDecor={false}
+			mainClassName="w-full max-w-[1180px] mx-auto px-4 md:px-6 py-7 pb-16"
+		>
 			<section className="ui-card ui-cardLg mb-10">
 				<p className="mb-3 text-sm uppercase tracking-widest text-[var(--text-secondary)]">
 					{t.eyebrow}
