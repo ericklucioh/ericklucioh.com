@@ -167,11 +167,36 @@
 	:global(body) {
 		background: #fff !important;
 		color: #111 !important;
+		color-scheme: light !important;
+	}
+
+	:global(html),
+	:global(body),
+	.page {
+		--bg-page: #ffffff;
+		--bg-surface: #ffffff;
+		--bg-card: #ffffff;
+		--text-primary: #111111;
+		--text-secondary: #555555;
+		--text-muted: #666666;
+		--text-accent: #111111;
+		--border-default: #cccccc;
+		--border-soft: #dddddd;
+		--decor: #111111;
+		--action-primary: #111111;
+		--action-hover: #111111;
+		--action-pressed: #444444;
+		--highlight-soft: #f0f0f0;
+		--highlight-strong: #e4e4e4;
 	}
 
 	:global(*) {
 		box-shadow: none !important;
 		text-shadow: none !important;
+	}
+
+	:global(body::after) {
+		display: none !important;
 	}
 
 	.page {
@@ -254,43 +279,43 @@
 		margin-top: 1rem;
 	}
 
-	.resume-section {
+	:global(.resume-section) {
 		margin-top: 0.9rem;
 		break-inside: avoid;
 		page-break-inside: avoid;
 	}
 
-	.resume-grid {
+	:global(.resume-grid) {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 0.45rem;
 	}
 
-	.resume-card {
+	:global(.resume-card) {
 		padding: 0.72rem 0.82rem;
 		break-inside: avoid;
 		page-break-inside: avoid;
 	}
 
-	.resume-cardFull {
+	:global(.resume-cardFull) {
 		grid-column: 1 / -1;
 	}
 
-	.resume-copy {
+	:global(.resume-copy) {
 		margin-top: 0.35rem;
 		font-size: 8.8pt;
 		line-height: 1.32;
 	}
 
-	.resume-copy p {
+	:global(.resume-copy p) {
 		margin-top: 0.35rem;
 	}
 
-	.resume-copy ul,
-	.resume-copy ol {
+	:global(.resume-copy ul),
+	:global(.resume-copy ol) {
 		margin-top: 0.45rem;
 	}
 
-	.resume-copy li {
+	:global(.resume-copy li) {
 		margin: 0.15rem 0;
 	}
 }
