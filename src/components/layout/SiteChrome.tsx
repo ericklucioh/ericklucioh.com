@@ -27,6 +27,15 @@ function isLinksRoute(pathname: string) {
 	);
 }
 
+function isCurriculumRoute(pathname: string) {
+	const normalized = pathname.replace(/\/$/, "");
+	return (
+		normalized === "/curriculum" ||
+		normalized === "/pt/curriculum" ||
+		normalized === "/en/curriculum"
+	);
+}
+
 export default function SiteChrome({
 	buttons,
 	actions,
@@ -34,7 +43,7 @@ export default function SiteChrome({
 }: SiteChromeProps) {
 	const pathname = usePathname() ?? "";
 
-	if (isLinksRoute(pathname)) {
+	if (isLinksRoute(pathname) || isCurriculumRoute(pathname)) {
 		return <>{children}</>;
 	}
 

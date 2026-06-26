@@ -5,6 +5,11 @@
 	justify-content: center;
 }
 
+@page {
+	size: auto;
+	margin: 12mm;
+}
+
 .container {
 	width: 100%;
 	max-width: 980px;
@@ -149,4 +154,159 @@
 	.container {
 		padding-top: 1.5rem;
 	}
+}
+
+@media print {
+	:global(header),
+	:global(footer),
+	:global([class*="Menu_header"]),
+	:global([class*="Footer_footer"]),
+	:global([class*="SiteChrome"]),
+	:global([class*="DecorLayer"]),
+	:global([class*="SiteDecor"]),
+	:global([class*="BaseDecor"]),
+	:global([class*="DotGrid"]),
+	:global([class*="Square"]),
+	:global([class*="decorations"]) {
+		display: none !important;
+	}
+
+	:global(html),
+	:global(body) {
+		background: #fff !important;
+		color: #111 !important;
+	}
+
+	:global(*) {
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	.page {
+		display: block;
+		min-height: auto;
+		color: #111;
+		background: #fff;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	.container {
+		max-width: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.hero {
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.hero img {
+		display: none !important;
+	}
+
+	.title {
+		font-size: 20pt;
+		line-height: 1.05;
+	}
+
+	.subtitle {
+		margin-top: 0.35rem;
+		max-width: none;
+		font-size: 9.5pt;
+		line-height: 1.38;
+		color: #222;
+	}
+
+	.pillRow {
+		gap: 0.3rem;
+		margin-top: 0.55rem;
+	}
+
+	.pill {
+		padding: 0.16rem 0.4rem;
+		font-size: 8pt;
+		border-color: #bbb;
+		background: transparent;
+		color: #111;
+	}
+
+	.section {
+		margin-top: 0.85rem;
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	.contact {
+		display: none !important;
+	}
+
+	.sectionTitle {
+		font-size: 11pt;
+		letter-spacing: 0.01em;
+	}
+
+	.sectionTitle::after {
+		width: 2.25rem;
+		background: #9a9a9a;
+	}
+
+	.grid {
+		margin-top: 0.5rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.45rem;
+	}
+
+	.card {
+		grid-column: span 1;
+		border-color: #c9c9c9;
+		background: #fff;
+		padding: 0.7rem 0.8rem;
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	.card::before {
+		background: #b8b8b8;
+		opacity: 0.45;
+	}
+
+	.span6 {
+		grid-column: span 1;
+	}
+
+	.section:nth-last-of-type(2) .grid {
+		grid-template-columns: 1fr;
+	}
+
+	.section:nth-last-of-type(2) .card {
+		grid-column: 1 / -1;
+	}
+
+	.cardTitle {
+		gap: 0.45rem;
+		font-size: 10pt;
+	}
+
+	.cardMeta {
+		font-size: 8pt;
+	}
+
+	.cardBody,
+	.list {
+		margin-top: 0.35rem;
+		font-size: 8.8pt;
+		line-height: 1.32;
+		color: #111;
+	}
+
+	.list {
+		padding-left: 0.8rem;
+	}
+
+	.list li {
+		margin: 0.15rem 0;
+	}
+
 }

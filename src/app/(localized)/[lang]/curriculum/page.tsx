@@ -441,7 +441,7 @@ export default async function Page({
 	return (
 		<div className={styles.page}>
 			<main className={styles.container}>
-				<header className={styles.hero}>
+				<section className={styles.hero}>
 					<div>
 						<div className="flex items-center gap-3">
 							<Logo size={46} />
@@ -456,7 +456,7 @@ export default async function Page({
 							))}
 						</div>
 					</div>
-				</header>
+				</section>
 
 				{t.sections.map((section) => (
 					<section key={section.title} className={styles.section}>
@@ -493,7 +493,7 @@ export default async function Page({
 					</section>
 				))}
 
-				<footer className={styles.section}>
+				<section className={`${styles.section} ${styles.contact}`}>
 					<h2 className={styles.sectionTitle}>
 						{lang === "en" ? "Contact" : "Contato"}
 					</h2>
@@ -531,7 +531,7 @@ export default async function Page({
 							</p>
 						</div>
 					</div>
-				</footer>
+				</section>
 			</main>
 		</div>
 	);
