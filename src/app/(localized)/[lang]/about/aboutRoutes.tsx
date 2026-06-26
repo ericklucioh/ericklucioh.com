@@ -93,7 +93,7 @@ const aboutContent = {
 	en: {
 		title: "About",
 		intro:
-			"I am Érick Lúcio, a backend developer and Computer Science student at UNESC. I work on APIs, data and systems that need to move from text to operation.",
+			"I am Érick Lúcio, a Software Developer and Computer Science student at UNESC. I work on APIs, data and systems that need to move from text to operation.",
 		intro2:
 			"I also work with applied AI when it brings clear value. I prefer combining model, rules and validation instead of relying on prompts alone.",
 		areasTitle: "Areas of work",
@@ -187,7 +187,7 @@ export async function buildAboutMetadata(lang: string): Promise<Metadata> {
 	const isEnglish = lang === "en";
 	const title = isEnglish ? "About | Érick Lúcio" : "Sobre | Érick Lúcio";
 	const description = isEnglish
-		? "Backend developer focused on APIs, data and practical delivery."
+		? "Software Developer focused on APIs, data and practical delivery."
 		: "Desenvolvedor de Software focado em APIs, dados e entrega prática.";
 
 	return buildPageMetadata({

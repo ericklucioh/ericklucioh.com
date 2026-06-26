@@ -64,7 +64,7 @@ const homeContent = {
 	},
 	en: {
 		eyebrow: "Backend, data and applied AI",
-		title: "Backend Developer",
+		title: "Software Developer",
 		intro:
 			"I build APIs and systems that move from draft to real use.",
 		subtitle:

@@ -20,7 +20,7 @@
 
 ## EN (draft)
 
-**Headline:** Backend Developer focused on APIs, data, and applied AI (RAG).
+**Headline:** Software Developer focused on APIs, data, and applied AI (RAG).
 
 **Sub:** I build scalable systems with observability, quality, and pragmatism.
 
