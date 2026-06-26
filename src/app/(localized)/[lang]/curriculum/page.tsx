@@ -39,12 +39,14 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 	pt: {
 		title: "Currículo",
 		subtitle:
-			"Sou desenvolvedor backend, com foco em construir sistemas escaláveis, APIs robustas e soluções orientadas a dados. Trabalho principalmente com Python e TypeScript e venho explorando IA aplicada (RAG), além de já ter desenvolvido soluções em Realidade Mista (HoloLens 2).",
+			"Desenvolvedor backend focado em APIs, dados e IA aplicada. Prefiro projetos curtos o bastante para serem entendidos rápido e sólidos o bastante para aguentar uso real.",
 		pills: [
 			"Araranguá - SC, Brasil",
 			"Backend",
 			"APIs",
-			"RAG",
+			"IA aplicada",
+			"Python",
+			"TypeScript",
 			"Azure",
 			"PostgreSQL • MongoDB",
 		],
@@ -56,10 +58,10 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 						title: "APIs & Backend",
 						meta: "Arquitetura e execução",
 						span: 6,
-						body: "Projeto e implemento APIs REST, serviços e integrações, buscando clareza de domínio, observabilidade e evolução segura.",
+						body: "Projeto e implemento APIs REST, integrações e serviços com foco em clareza de domínio, manutenção e evolução segura.",
 						list: [
-							"Design de sistemas e boas práticas de engenharia",
-							"Dados: modelagem, performance e integrações",
+							"Python, TypeScript, FastAPI, Node.js e Express",
+							"Modelagem, autenticação, validação e persistência",
 							"Docker, Git e automações simples de CI/CD",
 						],
 					},
@@ -67,11 +69,11 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 						title: "IA aplicada",
 						meta: "RAG e pipelines",
 						span: 6,
-						body: "Desenvolvo agentes e fluxos com RAG para transformar documentos e dados em respostas úteis, com arquitetura e pipelines voltados para produção.",
+						body: "Desenvolvo fluxos com RAG quando a IA realmente ajuda. Antes do modelo, eu prefiro organizar dados, regras e validação.",
 						list: [
 							"Extração, chunking e indexação",
-							"Prompting e avaliação de qualidade",
-							"Azure AI Foundry",
+							"Regras de negócio e validação fora do modelo",
+							"Azure AI Foundry e integração com dados",
 						],
 					},
 				],
@@ -83,35 +85,88 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 						title: "UNESC",
 						meta: "Desenvolvedor de Software (IA e Backend) • Jul 2025 – Atual",
 						span: 12,
-						body: "Concepção e desenvolvimento end-to-end de um agente interno para análise técnica de custos de produção, com liderança técnica e levantamento de requisitos com stakeholders.",
+						body: "Atuação no desenvolvimento de um agente interno de IA para análise de custos industriais, unindo backend em Python, dados estruturados e RAG.",
 						list: [
-							"Arquitetura RAG e processamento de documentos",
-							"Pipelines de dados e integrações",
-							"Stack: Azure AI Foundry, Python, MongoDB, PostgreSQL, Angular",
+							"Levantamento de requisitos com stakeholders e apoio à definição técnica",
+							"Arquitetura RAG, processamento de documentos e integrações",
+							"Stack: Azure AI Foundry, Python, MongoDB, PostgreSQL e Angular",
 						],
 					},
 					{
 						title: "UNESC",
 						meta: "Desenvolvedor de Software (Realidade Mista) • Jun 2024 – Jun 2025",
 						span: 12,
-						body: "Desenvolvimento de uma aplicação assistiva para HoloLens 2 (navegação indoor), implementando interações espaciais e garantindo estabilidade de âncoras.",
+						body: "Desenvolvimento de uma aplicação assistiva para HoloLens 2 com foco em navegação indoor e acessibilidade.",
 						list: [
-							"MRTK, rastreamento de mãos e input espacial",
+							"C#, Unity, MRTK e interações espaciais",
 							"World Locking Tools para persistência e redução de drift",
-							"Stack: C#, Unity, MRTK, World Locking Tools, HoloLens 2",
+							"Stack: C#, Unity, MRTK, World Locking Tools e HoloLens 2",
 						],
 					},
 					{
 						title: "Audite Pro",
 						meta: "COO • Jul 2022 – Fev 2023",
 						span: 6,
-						body: "Estruturei análises financeiras automatizadas via integração com ERP e DREs dinâmicas, além de apoiar decisões com BI.",
+						body: "Estruturei análises financeiras automatizadas a partir de dados de ERP e DREs dinâmicas.",
+						list: [
+							"Apoio à tomada de decisão com dados e BI",
+							"Automação de processos e consolidação de análises",
+						],
 					},
 					{
 						title: "Sebrae • Startup SC",
 						meta: "Jul 2022 – Dez 2022",
 						span: 6,
-						body: "Imersão em arquitetura de dados, cloud e produto, com foco em customer success e métricas.",
+						body: "Imersão em arquitetura de dados, cloud e produto, com foco em métricas e resolução de problemas reais.",
+						list: [
+							"AWS, arquitetura de dados e escalabilidade",
+							"Product management, UX/UI e growth",
+						],
+					},
+				],
+			},
+			{
+				title: "Projetos selecionados",
+				cards: [
+					{
+						title: "ericklucioh.com",
+						meta: "Portfólio bilíngue",
+						span: 6,
+						body: "Meu próprio site como projeto de produto + engenharia: conteúdo bilíngue, MDX, SEO básico e export estático com Next.js.",
+						list: [
+							"Next.js, React, TypeScript e MDX",
+							"Arquitetura de conteúdo, i18n e metadata",
+						],
+					},
+					{
+						title: "Painel do Lojista",
+						meta: "MVP full-stack",
+						span: 6,
+						body: "MVP para operação de loja com autenticação, estoque, caixa e vendas, entregue como desafio técnico.",
+						list: [
+							"Next.js, Express, Prisma e MySQL",
+							"JWT, refresh token e fluxo de operações",
+						],
+					},
+					{
+						title: "Sistema Especialista para Diagnóstico de Turbinas Eólicas",
+						meta: "IA simbólica",
+						span: 6,
+						body: "Protótipo em Python que usa regras SE-ENTÃO para apoiar diagnóstico explicável em manutenção industrial.",
+						list: [
+							"Regras, justificativa e ação sugerida",
+							"Portfólio forte para IA simbólica e raciocínio por regras",
+						],
+					},
+					{
+						title: "YTB Superchat",
+						meta: "Tempo real",
+						span: 6,
+						body: "Ferramenta para streamers com dashboard, extensão de navegador e overlay em tempo real para OBS.",
+						list: [
+							"Extensão, frontend e backend Go",
+							"WebSocket e overlay OBS-ready",
+						],
 					},
 				],
 			},
@@ -126,7 +181,7 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 					{
 						title: "Backend & Dados",
 						span: 6,
-						body: "APIs REST, Node.js, modelagem, PostgreSQL, MongoDB.",
+						body: "APIs REST, Node.js, FastAPI, modelagem, PostgreSQL e MongoDB.",
 					},
 					{
 						title: "Cloud & DevOps",
@@ -161,12 +216,14 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 	en: {
 		title: "Resume",
 		subtitle:
-			"I am a backend developer focused on scalable systems, reliable APIs, and data-driven solutions. I primarily work with Python and TypeScript and have been exploring applied AI (RAG), in addition to work I have done in Mixed Reality (HoloLens 2).",
+			"I am a backend developer focused on APIs, data and applied AI. I prefer projects that can be understood quickly and still hold up in real use.",
 		pills: [
 			"Araranguá - SC, Brazil",
 			"Backend",
 			"APIs",
-			"RAG",
+			"Applied AI",
+			"Python",
+			"TypeScript",
 			"Azure",
 			"PostgreSQL • MongoDB",
 		],
@@ -178,22 +235,22 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 						title: "APIs & Backend",
 						meta: "Architecture and execution",
 						span: 6,
-						body: "I design and build REST APIs, services, and integrations with a focus on domain clarity, observability, and safe evolution.",
+						body: "I design and build REST APIs, services and integrations with a focus on domain clarity, maintainability and safe evolution.",
 						list: [
-							"System design and engineering best practices",
-							"Data modeling, performance, and integrations",
-							"Docker, Git, and lightweight CI/CD automation",
+							"Python, TypeScript, FastAPI, Node.js and Express",
+							"Modeling, authentication, validation and persistence",
+							"Docker, Git and lightweight CI/CD automation",
 						],
 					},
 					{
 						title: "Applied AI",
 						meta: "RAG and pipelines",
 						span: 6,
-						body: "I develop agents and RAG flows that turn documents and data into useful answers, with architecture and pipelines built for production.",
+						body: "I build RAG flows when AI truly helps. Before the model, I prefer to organize data, rules and validation.",
 						list: [
-							"Extraction, chunking, and indexing",
-							"Prompting and quality evaluation",
-							"Azure AI Foundry",
+							"Extraction, chunking and indexing",
+							"Rule-based validation outside the model",
+							"Azure AI Foundry and data integration",
 						],
 					},
 				],
@@ -205,35 +262,88 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 						title: "UNESC",
 						meta: "Software Developer (AI and Backend) • Jul 2025 – Present",
 						span: 12,
-						body: "End-to-end design and development of an internal agent for technical production cost analysis, with technical leadership and stakeholder requirement gathering.",
+						body: "Working on an internal AI agent for industrial cost analysis, connecting a Python backend, structured data and RAG.",
 						list: [
-							"RAG architecture and document processing",
-							"Data pipelines and integrations",
-							"Stack: Azure AI Foundry, Python, MongoDB, PostgreSQL, Angular",
+							"Stakeholder requirement gathering and technical support",
+							"RAG architecture, document processing and integrations",
+							"Stack: Azure AI Foundry, Python, MongoDB, PostgreSQL and Angular",
 						],
 					},
 					{
 						title: "UNESC",
 						meta: "Software Developer (Mixed Reality) • Jun 2024 – Jun 2025",
 						span: 12,
-						body: "Built an assistive HoloLens 2 indoor navigation app, implementing spatial interactions and keeping anchors stable.",
+						body: "Built an assistive HoloLens 2 app for indoor navigation and accessibility.",
 						list: [
-							"MRTK, hand tracking, and spatial input",
+							"C#, Unity, MRTK and spatial interactions",
 							"World Locking Tools for persistence and drift reduction",
-							"Stack: C#, Unity, MRTK, World Locking Tools, HoloLens 2",
+							"Stack: C#, Unity, MRTK, World Locking Tools and HoloLens 2",
 						],
 					},
 					{
 						title: "Audite Pro",
 						meta: "COO • Jul 2022 – Feb 2023",
 						span: 6,
-						body: "Structured automated financial analysis through ERP integration and dynamic income statements, supporting decisions with BI.",
+						body: "Structured automated financial analysis from ERP data and dynamic income statements.",
+						list: [
+							"Decision support with data and BI",
+							"Process automation and analysis consolidation",
+						],
 					},
 					{
 						title: "Sebrae • Startup SC",
 						meta: "Jul 2022 – Dec 2022",
 						span: 6,
-						body: "Immersion in data architecture, cloud, and product, with a focus on customer success and metrics.",
+						body: "Immersion in data architecture, cloud and product, with a focus on metrics and real-world problem solving.",
+						list: [
+							"AWS, data architecture and scalability",
+							"Product management, UX/UI and growth",
+						],
+					},
+				],
+			},
+			{
+				title: "Selected projects",
+				cards: [
+					{
+						title: "ericklucioh.com",
+						meta: "Bilingual portfolio",
+						span: 6,
+						body: "My own site as a product + engineering project: bilingual content, MDX, basic SEO and static export with Next.js.",
+						list: [
+							"Next.js, React, TypeScript and MDX",
+							"Content architecture, i18n and metadata",
+						],
+					},
+					{
+						title: "Painel do Lojista",
+						meta: "Full-stack MVP",
+						span: 6,
+						body: "A store operations MVP with authentication, stock, cash register and sales, delivered as a technical challenge.",
+						list: [
+							"Next.js, Express, Prisma and MySQL",
+							"JWT, refresh token and operational flow",
+						],
+					},
+					{
+						title: "Expert System for Wind Turbine Diagnostics",
+						meta: "Symbolic AI",
+						span: 6,
+						body: "A Python prototype that uses IF-THEN rules to support explainable maintenance diagnostics.",
+						list: [
+							"Rules, justification and suggested action",
+							"Good fit for symbolic AI and rule-based reasoning",
+						],
+					},
+					{
+						title: "YTB Superchat",
+						meta: "Real-time",
+						span: 6,
+						body: "A streamer tool with a dashboard, browser extension and real-time OBS-ready overlay.",
+						list: [
+							"Extension, frontend and Go backend",
+							"WebSocket and OBS-ready overlay",
+						],
 					},
 				],
 			},
@@ -248,7 +358,7 @@ const curriculumContent: Record<Lang, CurriculumContent> = {
 					{
 						title: "Backend & Data",
 						span: 6,
-						body: "REST APIs, Node.js, modeling, PostgreSQL, MongoDB.",
+						body: "REST APIs, Node.js, FastAPI, modeling, PostgreSQL and MongoDB.",
 					},
 					{
 						title: "Cloud & DevOps",
@@ -286,8 +396,8 @@ function getCurriculumMetadata(lang: Lang): Metadata {
 	const title = lang === "en" ? "Resume | Érick Lúcio" : "Currículo | Érick Lúcio";
 	const description =
 		lang === "en"
-			? "Resume page for Érick Lúcio in English."
-			: "Página de currículo de Érick Lúcio em português.";
+			? "Resume for Érick Lúcio focused on backend, data and applied AI."
+			: "Currículo de Érick Lúcio com foco em backend, dados e IA aplicada.";
 
 	return buildPageMetadata({
 		lang,
@@ -330,7 +440,6 @@ export default async function Page({
 
 	return (
 		<div className={styles.page}>
-
 			<main className={styles.container}>
 				<header className={styles.hero}>
 					<div>
