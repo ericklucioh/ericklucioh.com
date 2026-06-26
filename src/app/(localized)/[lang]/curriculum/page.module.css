@@ -278,44 +278,4 @@
 	.content {
 		margin-top: 1rem;
 	}
-
-	:global(.resume-section) {
-		margin-top: 0.9rem;
-		break-inside: avoid;
-		page-break-inside: avoid;
-	}
-
-	:global(.resume-grid) {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 0.45rem;
-	}
-
-	:global(.resume-card) {
-		padding: 0.72rem 0.82rem;
-		break-inside: avoid;
-		page-break-inside: avoid;
-	}
-
-	:global(.resume-cardFull) {
-		grid-column: 1 / -1;
-	}
-
-	:global(.resume-copy) {
-		margin-top: 0.35rem;
-		font-size: 8.8pt;
-		line-height: 1.32;
-	}
-
-	:global(.resume-copy p) {
-		margin-top: 0.35rem;
-	}
-
-	:global(.resume-copy ul),
-	:global(.resume-copy ol) {
-		margin-top: 0.45rem;
-	}
-
-	:global(.resume-copy li) {
-		margin: 0.15rem 0;
-	}
 }

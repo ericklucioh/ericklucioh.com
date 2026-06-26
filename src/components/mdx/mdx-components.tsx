@@ -34,22 +34,6 @@ type SectionHeaderProps = {
 	description?: string;
 };
 
-type ResumeSectionProps = {
-	title: string;
-	children: ReactNode;
-};
-
-type ResumeGridProps = {
-	children: ReactNode;
-};
-
-type ResumeCardProps = {
-	title: string;
-	meta?: string;
-	children: ReactNode;
-	fullWidth?: boolean;
-};
-
 const toneStyles: Record<
 	Tone,
 	{ border: string; background: string; accent: string }
@@ -168,50 +152,11 @@ export function SectionHeader({
 	);
 }
 
-export function ResumeSection({ title, children }: ResumeSectionProps) {
-	return (
-		<section className="resume-section">
-			<h2 className="ui-sectionTitle">{title}</h2>
-			<div className="resume-sectionBody mt-4">{children}</div>
-		</section>
-	);
-}
-
-export function ResumeGrid({ children }: ResumeGridProps) {
-	return <div className="resume-grid mt-4 grid gap-4 md:grid-cols-2">{children}</div>;
-}
-
-export function ResumeCard({
-	title,
-	meta,
-	children,
-	fullWidth = false,
-}: ResumeCardProps) {
-	return (
-		<article
-			className={`ui-card resume-card ${fullWidth ? "resume-cardFull md:col-span-2" : ""}`}
-		>
-			<div className="flex flex-wrap items-baseline gap-2">
-				<h3 className="text-lg font-semibold">{title}</h3>
-				{meta ? (
-					<span className="text-xs uppercase tracking-widest text-[var(--text-secondary)]">
-						{meta}
-					</span>
-				) : null}
-			</div>
-			<div className="markdown resume-copy mt-3">{children}</div>
-		</article>
-	);
-}
-
 export const mdxComponents = {
 	Callout,
 	MetricGrid,
 	MetricCard,
 	Figure,
 	SectionHeader,
-	ResumeSection,
-	ResumeGrid,
-	ResumeCard,
 	Mermaid,
 };
